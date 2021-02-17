@@ -187,7 +187,6 @@ const finalBottomPagesList =  bottomPagesList.filter(li => {
   }
 })
 let finalbpages = finalBottomPagesList.map(li => li.slug);
-console.log(finalbpages);
  
  
  // defining bottompage routes
@@ -205,9 +204,12 @@ console.log(finalbpages);
       ({ params: { id:  li}, locale: 'ar' })) 
 
   const englishRoutes =  allpages.map(li => 
-    ({ params: { id:  li}, locale: 'en-US' })) 
+    ({ params: { id:  li} })) 
   const finalRoutes = [...englishRoutes, ...arabicRoutes, ...bArabicRoutes, ...bEnglishRoutes ];
-  console.log(finalRoutes);
+   
+   console.log("FINAL ROUTES START HERE") 
+   console.log(finalRoutes) 
+   console.log('FINAL ROUTES ENDS HERE')
   
      return {
         paths: finalRoutes,

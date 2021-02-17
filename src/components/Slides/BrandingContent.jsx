@@ -131,7 +131,7 @@ function BrandingContent({data, services, books, language }) {
         <div className="row">
           <div className="col-sm-5">
             <div>
-              <Link href={section.slug}>
+              <Link href={"/"+section.slug.toString()}>
                 <img alt = "design services" className="cursor-pointer" 
                 src={ImagePath+ section.banner}
                  alt="branding serices" className="img-fluid" loading="lazy"/>
@@ -140,7 +140,7 @@ function BrandingContent({data, services, books, language }) {
           </div>
           <div className="col-sm-7 d-flex align-content-center">
             <div className="contentFet remove-paddtop-mobile pt-sm-5">
-              <Link href={section.slug}>
+              <Link href={"/"+section.slug.toString()}>
                 <h5 className="cursor-pointer left-heading">
                 {locale === 'en-US' 
                 ?  <>{section.title}</>
@@ -167,7 +167,7 @@ function BrandingContent({data, services, books, language }) {
                   
                   </button>
               </a>
-              <Link href={section.slug}>
+              <Link href={"/"+section.slug.toString()}>
                 <a className="">
                 <button className="landing-read-more-button-outline">
                 {locale === 'en-US' 
@@ -193,7 +193,7 @@ function BrandingContent({data, services, books, language }) {
         <div className="row">
           <div className="col-sm-7 d-flex align-content-center  order-12 order-md-1 ">
             <div className="contentFet remove-paddtop-mobile pt-sm-5">
-               <Link href={section.slug}>
+               <Link href={"/"+section.slug.toString()}>
                 <h5 className="cursor-pointer left-heading">
                 {locale === 'en-US' 
                 ?  <>{section.title}</>
@@ -220,7 +220,7 @@ function BrandingContent({data, services, books, language }) {
                   </button>
               </a>
 
-              <Link href={section.slug}>
+              <Link href={"/"+section.slug.toString()}>
                 <a className="">
                   <button className="landing-read-more-button-outline">
                   {locale === 'en-US' 
@@ -236,7 +236,7 @@ function BrandingContent({data, services, books, language }) {
 
           <div className="col-sm-5 order-1 order-md-12">
             <div className="">
-              <Link  href={section.slug}>
+              <Link  href={"/"+section.slug.toString()}>
                 <img loading="lazy" className="cursor-pointer" 
                 src={ImagePath + section.banner}
                  alt="branding serices" className="img-fluid" />
