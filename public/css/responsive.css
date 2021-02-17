@@ -1,0 +1,89 @@
+.scroll-down-trigger .contentSlideSection .showdetail{
+    padding-top: 0px !important;
+    margin-top: 0px !important;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.contentSlideSection .mg-slide-content{
+    padding-top: 0px !important;
+}
+div#content-wrapper1{
+    padding: 0px !important;
+    
+}
+div#content-wrapper3{
+    padding: 0px !important;
+}
+div#content-wrapper4{
+    padding: 0px !important;
+}
+.scroll-down-trigger .contentSlideSection.slidethree .showdetail{
+    height: 100vh;
+    max-height: 100vh;
+}
+.scroll-down-trigger .contentSlideSection.slidefour .showdetail{
+    height: 100vh;
+    max-height: 100vh;
+}
+.contentSlideSection.slidefour .showdetail p{
+    margin-top: 0;
+}
+.contentSlideSection.slidethree .showdetail p{
+    margin-top: 0;
+}
+.contentSlideSection.slidetwo .showdetail p{
+    margin-top: 0;
+}
+
+
+/* mobile responsive  for iphone 5/SE*/
+@media only screen and (max-width: 350px) {
+  
+    div#container2 .showdetail .mg-title{
+        margin-bottom: 100px;
+    }
+    div#container3 .showdetail .mg-title{
+        margin-bottom: 100px;
+    }
+    div#container4 .showdetail .mg-title{
+        margin-bottom: 100px;
+    }
+
+  }
+
+
+  
+/* mobile responsive  for iphone 6/7/8 */
+@media only screen and (max-width: 400px) {
+  
+    div#container2 .showdetail .mg-title{
+        margin-bottom: 100px;
+    }
+    div#container3 .showdetail .mg-title{
+        margin-bottom: 100px;
+    }
+    div#container4 .showdetail .mg-title{
+        margin-bottom: 100px;
+    }
+
+  }
+  
+  
+/* mobile responsive  for iphone 6/7/8 */
+@media only screen and (max-width: 450px) {
+  
+    div#container2 .showdetail .mg-title{
+        margin-bottom: 100px;
+    }
+    div#container3 .showdetail .mg-title{
+        margin-bottom: 100px;
+    }
+    div#container4 .showdetail .mg-title{
+        margin-bottom: 100px;
+    }
+
+  }
+  

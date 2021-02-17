@@ -1,0 +1,32 @@
+{
+  "name": "techbay-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "axios": "^0.21.0",
+    "formik": "^2.2.6",
+    "intl-tel-input": "^17.0.8",
+    "jquery": "^3.5.1",
+    "next": "^10.0.3",
+    "react": "^16.13.1",
+    "react-calendly": "^1.1.4",
+    "react-device-detect": "^1.13.1",
+    "react-dom": "^16.13.1",
+    "react-gtm-module": "^2.0.11",
+    "react-slick": "^0.27.1",
+    "slick-carousel": "^1.8.1",
+    "tawkto-react": "^1.0.11",
+    "yup": "^0.32.8"
+  },
+  "devDependencies": {}
+}
