@@ -211,7 +211,7 @@ const Header = () => {
           <div className="new-menu-sub">
                 { menu.services.length > 0 &&  menu.services.map(li => {
                 return( <div onClick={samePageRefresh}>
-                  <Link  href={li.slug}>
+                  <Link  href={"/" +li.slug.toString()}>
                     <a>
                       <li>
                       { locale == 'ar' ? li.title_arabic :  li.title}
