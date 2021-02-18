@@ -204,8 +204,8 @@ const Header = () => {
                               </a></Link></h1>
                            : <h1>{locale == 'ar' ? menu.title_arabic :  menu.title}</h1>
                            } </>
-                        }
-                       <a> */}
+                        } */}
+                       <a>
                             <span></span>
                      
           <div className="new-menu-sub">
@@ -240,36 +240,36 @@ const Header = () => {
                   {/* footer menu 1 */}
               
 
-                 {(bottomPages.length > 0) 
+                 {/* {(bottomPages.length > 0) 
                  && 
                  <>
                  {bottomPages.map(m => {
-                    // return (
-                    //   <div className="header-custom-dropdown">
-                    //   <a className="dropdown-title">
-                    //     { locale == 'ar' ?  m.title_arabic : m.title} 
-                    //     <i className="fas fa-chevron-down"></i></a>
-                    //   <div className="custom-menu-list">
-                    //     <ul style={{ top: "-65px" }}>
-                    //      {m.services.map(m => {
+                    return (
+                      <div className="header-custom-dropdown">
+                      <a className="dropdown-title">
+                        { locale == 'ar' ?  m.title_arabic : m.title} 
+                        <i className="fas fa-chevron-down"></i></a>
+                      <div className="custom-menu-list">
+                        <ul style={{ top: "-65px" }}>
+                         {m.services.map(m => {
                          
-                    //      return (
-                    //      <li><Link 
-                    //           href={m.slug || m.link}>
-                    //        <a>
-                    //        { locale == 'ar' ?  m.title_arabic : m.title} 
-                    //        </a>
-                    //        </Link>
-                    //        </li> );
-                    //      })}
-                    //     </ul>
-                    //   </div>
-                    // </div>
-                    // );
+                         return (
+                         <li><Link 
+                              href={m.slug || m.link}>
+                           <a>
+                           { locale == 'ar' ?  m.title_arabic : m.title} 
+                           </a>
+                           </Link>
+                           </li> );
+                         })}
+                        </ul>
+                      </div>
+                    </div>
+                    );
 
                  })}
                  </>
-                }
+                } */}
             </div> {/* about us ends here */}
 
 
