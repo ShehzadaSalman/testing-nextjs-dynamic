@@ -207,12 +207,78 @@ let finalbpages = finalBottomPagesList.map(li => li.slug);
     ({ params: { id:  li} })) 
   const finalRoutes = [...englishRoutes, ...arabicRoutes, ...bArabicRoutes, ...bEnglishRoutes ];
    
+
+
    console.log("FINAL ROUTES START HERE") 
    console.log(finalRoutes) 
    console.log('FINAL ROUTES ENDS HERE')
   
      return {
-        paths: finalRoutes,
+        paths: [
+
+          { params: { id: 'design-services' } },   
+          { params: { id: 'branding-services' } }, 
+          { params: { id: 'media-agency' } },      
+          { params: { id: 'public-relation' } },   
+          { params: { id: 'motion-designing' } },  
+          { params: { id: 'video-production' } },  
+          { params: { id: 'advertising-agency' } },
+          { params: { id: 'website-designing' } }, 
+          { params: { id: 'ui-ux-designing' } },   
+          { params: { id: 'web-development' } },   
+          { params: { id: 'mobile-app-development' } },
+          { params: { id: 'content-management-system' } },
+          { params: { id: 'enterprise-resource-planning' } },
+          { params: { id: 'e-commerce' } },
+          { params: { id: 'customer-relationship-management' } },
+          { params: { id: 'app-designing' } },
+          { params: { id: 'search-engine-optimization' } },
+          { params: { id: 'pay-per-click-advertisement' } },
+          { params: { id: 'conversion-rate-optimization' } },
+          { params: { id: 'content-marketing' } },
+          { params: { id: 'social-media-marketing' } },
+          { params: { id: 'seo-packages' } },
+          { params: { id: 'ppc-packages' } },
+          { params: { id: 'smm-packages' } },
+          { params: { id: 'startup-packages' } },
+          { params: { id: 'design-services' }, locale: 'ar' },
+          { params: { id: 'branding-services' }, locale: 'ar' },
+          { params: { id: 'media-agency' }, locale: 'ar' },
+          { params: { id: 'public-relation' }, locale: 'ar' },
+          { params: { id: 'motion-designing' }, locale: 'ar' },
+          { params: { id: 'video-production' }, locale: 'ar' },
+          { params: { id: 'advertising-agency' }, locale: 'ar' },
+          { params: { id: 'website-designing' }, locale: 'ar' },
+          { params: { id: 'ui-ux-designing' }, locale: 'ar' },
+          { params: { id: 'web-development' }, locale: 'ar' },
+          { params: { id: 'mobile-app-development' }, locale: 'ar' },
+          { params: { id: 'content-management-system' }, locale: 'ar' },
+          { params: { id: 'enterprise-resource-planning' }, locale: 'ar' },
+          { params: { id: 'e-commerce' }, locale: 'ar' },
+          { params: { id: 'customer-relationship-management' }, locale: 'ar' },
+          { params: { id: 'app-designing' }, locale: 'ar' },
+          { params: { id: 'search-engine-optimization' }, locale: 'ar' },
+          { params: { id: 'pay-per-click-advertisement' }, locale: 'ar' },
+          { params: { id: 'conversion-rate-optimization' }, locale: 'ar' },
+          { params: { id: 'content-marketing' }, locale: 'ar' },
+          { params: { id: 'social-media-marketing' }, locale: 'ar' },
+          { params: { id: 'seo-packages' }, locale: 'ar' },
+          { params: { id: 'ppc-packages' }, locale: 'ar' },
+          { params: { id: 'smm-packages' }, locale: 'ar' },
+          { params: { id: 'startup-packages' }, locale: 'ar' },
+          { params: { id: 'about-us' }, locale: 'ar' },
+          { params: { id: 'case-studies' }, locale: 'ar' },
+          { params: { id: 'privacy-policy' }, locale: 'ar' },
+          { params: { id: 'terms-and-conditions' }, locale: 'ar' },
+          { params: { id: 'cancellation-and-refund' }, locale: 'ar' },
+          { params: { id: 'about-us' } },
+          { params: { id: 'case-studies' } },
+          { params: { id: 'privacy-policy' } },
+          { params: { id: 'terms-and-conditions' } },
+          { params: { id: 'cancellation-and-refund' } }
+
+
+        ],
         fallback: true 
       }
     
