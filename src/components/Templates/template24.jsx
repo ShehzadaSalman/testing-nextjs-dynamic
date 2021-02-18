@@ -1,6 +1,3 @@
-import Head from 'next/head';
-import Footer from '../../components/Footer';
-import Headerfive from '../../components/HeaderFive';
 import WhiteWave from '../../components/NewComponents/WhiteWave';
 import { UserConsumer } from '../../ContextApi/usercontext';
 import { useRouter } from 'next/router';
@@ -8,6 +5,7 @@ import intlTelInput from 'intl-tel-input';
 import { useEffect, useRef } from 'react';
 import axios from 'axios'
 const ImagePath = process.env.ImagePath
+
 const ReportLandingPage = ({data}) => {
 
   const myInput = useRef();
@@ -95,21 +93,9 @@ const ReportLandingPage = ({data}) => {
   return (
     <React.Fragment>
 
-      <Head>
 
-        <title>
-          Techbay Solutions
-      </title>
-
-        <meta name="robots" content="noindex" />
-        <meta
-          name="description"
-          content="" />
-
-      </Head>
       <div className="main-content">
 
-        <Headerfive />
 
 
         <div className="formPopup-report" onClick={closeFormPopup}>
@@ -237,9 +223,9 @@ const ReportLandingPage = ({data}) => {
 
 
         <div className="bottom-wave-bg content pt-5 pb-5">
-            {JSON.stringify(data.id)}
+            
           <div className="container">
-
+     
           </div>
 
         </div>
@@ -250,7 +236,6 @@ const ReportLandingPage = ({data}) => {
 
 
 
-      <Footer />
       <style>
         {
           `
@@ -437,22 +422,5 @@ const ReportLandingPage = ({data}) => {
     </React.Fragment>
   );
 }
-export async function getServerSideProps(context) {
 
-    let data = 'hello world'; 
-    const res = await axios.get(`https://staging.techbay.co/api/get-template-data/${context.params.id}`)
-    console.log(context.params.id)
-    if(res.data.status !== 500){
-       data = await res.data.response
-    }else{data = null}
-
-
-    return {
-      props: {data,}, // will be passed to the page component as props
-    }
-  }
-
-
-export default ReportLandingPage;
-
-
+export default  ReportLandingPage;

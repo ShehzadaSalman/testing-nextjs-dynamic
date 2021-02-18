@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { getDeviceName } from '../lib/helper';
 import axios from 'axios';
 import { useRouter } from 'next/router'
+import { UserConsumer } from '../ContextApi/usercontext';
 const ImagePath  = "https://staging.techbay.co/storage/app/";
 let deviceName = getDeviceName();
 let initialData = 

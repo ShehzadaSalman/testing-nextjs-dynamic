@@ -3,8 +3,10 @@ import React, { createContext } from 'react';
 const UserContext = createContext({
   username: '',
   usernametwo: '',
+  menu: false,
   updateUserNameTwo: () => { },
   updateUsername: () => { },
+  toggleMenu: () => {}
 });
 
 export class UserProvider extends React.Component {
@@ -17,11 +19,17 @@ export class UserProvider extends React.Component {
     console.log(newUsername);
   }
 
+  toggleMenu = () => {this.setState({menu: !this.menu});  }  
+  
+
+
   state = {
     username: 'user',
     usernametwo: 'user',
     updateUserNameTwo: this.updateUserNameTwo,
     updateUsername: this.updateUsername,
+    menu: false,
+    toggleMenu: this.toggleMenu
   };
 
   render() {

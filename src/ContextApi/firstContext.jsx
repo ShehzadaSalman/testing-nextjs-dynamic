@@ -5,12 +5,16 @@ class CurrencyProvider extends React.Component {
         this.setState({ username: newUsername });
       };
     
-
-
+      updateUsername = () => {
+        this.setState({ openMenu: true });
+      };
+   
+ 
 
     state = {
         US: { currency: 'USD', tz: 'EST' },
-        PK: { currency: 'PKR', tz: 'ISB' }
+        PK: { currency: 'PKR', tz: 'ISB' }, 
+        openMenu: false
     }
 
     render() {

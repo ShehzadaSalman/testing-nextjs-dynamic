@@ -25,6 +25,7 @@ import Template18 from '../components/Templates/template18';
 import Template19 from '../components/Templates/template19';
 import Template20 from '../components/Templates/template20';
 import Template21 from '../components/Templates/template21';
+import Template24 from '../components/Templates/template24';
 import Template29 from '../components/Templates/template29';
 import Template30 from '../components/Templates/template30';
 import Error from 'next/error';
@@ -130,6 +131,10 @@ case 26:
 return (<><Headerfive/><Template26 finalData = {data} /> <Footer/></>)
 break;
 
+case 24:
+return (<><Headerfive/><Template24 data = {data}  /><Footer/></>)
+break;    
+
 case 25:
 return (<><Headerfive/><Template25 finalData = {data}  /><Footer/></>)
 break;    
@@ -143,7 +148,7 @@ return (<><Headerfive/><Template29 finalData = {data}  /><Footer/></>)
 break; 
 
 case 30:
-return (<><Headerfive/><Template30 finalData = {data}   /><Footer/></>)
+return (<><Headerfive/><Template30 finalData = {data} /><Footer/></>)
 
 
 case 350:
@@ -236,7 +241,9 @@ let allpages = [];
      return {
 
         paths: [
-         ...finalRoutes
+         ...finalRoutes,
+         { params: { id: 'website-audit-report' } }, 
+
           // { params: { id: 'design-services' } },   
           // { params: { id: 'branding-services' } }, 
           // { params: { id: 'media-agency' } },      
@@ -291,7 +298,7 @@ let allpages = [];
           // { params: { id: 'terms-and-conditions' }, locale: 'ar' },
           // { params: { id: 'cancellation-and-refund' }, locale: 'ar' },
      ],
-        fallback: false 
+        fallback: true 
       }
     
   
