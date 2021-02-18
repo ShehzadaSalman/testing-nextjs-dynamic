@@ -196,7 +196,7 @@ const Header = () => {
                 {menudata.map(menu => (
                           <div key={menu.id}  onMouseEnter={openNewMenu} onMouseLeave={closeNewMenu} className= {menu.services.length > 0 ? "new-menu-item sub" : "new-menu-item" }>
                           
-                         {menu.slug == '/' 
+                         {/* {menu.slug == '/' 
                          ? <h1 onClick={refreshPage}>{menu.title}</h1>
                             :  <>{deviceName != 'Mobile'
                             ? <h1><Link   href={'/services/'+menu.slug}><a>
@@ -205,11 +205,11 @@ const Header = () => {
                            : <h1>{locale == 'ar' ? menu.title_arabic :  menu.title}</h1>
                            } </>
                         }
-                       <a>
+                       <a> */}
                             <span></span>
                      
           <div className="new-menu-sub">
-                { menu.services.length > 0 &&  menu.services.map(li => {
+                {/* { menu.services.length > 0 &&  menu.services.map(li => {
                 return( <div onClick={samePageRefresh}>
                   <Link  href={"/" +li.slug.toString()}>
                     <a>
@@ -219,7 +219,7 @@ const Header = () => {
                     </a>
                   </Link>
                 </div> )
-                })}         
+                })}          */}
          </div>
               </a>
             </div>
@@ -244,28 +244,28 @@ const Header = () => {
                  && 
                  <>
                  {bottomPages.map(m => {
-                    return (
-                      <div className="header-custom-dropdown">
-                      <a className="dropdown-title">
-                        { locale == 'ar' ?  m.title_arabic : m.title} 
-                        <i className="fas fa-chevron-down"></i></a>
-                      <div className="custom-menu-list">
-                        <ul style={{ top: "-65px" }}>
-                         {m.services.map(m => {
+                    // return (
+                    //   <div className="header-custom-dropdown">
+                    //   <a className="dropdown-title">
+                    //     { locale == 'ar' ?  m.title_arabic : m.title} 
+                    //     <i className="fas fa-chevron-down"></i></a>
+                    //   <div className="custom-menu-list">
+                    //     <ul style={{ top: "-65px" }}>
+                    //      {m.services.map(m => {
                          
-                         return (
-                         <li><Link 
-                              href={m.slug || m.link}>
-                           <a>
-                           { locale == 'ar' ?  m.title_arabic : m.title} 
-                           </a>
-                           </Link>
-                           </li> );
-                         })}
-                        </ul>
-                      </div>
-                    </div>
-                    );
+                    //      return (
+                    //      <li><Link 
+                    //           href={m.slug || m.link}>
+                    //        <a>
+                    //        { locale == 'ar' ?  m.title_arabic : m.title} 
+                    //        </a>
+                    //        </Link>
+                    //        </li> );
+                    //      })}
+                    //     </ul>
+                    //   </div>
+                    // </div>
+                    // );
 
                  })}
                  </>

@@ -179,36 +179,36 @@ const Headerfive = () => {
                       <div className="menu-container-class container-fluid">
                         <div className="new-menu-wrapper">
                         
-                        {menudata.map(menu => (
-                          <div key={menu.id}  onMouseEnter={openNewMenu} onMouseLeave={closeNewMenu} className= {menu.services.length > 0 ? "new-menu-item sub" : "new-menu-item" }>
-                         {menu.slug == '/' 
-                         ? <h1 onClick={refreshPage}>{menu.title}</h1>
-                            :  <>{deviceName != 'Mobile'
-                            ? <h1><Link  href={'/services/'+menu.slug}><a>
-                              {locale == 'ar' ? menu.title_arabic :  menu.title}</a></Link></h1>
-                         : <h1>{locale == 'ar' ? menu.title_arabic :  menu.title}</h1>
-                           } </>
-                        }
-                       <a>
-                            <span></span>
+                   {/* //     {menudata.map(menu => ( */}
+                {/* //           <div key={menu.id}  onMouseEnter={openNewMenu} onMouseLeave={closeNewMenu} className= {menu.services.length > 0 ? "new-menu-item sub" : "new-menu-item" }>
+                //          {menu.slug == '/' 
+                //          ? <h1 onClick={refreshPage}>{menu.title}</h1>
+                //             :  <>{deviceName != 'Mobile'
+                //             ? <h1><Link  href={'/services/'+menu.slug}><a>
+                //               {locale == 'ar' ? menu.title_arabic :  menu.title}</a></Link></h1>
+                //          : <h1>{locale == 'ar' ? menu.title_arabic :  menu.title}</h1>
+                //            } </>
+                //         }
+                //        <a>
+                //             <span></span>
                      
-                            <div className="new-menu-sub">
-                { menu.services.length > 0 &&  menu.services.map(li => {
-                return( <div onClick={samePageRefresh}>
-                  <Link  href={li.slug}>
-                    <a>
-                      <li>
-                      {locale == 'ar' ? li.title_arabic :  li.title}
-                      </li>
-                    </a>
-                  </Link>
-                </div> )
-                })}       
+                //             <div className="new-menu-sub">
+                // { menu.services.length > 0 &&  menu.services.map(li => {
+                // return( <div onClick={samePageRefresh}>
+                //   <Link  href={li.slug}>
+                //     <a>
+                //       <li>
+                //       {locale == 'ar' ? li.title_arabic :  li.title}
+                //       </li>
+                //     </a>
+                //   </Link>
+                // </div> )
+                // })}       
                      
-                            </div>
-                          </a>
-                        </div>
-                ))}
+                //             </div>
+                //           </a>
+                //         </div>
+               // ))} */}
                   </div>
                 </div>
 
@@ -219,7 +219,7 @@ const Headerfive = () => {
                         {(bottomPages.length > 0) 
                  && 
                  <>
-                 {bottomPages.map(m => {
+                 {/* {bottomPages.map(m => {
                     return (
                       <div className="header-custom-dropdown">
                       <a className="dropdown-title">
@@ -243,7 +243,7 @@ const Headerfive = () => {
                     </div>
                     );
 
-                 })}
+                 })} */}
                  </>
                 }
           
@@ -281,21 +281,7 @@ const Headerfive = () => {
           </div>
                       </div>
                     </div>
-                    <svg
-                      className="shape-overlays"
-                      viewBox="0 0 100 100"
-                      preserveAspectRatio="none"
-                    >
-                      <defs>
-                        <linearGradient id="g1" x1=".5" y1="1" x2=".5">
-                          <stop stopColor="#79bee8" />
-                          <stop stopColor="#79bee8" />
-                          <stop offset="1" stopColor="#356e96" />
-                        </linearGradient>
-                      </defs>
-                      <path fill="#e7e6eb" className="shape-overlays__path"></path>
-                      <path fill="url(#g1)" className="shape-overlays__path"></path>
-                    </svg>
+    
                   </div>
                 </div>
 
