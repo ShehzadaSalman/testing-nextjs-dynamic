@@ -164,8 +164,7 @@ function BrandingContent({data, services, books, language }) {
                 ? <>Get In Touch</>
                 : <>ابقى على تواصل</>
                 }
-                  
-                  </button>
+                </button>
               </a>
               <Link href={"/"+section.slug.toString()}>
                 <a className="">
