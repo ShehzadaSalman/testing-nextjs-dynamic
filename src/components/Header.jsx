@@ -81,17 +81,15 @@ const Header = () => {
 
 
    const fetchData = async () => {
-        // fetching the menu data
     const result = await  axios.get('https://staging.techbay.co/api/get-navbar-menu');
     const finalData = await  result.data.response;
     setMenuData(finalData);
 
-   // fetching the bottom pages
    const bpage = await  axios.get('https://staging.techbay.co/api/get-footer-menu');
    const finalBottomPages  = await  bpage.data.response;
    setBottomPages(finalBottomPages)
    
-   // fetching the company info part
+
   const cinfo = await  axios.get('https://staging.techbay.co/api/get-header-footer-content');
    const finalCompanyInfo = await  cinfo.data.response;
    setCompanyInfo(finalCompanyInfo);
@@ -101,7 +99,7 @@ const Header = () => {
 
 
   useEffect(() => {
-   fetchData();
+  //  fetchData();
     },[])
  
    // fetching the bottom pages
