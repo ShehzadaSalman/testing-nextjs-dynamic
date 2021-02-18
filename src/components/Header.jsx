@@ -107,7 +107,7 @@ const Header = () => {
    // fetching the bottom pages
 
 
-
+return <></>;
 
 
   return (<>
@@ -196,7 +196,7 @@ const Header = () => {
                 {menudata.map(menu => (
                           <div key={menu.id}  onMouseEnter={openNewMenu} onMouseLeave={closeNewMenu} className= {menu.services.length > 0 ? "new-menu-item sub" : "new-menu-item" }>
                           
-                         {/* {menu.slug == '/' 
+                         {menu.slug == '/' 
                          ? <h1 onClick={refreshPage}>{menu.title}</h1>
                             :  <>{deviceName != 'Mobile'
                             ? <h1><Link   href={'/services/'+menu.slug}><a>
@@ -204,12 +204,12 @@ const Header = () => {
                               </a></Link></h1>
                            : <h1>{locale == 'ar' ? menu.title_arabic :  menu.title}</h1>
                            } </>
-                        } */}
+                        }
                        <a>
                             <span></span>
                      
           <div className="new-menu-sub">
-                {/* { menu.services.length > 0 &&  menu.services.map(li => {
+                { menu.services.length > 0 &&  menu.services.map(li => {
                 return( <div onClick={samePageRefresh}>
                   <Link  href={"/" +li.slug.toString()}>
                     <a>
@@ -219,7 +219,7 @@ const Header = () => {
                     </a>
                   </Link>
                 </div> )
-                })}          */}
+                })}         
          </div>
               </a>
             </div>
@@ -240,7 +240,7 @@ const Header = () => {
                   {/* footer menu 1 */}
               
 
-                 {/* {(bottomPages.length > 0) 
+                 {(bottomPages.length > 0) 
                  && 
                  <>
                  {bottomPages.map(m => {
@@ -269,7 +269,7 @@ const Header = () => {
 
                  })}
                  </>
-                } */}
+                }
             </div> {/* about us ends here */}
 
 
