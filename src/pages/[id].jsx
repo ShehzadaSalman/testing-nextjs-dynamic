@@ -260,7 +260,6 @@ let finalbpages = finalBottomPagesList.map(li => li.slug);
           { params: { id: 'pay-per-click-advertisement' }, locale: 'ar' },
           { params: { id: 'conversion-rate-optimization' }, locale: 'ar' },
           { params: { id: 'content-marketing' }, locale: 'ar' },
-          { params: { id: 'social-media-marketing' }, locale: 'ar' },
           { params: { id: 'seo-packages' }, locale: 'ar' },
           { params: { id: 'ppc-packages' }, locale: 'ar' },
           { params: { id: 'smm-packages' }, locale: 'ar' },

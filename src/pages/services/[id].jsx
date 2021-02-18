@@ -71,3 +71,36 @@ export async function getServerSideProps(context) {
     return { props: { data } }
 
   }
+
+
+
+  // hopefully prerendering pages with defined paths
+export async function getStaticPaths({locales}) {
+
+     return {
+        paths: [
+          { params: { id: 'branding-and-pr' } },   
+          { params: { id: 'branding-and-pr' }, locale: 'ar' },
+          { params: { id: 'digital-marketing-agency-dubai' } },   
+          { params: { id: 'digital-marketing-agency-dubai' }, locale: 'ar' },
+          { params: { id: 'web-and-app-development' } },   
+          { params: { id: 'web-and-app-development' }, locale: 'ar' },
+
+        ],
+        fallback: true 
+      }
+    
+  
+    }
+
+
+
+// fetch data from the url
+export async function getStaticProps(context) {
+    let data = 'hello world'; 
+    const res = await axios.get(`https://staging.techbay.co/api/get-navbar-menu-content/${context.params.id}`)
+    if(res.data.status !== 500){
+       data = await res.data.response
+    }else{data = null}
+    return { props: { data, } }
+  }
