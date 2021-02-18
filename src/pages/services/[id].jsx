@@ -62,16 +62,6 @@ if(data.length < 1){
 
 export default SERVICES
 
-// fetch data from the url
-export async function getServerSideProps(context) {
-    const res = await axios.get(`https://staging.techbay.co/api/get-navbar-menu-content/${context.params.id}`)
-    const data = await res.data.response
-  
-    // Pass data to the page via props
-    return { props: { data } }
-
-  }
-
 
 
   // hopefully prerendering pages with defined paths
