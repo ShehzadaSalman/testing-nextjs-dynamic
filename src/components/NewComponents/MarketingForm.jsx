@@ -45,7 +45,7 @@ const MarketingForm = () => {
         countrycode: countryCode,
       }
       FormSubmission(newValues);
-      console.log(newValues);
+   
     }
   });
 
