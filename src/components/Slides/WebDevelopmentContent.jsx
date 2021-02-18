@@ -215,7 +215,7 @@ function WebDevelopmentContent({data, services, books}) {
                 } 
                </p>
                <div className="box-align">
-               <a onClick={formpopupBranding} className="pr-sm-2 pr-1">
+               <a onClick={formpopupBranding} className="px-sm-2 px-1">
                 <button className="landing-read-more-button">
                 {locale === 'en-US' 
                 ? <>Get In Touch</>
@@ -264,7 +264,7 @@ function WebDevelopmentContent({data, services, books}) {
              } 
               </p>
               <div className="box-align">
-              <a onClick={formpopupBranding} className="pr-1 pr-sm-2">
+              <a onClick={formpopupBranding} className="px-1 px-sm-2">
                 <button className="landing-read-more-button">
                 {locale === 'en-US' 
                 ? <>Get In Touch</>
