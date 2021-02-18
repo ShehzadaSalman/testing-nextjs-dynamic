@@ -99,7 +99,7 @@ const Header = () => {
 
 
   useEffect(() => {
-  //  fetchData();
+  fetchData();
     },[])
  
    // fetching the bottom pages
