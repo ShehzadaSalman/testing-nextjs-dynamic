@@ -213,7 +213,7 @@ let finalbpages = finalBottomPagesList.map(li => li.slug);
   
      return {
         paths: finalRoutes,
-        fallback: false 
+        fallback: true 
       }
     
   

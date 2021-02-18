@@ -26,7 +26,7 @@ if(data.length < 1){
         <Layout>
        
 
-        <BrandingSlide data = {data[0]}   />
+        {/* <BrandingSlide data = {data[0]}   /> */}
         </Layout>
               </> 
       
@@ -35,7 +35,7 @@ if(data.length < 1){
       
           return <>
           <Layout>
-           <WebDevelopment data = {data[0]}  /> 
+           {/* <WebDevelopment data = {data[0]}  />  */}
           </Layout>
          </>
       
@@ -43,7 +43,7 @@ if(data.length < 1){
       
           return <>
              <Layout>
-               <DigitalMarketing data = {data[0]}   />
+               {/* <DigitalMarketing data = {data[0]}   /> */}
              </Layout>
              </>;
            

@@ -491,7 +491,7 @@ toggleArrows(val) {
                 prevSlide={() => this.previous()}
                 activeSlide={this.state.activeSlide} slideId={1} brandingSlide={() => this.brandingSlide()} />
 
-              <BrandingSlide
+              {/* <BrandingSlide
                 data = {this.props.finalData[1]}
                 nextSlide={() => this.next()}
                 prevSlide={() => this.previous()}
@@ -517,7 +517,7 @@ toggleArrows(val) {
                 activeSlide={this.state.activeSlide}
                 slideId={5}
                 toggleArrows={(val) => this.toggleArrows(val)}
-              />
+              /> */}
             </Slider>
 
           </div>
