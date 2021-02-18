@@ -208,8 +208,7 @@ let finalbpages = finalBottomPagesList.map(li => li.slug);
   const finalRoutes = [...englishRoutes, ...arabicRoutes, ...bArabicRoutes, ...bEnglishRoutes ];
    
 
-
-   console.log("FINAL ROUTES START HERE") 
+   console.log("FINAL ROUTES START HERE  okay") 
    console.log(finalRoutes) 
    console.log('FINAL ROUTES ENDS HERE')
   
