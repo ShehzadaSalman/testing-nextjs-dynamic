@@ -179,36 +179,36 @@ const Headerfive = () => {
                       <div className="menu-container-class container-fluid">
                         <div className="new-menu-wrapper">
                         
-                   {/* //     {menudata.map(menu => ( */}
-                {/* //           <div key={menu.id}  onMouseEnter={openNewMenu} onMouseLeave={closeNewMenu} className= {menu.services.length > 0 ? "new-menu-item sub" : "new-menu-item" }>
-                //          {menu.slug == '/' 
-                //          ? <h1 onClick={refreshPage}>{menu.title}</h1>
-                //             :  <>{deviceName != 'Mobile'
-                //             ? <h1><Link  href={'/services/'+menu.slug}><a>
-                //               {locale == 'ar' ? menu.title_arabic :  menu.title}</a></Link></h1>
-                //          : <h1>{locale == 'ar' ? menu.title_arabic :  menu.title}</h1>
-                //            } </>
-                //         }
-                //        <a>
-                //             <span></span>
+                       {menudata.map(menu => ( 
+                           <div key={menu.id}  onMouseEnter={openNewMenu} onMouseLeave={closeNewMenu} className= {menu.services.length > 0 ? "new-menu-item sub" : "new-menu-item" }>
+                          {menu.slug == '/' 
+                          ? <h1 onClick={refreshPage}>{menu.title}</h1>
+                             :  <>{deviceName != 'Mobile'
+                             ? <h1><Link  href={'/services/'+menu.slug}><a>
+                               {locale == 'ar' ? menu.title_arabic :  menu.title}</a></Link></h1>
+                          : <h1>{locale == 'ar' ? menu.title_arabic :  menu.title}</h1>
+                            } </>
+                         }
+                        <a>
+                             <span></span>
                      
-                //             <div className="new-menu-sub">
-                // { menu.services.length > 0 &&  menu.services.map(li => {
-                // return( <div onClick={samePageRefresh}>
-                //   <Link  href={li.slug}>
-                //     <a>
-                //       <li>
-                //       {locale == 'ar' ? li.title_arabic :  li.title}
-                //       </li>
-                //     </a>
-                //   </Link>
-                // </div> )
-                // })}       
+                             <div className="new-menu-sub">
+                 { menu.services.length > 0 &&  menu.services.map(li => {
+                 return( <div onClick={samePageRefresh}>
+                   <Link  href={li.slug}>
+                     <a>
+                       <li>
+                       {locale == 'ar' ? li.title_arabic :  li.title}
+                       </li>
+                     </a>
+                  </Link>
+                 </div> )
+                 })}       
                      
-                //             </div>
-                //           </a>
-                //         </div>
-               // ))} */}
+                             </div>
+                           </a>
+                         </div>
+                ))} 
                   </div>
                 </div>
 
