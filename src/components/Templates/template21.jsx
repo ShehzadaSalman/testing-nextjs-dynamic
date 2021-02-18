@@ -1,21 +1,17 @@
-import Head from 'next/head';
-import PageBanner from '../components/NewComponents/PageBanner/PageBanner';
+import PageBanner from '../NewComponents/PageBanner/PageBanner';
 import Container from '@material-ui/core/Container';
-import ButtonStyleThree from '../components/NewComponents/Buttons/buttonStyleThree.jsx';
-import ButtonStyleOne from '../components/NewComponents/Buttons/buttonStyleOne';
-import Grid from '@material-ui/core/Grid';
-import Footer from '../components/Footer'
-import Headertwo from '../components/Headertwo';
-import NewTermsOfServices from '../components/NewComponents/NewTermsOfService';
-import ListItemSix from '../components/NewComponents/listItemSix'
-import SuccessDisplay from '../components/NewComponents/successdisplay';
-import Headerthree from '../components/HeaderThree';
-import Headerfive from '../components/HeaderFive';
-import ReportCardFooter from '../components/NewComponents/ReportCardFooter';
-import BgContentDiv from '../components/NewComponents/BContentDiv';
-import ButtonStyleTwo from '../components/NewComponents/Buttons/buttonStyleTwo';
+import ButtonStyleThree from '../NewComponents/Buttons/buttonStyleThree.jsx';
+import ButtonStyleOne from '../NewComponents/Buttons/buttonStyleOne';
+import NewTermsOfServices from '../NewComponents/NewTermsOfService';
+import ListItemSix from '../NewComponents/listItemSix'
+import SuccessDisplay from '../NewComponents/successdisplay';
+import ReportCardFooter from '../NewComponents/ReportCardFooter';
+import BgContentDiv from '../NewComponents/BContentDiv';
+import ButtonStyleTwo from '../NewComponents/Buttons/buttonStyleTwo';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+
+
 function SMMPAGE() {
   const openMarketingForm = () => {
     let form = document.querySelector(".formPopup-branding");
@@ -26,22 +22,8 @@ function SMMPAGE() {
   var pageurl = "https://techbay.co"+router.pathname;
   return (
     <React.Fragment>
-      <Head>
-        <title> Social Media Marketing Company in Dubai|SMM Services|Techbay 
-        </title>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap"
-          rel="stylesheet"
-        ></link>
-        <meta
-          name="description"
-          content=" Gather all your potential leads and make them your permanent clients with the modernized SMM services of Techbay Social Media Marketing Company in Dubai. "
-        />
-      <link rel="canonical" href= "https://techbay.co/social-media-marketing-services"/>
-         {/* <link href="/css/newstyle.css" rel="stylesheet"/> */}
-      </Head>
       <div className="Content-div">
-  <Headerfive/>
+  
         {/*  the first section  */}
         <PageBanner
           category = "marketing"
@@ -299,10 +281,7 @@ paid $1000’s to receive."
   btntext = "GET MY FREE REPORT"
    />
 
-      <Footer />
-      
       </div>{' '}
-      {/* Content div ends here */}
       <style>
    {`
    

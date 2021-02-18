@@ -1,35 +1,20 @@
-import Head from 'next/head';
-import PageBanner from '../components/NewComponents/PageBanner/PageBanner';
+
+import PageBanner from '../NewComponents/PageBanner/PageBanner';
 import Container from '@material-ui/core/Container';
 import { Grid } from '@material-ui/core';
-import ButtonStyleTwo from '../components/NewComponents/Buttons/buttonStyleTwo.jsx';
-import ButtonStyleThree from '../components/NewComponents/Buttons/buttonStyleThree.jsx';
-import BgContentDiv from '../components/NewComponents/BContentDiv';
-import ThumbnailOne from '../components/NewComponents/ThumbnailOne';
-import ThumbnailTwo from '../components/NewComponents/ThumbnailTwo';
-import Footer from '../components/Footer';
-import Headertwo from '../components/Headertwo';
-import BrandingForm from '../components/NewComponents/BrandingForm';
-import DevelopmentForm from '../components/NewComponents/DevelopmentForm';
-import MarketingForm from '../components/NewComponents/MarketingForm';
-import SuccessDisplay from '../components/NewComponents/successdisplay';
-import Headerthree from '../components/HeaderThree';
-import Headerfive from '../components/HeaderFive';
-import ReportCardFooter from '../components/NewComponents/ReportCardFooter';
+import ButtonStyleTwo from '../NewComponents/Buttons/buttonStyleTwo.jsx';
+import ButtonStyleThree from '../NewComponents/Buttons/buttonStyleThree.jsx';
+import BgContentDiv from '../NewComponents/BContentDiv';
+import ThumbnailOne from '../NewComponents/ThumbnailOne';
+import ThumbnailTwo from '../NewComponents/ThumbnailTwo';
+import BrandingForm from '../NewComponents/BrandingForm';
+import DevelopmentForm from '../NewComponents/DevelopmentForm';
+import MarketingForm from '../NewComponents/MarketingForm';
+import SuccessDisplay from '../NewComponents/successdisplay';
+import ReportCardFooter from '../NewComponents/ReportCardFooter';
 import { useRouter } from 'next/router';
 const Retargeting = () => { 
 
-  // open the branding form
- const openBrandingForm = () => {
-  let form = document.querySelector(".formPopup-branding");
-   form.style.display = 'block';
- }
- 
-// open the development form
-const openDevelopmentForm = () => {
-  let form = document.querySelector(".formPopup-branding");
-   form.style.display = 'block';
- }
 
 // open marketing form 
 const openMarketingForm = () => {
@@ -44,24 +29,9 @@ var pageurl = "https://techbay.co"+router.pathname;
   
 return (
 <React.Fragment>
-  <Head>
-    <title>Remarketing Services|Remarketing Agency|Techbay </title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap"
-      rel="stylesheet">
-    </link>
 
-    <meta name="description"content="Keep your clients updated and in the loop with our remarkable, remarketing services. Techbay is the remarketing agency with wide networks and experience. " />
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-            integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
-            crossOrigin="anonymous"></script> 
-    <link rel="canonical" href= "https://techbay.co/remarketing-ppc-services"/>
-    <meta property="og:url" content={pageurl} />
-             {/* <link href="/css/newstyle.css" rel="stylesheet"/> */}
-
-  </Head>
   <div className = "main-content">
-  <Headerfive/>
+
 {/*  The First section    */}
       <PageBanner
       category = "marketing"
@@ -217,7 +187,7 @@ floodgates to organic traffic. Get for free what others have
 paid $1000’s to receive."
   btntext = "GET MY FREE REPORT"
    /> 
-<Footer />
+
 
   </div>
 <style>{`

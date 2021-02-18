@@ -1,20 +1,14 @@
-import Head from 'next/head';
-import Navigation from '../components/NewComponents/appbar/Navigation';
-import PageBanner from '../components/NewComponents/PageBanner/PageBanner';
+import PageBanner from '../NewComponents/PageBanner/PageBanner';
 import Container from '@material-ui/core/Container';
 import { Box, Grid, Button } from '@material-ui/core';
-import ButtonStyleOne from '../components/NewComponents/Buttons/buttonStyleOne.jsx';
-import ButtonStyleTwo from '../components/NewComponents/Buttons/buttonStyleTwo.jsx';
-import BgContentDiv from '../components/NewComponents/BContentDiv';
-import ThumbnailOne from '../components/NewComponents/ThumbnailOne';
-import ListItemTwo from '../components/NewComponents/ListItemTwo';
-import Footer from '../components/Footer'
-import Headertwo from '../components/Headertwo';
-import BrandingForm from '../components/NewComponents/BrandingForm';
-import Headerthree from '../components/HeaderThree';
-import SuccessDisplay from '../components/NewComponents/successdisplay';
-import Headerfive from '../components/HeaderFive';
-import ReportCardFooter from '../components/NewComponents/ReportCardFooter';
+import ButtonStyleOne from '../NewComponents/Buttons/buttonStyleOne.jsx';
+import ButtonStyleTwo from '../NewComponents/Buttons/buttonStyleTwo.jsx';
+import BgContentDiv from '../NewComponents/BContentDiv';
+import ThumbnailOne from '../NewComponents/ThumbnailOne';
+import ListItemTwo from '../NewComponents/ListItemTwo';
+import BrandingForm from '../NewComponents/BrandingForm';
+import SuccessDisplay from '../NewComponents/successdisplay';
+import ReportCardFooter from '../NewComponents/ReportCardFooter';
 import {PopupText} from 'react-calendly';
 import { useRouter } from 'next/router';
 const ContentCreation = () => { 
@@ -34,28 +28,10 @@ const ContentCreation = () => {
   return(
   <React.Fragment>
 
-    <Head>
-
-      <title>Copywriting Services|Copywriting Agency|Techbay  </title>
-
-      <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap"
-        rel="stylesheet">
-      </link>
-
-      <meta
-        name="description"
-        content="We create inspiring profiles and interactive content for your SEO. Contact Techbay copywriting agency and get optimised copywriting services for your brand."
-        />
-      <meta property="og:url" content={pageurl} />
-      <link rel="canonical" href= "https://techbay.co/copywriting-services"/>
-
- {/* <link href="/css/newstyle.css" rel="stylesheet"/> */}
-
-    </Head>
+ 
 <div className = "main-content">
     
-   <Headerfive/>
+  
 {/*  The First section    */}
       <PageBanner
       category = "marketing"
@@ -211,7 +187,7 @@ paid $1000’s to receive."
   btntext = "GET MY FREE REPORT"
    />
 
-<Footer />
+
  
     <style>
       {`

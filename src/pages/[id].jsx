@@ -24,12 +24,12 @@ import Template17 from '../components/Templates/template17';
 import Template18 from '../components/Templates/template18';
 import Template19 from '../components/Templates/template19';
 import Template20 from '../components/Templates/template20';
+import Template21 from '../components/Templates/template21';
+import Template29 from '../components/Templates/template29';
+import Template30 from '../components/Templates/template30';
 import Error from 'next/error';
-import { useRef, useEffect } from 'react';
-import { useRouter } from 'next/router';
 import Headerfive from '../components/HeaderFive';
 import Footer from '../components/Footer'
-import { addStickyHeader } from '../lib/helper';
 
 
 
@@ -122,6 +122,10 @@ case 20:
 return (<><Headerfive/><Template20 finalData = {data} /><Footer/></>)
 break;
 
+case 21:
+return (<><Headerfive/><Template21 finalData = {data} /><Footer/></>)
+break;
+
 case 26:
 return (<><Headerfive/><Template26 finalData = {data} /> <Footer/></>)
 break;
@@ -134,13 +138,21 @@ case 27:
 return (<><Headerfive/><Template27 finalData = {data}  /><Footer/></>)
 break;  
 
+case 29:
+return (<><Headerfive/><Template29 finalData = {data}  /><Footer/></>)
+break; 
+
+case 30:
+return (<><Headerfive/><Template30 finalData = {data}   /><Footer/></>)
+
+
 case 350:
 return (<><Headerfive/><Template350 finalData = {data}  /><Footer/></>)
 break;  
 
-case 29:
-return (<><Headerfive/><Template25/><Footer/></>)
-break;  
+// case 29:
+// return (<><Headerfive/><Template25/><Footer/></>)
+// break;  
 
 default:
 return <>{JSON.stringify(data.template_id)}</>
