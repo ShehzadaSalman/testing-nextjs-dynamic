@@ -236,7 +236,6 @@ let finalbpages = finalBottomPagesList.map(li => li.slug);
           { params: { id: 'pay-per-click-advertisement' } },
           { params: { id: 'conversion-rate-optimization' } },
           { params: { id: 'content-marketing' } },
-          { params: { id: 'social-media-marketing' } },
           { params: { id: 'seo-packages' } },
           { params: { id: 'ppc-packages' } },
           { params: { id: 'smm-packages' } },
@@ -275,7 +274,13 @@ let finalbpages = finalBottomPagesList.map(li => li.slug);
           { params: { id: 'case-studies' } },
           { params: { id: 'privacy-policy' } },
           { params: { id: 'terms-and-conditions' } },
-          { params: { id: 'cancellation-and-refund' } }
+          { params: { id: 'cancellation-and-refund' } },
+          { params: { id: 'services/branding-and-pr' } },
+          { params: { id: 'services/digital-marketing-agency-dubai' } },
+          { params: { id: 'services/web-and-app-development' } },
+          // { params: { id: '/' } },
+          // { params: { id: '/' }, locale: 'ar'},
+
 
 
         ],
