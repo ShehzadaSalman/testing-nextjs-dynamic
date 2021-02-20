@@ -1,42 +1,43 @@
 import PageBanner from '../NewComponents/PageBanner/PageBanner';
 import { useRouter } from 'next/router';
 const ImagePath = process.env.ImagePath
-const PRIVACY = ({finalData}) =>
-{   const router = useRouter();
-    const {locale} = router;
-    return (
-        <React.Fragment>
-        <div className = "content-div">
+const PRIVACY = ({ finalData }) => {
+  const router = useRouter();
+  const { locale } = router;
+  return (
+    <React.Fragment>
+      <div className="content-div">
+        <Headerfive />
         <PageBanner
-          category= "marketing"
-          heading={locale !== 'ar' ? finalData.header_title_arabic : finalData.header_title_english } 
-          paragraph={locale !== 'ar' ? finalData.header_desc_arabic : finalData.header_desc_english } 
+          category="marketing"
+          heading={locale !== 'ar' ? finalData.header_title_arabic : finalData.header_title_english}
+          paragraph={locale !== 'ar' ? finalData.header_desc_arabic : finalData.header_desc_english}
           bg={ImagePath + finalData.header_bg_image}
           wavename="wave2-light.png"
         ></PageBanner>
-        <div id = "privacy-policy-wrapper" className = "container-div">
-            <div className="container">
-            
-            <div className = "padding-top-20 padding-bottom-30 box-direction text-direction">
-            {locale === 'ar' 
-     ?            <div
-     dangerouslySetInnerHTML={{
-       __html: finalData.sub_header_desc_arabic
-     }}></div>
-     
-     :           <div
-     dangerouslySetInnerHTML={{
-       __html: finalData.sub_header_desc_english
-     }}></div>
-     
-     }
- </div>
+        <div id="privacy-policy-wrapper" className="container-div">
+          <div className="container">
+
+            <div className="padding-top-20 padding-bottom-30 box-direction text-direction">
+              {locale === 'ar'
+                ? <div
+                  dangerouslySetInnerHTML={{
+                    __html: finalData.sub_header_desc_arabic
+                  }}></div>
+
+                : <div
+                  dangerouslySetInnerHTML={{
+                    __html: finalData.sub_header_desc_english
+                  }}></div>
+
+              }
             </div>
+          </div>
 
         </div>
-        </div>
-        <style>
-            {`
+      </div>
+      <style>
+        {`
             
             body{
                 overflow-y: auto;
@@ -51,9 +52,9 @@ const PRIVACY = ({finalData}) =>
             }
             
             `}
-        </style>
-        </React.Fragment>
-    );
+      </style>
+    </React.Fragment>
+  );
 
 
 

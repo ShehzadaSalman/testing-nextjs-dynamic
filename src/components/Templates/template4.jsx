@@ -4,68 +4,68 @@ import ThumbnailOne from '../NewComponents/ThumbnailOne'
 import ReportCardFooter from '../NewComponents/ReportCardFooter'
 import MarketingForm from '../NewComponents/MarketingForm';
 import SuccessDisplay from '../NewComponents/successdisplay';
-import {PopupText} from 'react-calendly';
+import { PopupText } from 'react-calendly';
 import { useRouter } from 'next/router';
 import ButtonStyleOne from '../NewComponents/Buttons/buttonStyleOne';
-import {openBrandingForm} from '../../lib/helper';
-import {useState} from 'react';
+import { openBrandingForm } from '../../lib/helper';
+import { useState } from 'react';
 import Footer from '../Footer';
 
-const ImagePath  = process.env.ImagePath;
+const ImagePath = process.env.ImagePath;
 
 
-const PRPLANNING = ({finalData}) => {
-
-  
-let content;
-const router = useRouter();
-const {locale} = router;
-  if(locale !== 'ar'){
-  // getting the english headings
-  let Sections = finalData.headings.map( data => {
-    return {
-     "id": data.id, 
-     "title": data.title_english,
-     "description": data.desc_english,
-     "level": data.level,
-     "btn_txt": data.btn_txt_english
-     }  
- })
-
- let Widgets = finalData.widget.map( data => {
-  return {
-   "id": data.id, 
-   "title": data.title_english,
-   "description": data.desc_english,
-   "level": data.level,
-   "btn_txt": data.btn_txt_english,
-   "image": data.image,
-   "level": data.level,
-   }  
+const PRPLANNING = ({ finalData }) => {
 
 
-  })
+  let content;
+  const router = useRouter();
+  const { locale } = router;
+  if (locale !== 'ar') {
+    // getting the english headings
+    let Sections = finalData.headings.map(data => {
+      return {
+        "id": data.id,
+        "title": data.title_english,
+        "description": data.desc_english,
+        "level": data.level,
+        "btn_txt": data.btn_txt_english
+      }
+    })
 
-let Buttons = finalData.widget_btn.map( data => {
- return {
-   "id": data.id,
-    "title": data.title_english,
-    "level": data.level
- }
-})
+    let Widgets = finalData.widget.map(data => {
+      return {
+        "id": data.id,
+        "title": data.title_english,
+        "description": data.desc_english,
+        "level": data.level,
+        "btn_txt": data.btn_txt_english,
+        "image": data.image,
+        "level": data.level,
+      }
 
-let WidgetHeadings = finalData.widget_headings.map( data => {
- return {
-   "id" : data.id,
-    "title": data.desc_english,
-    "level": data.level
- }
 
-})
+    })
+
+    let Buttons = finalData.widget_btn.map(data => {
+      return {
+        "id": data.id,
+        "title": data.title_english,
+        "level": data.level
+      }
+    })
+
+    let WidgetHeadings = finalData.widget_headings.map(data => {
+      return {
+        "id": data.id,
+        "title": data.desc_english,
+        "level": data.level
+      }
+
+    })
 
     content = {
-      "BannerHeading" : finalData.header_title_english || "EMPTY",
-      "BannerDescription" : finalData.header_desc_english || "EMPTY",
+      "BannerHeading": finalData.header_title_english || "EMPTY",
+      "BannerDescription": finalData.header_desc_english || "EMPTY",
       "BannerImage": finalData.header_bg_image || "EMPTY",
       "BannerButton": finalData.header_btn_txt_english || "EMPTY",
       "FirstVideo": finalData.video_link || "",
@@ -73,59 +73,59 @@ let WidgetHeadings = finalData.widget_headings.map( data => {
       "SubBannerParagraph": finalData.sub_header_desc_english || "EMPTY",
       "SubBannerButton": finalData.sub_header_btn_txt_english || "EMPTY",
       "Sections": Sections,
-      "ListingOne": Widgets.filter(service => service.level === 1), 
+      "ListingOne": Widgets.filter(service => service.level === 1),
       "ListingTwo": Widgets.filter(service => service.level === 2),
-      "ListingThree" : Widgets.filter(service => service.level === 3),
-      "Buttons" : Buttons,
+      "ListingThree": Widgets.filter(service => service.level === 3),
+      "Buttons": Buttons,
       "widget_headings": WidgetHeadings
-  }
-  }else { // when we set it to arabic
+    }
+  } else { // when we set it to arabic
     // getting the arabic headings
-    let Headings = finalData.headings.map( data => {
-    
+    let Headings = finalData.headings.map(data => {
+
       return {
-       "id": data.id, 
-       "title": data.title_arabic,
-       "description": data.desc_arabic,
-       "level": data.level,
-       "btn_txt": data.btn_txt_arabic
-       }  
-   })
-  
-   let Widgets = finalData.widget.map( data => {
-    return {
-     "id": data.id, 
-     "title": data.title_arabic,
-     "description": data.desc_arabic,
-     "level": data.level,
-     "btn_txt": data.btn_txt_arabic,
-     "image": data.image,
-     "level": data.level,
-     }  
-  })
-  
-  
-  let Buttons = finalData.widget_btn.map( data => {
-  
-    return {
-       "id": data.id,
-       "title": data.title_arabic,
-       "level": data.level
-    }
-   })
-   
-   let WidgetHeadings = finalData.widget_headings.map( data => {
-    return {
-       "id" : data.id,
-       "title": data.desc_arabic,
-       "level": data.level
-    }
-   
-   })
-  
+        "id": data.id,
+        "title": data.title_arabic,
+        "description": data.desc_arabic,
+        "level": data.level,
+        "btn_txt": data.btn_txt_arabic
+      }
+    })
+
+    let Widgets = finalData.widget.map(data => {
+      return {
+        "id": data.id,
+        "title": data.title_arabic,
+        "description": data.desc_arabic,
+        "level": data.level,
+        "btn_txt": data.btn_txt_arabic,
+        "image": data.image,
+        "level": data.level,
+      }
+    })
+
+
+    let Buttons = finalData.widget_btn.map(data => {
+
+      return {
+        "id": data.id,
+        "title": data.title_arabic,
+        "level": data.level
+      }
+    })
+
+    let WidgetHeadings = finalData.widget_headings.map(data => {
+      return {
+        "id": data.id,
+        "title": data.desc_arabic,
+        "level": data.level
+      }
+
+    })
+
     content = {
-      "BannerHeading" : finalData.header_title_arabic || "EMPTY",
-      "BannerDescription" : finalData.header_desc_arabic || "EMPTY",
+      "BannerHeading": finalData.header_title_arabic || "EMPTY",
+      "BannerDescription": finalData.header_desc_arabic || "EMPTY",
       "BannerImage": finalData.header_bg_image || "EMPTY",
       "BannerButton": finalData.header_btn_txt_arabic || "EMPTY",
       "FirstVideo": finalData.video_link || "",
@@ -133,185 +133,186 @@ let WidgetHeadings = finalData.widget_headings.map( data => {
       "SubBannerParagraph": finalData.sub_header_desc_arabic || "EMPTY",
       "SubBannerButton": finalData.sub_header_btn_txt_arabic || "EMPTY",
       "Sections": Headings,
-      "ListingOne": Widgets.filter(service => service.level === 1), 
+      "ListingOne": Widgets.filter(service => service.level === 1),
       "ListingTwo": Widgets.filter(service => service.level === 2),
-      "ListingThree" : Widgets.filter(service => service.level === 3),
-      "Buttons" : Buttons,
+      "ListingThree": Widgets.filter(service => service.level === 3),
+      "Buttons": Buttons,
       "widget_headings": WidgetHeadings
+    }
   }
-  }
-  
+
 
 
 
 
   return (
     <React.Fragment>
- <div className = "Content-div">
-     <PageBanner
-       category = "branding"
-       heading = {content.BannerHeading}
-       paragraph = {content.BannerDescription}
-       bg = {ImagePath + content.BannerImage}
-       buttontext = {content.BannerButton}
-       wavename = "wave2.png"
+      <div className="Content-div">
+        <Headerfive />
+        <PageBanner
+          category="branding"
+          heading={content.BannerHeading}
+          paragraph={content.BannerDescription}
+          bg={ImagePath + content.BannerImage}
+          buttontext={content.BannerButton}
+          wavename="wave2.png"
         ></PageBanner>
-      <MarketingForm />   
-      <SuccessDisplay/>
-  <div className = "FirstContentItem  Centerclass bg-grey padding-top-20 padding-bottom-20">
-  <div className = "container">
-  <h2 className ="heading">{content.SubBannerHeading}</h2>
- <p className = "paragraph">
- {content.SubBannerParagraph} 
- </p>
- 
-        <div className = "margin-top-40"></div>
-        <span className = "meeting-button" style = {{ }}> 
+        <MarketingForm />
+        <SuccessDisplay />
+        <div className="FirstContentItem  Centerclass bg-grey padding-top-20 padding-bottom-20">
+          <div className="container">
+            <h2 className="heading">{content.SubBannerHeading}</h2>
+            <p className="paragraph">
+              {content.SubBannerParagraph}
+            </p>
+
+            <div className="margin-top-40"></div>
+            <span className="meeting-button" style={{}}>
 
 
 
-<PopupText
-  pageSettings={{
-    backgroundColor: 'ffffff',
-    hideEventTypeDetails: false,
-    hideLandingPageDetails: false,
-    primaryColor: '00a2ff',
-    textColor: '4d5055'
-  }}
-  styles={{}}
-  text={content.SubBannerButton}
-  url="https://calendly.com/hashim-6/30min"  
-  />
-</span>
-      <div className = "padding-top-40"></div>
-      </div>
-      </div>
-<div className = "margin-top-10"></div>
+              <PopupText
+                pageSettings={{
+                  backgroundColor: 'ffffff',
+                  hideEventTypeDetails: false,
+                  hideLandingPageDetails: false,
+                  primaryColor: '00a2ff',
+                  textColor: '4d5055'
+                }}
+                styles={{}}
+                text={content.SubBannerButton}
+                url="https://calendly.com/hashim-6/30min"
+              />
+            </span>
+            <div className="padding-top-40"></div>
+          </div>
+        </div>
+        <div className="margin-top-10"></div>
 
 
-<div className = "padding-top-20 padding-bottom-20">
-  <div className="container">
-    {content.widget_headings.length > 0 &&    
-    <h2 className ="heading text-uppercase">
-     {content.widget_headings[0].title}
-    </h2>}
- </div>
-</div>
+        <div className="padding-top-20 padding-bottom-20">
+          <div className="container">
+            {content.widget_headings.length > 0 &&
+              <h2 className="heading text-uppercase">
+                {content.widget_headings[0].title}
+              </h2>}
+          </div>
+        </div>
 
-<BgContentDiv  bg = "/images/web/prplanning-banner-two.png">
-<div className="container mt-5">
-<div className="row d-flex justify-content-center">
-  {content.ListingOne.length > 0 && content.ListingOne.map(list => (
-  <div className="col-6 col-md-6 col-lg-3 mb-5 px-3" key={list.id}>
-  <ThumbnailOne imgAddress  = {ImagePath + list.image}  title  = {list.title} ></ThumbnailOne> 
-  </div>
-  ))}
-</div>
-
-
-</div>
+        <BgContentDiv bg="/images/web/prplanning-banner-two.png">
+          <div className="container mt-5">
+            <div className="row d-flex justify-content-center">
+              {content.ListingOne.length > 0 && content.ListingOne.map(list => (
+                <div className="col-6 col-md-6 col-lg-3 mb-5 px-3" key={list.id}>
+                  <ThumbnailOne imgAddress={ImagePath + list.image} title={list.title} ></ThumbnailOne>
+                </div>
+              ))}
+            </div>
 
 
-<div className = "padding-top-20"></div>
-
-</BgContentDiv>
-<div className = "p-relative">
-<div className ="bg-grey">
-<div className="container">
-  <div className = "padding-top-40"></div>
-  <div className = "text-center">
-  {content.Buttons.length > 0 &&  
-  <a onClick = {openBrandingForm}>
-    <ButtonStyleOne title={content.Buttons[0].title} />
-    </a> }
-  
- 
-  </div>
-
-  <div className = "margin-top-30"></div>
+          </div>
 
 
-{content.Sections.length > 0 && 
-  <h2 className="heading mt-3">
-  {content.Sections[0].title}
-  </h2>
-}
+          <div className="padding-top-20"></div>
+
+        </BgContentDiv>
+        <div className="p-relative">
+          <div className="bg-grey">
+            <div className="container">
+              <div className="padding-top-40"></div>
+              <div className="text-center">
+                {content.Buttons.length > 0 &&
+                  <a onClick={openBrandingForm}>
+                    <ButtonStyleOne title={content.Buttons[0].title} />
+                  </a>}
 
 
+              </div>
+
+              <div className="margin-top-30"></div>
 
 
-{content.Sections.length > 0 && 
- <p className="paragraph">
- {content.Sections[0].description}
-</p>
-}  
- 
-
-  <div className = "text-center padding-top-10">
-
-  {content.Sections.length > 0  && 
-<a className ="link-class" onClick = {openBrandingForm} >
-   {content.Sections[0].btn_text !== null &&  <ButtonStyleOne title = {content.Sections[0].btn_txt} />   }
-</a> 
-}
-
-
-  </div>
-</div>
-</div>
-<img className = "bottom-brown-wave" src = "/images/web/static-grey-bottom-wave.png" alt = "pr agency"/>
-</div>
+              {content.Sections.length > 0 &&
+                <h2 className="heading mt-3">
+                  {content.Sections[0].title}
+                </h2>
+              }
 
 
 
 
-{/* This is the last section  */}
-<div className=" padding-bottom-40 padding-top-20">
-<div className="container">
-  {content.Sections.length > 1 &&  
-  <>
-    <h2 className="heading mt-3">
-    {content.Sections[1].title}
-  </h2>
-  <p className="paragraph">
-    {content.Sections[1].description}
-  </p>
-<div className = "text-center">
- <a className ="link-class" onClick = {openBrandingForm} >
-   {content.Sections[1].btn_txt}
-  </a>  
-</div>
-  </>
-  
-  }
+              {content.Sections.length > 0 &&
+                <p className="paragraph">
+                  {content.Sections[0].description}
+                </p>
+              }
 
-{/* <div className="margin-top-50">
+
+              <div className="text-center padding-top-10">
+
+                {content.Sections.length > 0 &&
+                  <a className="link-class" onClick={openBrandingForm} >
+                    {content.Sections[0].btn_text !== null && <ButtonStyleOne title={content.Sections[0].btn_txt} />}
+                  </a>
+                }
+
+
+              </div>
+            </div>
+          </div>
+          <img className="bottom-brown-wave" src="/images/web/static-grey-bottom-wave.png" alt="pr agency" />
+        </div>
+
+
+
+
+        {/* This is the last section  */}
+        <div className=" padding-bottom-40 padding-top-20">
+          <div className="container">
+            {content.Sections.length > 1 &&
+              <>
+                <h2 className="heading mt-3">
+                  {content.Sections[1].title}
+                </h2>
+                <p className="paragraph">
+                  {content.Sections[1].description}
+                </p>
+                <div className="text-center">
+                  <a className="link-class" onClick={openBrandingForm} >
+                    {content.Sections[1].btn_txt}
+                  </a>
+                </div>
+              </>
+
+            }
+
+            {/* <div className="margin-top-50">
 </div> */}
-<div className="padding-top-50 padding-bottom-30">
- </div> 
-</div>
+            <div className="padding-top-50 padding-bottom-30">
+            </div>
+          </div>
 
-</div>
+        </div>
 
-{finalData.book &&
-  <ReportCardFooter
-category = "branding"
-imgAddress = {ImagePath + finalData.book.image}
-title = {locale === 'ar' ? finalData.book.title_arabic  : finalData.book.title_english }
-caption = {locale === 'ar' ? finalData.book.desc_arabic  : finalData.book.desc_english }
-btntext = "GET MY FREE REPORT"
-   /> }
-
-
-{/* Last section ends here */}
-<Footer/>
- </div>
- 
+        {finalData.book &&
+          <ReportCardFooter
+            category="branding"
+            imgAddress={ImagePath + finalData.book.image}
+            title={locale === 'ar' ? finalData.book.title_arabic : finalData.book.title_english}
+            caption={locale === 'ar' ? finalData.book.desc_arabic : finalData.book.desc_english}
+            btntext="GET MY FREE REPORT"
+          />}
 
 
-   <style>
-     {
-       `body{
+        {/* Last section ends here */}
+        <Footer />
+      </div>
+
+
+
+      <style>
+        {
+          `body{
          overflow:inherit;
        }
 
@@ -469,9 +470,9 @@ btntext = "GET MY FREE REPORT"
 
       }
        `
-     }
-     </style>
-     
+        }
+      </style>
+
     </React.Fragment>
   );
 };

@@ -1,96 +1,95 @@
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
 const ImagePath = process.env.ImagePath
-const CaseStudy = ({finalData}) => {
+const CaseStudy = ({ finalData }) => {
   const router = useRouter();
-  const {locale} = router;
+  const { locale } = router;
   let sectionLoop = 0;
   return (
     <React.Fragment>
+      <Headerfive />
       <div className="content-div">
         <div className="slide-section mt-5">
           <div className="content container mt-5">
             <h2 className="heading mb-3 mt-5 ">
-   {locale == 'ar' 
-   ? finalData.header_title_arabic
-   : finalData.header_title_english  }
-      
-                </h2>
+              {locale == 'ar'
+                ? finalData.header_title_arabic
+                : finalData.header_title_english}
+
+            </h2>
             <p className="paragraph mt-0">
-            {locale == 'ar' 
-   ? finalData.header_desc_arabic
-   : finalData.header_desc_english  }
-                </p>
+              {locale == 'ar'
+                ? finalData.header_desc_arabic
+                : finalData.header_desc_english}
+            </p>
             <div className="case-study-content">
-        
-               {finalData.widget && finalData.widget.map(li =>
-         {      
-          sectionLoop = Math.floor(sectionLoop + 1);
-          if(sectionLoop % 2 == 0)
-          {
-            return(
-              <div className="row mb-md-5">
-              <div className="col-md-6">
-                <img src={ImagePath + li.image} className="img-fluid" />
-              </div>
-              <div className="col-md-6 ">
-                <h2 className="left-heading text-direction">
-                  { locale === 'ar' ?  li.title_arabic : li.title_english}
-                </h2>
-                <p className="left-paragraph  mt-3 mb-4 text-direction">
-                { locale === 'ar' ?  li.desc_arabic : li.desc_english}
-                 </p>
-                 <div className="text-direction">
-                 <a className="pr-1 pr-sm-2" href={li.link} target="_blank" >
-                  <button className="landing-read-more-button mb-5 mb-md-0">
-                  {locale === 'ar' ? 'عرض دراسة الحالة' : 'View Case Study'}
-                  </button>
-                </a>
-                 </div>
-              </div>
-            </div>
-                       )
 
-          }else{
-            return(
-              <div className="row mb-md-5">
-                          <div className="col-md-6">
-                <h2 className="left-heading text-direction">
-                  { locale === 'ar' ?  li.title_arabic : li.title_english}
-                </h2>
-                <p className="left-paragraph text-direction mt-3 mb-4">
-                { locale === 'ar' ?  li.desc_arabic : li.desc_english}
-                 </p>
-                 <div className="text-direction">
-                 <a className="pr-1 pr-sm-2" href={li.link} target="_blank" >
-                  <button className="landing-read-more-button mb-5 mb-md-0">
-                    {locale === 'ar' ? 'عرض دراسة الحالة' : 'View Case Study'}
-                    </button>
-                </a>
-                 </div>
-             
-              </div>
-              <div className="col-md-6">
-                <img src={ImagePath + li.image} className="img-fluid" />
-              </div>
-    
-            </div>
-                       )
+              {finalData.widget && finalData.widget.map(li => {
+                sectionLoop = Math.floor(sectionLoop + 1);
+                if (sectionLoop % 2 == 0) {
+                  return (
+                    <div className="row mb-md-5">
+                      <div className="col-md-6">
+                        <img src={ImagePath + li.image} className="img-fluid" />
+                      </div>
+                      <div className="col-md-6 ">
+                        <h2 className="left-heading text-direction">
+                          {locale === 'ar' ? li.title_arabic : li.title_english}
+                        </h2>
+                        <p className="left-paragraph  mt-3 mb-4 text-direction">
+                          {locale === 'ar' ? li.desc_arabic : li.desc_english}
+                        </p>
+                        <div className="text-direction">
+                          <a className="pr-1 pr-sm-2" href={li.link} target="_blank" >
+                            <button className="landing-read-more-button mb-5 mb-md-0">
+                              {locale === 'ar' ? 'عرض دراسة الحالة' : 'View Case Study'}
+                            </button>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  )
 
-          }
-     
+                } else {
+                  return (
+                    <div className="row mb-md-5">
+                      <div className="col-md-6">
+                        <h2 className="left-heading text-direction">
+                          {locale === 'ar' ? li.title_arabic : li.title_english}
+                        </h2>
+                        <p className="left-paragraph text-direction mt-3 mb-4">
+                          {locale === 'ar' ? li.desc_arabic : li.desc_english}
+                        </p>
+                        <div className="text-direction">
+                          <a className="pr-1 pr-sm-2" href={li.link} target="_blank" >
+                            <button className="landing-read-more-button mb-5 mb-md-0">
+                              {locale === 'ar' ? 'عرض دراسة الحالة' : 'View Case Study'}
+                            </button>
+                          </a>
+                        </div>
 
-   
-               })}
+                      </div>
+                      <div className="col-md-6">
+                        <img src={ImagePath + li.image} className="img-fluid" />
+                      </div>
 
-        
+                    </div>
+                  )
 
-        
+                }
 
 
 
-         
+              })}
 
-  
+
+
+
+
+
+
+
+
+
 
 
 

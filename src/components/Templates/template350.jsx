@@ -59,6 +59,7 @@ const SEO = ({ finalData }) => {
   return (
     <React.Fragment>
       <div className="slide-section ">
+        <Headerfive />
         <div
           className="slide-content-wrapper p41 d-flex flex-column seoPackage"
           onScroll={(event) => addStickyHeader(event.target)}
@@ -72,23 +73,23 @@ const SEO = ({ finalData }) => {
                   <div className="row">
                     <div className="col-lg-5 d-flex px-3 flex-column justify-content-center">
                       <h3 className="m-0" style={{ lineHeight: 1 }}>
-                        { locale === 'ar' 
-                        ? <>{data.header_title_arabic}</>
-                        : <>{data.header_title}</>
+                        {locale === 'ar'
+                          ? <>{data.header_title_arabic}</>
+                          : <>{data.header_title}</>
                         }
                       </h3>
                       <span className="d-block text-left">
-                      { locale === 'ar' 
-                        ? <>{data.title_arabic}</>
-                        : <>{data.title}</>
-                        }   
-                        </span>
+                        {locale === 'ar'
+                          ? <>{data.title_arabic}</>
+                          : <>{data.title}</>
+                        }
+                      </span>
                     </div>
                     <div className="col-lg-7 d-flex px-3 flex-column justify-content-center">
                       <p className=" pt-md-4">
-                      { locale === 'ar' 
-                        ? <>{data.description_arabic}</>
-                        : <>{data.description}</>
+                        {locale === 'ar'
+                          ? <>{data.description_arabic}</>
+                          : <>{data.description}</>
                         }
                       </p>
                     </div>
@@ -105,140 +106,140 @@ const SEO = ({ finalData }) => {
                 <div className="packagesDiv  seoPack">
                   <div className="packageTop seos">
                     <div className="mids">
-              
-                    <table>
-                      <tbody>
-                        <tr>
-                          <th>
-                            {
-                              locale == 'ar' 
-                              ? 'خدمات'
-                              :'Services'
-                            }
-                   
-                            
-                            </th>
 
-
-                          {data.package_service_ranks.map(headings => (
+                      <table>
+                        <tbody>
+                          <tr>
                             <th>
-                              { locale === 'ar' 
-                              ? <>{headings.title_arabic}</>
-                              : <>{headings.title}</>
+                              {
+                                locale == 'ar'
+                                  ? 'خدمات'
+                                  : 'Services'
                               }
+
+
                             </th>
-                          ))}
-                        </tr>
-                       
-{/* package template with sub menus */}                       
-                        {data.package_services && data.package_services.map(pkg => {
 
 
-return (
-  <>
-   
-     <div className="table-subheading"> 
-   
+                            {data.package_service_ranks.map(headings => (
+                              <th>
+                                { locale === 'ar'
+                                  ? <>{headings.title_arabic}</>
+                                  : <>{headings.title}</>
+                                }
+                              </th>
+                            ))}
+                          </tr>
 
-       { locale === 'ar' 
-          ? <>{pkg.title_arabic}</>
-          : <>{pkg.title}</>
-          }
-
-
-     </div> 
-   
-
-    {pkg.package_sub_services.map(pkg => (
-      <>
-  
-            <tr>
-              <td>
-           
-                    { locale === 'ar' 
-                ? <>{pkg.title_arabic}</>
-                : <>{pkg.title}</>
-               }
-                
-                </td>
-              {pkg.package_service_rank_details.map(pkg => (
-                <>
-                  <td>
-
-                    {pkg.checkbox == ''
-                      ? <i className="fa fa-times"></i>
-                      : <> <i className="fa fa-check"></i>
-                             { locale === 'ar' 
-                ? <>{pkg.title_arabic}</>
-                : <>{pkg.title}</>
-               }
-                       
-                       </>
-                    }
-
-                  </td>
-                </>
-              ))}
-
-            </tr>
-    
-      </>
-    ))}
+                          {/* package template with sub menus */}
+                          {data.package_services && data.package_services.map(pkg => {
 
 
+                            return (
+                              <>
 
-  </>
-);
+                                <div className="table-subheading">
 
 
-})}
+                                  {locale === 'ar'
+                                    ? <>{pkg.title_arabic}</>
+                                    : <>{pkg.title}</>
+                                  }
 
-{/* package template without submenu */}
-{data.package_sub_services && data.package_sub_services.map(pkg => {
 
- return <>
- 
- <tr>
-     <td>
-           
-          { locale === 'ar' 
-      ? <>{pkg.title_arabic}</>
-      : <>{pkg.title}</>
-      }
-                </td>
-              {pkg.package_service_rank_details.map(pkg => (
-                <>
-                  <td>
+                                </div>
 
-                    {pkg.checkbox == ''
-                      ? <i className="fa fa-times"></i>
-                      : <> <i className="fa fa-check"></i>
-                             { locale === 'ar' 
-                ? <>{pkg.title_arabic}</>
-                : <>{pkg.title}</>
-               }
-                       
-                       </>
-                    }
 
-                  </td>
-                </>
-              ))}
+                                {pkg.package_sub_services.map(pkg => (
+                                  <>
 
-            </tr>
- 
- </>;
+                                    <tr>
+                                      <td>
 
-}) }
+                                        {locale === 'ar'
+                                          ? <>{pkg.title_arabic}</>
+                                          : <>{pkg.title}</>
+                                        }
+
+                                      </td>
+                                      {pkg.package_service_rank_details.map(pkg => (
+                                        <>
+                                          <td>
+
+                                            {pkg.checkbox == ''
+                                              ? <i className="fa fa-times"></i>
+                                              : <> <i className="fa fa-check"></i>
+                                                {locale === 'ar'
+                                                  ? <>{pkg.title_arabic}</>
+                                                  : <>{pkg.title}</>
+                                                }
+
+                                              </>
+                                            }
+
+                                          </td>
+                                        </>
+                                      ))}
+
+                                    </tr>
+
+                                  </>
+                                ))}
 
 
 
+                              </>
+                            );
 
-                      </tbody>
-                    </table>
-        
+
+                          })}
+
+                          {/* package template without submenu */}
+                          {data.package_sub_services && data.package_sub_services.map(pkg => {
+
+                            return <>
+
+                              <tr>
+                                <td>
+
+                                  {locale === 'ar'
+                                    ? <>{pkg.title_arabic}</>
+                                    : <>{pkg.title}</>
+                                  }
+                                </td>
+                                {pkg.package_service_rank_details.map(pkg => (
+                                  <>
+                                    <td>
+
+                                      {pkg.checkbox == ''
+                                        ? <i className="fa fa-times"></i>
+                                        : <> <i className="fa fa-check"></i>
+                                          {locale === 'ar'
+                                            ? <>{pkg.title_arabic}</>
+                                            : <>{pkg.title}</>
+                                          }
+
+                                        </>
+                                      }
+
+                                    </td>
+                                  </>
+                                ))}
+
+                              </tr>
+
+                            </>;
+
+                          })}
+
+
+
+
+                        </tbody>
+                      </table>
+
                     </div>
-          
+
 
                   </div>
                 </div>
