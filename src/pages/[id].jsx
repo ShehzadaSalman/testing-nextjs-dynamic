@@ -312,6 +312,7 @@ export async function getStaticProps(context) {
   const res = await axios.get(`https://staging.techbay.co/api/get-template-data/${context.params.id}`)
   if (res.data.status !== 500) {
     data = await res.data.response
+    console.log(data);
   } else { data = null }
   return { props: { data, } }
 }
