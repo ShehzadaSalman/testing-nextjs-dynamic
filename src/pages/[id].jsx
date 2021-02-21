@@ -236,12 +236,12 @@ export async function getStaticPaths({ locales }) {
   const finalRoutes = [...arabicRoutes, ...bEnglishRoutes];
 
 
-
+  const withOutContactPage = finalRoutes.filter(li => li.params.id != 'contact-us');
 
   return {
 
     paths: [
-      ...finalRoutes,
+      ...withOutContactPage,
       { params: { id: 'website-audit-report' } },
 
       // { params: { id: 'design-services' } },
