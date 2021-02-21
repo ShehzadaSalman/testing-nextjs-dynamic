@@ -1,5 +1,6 @@
 import PageBanner from '../NewComponents/PageBanner/PageBanner';
 import { useRouter } from 'next/router';
+import Headerfive from '../HeaderFive';
 const ImagePath = process.env.ImagePath
 const PRIVACY = ({ finalData }) => {
   const router = useRouter();

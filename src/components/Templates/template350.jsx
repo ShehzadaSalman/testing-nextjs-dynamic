@@ -6,6 +6,7 @@ import MarketingForm from '../NewComponents/MarketingForm';
 import NewTermsOfService from '../NewComponents/NewTermsOfService';
 import PackageForm from '../NewComponents/PackageForm';
 import { useRouter } from 'next/router';
+import Headerfive from '../HeaderFive';
 
 const SEO = ({ finalData }) => {
   let data = finalData;

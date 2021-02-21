@@ -9,6 +9,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import { openBrandingForm } from '../../lib/helper';
+import Headerfive from '../HeaderFive';
 const ImagePath = process.env.ImagePath;
 function BRANDPAGE({ finalData }) {
   console.info(finalData);
@@ -62,6 +63,7 @@ function BRANDPAGE({ finalData }) {
   return (
     <React.Fragment>
       <div className="Content-div">
+        <Headerfive/>
        
         <PageBanner
           category="branding"

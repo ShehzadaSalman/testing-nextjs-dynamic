@@ -7,8 +7,7 @@ import SuccessDisplay from '../NewComponents/successdisplay';
 import BrandingForm from '../NewComponents/BrandingForm';
 import { useRouter } from 'next/router';
 import { openBrandingForm } from '../../lib/helper';
-import axios from 'axios';
-import { useState } from 'react';
+import Headerfive from '../HeaderFive';
 const ImagePath = process.env.ImagePath;
 
 const MotionGraphic = ({ finalData }) => {

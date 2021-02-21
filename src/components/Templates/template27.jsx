@@ -1,8 +1,10 @@
 import { useRouter } from 'next/router';
+import Headerfive from '../HeaderFive';
 const ImagePath = process.env.ImagePath
 const CaseStudy = ({ finalData }) => {
   const router = useRouter();
   const { locale } = router;
+
   let sectionLoop = 0;
   return (
     <React.Fragment>

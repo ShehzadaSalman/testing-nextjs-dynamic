@@ -10,6 +10,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useState } from 'react';
 import { openBrandingForm } from '../../lib/helper';
+import Headerfive from '../HeaderFive';
 const ImagePath = process.env.ImagePath;
 
 
@@ -61,6 +62,7 @@ const MarketingMedia = ({ finalData }) => {
   return (
     <React.Fragment>
       <div className="main-content">
+        <Headerfive/>
         {/*  The First section    */}
         <PageBanner
           dark

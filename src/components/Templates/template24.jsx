@@ -3,7 +3,6 @@ import { UserConsumer } from '../../ContextApi/usercontext';
 import { useRouter } from 'next/router';
 import intlTelInput from 'intl-tel-input';
 import { useEffect, useRef } from 'react';
-import axios from 'axios'
 import Headerfive from '../HeaderFive';
 const ImagePath = process.env.ImagePath
 

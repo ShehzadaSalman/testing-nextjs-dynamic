@@ -10,6 +10,7 @@ import { PopupText } from 'react-calendly';
 import { useRouter } from 'next/router';
 import { openBrandingForm } from '../../lib/helper';
 import { useState } from 'react'
+import Headerfive from '../HeaderFive';
 const ImagePath = process.env.ImagePath;
 
 const MediaRelation = ({ finalData }) => {
@@ -133,7 +134,7 @@ const MediaRelation = ({ finalData }) => {
   return (
     <React.Fragment>
       <div className="main-content">
-
+        <Headerfive/>
         <PageBanner
           category="branding"
           heading={content.BannerHeading}

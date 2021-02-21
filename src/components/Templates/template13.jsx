@@ -1,14 +1,12 @@
 import PageBanner from '../NewComponents/PageBanner/PageBanner';
 import ButtonStyleThree from '../NewComponents/Buttons/buttonStyleThree.jsx';
 import BgContentDiv from '../NewComponents/BContentDiv';
-import ThumbnailTwo from '../NewComponents/ThumbnailTwo';
-import ThumbnailFive from '../NewComponents/ThumbnailFive';
 import ReportCardFooter from '../NewComponents/ReportCardFooter';
-import DevelopmentForm from '../NewComponents/DevelopmentForm';
 import SuccessDisplay from '../NewComponents/successdisplay';
 import ButtonStyleTwo from '../NewComponents/Buttons/buttonStyleTwo';
 import { openBrandingForm } from '../../lib/helper'
 import { useRouter } from 'next/router';
+import Headerfive from '../HeaderFive';
 const ImagePath = process.env.ImagePath;
 const SubWebDevelopment = ({ finalData }) => {
 

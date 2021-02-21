@@ -8,6 +8,7 @@ import ButtonStyleTwo from '../NewComponents/Buttons/buttonStyleTwo';
 import SuccessDisplay from '../NewComponents/successdisplay';
 import { useRouter } from 'next/router';
 import ButtonStyleOne from '../NewComponents/Buttons/buttonStyleOne';
+import Headerfive from '../HeaderFive';
 const ImagePath = process.env.ImagePath
 
 const CROPAGE = ({ finalData }) => {
