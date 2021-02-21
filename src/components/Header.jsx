@@ -254,7 +254,7 @@ const Header = () => {
                          
                          return (
                          <li><Link 
-                              href={m.slug || m.link}>
+                              href={"/"+m.slug || m.link}>
                            <a>
                            { locale == 'ar' ?  m.title_arabic : m.title} 
                            </a>
