@@ -235,7 +235,7 @@ const Header = () => {
             
              
              
-             {/* <div className="abouts"> 
+          <div className="abouts"> 
               
                  {(bottomPages.length > 0) 
                  && 
@@ -268,7 +268,7 @@ const Header = () => {
                  </>
                 }
             </div> 
-             */}
+        
             
             {/* about us ends here */}
 
