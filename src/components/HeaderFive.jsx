@@ -177,7 +177,7 @@ const Headerfive = () => {
                     <div id="menu-content-section" className="drop-menu-link">
 
                       <div className="menu-container-class container-fluid">
-                        <div className="new-menu-wrapper">
+                        <div className="new-menu-wrapper box-direction text-direction">
                         
                        {menudata.map(menu => ( 
                            <div key={menu.id}  onMouseEnter={openNewMenu} onMouseLeave={closeNewMenu} className= {menu.services.length > 0 ? "new-menu-item sub" : "new-menu-item" }>
@@ -192,7 +192,7 @@ const Headerfive = () => {
                         <a>
                              <span></span>
                      
-                             <div className="new-menu-sub">
+                             <div className="new-menu-sub text-direction">
                  { menu.services.length > 0 &&  menu.services.map(li => {
                  return( <div onClick={samePageRefresh}>
                    <Link  href={li.slug}>
@@ -225,7 +225,7 @@ const Headerfive = () => {
                       <a className="dropdown-title">
                         { locale == 'ar' ?  m.title_arabic : m.title} 
                         <i className="fas fa-chevron-down"></i></a>
-                      <div className="custom-menu-list">
+                      <div className="custom-menu-list text-direction">
                         <ul style={{ top: "-65px" }}>
                          {m.services.map(m => {
                          
@@ -541,7 +541,9 @@ const Headerfive = () => {
           }
          }
 
-
+         .box-direction{direction: ${locale === 'ar' ? 'rtl' : 'ltr'};}
+         .text-direction{text-align: ${locale === 'ar' ? 'rtl' : 'ltr'};}
+         
 
       `}
         </style>
