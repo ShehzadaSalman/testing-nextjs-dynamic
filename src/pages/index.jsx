@@ -17,6 +17,8 @@ const tawkTo = require("tawkto-react");
 const ContactUs = dynamic(() => import('../components/Slides/ContactUs'), { ssr: false });
 import ButtonStyleThree from '../components/NewComponents/Buttons/buttonStyleThree';
 import axios from 'axios';
+import $ from 'jquery'
+
 let websitePath;
 const tawkToPropertyId = '5f3132f1ed9d9d2627099312';
 
@@ -511,8 +513,7 @@ toggleArrows(val) {
                 prevSlide={() => this.previous()}
                 activeSlide={this.state.activeSlide} slideId={4} />
 
-
-              <ContactUs
+             <ContactUs
                 data = {this.props.finalData[5]}
                 nextSlide={() => this.next()}
                 prevSlide={() => this.previous()}

@@ -687,7 +687,7 @@ componentDidUpdate(prevProps, prevState) {
   };
 
   formpopup = () => {
-   $('.formPopup ').css("display","block");
+   $('.formPopup-branding').css("display","block");
   }
   scrolldownmethod(targetdiv){
     var targetid = '#' + targetdiv;
@@ -703,10 +703,8 @@ componentDidUpdate(prevProps, prevState) {
 removeSliderArrow = (element) => {
   let winheight = window.innerHeight; // get the height of the inner window
   let scrolledtop = element.target.scrollTop; // get the scrolled height of the element from the top;
- 
   if(scrolledtop > winheight){ // compare if the scrolled of the element top distance is greater than the windhow height
   $('.slider-custom-arrow.next, .slider-custom-arrow.prev').css("display", "none");
-  
   if(this.props.nextSlide){
     element.target.querySelector(".mobile-arrow-div-left img").style.display = 'none'; 
     element.target.querySelector(".mobile-arrow-div-right img").style.display = 'none'; 

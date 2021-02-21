@@ -121,8 +121,7 @@ export  class ContactFormClass extends Component {
                 encType="multipart/form-data"
                 noValidate              >
                 <input id="countryCode" type="hidden" name="countrycode" />
-
-                <div className="row">
+                <div className="row box-direction">
                   <div className="col-sm-6">
                     <div className="form-group">
                       <input
