@@ -226,18 +226,19 @@ export async function getStaticPaths({ locales }) {
   });
 
   const bEnglishRoutes = menuList.map(li =>
-    ({ params: { id: li.toString() } }))
+    ({ params: { id: li } }))
 
 
   const arabicRoutes = menuList.map(li =>
-    ({ params: { id: li.toString() }, locale: 'ar' }))
+    ({ params: { id: li }, locale: 'ar' }))
 
 
   const finalRoutes = [...arabicRoutes, ...bEnglishRoutes];
 
 
-  const withOutContactPage = finalRoutes.filter(li => li.params.id != 'contact-us');
-
+  const withOutContactPage = finalRoutes.filter(li => li.params.id !== 'contact-us');
+  console.log(JSON.stringify(finalRoutes));
+  console.log(finalRoutes[0].params.id)
   return {
 
     paths: [
@@ -312,7 +313,6 @@ export async function getStaticProps(context) {
   const res = await axios.get(`https://staging.techbay.co/api/get-template-data/${context.params.id}`)
   if (res.data.status !== 500) {
     data = await res.data.response
-    console.log(data);
   } else { data = null }
   return { props: { data, } }
 }
