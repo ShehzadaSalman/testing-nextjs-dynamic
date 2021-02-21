@@ -235,16 +235,16 @@ export async function getStaticPaths({ locales }) {
 
 
   const bEnglishRoutes = menuList.map(li =>
-    ({ params: { id: li.slug.toString() } }))
+    ({ params: { id: li.slug } }))
 
 
   const arabicRoutes = menuList.map(li =>
-    ({ params: { id: li.slug.toString() }, locale: 'ar' }))
+    ({ params: { id: li.slug }, locale: 'ar' }))
 
 
-  const finalRoutes = [...arabicRoutes, ...bEnglishRoutes];
+  let finalRoutes = [...arabicRoutes, ...bEnglishRoutes];
  
-
+    //  let finalRoutes1 = finalRoutes.filter(li => li.params.id !== 'cancellation-and-refund')
   return {
 
     paths: [
