@@ -63,35 +63,7 @@ export default SERVICES
 
 
 
-  // hopefully prerendering pages with defined paths
-export async function getStaticPaths({locales}) {
-
-     return {
-        paths: [
-          { params: { id: 'branding' } },   
-          { params: { id: 'branding' }, locale: 'ar' },
-          { params: { id: 'marketing' } },   
-          { params: { id: 'marketing' }, locale: 'ar' },
-          { params: { id: 'development' } },   
-          { params: { id: 'development' }, locale: 'ar' },
-
-        ],
-        fallback: true 
-      }
-    
-  
-    }
 
 
 
-// fetch data from the url
-export async function getStaticProps(context) {
-  console.log("checking the parameters");
-  console.log(context.params.id);
-    let data = null; 
-    const res = await axios.get(`https://staging.techbay.co/api/get-navbar-menu-content/${context.params.id}`)
-    if(res.data.status !== 500){
-       data = await res.data.response
-    }else{data = null}
-    return { props: { data, } }
-  }
+
