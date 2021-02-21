@@ -111,7 +111,7 @@ export  class ContactFormClass extends Component {
         {this.props.activeTab === 2 ? (
           <div className="mg-slide-info text-left contact-us-content flex-fill get-in-touch-form-wrapper m-auto">
             <h1 className="mg-title-medium" className="mt-5 mt-sm-0 text-uppercase text-direction" >
-              {this.props.language === 'ar' ? this.props.data.title_arabic : this.props.data.title}
+              {this.props.language === 'ar' ? this.props.data?.title_arabic : this.props.data?.title}
               </h1>
             <div id="contact-form-container" className="floating-form">
               <form

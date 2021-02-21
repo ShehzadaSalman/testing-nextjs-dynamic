@@ -222,27 +222,28 @@ export async function getStaticPaths({ locales }) {
   const menuListl = await menu.data.response;
 
   let menuList = menuListl.filter(function (el) {
-    return el != null;
+    return el.slug != null;
   });
 
+   console.log(menuList); 
+
+
+
   const bEnglishRoutes = menuList.map(li =>
-    ({ params: { id: li } }))
+    ({ params: { id: li.slug.toString() } }))
 
 
   const arabicRoutes = menuList.map(li =>
-    ({ params: { id: li }, locale: 'ar' }))
+    ({ params: { id: li.slug.toString() }, locale: 'ar' }))
 
 
   const finalRoutes = [...arabicRoutes, ...bEnglishRoutes];
+ 
 
-
-  const withOutContactPage = finalRoutes.filter(li => li.params.id !== 'contact-us');
-  console.log(JSON.stringify(finalRoutes));
-  console.log(finalRoutes[0].params.id)
   return {
 
     paths: [
-      ...withOutContactPage,
+       ...finalRoutes,
       { params: { id: 'website-audit-report' } },
 
       // { params: { id: 'design-services' } },
@@ -299,7 +300,7 @@ export async function getStaticPaths({ locales }) {
       // { params: { id: 'terms-and-conditions' }, locale: 'ar' },
       // { params: { id: 'cancellation-and-refund' }, locale: 'ar' },
     ],
-    fallback: true
+    fallback: false
   }
 
 
