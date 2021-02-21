@@ -235,10 +235,8 @@ const Header = () => {
             
              
              
-             <div className="abouts"> {/* about us starts here */}
-                  {/* footer menu 1 */}
+             {/* <div className="abouts"> 
               
-
                  {(bottomPages.length > 0) 
                  && 
                  <>
@@ -269,7 +267,10 @@ const Header = () => {
                  })}
                  </>
                 }
-            </div> {/* about us ends here */}
+            </div> 
+             */}
+            
+            {/* about us ends here */}
 
 
 
