@@ -63,28 +63,28 @@ export default SERVICES
 
 
   // hopefully prerendering pages with defined paths
-// export async function getStaticPaths({locales}) {
+export async function getStaticPaths({locales}) {
 
-//      return {
-//         paths: [
-//           { params: { id: 'branding-and-pr' } },   
-//           { params: { id: 'branding-and-pr' }, locale: 'ar' },
-//           { params: { id: 'digital-marketing-agency-dubai' } },   
-//           { params: { id: 'digital-marketing-agency-dubai' }, locale: 'ar' },
-//           { params: { id: 'web-and-app-development' } },   
-//           { params: { id: 'web-and-app-development' }, locale: 'ar' },
+     return {
+        paths: [
+          { params: { id: 'branding' } },   
+          { params: { id: 'branding' }, locale: 'ar' },
+          { params: { id: 'marketing' } },   
+          { params: { id: 'marketing' }, locale: 'ar' },
+          { params: { id: 'development' } },   
+          { params: { id: 'development' }, locale: 'ar' },
 
-//         ],
-//         fallback: true 
-//       }
+        ],
+        fallback: true 
+      }
     
   
-//     }
+    }
 
 
 
 // fetch data from the url
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   console.log("checking the parameters");
   console.log(context.params.id);
     let data = null; 
