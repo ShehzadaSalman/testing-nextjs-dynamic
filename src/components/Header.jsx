@@ -198,7 +198,7 @@ const Header = () => {
                          {menu.slug == '/' 
                          ? <h1 onClick={refreshPage}>{menu.title}</h1>
                             :  <>{deviceName != 'Mobile'
-                            ? <h1><Link   href={menu.slug ? "/services/"+menu.slug : '' }><a>
+                            ? <h1><Link   href={menu.slug ? menu.slug : '' }><a>
                               { locale == 'ar' ? menu.title_arabic : menu.title}
                               </a></Link></h1>
                            : <h1>{locale == 'ar' ? menu.title_arabic :  menu.title}</h1>
@@ -210,7 +210,7 @@ const Header = () => {
           <div className="new-menu-sub text-direction">
                 { menu.services.length > 0 &&  menu.services.map(li => {
                 return( <div onClick={samePageRefresh}>
-                  <Link  href={"/"+li.slug}>
+                  <Link  href={li.slug}>
                     <a>
                       <li>
                       { locale == 'ar' ? li.title_arabic :  li.title}
@@ -254,7 +254,7 @@ const Header = () => {
                          
                          return (
                          <li><Link 
-                              href={"/"+m.slug || m.link}>
+                              href={m.slug || m.link}>
                            <a>
                            { locale == 'ar' ?  m.title_arabic : m.title} 
                            </a>

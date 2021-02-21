@@ -4,7 +4,9 @@ import * as THREE from '../../lib/threejs/build/three.module.js';
 import { GLTFLoader } from '../../lib/threejs/jsm/loaders/GLTFLoader.js';
 import { getDeviceName } from '../../lib/helper';// for smooth scrolling
 import { useRouter } from 'next/router';
+import $ from 'jquery'
 const BrandingContent = lazy(() => import('./BrandingContent'));
+
 
 let deviceName = getDeviceName();
 let orientation = '';

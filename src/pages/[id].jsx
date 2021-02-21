@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import Template350 from '../components/Templates/template350'
+import Template450 from '../components/Templates/template450'
 import Template27 from '../components/Templates/template27';
 import Template26 from '../components/Templates/template26';
 import Template25 from '../components/Templates/template25';
@@ -155,6 +156,10 @@ function Dynamic({ data }) {
         return (<> <Template350 finalData={data} /><Footer /></>)
         break;
 
+      case 450:
+        return (<> <Template450 finalData={data} /><Footer /></>)
+        break;   
+
       // case 29:
       // return (<> <Template25/><Footer/></>)
       // break;  
@@ -244,8 +249,10 @@ export async function getStaticPaths({ locales }) {
 
     paths: [
        ...finalRoutes,
-      { params: { id: 'website-audit-report' } },
-
+      { params: { id: 'website-audit-report', locale: 'ar' } },
+      { params: { id: 'branding', locale: 'ar' } },
+      { params: { id: 'development', locale: 'ar' } },
+      { params: { id: 'marketing', locale: 'ar' } },
       // { params: { id: 'design-services' } },
       // { params: { id: 'branding-services' } },
       // { params: { id: 'media-agency' } },

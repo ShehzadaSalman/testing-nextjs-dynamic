@@ -6,42 +6,43 @@ import Layout from '../../components/Layout'
 import { useRef, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-const BrandingSlide = dynamic(() => import('../../components/Slides/Branding'), { ssr: false });
-const WebDevelopment = dynamic(() => import('../../components/Slides/WebDevelopment'), { ssr: false });
-const DigitalMarketing = dynamic(() => import('../../components/Slides/DigitalMarketing'), { ssr: false });
+
+const BrandingSlide = dynamic(() => import('../Slides/Branding'), { ssr: false });
+const WebDevelopment = dynamic(() => import('../Slides/WebDevelopment'), { ssr: false });
+const DigitalMarketing = dynamic(() => import('../Slides/DigitalMarketing'), { ssr: false });
 
 
 
 
-function SERVICES({data}) {
- 
+function SERVICES({finalData}) {
+ let data = finalData;
+  console.log(data);
 
 
 // check if we have data or not 
-if(data?.length < 1){
-    return <Error statusCode="404"/>; 
-}else{
-    if(data[0].id == 11){ 
+ 
+  
+if(data.id == 11){ 
         return <>
         <Layout>
-        <BrandingSlide data = {data[0]}   />
+        <BrandingSlide data = {data}   />
         </Layout>
               </> 
       
       
-      }else if(data[0].id == 12){ 
+      }else if(data.id == 12){ 
       
           return <>
           <Layout>
-           <WebDevelopment data = {data[0]}  /> 
+           <WebDevelopment data = {data}  /> 
           </Layout>
          </>
       
-      }else if(data[0].id == 13){ 
+      }else if(data.id == 13){ 
       
           return <>
              <Layout>
-               <DigitalMarketing data = {data[0]}   />
+               <DigitalMarketing data = {data}   />
              </Layout>
              </>;
            
@@ -56,7 +57,7 @@ if(data?.length < 1){
 }
 
  
-}
+
 
 export default SERVICES
 

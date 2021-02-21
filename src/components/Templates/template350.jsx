@@ -108,29 +108,55 @@ const SEO = ({ finalData }) => {
                   <div className="packageTop seos">
                     <div className="mids">
 
+   {/* heading table  */}
+ <table>
+  <thead>
+  <tr>
+  <th>
+    {locale == 'ar'  ? 'خدمات' : 'Services'}
+  </th>
+  {data.package_service_ranks.map(headings => (
+    <th>
+      { locale === 'ar'
+        ? <>{headings.title_arabic}</>
+        : <>{headings.title}</>
+      }
+    </th>
+  ))}
+</tr>
+    </thead> 
+  </table>  
+
+
+
+
+   {/* table sub heading */}
+   <table>
+     <tbody>
+     {data.package_services && data.package_services.map(pkg => {(<>
+   
+   <div className="table-subheading">
+ 
+{locale === 'ar'
+ ? <>{pkg.title_arabic}</>
+ : <>{pkg.title}</>
+}
+
+</div>
+  
+  </>)}) }
+     </tbody>
+   </table>
+
+
+
+  {/* table rows */}
+
+
+
                       <table>
                         <tbody>
-                          <tr>
-                            <th>
-                              {
-                                locale == 'ar'
-                                  ? 'خدمات'
-                                  : 'Services'
-                              }
-
-
-                            </th>
-
-
-                            {data.package_service_ranks.map(headings => (
-                              <th>
-                                { locale === 'ar'
-                                  ? <>{headings.title_arabic}</>
-                                  : <>{headings.title}</>
-                                }
-                              </th>
-                            ))}
-                          </tr>
+                     
 
                           {/* package template with sub menus */}
                           {data.package_services && data.package_services.map(pkg => {
@@ -138,19 +164,27 @@ const SEO = ({ finalData }) => {
 
                             return (
                               <>
-
-                                <div className="table-subheading">
-
-
-                                  {locale === 'ar'
-                                    ? <>{pkg.title_arabic}</>
-                                    : <>{pkg.title}</>
-                                  }
+                     
+                              <th>
 
 
-                                </div>
+
+                             </th>
+
+                      
 
 
+                 
+                      
+
+
+                     
+                     
+                     
+                     
+                     
+                     
+                     
                                 {pkg.package_sub_services.map(pkg => (
                                   <>
 

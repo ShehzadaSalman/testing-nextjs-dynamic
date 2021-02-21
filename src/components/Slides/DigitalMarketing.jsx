@@ -4,6 +4,7 @@ import * as THREE from '../../lib/threejs/build/three.module.js';
 import { GLTFLoader } from '../../lib/threejs/jsm/loaders/GLTFLoader.js';
 import { getDeviceName } from '../../lib/helper';
 import {useRouter} from 'next/router';
+import $ from 'jquery'
 const DigitalMarketingContent = lazy(() => import('./DigitalMarketingContent'));
 let deviceName = getDeviceName();
 let orientation = '';
