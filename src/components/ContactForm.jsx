@@ -226,7 +226,7 @@ export  class ContactFormClass extends Component {
       margin: 0px;
     }
     #form{
-      direction: rtl;
+    
     }
     .text-direction{text-align: ${this.props.language === 'ar' ? 'right' : 'left'}}
 

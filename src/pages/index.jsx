@@ -484,6 +484,7 @@ toggleArrows(val) {
                 handleSlideChange={() => this.handleSliderChange()}
                 discoverSlide={() => this.discoverSlide()}
               />
+   
 
               <DiscoverSlide
                 data = {this.props.finalData[0]}
@@ -509,6 +510,7 @@ toggleArrows(val) {
                 nextSlide={() => this.next()}
                 prevSlide={() => this.previous()}
                 activeSlide={this.state.activeSlide} slideId={4} />
+
 
               <ContactUs
                 data = {this.props.finalData[5]}
