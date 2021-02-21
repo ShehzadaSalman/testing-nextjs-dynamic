@@ -157,7 +157,7 @@ function Dynamic({ data }) {
         break;
 
       case 450:
-        return (<> <Template450 finalData={data} /><Footer /></>)
+        return (<> <Template450 finalData={data} /></>)
         break;   
 
       // case 29:
