@@ -249,7 +249,11 @@ export async function getStaticPaths({ locales }) {
 
     paths: [
        ...finalRoutes,
+      { params: { id: 'website-audit-report'} },
       { params: { id: 'website-audit-report', locale: 'ar' } },
+      { params: { id: 'branding', locale: 'en-US' } },
+      { params: { id: 'development', locale: 'en-US' } },
+      { params: { id: 'marketing', locale: 'en-US' } },
       { params: { id: 'branding', locale: 'ar' } },
       { params: { id: 'development', locale: 'ar' } },
       { params: { id: 'marketing', locale: 'ar' } },
