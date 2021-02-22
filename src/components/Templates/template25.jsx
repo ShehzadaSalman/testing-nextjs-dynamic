@@ -20,7 +20,7 @@ const PRIVACY = ({ finalData }) => {
           <div className="container">
 
             <div className="padding-top-20 padding-bottom-30 box-direction text-direction">
-              {locale === 'ar'
+              {/* {locale === 'ar'
                 ? <div
                   dangerouslySetInnerHTML={{
                     __html: finalData.sub_header_desc_arabic
@@ -31,7 +31,7 @@ const PRIVACY = ({ finalData }) => {
                     __html: finalData.sub_header_desc_english
                   }}></div>
 
-              }
+              } */}
             </div>
           </div>
 

@@ -248,6 +248,7 @@ export async function getStaticPaths({ locales }) {
 
   let finalRoutes = [...arabicRoutes, ...bEnglishRoutes];
  
+   console.log(finalRoutes);
     //  let finalRoutes1 = finalRoutes.filter(li => li.params.id !== 'cancellation-and-refund')
   return {
 
@@ -320,6 +321,15 @@ export async function getStaticPaths({ locales }) {
 
 // fetch data from the url
 export async function getStaticProps(context) {
+
+// fetching the header menu 
+
+
+
+// fetching the footer menu
+
+
+
   let data = 'hello world';
   const res = await axios.get(`https://staging.techbay.co/api/get-template-data/${context.params.id}`)
   if (res.data.status !== 500) {
