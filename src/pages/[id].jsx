@@ -169,7 +169,7 @@ function Dynamic({ data, footerData, bottomFooter, menudata, bottomPages, compan
 
   if (data) {
     if(data.template_id == 450){
-      return <><h1>Main category page</h1>{/* <Footer footerData = {footerData} bottomFooter = {bottomFooter}   /> */}</>
+      return <><Template450 finalData={data} />{/* <Footer footerData = {footerData} bottomFooter = {bottomFooter}   /> */}</>
     }else{
       return <><Headerfive/>{SwitchPages(data)}{/* <Footer footerData = {footerData} bottomFooter = {bottomFooter}   /> */}</>
     }

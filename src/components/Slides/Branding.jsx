@@ -792,10 +792,10 @@ render() {
               </div>
    
            <Suspense fallback = "Loading...">
-             <BrandingContent
+             {/* <BrandingContent
              data = {this.props.data.sliders[0]}
              services = {this.props.data.services}
-             books = {this.props.data.books}/> 
+             books = {this.props.data.books}/>  */}
           </Suspense>   
            
           
