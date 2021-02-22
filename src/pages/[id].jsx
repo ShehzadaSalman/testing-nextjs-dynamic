@@ -168,11 +168,11 @@ function Dynamic({ data, footerData, bottomFooter, menudata, bottomPages, compan
 
 
   if (data) {
-    return <>
-    <Headerfive/>
-    {SwitchPages(data)}
-    {/* <Footer footerData = {footerData} bottomFooter = {bottomFooter}   /> */}
-    </>
+    if(data.template_id == 450){
+      return <>{<Template450 finalData={data}/>}{/* <Footer footerData = {footerData} bottomFooter = {bottomFooter}   /> */}</>
+    }else{
+      return <><Headerfive/>{SwitchPages(data)}{/* <Footer footerData = {footerData} bottomFooter = {bottomFooter}   /> */}</>
+    }
   } else {
     return <Error statusCode="503" />
   }
@@ -253,8 +253,12 @@ export async function getStaticPaths({ locales }) {
   return {
 
     paths: [
-      { params: { id: 'branding' } },
-      { params: { id: 'branding', locale: 'ar' } },
+        { params: { id: 'branding' } },
+        { params:  { id: 'branding' }, locale: 'ar' },
+        { params: { id: 'development' } },
+        { params:  { id: 'development' }, locale: 'ar' },
+        { params: { id: 'marketing' } },
+        { params:  { id: 'marketing' }, locale: 'ar' },
        ...finalRoutes,
 
       // { params: { id: 'design-services' } },
