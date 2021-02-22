@@ -1,19 +1,44 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { getDeviceName } from '../lib/helper';
 let deviceName = getDeviceName();
+import axios from 'axios'
 import { useRouter } from 'next/router'
 
-const Headerfive = ({menudata, bottomPages, companyInfo}) => {
+const Headerfive = () => {
 
   const [addClass , setAddClass] = useState(false);
   const [isMenu , setIsMenu] = useState(true);
-  // const [menudata, setMenuData] = useState([]);
-  // const [bottomPages, setBottomPages] = useState([]);
-  // const [companyInfo, setCompanyInfo] = useState({});
+  const [menudata, setMenuData] = useState([]);
+  const [bottomPages, setBottomPages] = useState([]);
+  const [companyInfo, setCompanyInfo] = useState({});
   const router = useRouter();
   const {locale} = router;
 
+
+  const fetchData = async () => {
+    console.log("fetching data in header again and again")
+    const result = await  axios.get('https://staging.techbay.co/api/get-navbar-menu');
+    const finalData = await  result.data.response;
+    setMenuData(finalData);
+
+   const bpage = await  axios.get('https://staging.techbay.co/api/get-footer-menu');
+   const finalBottomPages  = await  bpage.data.response;
+   setBottomPages(finalBottomPages)
+   
+
+  const cinfo = await  axios.get('https://staging.techbay.co/api/get-header-footer-content');
+   const finalCompanyInfo = await  cinfo.data.response;
+   setCompanyInfo(finalCompanyInfo);
+ }
+
+
+
+
+  useEffect(() => {
+  fetchData();
+  
+    },[!menudata,!bottomPages, !companyInfo])
 
 
 

@@ -13,7 +13,7 @@ const ImagePath = process.env.ImagePath;
 const MotionGraphic = ({ finalData }) => {
 
 
-  console.info(finalData);
+
   let content;
   const router = useRouter();
   const { locale } = router;

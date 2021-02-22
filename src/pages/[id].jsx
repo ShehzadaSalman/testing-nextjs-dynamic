@@ -169,7 +169,7 @@ function Dynamic({ data, footerData, bottomFooter, menudata, bottomPages, compan
 
   if (data) {
     return <>
-    {/* <Headerfive menudata={menudata} bottomPages={bottomPages} companyInfo={companyInfo}   /> */}
+    <Headerfive/>
     {SwitchPages(data)}
     {/* <Footer footerData = {footerData} bottomFooter = {bottomFooter}   /> */}
     </>
@@ -370,8 +370,8 @@ let companyInfo = null;
     data,
     footerData,
     bottomFooter,
-    menudata, 
-    bottomPages,
-    companyInfo
+    // menudata, 
+    // bottomPages,
+    // companyInfo
   } }
 }

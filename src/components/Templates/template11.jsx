@@ -15,7 +15,7 @@ const ImagePath = process.env.ImagePath;
 const WebDesign = ({finalData}) => {
   // open the development form
 
-console.log(finalData);
+
 let content;
 
   const openDevelopmentForm = () => {
