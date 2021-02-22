@@ -255,6 +255,8 @@ export async function getStaticPaths({ locales }) {
     paths: [
         { params: { id: 'branding' } },
         { params:  { id: 'branding' }, locale: 'ar' },
+        { params: { id: 'development' } },
+        { params:  { id: 'development' }, locale: 'ar' },
 
      
        ...finalRoutes,
