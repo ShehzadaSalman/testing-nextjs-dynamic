@@ -113,9 +113,11 @@ const Header = () => {
   <div className={`row ${addClass ? 'drop-menu-top-bar' : ''}`}>
     <div className="col-3 logos-container">
       <a onClick={refreshPage}>
-        {companyInfo?.logo && 
+        {companyInfo.logo ? 
         <img 
-        src={ImagePath + companyInfo?.logo} className="img-fluid" alt="Tech Bay Solution" />}
+          src={ImagePath + companyInfo?.logo} className="img-fluid" alt="Tech Bay Solution" />
+          : <img  src='images/site-logos.svg' className="img-fluid" alt="Tech Bay Solution" />
+        }
       </a>
 
     </div>
