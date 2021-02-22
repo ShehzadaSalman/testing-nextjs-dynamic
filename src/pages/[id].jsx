@@ -311,7 +311,7 @@ export async function getStaticPaths({ locales }) {
       // { params: { id: 'terms-and-conditions' }, locale: 'ar' },
       // { params: { id: 'cancellation-and-refund' }, locale: 'ar' },
     ],
-    fallback: true
+    fallback: false
   }
 
 
