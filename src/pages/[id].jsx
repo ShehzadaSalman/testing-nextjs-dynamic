@@ -189,76 +189,43 @@ function Dynamic({ data, footerData, bottomFooter, menudata, bottomPages, compan
 export default Dynamic
 
 
-export async function getStaticPaths({ locales }) {
-
-  //     let allpages = [];  
-  //     const menu = await  axios.get('https://staging.techbay.co/api/get-navbar-menu');
-  //     const menuList = await  menu.data.response;
-  //     let categoryPages = menuList.map(li => {  return li.services.map(l => (l.slug))});
-  //    for(let i = 0; i < categoryPages.length;  i++) {
-  //         allpages.push(...categoryPages[i]);
-  //     } 
-
-  // let footerMenuList = [];    
-  // const footermenu = await axios.get('https://staging.techbay.co/api/get-footer-menu');
-  // const footerMenuResponse = await footermenu.data.response;
-  // const footerpages = footerMenuResponse.map(li => (li.services))
-  // let bottomPages = [...footerpages[0],...footerpages[1], ...footerpages[2]]; // spread opertor to combine the objects
-  // const bottomPagesList = bottomPages.filter(li => li !== undefined ); // removing undefined
-  // const finalBottomPagesList =  bottomPagesList.filter(li => {
-  //   if(li.slug !== undefined || li.slug !== null ) {
-  //     return li.slug
-  //   }
-  // })
-  // let finalbpages = finalBottomPagesList.map(li => li.slug);
-  //  const bArabicRoutes =  finalbpages.map(li => 
-  //   ({ params: { id:  li}, locale: 'ar' })) 
-
-  //  const bEnglishRoutes =  finalbpages.map(li => 
-  //   ({ params: { id:  li}, locale: 'en-US' })) 
+// export async function getStaticPaths({ locales }) {
 
 
-  //   const arabicRoutes =  allpages.map(li => 
-  //       ({ params: { id:  li}, locale: 'ar' })) 
+  // let allpages = [];
+  // const menu = await axios.get('https://staging.techbay.co/api/get-templates-url');
+  // const menuListl = await menu.data.response;
 
-  //   const englishRoutes =  allpages.map(li => 
-  //     ({ params: { id:  li} })) 
-
-
-  let allpages = [];
-  const menu = await axios.get('https://staging.techbay.co/api/get-templates-url');
-  const menuListl = await menu.data.response;
-
-  let menuList = menuListl.filter(function (el) {
-    return el.slug != null;
-  });
+  // let menuList = menuListl.filter(function (el) {
+  //   return el.slug != null;
+  // });
 
    
 
 
 
 
-  const bEnglishRoutes = menuList.map(li =>
-    ({ params: { id: li.slug } }))
+  // const bEnglishRoutes = menuList.map(li =>
+  //   ({ params: { id: li.slug } }))
 
 
-  const arabicRoutes = menuList.map(li =>
-    ({ params: { id: li.slug }, locale: 'ar' }))
+  // const arabicRoutes = menuList.map(li =>
+  //   ({ params: { id: li.slug }, locale: 'ar' }))
 
 
-  let finalRoutes = [...arabicRoutes, ...bEnglishRoutes];
+  // let finalRoutes = [...arabicRoutes, ...bEnglishRoutes];
  
  
     //  let finalRoutes1 = finalRoutes.filter(li => li.params.id !== 'cancellation-and-refund')
-  return {
+  // return {
 
-    paths: [
+  //   paths: [
 
-        { params: { id: 'development' } },
-        { params:  { id: 'development' }, locale: 'ar' },
+  //       { params: { id: 'development' } },
+  //       { params:  { id: 'development' }, locale: 'ar' },
 
      
-       ...finalRoutes,
+  //      ...finalRoutes,
       // { params: { id: 'design-services' } },
       // { params: { id: 'branding-services' } },
       // { params: { id: 'media-agency' } },
@@ -308,17 +275,17 @@ export async function getStaticPaths({ locales }) {
       // { params: { id: 'smm-packages' }, locale: 'ar' },
       // { params: { id: 'startup-packages' }, locale: 'ar' },
 
-    ],
-    fallback: false
-  }
+//     ],
+//     fallback: false
+//   }
 
 
-}
+// }
 
 
 
 // fetch data from the url
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
 
 
 
@@ -328,27 +295,27 @@ export async function getStaticProps(context) {
 
 // let NavbarResult = await  axios.get('https://staging.techbay.co/api/get-navbar-menu');
 // let NavbarfinalData = await  NavbarResult.data.response;
-let menudata = null;
+// let menudata = null;
 
 // fetching the bottom pages
 // let bpage = await  axios.get('https://staging.techbay.co/api/get-footer-menu');
 // let finalBottomPages  = await  bpage.data.response;
-let bottomPages = null;
+// let bottomPages = null;
 
 // fetching the company info part
 // let cinfo = await  axios.get('https://staging.techbay.co/api/get-header-footer-content');
 // let finalCompanyInfo = await  cinfo.data.response;
-let companyInfo = null;
+// let companyInfo = null;
 
 
 // 
 ///////////////////////////fetching the footer menu
   // let info = await  axios.get('https://staging.techbay.co/api/get-addresses');
   // let finalCompanyInfoFooter = await  info.data.response;
-  let footerData = null;
+  // let footerData = null;
   // let infotwo = await  axios.get('https://staging.techbay.co/api/get-header-footer-content');
   // let finalCompanyInfotwofooter = await  infotwo.data.response;
-  let bottomFooter = null; 
+  // let bottomFooter = null; 
   
 
 
@@ -366,10 +333,5 @@ let companyInfo = null;
   
   return { props: { 
     data,
-    footerData,
-    bottomFooter,
-    // menudata, 
-    // bottomPages,
-    // companyInfo
   } }
 }
