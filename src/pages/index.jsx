@@ -583,9 +583,25 @@ toggleArrows(val) {
 
 export async function getStaticProps() {
 
+
+
+
+
+
   const result = axios.get('https://staging.techbay.co/api/get-sliders-with-content');
   const finalData =  (await result).data.response;
   const ImagePath = "https://staging.techbay.co//storage/app/";
+  
+  /////////////////////////fetching the footer menu
+  let info = await  axios.get('https://staging.techbay.co/api/get-addresses');
+  let finalCompanyInfoFooter = await  info.data.response;
+  let footerData = finalCompanyInfoFooter;
+  let infotwo = await  axios.get('https://staging.techbay.co/api/get-header-footer-content');
+  let finalCompanyInfotwofooter = await  infotwo.data.response;
+  let bottomFooter = finalCompanyInfoFooter; 
+  
+  
+  
   return {
     props: {
       finalData,
