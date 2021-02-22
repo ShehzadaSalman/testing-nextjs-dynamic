@@ -193,7 +193,7 @@ const Headerfive = ({menudata, bottomPages, companyInfo}) => {
                         <div className="abouts">
                  
           
-                        {(bottomPages.length > 0) 
+                        {(bottomPages?.length > 0) 
                  && 
                  <>
                  {bottomPages?.map(m => {

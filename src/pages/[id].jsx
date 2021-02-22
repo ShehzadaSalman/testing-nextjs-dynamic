@@ -334,14 +334,14 @@ let NavbarfinalData = await  NavbarResult.data.response;
 let menudata = NavbarfinalData;
 
 // fetching the bottom pages
-let bpage = await  axios.get('https://staging.techbay.co/api/get-footer-menu');
-let finalBottomPages  = await  bpage.data.response;
-let bottomPages = finalBottomPages
+// let bpage = await  axios.get('https://staging.techbay.co/api/get-footer-menu');
+// let finalBottomPages  = await  bpage.data.response;
+let bottomPages = null;
 
 // fetching the company info part
-let cinfo = await  axios.get('https://staging.techbay.co/api/get-header-footer-content');
-let finalCompanyInfo = await  cinfo.data.response;
-let companyInfo = finalCompanyInfo;
+// let cinfo = await  axios.get('https://staging.techbay.co/api/get-header-footer-content');
+// let finalCompanyInfo = await  cinfo.data.response;
+let companyInfo = null;
 
 
 // 
