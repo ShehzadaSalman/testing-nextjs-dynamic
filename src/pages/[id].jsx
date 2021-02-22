@@ -169,7 +169,7 @@ function Dynamic({ data, footerData, bottomFooter, menudata, bottomPages, compan
 
   if (data) {
     if(data.template_id == 450){
-      return <>{<Template450 finalData={data}/>}{/* <Footer footerData = {footerData} bottomFooter = {bottomFooter}   /> */}</>
+      return <><h1>Main category page</h1>{/* <Footer footerData = {footerData} bottomFooter = {bottomFooter}   /> */}</>
     }else{
       return <><Headerfive/>{SwitchPages(data)}{/* <Footer footerData = {footerData} bottomFooter = {bottomFooter}   /> */}</>
     }
@@ -258,7 +258,6 @@ export async function getStaticPaths({ locales }) {
 
      
        ...finalRoutes,
-
       // { params: { id: 'design-services' } },
       // { params: { id: 'branding-services' } },
       // { params: { id: 'media-agency' } },
