@@ -234,7 +234,7 @@ export async function getStaticPaths({ locales }) {
   });
 
    
-  console.log(menuList);
+
 
 
 
@@ -252,7 +252,10 @@ export async function getStaticPaths({ locales }) {
   return {
 
     paths: [
+      { params: { id: 'branding' } },
+      { params: { id: 'branding', locale: 'ar' } },
        ...finalRoutes,
+
       // { params: { id: 'design-services' } },
       // { params: { id: 'branding-services' } },
       // { params: { id: 'media-agency' } },
