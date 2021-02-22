@@ -308,11 +308,7 @@ export async function getStaticPaths({ locales }) {
       // { params: { id: 'ppc-packages' }, locale: 'ar' },
       // { params: { id: 'smm-packages' }, locale: 'ar' },
       // { params: { id: 'startup-packages' }, locale: 'ar' },
-      // { params: { id: 'about-us' }, locale: 'ar' },
-      // { params: { id: 'case-studies' }, locale: 'ar' },
-      // { params: { id: 'privacy-policy' }, locale: 'ar' },
-      // { params: { id: 'terms-and-conditions' }, locale: 'ar' },
-      // { params: { id: 'cancellation-and-refund' }, locale: 'ar' },
+
     ],
     fallback: false
   }
