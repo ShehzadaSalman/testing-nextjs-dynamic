@@ -82,18 +82,18 @@ const Header = () => {
 
 
    const fetchData = async () => {
-    const result = await  axios.get('https://staging.techbay.co/api/get-navbar-menu');
-    const finalData = await  result.data.response;
-    setMenuData(finalData);
+    // const result = await  axios.get('https://staging.techbay.co/api/get-navbar-menu');
+    // const finalData = await  result.data.response;
+    // setMenuData(finalData);
 
-   const bpage = await  axios.get('https://staging.techbay.co/api/get-footer-menu');
-   const finalBottomPages  = await  bpage.data.response;
-   setBottomPages(finalBottomPages)
+  //  const bpage = await  axios.get('https://staging.techbay.co/api/get-footer-menu');
+  //  const finalBottomPages  = await  bpage.data.response;
+  //  setBottomPages(finalBottomPages)
    
 
-  const cinfo = await  axios.get('https://staging.techbay.co/api/get-header-footer-content');
-   const finalCompanyInfo = await  cinfo.data.response;
-   setCompanyInfo(finalCompanyInfo);
+  // const cinfo = await  axios.get('https://staging.techbay.co/api/get-header-footer-content');
+  //  const finalCompanyInfo = await  cinfo.data.response;
+  //  setCompanyInfo(finalCompanyInfo);
  }
 
 
@@ -115,9 +115,9 @@ const Header = () => {
   <div className={`row ${addClass ? 'drop-menu-top-bar' : ''}`}>
     <div className="col-3 logos-container">
       <a onClick={refreshPage}>
-        {companyInfo.logo && 
+        {companyInfo?.logo && 
         <img 
-        src={ImagePath + companyInfo.logo} className="img-fluid" alt="Tech Bay Solution" />}
+        src={ImagePath + companyInfo?.logo} className="img-fluid" alt="Tech Bay Solution" />}
       </a>
 
     </div>
@@ -192,7 +192,7 @@ const Header = () => {
                 <div className="new-menu-wrapper box-direction text-direction">
 
  
-                {menudata.map(menu => (
+                {menudata?.map(menu => (
                           <div key={menu.id}  onMouseEnter={openNewMenu} onMouseLeave={closeNewMenu} className= {menu.services.length > 0 ? "new-menu-item sub" : "new-menu-item" }>
                           
                          {menu.slug == '/' 
@@ -208,7 +208,7 @@ const Header = () => {
                             <span></span>
                      
           <div className="new-menu-sub text-direction">
-                { menu.services.length > 0 &&  menu.services.map(li => {
+                { menu?.services.length > 0 &&  menu.services.map(li => {
                 return( <div onClick={samePageRefresh}>
                   <Link  href={li.slug}>
                     <a>
@@ -237,7 +237,7 @@ const Header = () => {
              
           <div className="abouts"> 
               
-                 {(bottomPages.length > 0) 
+                 {(bottomPages?.length > 0) 
                  && 
                  <>
                  {bottomPages.map(m => {
