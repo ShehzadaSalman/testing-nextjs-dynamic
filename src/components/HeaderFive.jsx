@@ -22,26 +22,22 @@ const Headerfive = () => {
     const finalData = await  result.data.response;
     setMenuData(finalData);
 
-   const bpage = await  axios.get('https://staging.techbay.co/api/get-footer-menu');
-   const finalBottomPages  = await  bpage.data.response;
-   setBottomPages(finalBottomPages)
+//    const bpage = await  axios.get('https://staging.techbay.co/api/get-footer-menu');
+//    const finalBottomPages  = await  bpage.data.response;
+//    setBottomPages(finalBottomPages)
    
 
-  const cinfo = await  axios.get('https://staging.techbay.co/api/get-header-footer-content');
-   const finalCompanyInfo = await  cinfo.data.response;
-   setCompanyInfo(finalCompanyInfo);
- }
+//   const cinfo = await  axios.get('https://staging.techbay.co/api/get-header-footer-content');
+//    const finalCompanyInfo = await  cinfo.data.response;
+//    setCompanyInfo(finalCompanyInfo);
+}
 
 
 
 
   useEffect(() => {
-    setTimeout(() => {
       fetchData();
-    }, 3000)
- 
-  
-    },[!menudata,!bottomPages, !companyInfo])
+  },[!menudata,!bottomPages, !companyInfo])
 
 
 
