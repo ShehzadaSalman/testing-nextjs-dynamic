@@ -60,7 +60,7 @@ const SEO = ({ finalData }) => {
   return (
     <React.Fragment>
       <div className="slide-section ">
-        <Headerfive />
+       
         <div
           className="slide-content-wrapper p41 d-flex flex-column seoPackage"
           onScroll={(event) => addStickyHeader(event.target)}

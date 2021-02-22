@@ -160,7 +160,7 @@ const CROPAGE = ({ finalData }) => {
     <React.Fragment>
 
       <div className="main-div">
-        <Headerfive />
+ 
         <PageBanner
           dark
           category="marketing"

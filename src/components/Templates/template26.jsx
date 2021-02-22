@@ -11,7 +11,7 @@ const ABOUT = ({ finalData }) => {
 
   return (
     <React.Fragment>
-      <Headerfive />
+   
       <div className="slide-section ">
         <div
           className="slide-content-wrapper p41 d-flex flex-column seoPackage">

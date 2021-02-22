@@ -24,7 +24,7 @@ function SMMPAGE() {
   return (
     <React.Fragment>
       <div className="Content-div">
-     <Headerfive/>
+    
         {/*  the first section  */}
         <PageBanner
           category = "marketing"

@@ -154,7 +154,7 @@ const AppDesign = ({ finalData }) => {
 
   return (
     <React.Fragment>
-      <Headerfive />
+     
       {/*  The First section    */}
       <PageBanner
         category="development"

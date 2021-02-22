@@ -39,137 +39,140 @@ import Footer from '../components/Footer'
 
 function Dynamic({ data }) {
 
+ function SwitchPages(data){
+
+  switch (data.template_id) {
+
+    case 1:
+      return (<><Template1 finalData={data} /></>)
+      break;
+
+    case 2:
+      return (<><Template2 finalData={data} /></>)
+      break;
+
+    case 3:
+      return (<><Template3 finalData={data} /></>)
+      break;
+
+    case 4:
+      return (<><Template4 finalData={data} /></>)
+      break;
+
+    case 5:
+      return (<><Template5 finalData={data} /></>)
+      break;
+
+    case 6:
+      return (<><Template6 finalData={data} /></>)
+      break;
+
+    case 7:
+      return (<><Template7 finalData={data} /></>)
+      break;
+
+    case 8:
+      return (<><Template8 finalData={data} /></>)
+      break;
+
+    case 9:
+      return (<><Template9 finalData={data} /></>)
+      break;
+
+    case 10:
+      return (<><Template10 finalData={data} /></>)
+      break;
+
+    case 11:
+      return (<><Template11 finalData={data} /></>)
+      break;
+
+    case 12:
+      return (<><Template12 finalData={data} /></>)
+      break;
+
+    case 13:
+      return (<><Template13 finalData={data} /></>)
+      break;
+
+    case 14:
+      return (<><Template14 finalData={data} /></>)
+      break;
+
+    case 15:
+      return (<><Template15 finalData={data} /></>)
+      break;
+
+    case 16:
+      return (<><Template16 finalData={data} /></>)
+      break;
+
+    case 17:
+      return (<><Template17 finalData={data} /></>)
+      break;
+
+    case 18:
+      return (<><Template18 finalData={data} /></>)
+      break;
+
+    case 19:
+      return (<><Template19 finalData={data} /></>)
+      break;
+
+    case 20:
+      return (<><Template20 finalData={data} /></>)
+      break;
+
+    case 21:
+      return (<><Template21 finalData={data} /></>)
+      break;
+
+    case 26:
+      return (<><Template26 finalData={data} /></>)
+      break;
+
+    case 24:
+      return (<> <Template24 data={data} /></>)
+      break;
+
+    case 25:
+      return (<><Template25 finalData={data} /></>)
+      break;
+
+    case 27:
+      return (<><Template27 finalData={data} /></>)
+      break;
+
+    case 29:
+      return (<><Template29 finalData={data} /></>)
+      break;
+
+    case 30:
+      return (<><Template30 finalData={data} /></>)
+
+
+    case 350:
+      return (<> <Template350 finalData={data} /></>)
+      break;
+
+    case 450:
+      return (<><Template450 finalData={data} /></>)
+      break;   
+
+
+    default:
+      return <>{JSON.stringify(data.template_id)}</>
+      break;
+  }
+ }
+
 
   if (data) {
-
-    switch (data.template_id) {
-
-      case 1:
-        return (<><Template1 finalData={data} /><Footer /></>)
-        break;
-
-      case 2:
-        return (<><Template2 finalData={data} /><Footer /></>)
-        break;
-
-      case 3:
-        return (<><Template3 finalData={data} /><Footer /></>)
-        break;
-
-      case 4:
-        return (<><Template4 finalData={data} /></>)
-        break;
-
-      case 5:
-        return (<><Template5 finalData={data} /><Footer /></>)
-        break;
-
-      case 6:
-        return (<><Template6 finalData={data} /><Footer /></>)
-        break;
-
-      case 7:
-        return (<><Template7 finalData={data} /><Footer /></>)
-        break;
-
-      case 8:
-        return (<><Template8 finalData={data} /><Footer /></>)
-        break;
-
-      case 9:
-        return (<><Template9 finalData={data} /><Footer /></>)
-        break;
-
-      case 10:
-        return (<><Template10 finalData={data} /><Footer /></>)
-        break;
-
-      case 11:
-        return (<><Template11 finalData={data} /><Footer /></>)
-        break;
-
-      case 12:
-        return (<><Template12 finalData={data} /><Footer /></>)
-        break;
-
-      case 13:
-        return (<><Template13 finalData={data} /><Footer /></>)
-        break;
-
-      case 14:
-        return (<><Template14 finalData={data} /><Footer /></>)
-        break;
-
-      case 15:
-        return (<><Template15 finalData={data} /><Footer /></>)
-        break;
-
-      case 16:
-        return (<><Template16 finalData={data} /><Footer /></>)
-        break;
-
-      case 17:
-        return (<><Template17 finalData={data} /><Footer /></>)
-        break;
-
-      case 18:
-        return (<><Template18 finalData={data} /><Footer /></>)
-        break;
-
-      case 19:
-        return (<><Template19 finalData={data} /><Footer /></>)
-        break;
-
-      case 20:
-        return (<><Template20 finalData={data} /><Footer /></>)
-        break;
-
-      case 21:
-        return (<><Template21 finalData={data} /><Footer /></>)
-        break;
-
-      case 26:
-        return (<><Template26 finalData={data} /> <Footer /></>)
-        break;
-
-      case 24:
-        return (<> <Template24 data={data} /><Footer /></>)
-        break;
-
-      case 25:
-        return (<><Template25 finalData={data} /><Footer /></>)
-        break;
-
-      case 27:
-        return (<><Template27 finalData={data} /><Footer /></>)
-        break;
-
-      case 29:
-        return (<><Template29 finalData={data} /><Footer /></>)
-        break;
-
-      case 30:
-        return (<><Template30 finalData={data} /><Footer /></>)
-
-
-      case 350:
-        return (<> <Template350 finalData={data} /><Footer /></>)
-        break;
-
-      case 450:
-        return (<> <Template450 finalData={data} /></>)
-        break;   
-
-      // case 29:
-      // return (<> <Template25/><Footer/></>)
-      // break;  
-
-      default:
-        return <>{JSON.stringify(data.template_id)}</>
-        break;
-    }
-
-
+    return <>
+    <Headerfive/>
+    {SwitchPages(data)}
+    <Footer/>
+    </>
   } else {
     return <Error statusCode="503" />
   }
@@ -231,6 +234,7 @@ export async function getStaticPaths({ locales }) {
   });
 
    
+  console.log(menuList);
 
 
 

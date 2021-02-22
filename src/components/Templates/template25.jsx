@@ -8,7 +8,7 @@ const PRIVACY = ({ finalData }) => {
   return (
     <React.Fragment>
       <div className="content-div">
-        <Headerfive />
+
         <PageBanner
           category="marketing"
           heading={locale !== 'ar' ? finalData.header_title_arabic : finalData.header_title_english}

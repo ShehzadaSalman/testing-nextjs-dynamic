@@ -76,7 +76,7 @@ const Agency = ({ finalData }) => {
   return (
     <React.Fragment>
       <div className="content-div">
-        <Headerfive />
+
         <PageBanner dark
           category="branding"
           heading={content.BannerHeading}

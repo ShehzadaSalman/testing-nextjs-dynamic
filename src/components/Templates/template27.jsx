@@ -8,7 +8,7 @@ const CaseStudy = ({ finalData }) => {
   let sectionLoop = 0;
   return (
     <React.Fragment>
-      <Headerfive />
+ 
       <div className="content-div">
         <div className="slide-section mt-5">
           <div className="content container mt-5">

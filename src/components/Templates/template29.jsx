@@ -32,7 +32,7 @@ return (
 <React.Fragment>
 
   <div className = "main-content">
-  <Headerfive/>
+
 {/*  The First section    */}
       <PageBanner
       category = "marketing"

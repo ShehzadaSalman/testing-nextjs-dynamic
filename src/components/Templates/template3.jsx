@@ -134,7 +134,7 @@ const MediaRelation = ({ finalData }) => {
   return (
     <React.Fragment>
       <div className="main-content">
-        <Headerfive/>
+
         <PageBanner
           category="branding"
           heading={content.BannerHeading}

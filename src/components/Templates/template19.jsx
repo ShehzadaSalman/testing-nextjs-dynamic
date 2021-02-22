@@ -144,7 +144,7 @@ const UIUX = ({ finalData }) => {
 
   return (
     <React.Fragment>
-      <Headerfive />
+    
       <div className="content-div">
         <PageBannerTwo
           dark
