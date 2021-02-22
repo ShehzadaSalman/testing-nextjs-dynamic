@@ -100,7 +100,7 @@ Techbay Solutions clients on an ongoing package may cancel their plan, but with 
 
         </div>
         </div>
-        <Footer/>
+ 
         <style>
             {`
             

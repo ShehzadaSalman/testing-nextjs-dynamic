@@ -59,7 +59,7 @@ const PortfolioPage = () => {
 
 
     
-      <Footer />
+ 
       <style jsx>
         {`
       .secondlist-div img{

@@ -77,7 +77,7 @@ paid $1000’s to receive."
 
 
 
-      <Footer/>
+  
   
     <style>
       {`

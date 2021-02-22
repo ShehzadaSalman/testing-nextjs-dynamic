@@ -90,7 +90,7 @@ Critically, without a reasonable business relationship, Techbay Solutions cannot
 
         </div>
         </div>
-        <Footer/>
+      
         <style>
             {`
             

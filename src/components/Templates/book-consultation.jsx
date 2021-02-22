@@ -81,7 +81,7 @@ const Consultation = () => {
                         btntext="GET MY FREE REPORT"
                     />
                 </div>
-                <Footer />
+              
             </div>
             <style> {`
                 body{

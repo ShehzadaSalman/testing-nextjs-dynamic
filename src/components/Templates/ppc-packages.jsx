@@ -395,7 +395,7 @@ const PPC = () => {
 
           <div className="text-center pt-1 pt-md-4">
             <NewTermsOfService />
-            <Footer />
+        
           </div>
 
 

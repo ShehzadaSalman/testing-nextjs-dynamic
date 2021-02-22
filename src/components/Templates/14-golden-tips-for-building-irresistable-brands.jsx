@@ -73,7 +73,7 @@ Well, the key to avoiding mistakes is knowing what they are. While branding hold
 
 
 
-      <Footer/>
+    
   
     <style>
       {`
