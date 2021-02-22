@@ -328,10 +328,9 @@ export async function getStaticProps(context) {
 // 
 ////////////////////fetching the header menu 
 
-
-let NavbarResult = await  axios.get('https://staging.techbay.co/api/get-navbar-menu');
-let NavbarfinalData = await  NavbarResult.data.response;
-let menudata = NavbarfinalData;
+// let NavbarResult = await  axios.get('https://staging.techbay.co/api/get-navbar-menu');
+// let NavbarfinalData = await  NavbarResult.data.response;
+let menudata = null;
 
 // fetching the bottom pages
 // let bpage = await  axios.get('https://staging.techbay.co/api/get-footer-menu');
