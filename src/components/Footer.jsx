@@ -1,28 +1,29 @@
 import {useState, useEffect} from 'react'
-import axios from 'axios';
+
 import { useRouter } from 'next/router'
-export default (props) => {
+export default ({footerData, bottomFooter}) => {
   const router = useRouter();
   const {locale} = router;
 
 
-const [footerData, setFooterData] = useState({})
-const [bottomFooter, setBottomFooter] = useState({});
-
-  const fetchData = async () => {
-    const info = await  axios.get('https://staging.techbay.co/api/get-addresses');
-    const finalCompanyInfo = await  info.data.response;
-    setFooterData(finalCompanyInfo);
-    const infotwo = await  axios.get('https://staging.techbay.co/api/get-header-footer-content');
-    const finalCompanyInfotwo = await  infotwo.data.response;
-    setBottomFooter(finalCompanyInfotwo);
-  }
+// const [footerData, setFooterData] = useState({})
+// const [bottomFooter, setBottomFooter] = useState({});
 
 
+  // const fetchData = async () => {
+  //   const info = await  axios.get('https://staging.techbay.co/api/get-addresses');
+  //   const finalCompanyInfo = await  info.data.response;
+  //   setFooterData(finalCompanyInfo);
+  //   const infotwo = await  axios.get('https://staging.techbay.co/api/get-header-footer-content');
+  //   const finalCompanyInfotwo = await  infotwo.data.response;
+  //   setBottomFooter(finalCompanyInfotwo);
+  // }
 
-  useEffect(() => {
-    fetchData();
-     },[])
+
+
+  // useEffect(() => {
+  //   fetchData();
+  //    },[])
 
 
      
@@ -35,9 +36,9 @@ const [bottomFooter, setBottomFooter] = useState({});
     <div className='footers'>
       <div className="container pb-0 pb-md-3">
         <div className="row mb-0 mb-md-5">
-
+     
     
-        {footerData.addresses &&
+        {footerData?.addresses &&
         <>
         {footerData.addresses.map(f => (
 <div className="col-sm-12 col-md-6  copyright" key={f.address}>

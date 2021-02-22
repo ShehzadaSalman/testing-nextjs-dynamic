@@ -37,7 +37,7 @@ import Footer from '../components/Footer'
 
 
 
-function Dynamic({ data }) {
+function Dynamic({ data, footerData, bottomFooter, menudata, bottomPages, companyInfo }) {
 
  function SwitchPages(data){
 
@@ -169,9 +169,9 @@ function Dynamic({ data }) {
 
   if (data) {
     return <>
-    <Headerfive/>
+    <Headerfive menudata={menudata} bottomPages={bottomPages} companyInfo={companyInfo}   />
     {SwitchPages(data)}
-    <Footer/>
+    <Footer footerData = {footerData} bottomFooter = {bottomFooter}   />
     </>
   } else {
     return <Error statusCode="503" />
@@ -248,7 +248,7 @@ export async function getStaticPaths({ locales }) {
 
   let finalRoutes = [...arabicRoutes, ...bEnglishRoutes];
  
-   console.log(finalRoutes);
+ 
     //  let finalRoutes1 = finalRoutes.filter(li => li.params.id !== 'cancellation-and-refund')
   return {
 
@@ -311,7 +311,7 @@ export async function getStaticPaths({ locales }) {
       // { params: { id: 'terms-and-conditions' }, locale: 'ar' },
       // { params: { id: 'cancellation-and-refund' }, locale: 'ar' },
     ],
-    fallback: false
+    fallback: true
   }
 
 
@@ -322,18 +322,57 @@ export async function getStaticPaths({ locales }) {
 // fetch data from the url
 export async function getStaticProps(context) {
 
-// fetching the header menu 
 
 
 
-// fetching the footer menu
+// 
+////////////////////fetching the header menu 
+
+
+let NavbarResult = await  axios.get('https://staging.techbay.co/api/get-navbar-menu');
+let NavbarfinalData = await  NavbarResult.data.response;
+let menudata = NavbarfinalData;
+
+// fetching the bottom pages
+let bpage = await  axios.get('https://staging.techbay.co/api/get-footer-menu');
+let finalBottomPages  = await  bpage.data.response;
+let bottomPages = finalBottomPages
+
+// fetching the company info part
+let cinfo = await  axios.get('https://staging.techbay.co/api/get-header-footer-content');
+let finalCompanyInfo = await  cinfo.data.response;
+let companyInfo = finalCompanyInfo;
+
+
+// 
+///////////////////////////fetching the footer menu
+  let info = await  axios.get('https://staging.techbay.co/api/get-addresses');
+  let finalCompanyInfoFooter = await  info.data.response;
+  let footerData = finalCompanyInfoFooter;
+  let infotwo = await  axios.get('https://staging.techbay.co/api/get-header-footer-content');
+  let finalCompanyInfotwofooter = await  infotwo.data.response;
+  let bottomFooter = finalCompanyInfotwofooter; 
+  
 
 
 
-  let data = 'hello world';
+// 
+//////////////////////// page content
+
+
+  let data = '';
   const res = await axios.get(`https://staging.techbay.co/api/get-template-data/${context.params.id}`)
   if (res.data.status !== 500) {
     data = await res.data.response
   } else { data = null }
-  return { props: { data, } }
+  
+  
+  return { props: { 
+    data,
+    footerData,
+    bottomFooter,
+    menudata, 
+    bottomPages,
+    companyInfo
+  } }
 }

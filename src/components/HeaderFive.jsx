@@ -1,19 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { getDeviceName } from '../lib/helper';
 let deviceName = getDeviceName();
 import { useRouter } from 'next/router'
-import axios from 'axios';
-let initialData = 
-  [{"id":10,"title":"HOME","title_arabic":"\u0627\u0644\u0635\u0641\u062d\u0629 \u0627\u0644\u0631\u0626\u064a\u0633\u064a\u0629","slug":"\/","services":[]},{"id":11,"title":"BRANDING","title_arabic":"\u0627\u0644\u0639\u0644\u0627\u0645\u0627\u062a \u0627\u0644\u062a\u062c\u0627\u0631\u064a\u0629","slug":"\/branding","services":[{"id":23,"menu_id":11,"title":"DESIGN SERVICES","title_arabic":"DESIGN SERVICES","slug":"\/design-services","type":1},{"id":24,"menu_id":11,"title":"BRANDING SERVICES","title_arabic":"BRANDING SERVICES","slug":"\/branding-services","type":1},{"id":25,"menu_id":11,"title":"MEDIA AGENCY","title_arabic":"MEDIA AGENCY","slug":"\/media-agency","type":1},{"id":26,"menu_id":11,"title":"PUBLIC RELATION","title_arabic":"PUBLIC RELATION","slug":"\/public-relation","type":1},{"id":27,"menu_id":11,"title":"MOTION DESIGNING","title_arabic":"MOTION DESIGNING","slug":"\/motion-designing","type":1},{"id":28,"menu_id":11,"title":"VIDEO PRODUCTION","title_arabic":"VIDEO PRODUCTION","slug":"\/video-production","type":1},{"id":29,"menu_id":11,"title":"ADVERTISING AGENCY","title_arabic":"ADVERTISING AGENCY","slug":"\/advertising-agency","type":1},{"id":50,"menu_id":11,"title":"BRANDING AND PC NEW MENU","title_arabic":"BRANDING AND PC NEW MENU","slug":"\/branding-and-pc-new-menu","type":1}]},{"id":12,"title":"DEVELOPMENT","title_arabic":"\u062a\u0637\u0648\u064a\u0631","slug":"\/development","services":[{"id":30,"menu_id":12,"title":"WEBSITE DESIGNING","title_arabic":"WEBSITE DESIGNING","slug":"\/website-designing-old","type":1},{"id":31,"menu_id":12,"title":"UI\/UX DESIGNING","title_arabic":"UI\/UX DESIGNING","slug":"\/ui\/ux-designing","type":1},{"id":32,"menu_id":12,"title":"WEB DEVELOPMENT","title_arabic":"WEB DEVELOPMENT","slug":"\/web-development","type":1},{"id":33,"menu_id":12,"title":"MOBILE APP DEVELOPMENT","title_arabic":"MOBILE APP DEVELOPMENT","slug":"\/mobile-app-development","type":1},{"id":34,"menu_id":12,"title":"CONTENT MANAGEMENT SYSTEM","title_arabic":"CONTENT MANAGEMENT SYSTEM","slug":"\/content-management-system","type":1},{"id":35,"menu_id":12,"title":"ENTERPRISE RESOURCE PLANNING","title_arabic":"ENTERPRISE RESOURCE PLANNING","slug":"\/enterprise-resource-planning","type":1},{"id":36,"menu_id":12,"title":"E-COMMERCE","title_arabic":"E-COMMERCE","slug":"\/e-commerce","type":1},{"id":37,"menu_id":12,"title":"CUSTOMER RELATIONSHIP MANAGEMENT","title_arabic":"CUSTOMER RELATIONSHIP MANAGEMENT","slug":"\/customer-relationship-management","type":1},{"id":49,"menu_id":12,"title":"APP DESIGNING","title_arabic":"APP DESIGNING","slug":"\/app-designing","type":1}]},{"id":13,"title":"MARKETING","title_arabic":"\u062a\u0633\u0648\u064a\u0642","slug":"\/marketing","services":[{"id":38,"menu_id":13,"title":"SEARCH ENGINE OPTIMIZATION","title_arabic":"SEARCH ENGINE OPTIMIZATION","slug":"\/search-engine-optimization","type":1},{"id":39,"menu_id":13,"title":"PAY-PER-CLICK ADVERTISEMENT","title_arabic":"PAY-PER-CLICK ADVERTISEMENT","slug":"\/pay-per-click-advertisement","type":1},{"id":40,"menu_id":13,"title":"CONVERSION RATE OPTIMIZATION","title_arabic":"CONVERSION RATE OPTIMIZATION","slug":"\/conversion-rate-optimization","type":1},{"id":41,"menu_id":13,"title":"CONTENT MARKETING","title_arabic":"CONTENT MARKETING","slug":"\/content-marketing","type":1},{"id":42,"menu_id":13,"title":"SOCIAL MEDIA MARKETING","title_arabic":"SOCIAL MEDIA MARKETING","slug":"\/social-media-marketing","type":1},{"id":43,"menu_id":13,"title":"RETARGETING & REMARKETING","title_arabic":"RETARGETING & REMARKETING","slug":"\/retargeting-&-remarketing","type":1},{"id":44,"menu_id":13,"title":"COPY WRITING","title_arabic":"COPY WRITING","slug":"\/copy-writing","type":1}]},{"id":14,"title":"PACKAGES","title_arabic":"\u0627\u0644\u062d\u0632\u0645","slug":"\/packages","services":[{"id":45,"menu_id":14,"title":"SEO PACKAGES","title_arabic":"SEO PACKAGES","slug":"\/seo-packages","type":2},{"id":46,"menu_id":14,"title":"PPC Packages","title_arabic":"PPC Packages","slug":"\/ppc-packages","type":2},{"id":47,"menu_id":14,"title":"SMM Packages","title_arabic":"SMM Packages","slug":"\/smm-packages","type":2},{"id":48,"menu_id":14,"title":"STARTUP Packages","title_arabic":"STARTUP Packages","slug":"\/startup-packages","type":2}]},{"id":15,"title":"CONTACT US","title_arabic":"\u0627\u062a\u0635\u0644 \u0628\u0646\u0627","slug":"\/contact-us","services":[]}]
-  
-const Headerfive = () => {
+
+const Headerfive = ({menudata, bottomPages, companyInfo}) => {
 
   const [addClass , setAddClass] = useState(false);
   const [isMenu , setIsMenu] = useState(true);
-  const [menudata, setMenuData] = useState(initialData);
-  const [bottomPages, setBottomPages] = useState([]);
-  const [companyInfo, setCompanyInfo] = useState({});
+  // const [menudata, setMenuData] = useState([]);
+  // const [bottomPages, setBottomPages] = useState([]);
+  // const [companyInfo, setCompanyInfo] = useState({});
   const router = useRouter();
   const {locale} = router;
 
@@ -76,26 +73,6 @@ const Headerfive = () => {
       window.location.reload();
     }
   }
-
-  useEffect(() => {
-  
-    const fetchData = async () => {
-      const result = await  axios.get('https://staging.techbay.co/api/get-navbar-menu');
-      const finalData = await  result.data.response;
-      setMenuData(finalData);
-        // fetching the bottom pages
-   const bpage = await  axios.get('https://staging.techbay.co/api/get-footer-menu');
-   const finalBottomPages  = await  bpage.data.response;
-   setBottomPages(finalBottomPages)
-   
-   // fetching the company info part
-  const cinfo = await  axios.get('https://staging.techbay.co/api/get-header-footer-content');
-   const finalCompanyInfo = await  cinfo.data.response;
-   setCompanyInfo(finalCompanyInfo);
-   }
-
-   fetchData();
-    },[])
 
 
 
@@ -179,7 +156,7 @@ const Headerfive = () => {
                       <div className="menu-container-class container-fluid">
                         <div className="new-menu-wrapper box-direction text-direction">
                         
-                       {menudata.map(menu => ( 
+                       {menudata?.map(menu => ( 
                            <div key={menu.id}  onMouseEnter={openNewMenu} onMouseLeave={closeNewMenu} className= {menu.services.length > 0 ? "new-menu-item sub" : "new-menu-item" }>
                           {menu.slug == '/' 
                           ? <h1 onClick={refreshPage}>{menu.title}</h1>
@@ -193,7 +170,7 @@ const Headerfive = () => {
                              <span></span>
                      
                              <div className="new-menu-sub text-direction">
-                 { menu.services.length > 0 &&  menu.services.map(li => {
+                 { menu?.services.length > 0 &&  menu.services.map(li => {
                  return( <div onClick={samePageRefresh}>
                    <Link  href={li.slug}>
                      <a>
@@ -219,7 +196,7 @@ const Headerfive = () => {
                         {(bottomPages.length > 0) 
                  && 
                  <>
-                 {bottomPages.map(m => {
+                 {bottomPages?.map(m => {
                     return (
                       <div className="header-custom-dropdown">
                       <a className="dropdown-title">
