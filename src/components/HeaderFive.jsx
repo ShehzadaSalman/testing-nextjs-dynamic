@@ -36,7 +36,10 @@ const Headerfive = () => {
 
 
   useEffect(() => {
-  fetchData();
+    setTimeout(() => {
+      fetchData();
+    }, 3000)
+ 
   
     },[!menudata,!bottomPages, !companyInfo])
 

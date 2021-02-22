@@ -82,6 +82,8 @@ const Header = () => {
 
 
    const fetchData = async () => {
+
+
     const result = await  axios.get('https://staging.techbay.co/api/get-navbar-menu');
     const finalData = await  result.data.response;
     setMenuData(finalData);
@@ -100,7 +102,10 @@ const Header = () => {
 
 
   useEffect(() => {
-  fetchData();
+  setTimeout(() =>{
+    fetchData();
+  }, 3000)
+ 
     },[!menudata,!bottomPages, !companyInfo])
  
    // fetching the bottom pages
