@@ -249,12 +249,6 @@ export async function getStaticPaths({ locales }) {
 
     paths: [
        ...finalRoutes,
-      { params: { id: 'branding', locale: 'en' } },
-      { params: { id: 'development', locale: 'en' } },
-      { params: { id: 'marketing', locale: 'en' } },
-      { params: { id: 'branding', locale: 'ar' } },
-      { params: { id: 'development', locale: 'ar' } },
-      { params: { id: 'marketing', locale: 'ar' } },
       // { params: { id: 'design-services' } },
       // { params: { id: 'branding-services' } },
       // { params: { id: 'media-agency' } },
