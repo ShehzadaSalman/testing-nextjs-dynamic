@@ -169,9 +169,9 @@ function Dynamic({ data, footerData, bottomFooter, menudata, bottomPages, compan
 
   if (data) {
     return <>
-    <Headerfive menudata={menudata} bottomPages={bottomPages} companyInfo={companyInfo}   />
+    {/* <Headerfive menudata={menudata} bottomPages={bottomPages} companyInfo={companyInfo}   /> */}
     {SwitchPages(data)}
-    <Footer footerData = {footerData} bottomFooter = {bottomFooter}   />
+    {/* <Footer footerData = {footerData} bottomFooter = {bottomFooter}   /> */}
     </>
   } else {
     return <Error statusCode="503" />
