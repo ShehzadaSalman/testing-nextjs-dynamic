@@ -22,14 +22,14 @@ const Headerfive = () => {
     const finalData = await  result.data.response;
     setMenuData(finalData);
 
-//    const bpage = await  axios.get('https://staging.techbay.co/api/get-footer-menu');
-//    const finalBottomPages  = await  bpage.data.response;
-//    setBottomPages(finalBottomPages)
+   const bpage = await  axios.get('https://staging.techbay.co/api/get-footer-menu');
+   const finalBottomPages  = await  bpage.data.response;
+   setBottomPages(finalBottomPages)
    
 
-//   const cinfo = await  axios.get('https://staging.techbay.co/api/get-header-footer-content');
-//    const finalCompanyInfo = await  cinfo.data.response;
-//    setCompanyInfo(finalCompanyInfo);
+  const cinfo = await  axios.get('https://staging.techbay.co/api/get-header-footer-content');
+   const finalCompanyInfo = await  cinfo.data.response;
+   setCompanyInfo(finalCompanyInfo);
 }
 
 
@@ -185,7 +185,7 @@ const Headerfive = () => {
                           {menu.slug == '/' 
                           ? <h1 onClick={refreshPage}>{menu.title}</h1>
                              :  <>{deviceName != 'Mobile'
-                             ? <h1><Link  href={'/services/'+menu.slug}><a>
+                             ? <h1><Link  href={menu.slug}><a>
                                {locale == 'ar' ? menu.title_arabic :  menu.title}</a></Link></h1>
                           : <h1>{locale == 'ar' ? menu.title_arabic :  menu.title}</h1>
                             } </>

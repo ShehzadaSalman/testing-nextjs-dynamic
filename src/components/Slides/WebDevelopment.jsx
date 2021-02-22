@@ -701,11 +701,11 @@ signatureAction4.setLoop(THREE.LoopOnce);
                 </div>
               </div>
              <Suspense fallback = "Loading...">
-            {/* <WebDevelopmentContent 
+            <WebDevelopmentContent 
                 data = {this.props.data.sliders[0]}
                 services = {this.props.data.services}
                 books = {this.props.data.books}
-            />   */}
+            />  
             </Suspense> 
             
             </div>

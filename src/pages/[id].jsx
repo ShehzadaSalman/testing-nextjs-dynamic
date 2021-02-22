@@ -169,9 +169,9 @@ function Dynamic({ data, footerData, bottomFooter, menudata, bottomPages, compan
 
   if (data) {
     if(data.template_id == 450){
-      return <><Template450 finalData={data} />{/* <Footer footerData = {footerData} bottomFooter = {bottomFooter}   /> */}</>
+      return <><Template450 finalData={data} /><Footer footerData = {footerData} bottomFooter = {bottomFooter}   /> </>
     }else{
-      return <><Headerfive/>{SwitchPages(data)}{/* <Footer footerData = {footerData} bottomFooter = {bottomFooter}   /> */}</>
+      return <><Headerfive/>{SwitchPages(data)}<Footer footerData = {footerData} bottomFooter = {bottomFooter}   /> </>
     }
   } else {
     return <Error statusCode="503" />
@@ -226,54 +226,6 @@ export default Dynamic
 
      
   //      ...finalRoutes,
-      // { params: { id: 'design-services' } },
-      // { params: { id: 'branding-services' } },
-      // { params: { id: 'media-agency' } },
-      // { params: { id: 'public-relation' } },
-      // { params: { id: 'motion-designing' } },
-      // { params: { id: 'video-production' } },
-      // { params: { id: 'advertising-agency' } },
-      // { params: { id: 'website-designing' } },
-      // { params: { id: 'ui-ux-designing' } },
-      // { params: { id: 'web-development' } },
-      // { params: { id: 'mobile-app-development' } },
-      // { params: { id: 'content-management-system' } },
-      // { params: { id: 'enterprise-resource-planning' } },
-      // { params: { id: 'e-commerce' } },
-      // { params: { id: 'customer-relationship-management' } },
-      // { params: { id: 'app-designing' } },
-      // { params: { id: 'search-engine-optimization' } },
-      // { params: { id: 'pay-per-click-advertisement' } },
-      // { params: { id: 'conversion-rate-optimization' } },
-      // { params: { id: 'content-marketing' } },
-      // { params: { id: 'seo-packages' } },
-      // { params: { id: 'ppc-packages' } },
-      // { params: { id: 'smm-packages' } },
-      // { params: { id: 'startup-packages' } },
-      // { params: { id: 'design-services' }, locale: 'ar' },
-      // { params: { id: 'branding-services' }, locale: 'ar' },
-      // { params: { id: 'media-agency' }, locale: 'ar' },
-      // { params: { id: 'public-relation' }, locale: 'ar' },
-      // { params: { id: 'motion-designing' }, locale: 'ar' },
-      // { params: { id: 'video-production' }, locale: 'ar' },
-      // { params: { id: 'advertising-agency' }, locale: 'ar' },
-      // { params: { id: 'website-designing' }, locale: 'ar' },
-      // { params: { id: 'ui-ux-designing' }, locale: 'ar' },
-      // { params: { id: 'web-development' }, locale: 'ar' },
-      // { params: { id: 'mobile-app-development' }, locale: 'ar' },
-      // { params: { id: 'content-management-system' }, locale: 'ar' },
-      // { params: { id: 'enterprise-resource-planning' }, locale: 'ar' },
-      // { params: { id: 'e-commerce' }, locale: 'ar' },
-      // { params: { id: 'customer-relationship-management' }, locale: 'ar' },
-      // { params: { id: 'app-designing' }, locale: 'ar' },
-      // { params: { id: 'search-engine-optimization' }, locale: 'ar' },
-      // { params: { id: 'pay-per-click-advertisement' }, locale: 'ar' },
-      // { params: { id: 'conversion-rate-optimization' }, locale: 'ar' },
-      // { params: { id: 'content-marketing' }, locale: 'ar' },
-      // { params: { id: 'seo-packages' }, locale: 'ar' },
-      // { params: { id: 'ppc-packages' }, locale: 'ar' },
-      // { params: { id: 'smm-packages' }, locale: 'ar' },
-      // { params: { id: 'startup-packages' }, locale: 'ar' },
 
 //     ],
 //     fallback: false
@@ -293,29 +245,29 @@ export async function getServerSideProps(context) {
 // 
 ////////////////////fetching the header menu 
 
-// let NavbarResult = await  axios.get('https://staging.techbay.co/api/get-navbar-menu');
-// let NavbarfinalData = await  NavbarResult.data.response;
-// let menudata = null;
+let NavbarResult = await  axios.get('https://staging.techbay.co/api/get-navbar-menu');
+let NavbarfinalData = await  NavbarResult.data.response;
+let menudata = NavbarfinalData;
 
 // fetching the bottom pages
-// let bpage = await  axios.get('https://staging.techbay.co/api/get-footer-menu');
-// let finalBottomPages  = await  bpage.data.response;
-// let bottomPages = null;
+let bpage = await  axios.get('https://staging.techbay.co/api/get-footer-menu');
+let finalBottomPages  = await  bpage.data.response;
+let bottomPages = finalBottomPages;
 
 // fetching the company info part
-// let cinfo = await  axios.get('https://staging.techbay.co/api/get-header-footer-content');
-// let finalCompanyInfo = await  cinfo.data.response;
-// let companyInfo = null;
+let cinfo = await  axios.get('https://staging.techbay.co/api/get-header-footer-content');
+let finalCompanyInfo = await  cinfo.data.response;
+let companyInfo = finalCompanyInfo;
 
 
-// 
-///////////////////////////fetching the footer menu
-  // let info = await  axios.get('https://staging.techbay.co/api/get-addresses');
-  // let finalCompanyInfoFooter = await  info.data.response;
-  // let footerData = null;
-  // let infotwo = await  axios.get('https://staging.techbay.co/api/get-header-footer-content');
-  // let finalCompanyInfotwofooter = await  infotwo.data.response;
-  // let bottomFooter = null; 
+
+/////////////////////////fetching the footer menu
+  let info = await  axios.get('https://staging.techbay.co/api/get-addresses');
+  let finalCompanyInfoFooter = await  info.data.response;
+  let footerData = finalCompanyInfoFooter;
+  let infotwo = await  axios.get('https://staging.techbay.co/api/get-header-footer-content');
+  let finalCompanyInfotwofooter = await  infotwo.data.response;
+  let bottomFooter = finalCompanyInfoFooter; 
   
 
 
@@ -333,5 +285,8 @@ export async function getServerSideProps(context) {
   
   return { props: { 
     data,
+    footerData, 
+    bottomFooter
+
   } }
 }
