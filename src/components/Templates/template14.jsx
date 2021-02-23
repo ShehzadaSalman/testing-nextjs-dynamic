@@ -291,7 +291,7 @@ const AppDevelopment = ({ finalData }) => {
           imgAddress={ImagePath + content.Book.image}
           title={content.Book.title}
           caption={content.Book.description}
-          btntext="GET MY FREE REPORT"
+          btntext={locale === 'ar' ? finalData.book.btn_title_arabic : finalData.book.btn_title_english}
         />
 
 

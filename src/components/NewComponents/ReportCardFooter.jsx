@@ -134,18 +134,29 @@ const ReportCardFooter = (props) => {
                           type="hidden"
                           value={props.category}
                         />
-                        <input type="text" className="report-inputfield" name="name" placeholder="Name*" required />
+                        <input type="text" className="report-inputfield" name="name" 
+                        placeholder=
+                        {locale === 'ar' ? 'اسم' : 'NAME*'} 
+                        required />
                       
                   </div>
                   <div className="col-md-6 mb-3 px-1">
-                  <input type="email" className="report-inputfield" name="email" placeholder="Email*" required />
+                  <input type="email" className="report-inputfield" name="email"
+                   placeholder=
+                   {locale === 'ar' ? 'بريد الالكتروني' : 'Email*'} 
+                   required />
                   </div>
                   <div className="col-md-6 mb-3 px-1">
                   <input id ="countryCode" type="hidden" name="countrycode"/>
-                  <input type="text" className="report-inputfield" id="report-input-field" name="phone" placeholder="Phone*" required />
+                  <input type="text" className="report-inputfield" id="report-input-field" name="phone" 
+                  placeholder={locale === 'ar' ? 'هاتف' : 'Phone*'} 
+                  required />
                   </div>
                   <div className="col-md-6 mb-3 px-1">
-                  <input type="text" className="report-inputfield" name="company" placeholder="Company*" required />
+                  <input type="text" className="report-inputfield" name="company" 
+                  placeholder=  {locale === 'ar' ? 'شركة' : 'Company*'} 
+                  
+                   required />
                   </div>
 
                  

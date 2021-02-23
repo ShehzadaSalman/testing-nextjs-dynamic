@@ -242,7 +242,7 @@ const MarketingMedia = ({ finalData }) => {
           imgAddress={ImagePath + finalData.book.image}
           title={locale === 'ar' ? finalData.book.title_arabic : finalData.book.title_english}
           caption={locale === 'ar' ? finalData.book.desc_arabic : finalData.book.desc_english}
-          btntext="GET MY FREE REPORT"
+          btntext={locale === 'ar' ? finalData.book.btn_title_arabic : finalData.book.btn_title_english}
         />
 
 

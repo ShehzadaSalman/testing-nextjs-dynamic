@@ -132,10 +132,13 @@ export  class ContactFormClass extends Component {
                         className="form-control"
                         value={this.state.name}
                         onChange={(e) => this.handleChange(e)}
-                        placeholder="Your Name"
+                        placeholder=
+                        {this.props.language === 'ar' ? 'اسمك' : 'Your Name'} 
                         required
                       />
-                      <label htmlFor="name" className="text-direction">NAME</label>
+                      <label htmlFor="name" className="text-direction">
+                         {this.props.language === 'ar' ? 'اسم' : 'NAME'} 
+                      </label>
                     </div>
                   </div>
                   <div className="col-sm-6">
@@ -147,10 +150,13 @@ export  class ContactFormClass extends Component {
                         className="form-control"
                         value={this.state.email}
                         onChange={(e) => this.handleChange(e)}
-                        placeholder="abc@yourcompany.com"
+                        placeholder=
+                        {this.props.language === 'ar' ? 'بريد الالكتروني' : 'Email'} 
                         required
                       />
-                      <label htmlFor="email" className="text-direction">EMAIL</label>
+                      <label htmlFor="email" className="text-direction">
+                      {this.props.language === 'ar' ? 'بريد الالكتروني' : 'Email'} 
+                      </label>
                     </div>
                   </div>
                   <div className="col-sm-6" id="contact-form-column-phone">
@@ -167,10 +173,13 @@ export  class ContactFormClass extends Component {
                         value={this.state.service}
                         className="form-control"
                         onChange={(e) => this.handleChange(e)}
-                        placeholder="WHAT SERVICES ARE YOU LOOKING FOR?"
+                        placeholder=
+                        {this.props.language === 'ar' ? 'الخدمات التي تبحث عنها' : 'Services you are looking for?'} 
                         required
                       />
-                      <label htmlFor="service" className="text-direction">SERVICES YOU'RE LOOKING FOR?</label>
+                      <label htmlFor="service" className="text-direction">
+                      {this.props.language === 'ar' ? 'الخدمات التي تبحث عنها' : 'Services you are looking for?'} 
+                        </label>
                     </div>
                   </div>
                 </div>
@@ -185,20 +194,20 @@ export  class ContactFormClass extends Component {
                     id="submit"
                     value="submit"
                     className="btn mg-link-btn p-0"
-                    onClick={(e) => this.handleSubmit(e)}
-                  >
+                    onClick={(e) => this.handleSubmit(e)}>
+                    {this.props.data?.btn_txt_arabic && 
                     <ButtonStyleOne title=
-                      {this.props.language === 'ar' ? this.props.data?.btn_txt_arabic : this.props.data?.btn_txt}
-                     />
+                    {this.props.language === 'ar' ? this.props.data?.btn_txt_arabic : this.props.data?.btn_txt}
+                   />
+                    }  
+                
                   </a>
-
                 </div>
-
               </form>
 
             </div>
-          </div>
-        ) : this.props.activeTab === 3 ? (
+           </div>
+          ) : this.props.activeTab === 3 ? (
           <div className="container p-3 move-to-front ">
             <div className="thankyou-wrapper m-auto text-center d-flex flex-column" >
               <img src="/images/thankyou.png" className="img-fluid m-auto" alt="Thank You" />
@@ -206,7 +215,9 @@ export  class ContactFormClass extends Component {
               <div className="d-block mt-5">
                 <Link href="/">
                   <a>
-                    <ButtonStyleThree title="Go To Home" />
+                    <ButtonStyleThree title=
+                     {this.props.language === 'ar' ? 'اذهب الى المنزل' : 'Go To Home'}
+                     />
                   </a>
                 </Link>
 
