@@ -148,7 +148,7 @@ const ReportCardFooter = (props) => {
                   </div>
                   <div className="col-md-6 mb-3 px-1">
                   <input id ="countryCode" type="hidden" name="countrycode"/>
-                  <input type="text" className="report-inputfield" id="report-input-field" name="phone" 
+                  <input type="text" className="report-inputfield box-direction" id="report-input-field" name="phone" 
                   placeholder={locale === 'ar' ? 'هاتف' : 'Phone*'} 
                   required />
                   </div>
@@ -162,10 +162,9 @@ const ReportCardFooter = (props) => {
                  
                   
                     <div className="text-center  mt-1 mt-lg-4 col-md-12">
-                      {/* <Button variant = "outlined" size = "large" className = "report-button">
-                       {props.btntext}
-                </Button> */}
-                      <ReportFooterButton name={props.btntext}></ReportFooterButton>
+               
+                 {props.btntext && <ReportFooterButton name={props.btntext}></ReportFooterButton>  }
+                     
                     </div>
                     </div>
                   </form>

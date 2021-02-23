@@ -278,7 +278,7 @@ category="branding"
 imgAddress={ImagePath + books[0].image}
 title={locale === 'ar' ? books[0].title_arabic : books[0].title_english}
 caption={locale === 'ar' ? books[0].description_arabic : books[0].description}
-btntext="GET MY FREE REPORT"
+btntext={locale === 'ar' ? books[0].btn_title_arabic : books[0].btn_title_english}
 />
 
 

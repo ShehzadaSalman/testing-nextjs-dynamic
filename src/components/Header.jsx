@@ -180,10 +180,10 @@ const Header = () => {
             }
           </button>
          
-          <button className="btn mg-link-btn py-0 my-0" onClick={changeLanguage}>
+          <button className="btn mg-link-btn py-0 my-0 " onClick={changeLanguage}>
             {locale === 'ar'
-             ? <img src="/images/new-svg-images/language-icon.svg"  alt = "change-lang"/>
-             : <img src="/images/new-svg-images/arabic-flag.svg"  alt = "change-lang"/>
+             ? <img src="/images/new-svg-images/language-icon.svg" className="d-none d-md-block" alt = "change-lang"/>
+             : <img src="/images/new-svg-images/arabic-flag.svg"   className="d-none d-md-block" alt = "change-lang"/>
              }
             </button>
           <div className={`drop-menu-listing ${addClass ? 'show' : ''}`}>

@@ -244,8 +244,6 @@ const MarketingMedia = ({ finalData }) => {
           caption={locale === 'ar' ? finalData.book.desc_arabic : finalData.book.desc_english}
           btntext={locale === 'ar' ? finalData.book.btn_title_arabic : finalData.book.btn_title_english}
         />
-
-
       }
 
 

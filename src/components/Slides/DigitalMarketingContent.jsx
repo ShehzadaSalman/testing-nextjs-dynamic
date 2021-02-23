@@ -318,13 +318,13 @@ function DigitalMarketingContent({data, services, books }){
                imgAddress={ImagePath + books[0].image}
                title={books[0].title_arabic}
                caption={books[0].description_arabic}
-               btntext="GET MY FREE REPORT"/>
+               btntext={locale === 'ar' ? books[0].btn_title_arabic : books[0].btn_title_english}/>
                :   <ReportCardFooterMarketing
                category = "marketing"
                imgAddress={ImagePath + books[0].image}
                title={books[0].title_english}
                caption={books[0].description}
-               btntext="GET MY FREE REPORT"/>
+               btntext={locale === 'ar' ? books[0].btn_title_arabic : books[0].btn_title_english}/>
                } 
                 
      
