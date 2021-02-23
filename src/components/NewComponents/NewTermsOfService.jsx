@@ -10,7 +10,7 @@ export default (props) => {
     <React.Fragment>
       <div className="container">
         <div className="row">
-          <div className="col-sm-12 col-md-12 newtermofservices">
+          <div className="col-sm-12 col-md-12 newtermofservices box-direction text-direction">
   {locale == 'ar' 
    ? <div dangerouslySetInnerHTML={{__html: props.content.description_arabic}}></div>
    : <div dangerouslySetInnerHTML={{__html: props.content.description}}></div>     
@@ -21,7 +21,7 @@ export default (props) => {
         </div>
       </div>
       <div className="newbottomofUse">
-        <div className="container">
+        <div className="container box-direction text-direction">
    {locale == 'ar' 
    ? <div dangerouslySetInnerHTML={{__html: props.content.short_arabic}}></div>
    : <div dangerouslySetInnerHTML={{__html: props.content.short_description}}></div>     

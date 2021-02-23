@@ -7,6 +7,7 @@ import NewTermsOfService from '../NewComponents/NewTermsOfService';
 import PackageForm from '../NewComponents/PackageForm';
 import { useRouter } from 'next/router';
 import Headerfive from '../HeaderFive';
+import Footer from '../Footer';
 
 const SEO = ({ finalData }) => {
   let data = finalData;
@@ -71,7 +72,7 @@ const SEO = ({ finalData }) => {
               <div className="row">
                 <div className="col-sm-2 col-md-2"></div>
                 <div className="col-lg-9 pkgInner flex-md-column flex-lg-row">
-                  <div className="row">
+                  <div className="row box-direction text-direction">
                     <div className="col-lg-5 d-flex px-3 flex-column justify-content-center">
                       <h3 className="m-0" style={{ lineHeight: 1 }}>
                         {locale === 'ar'
@@ -79,7 +80,7 @@ const SEO = ({ finalData }) => {
                           : <>{data.header_title}</>
                         }
                       </h3>
-                      <span className="d-block text-left">
+                      <span className="d-block text-direction px-3">
                         {locale === 'ar'
                           ? <>{data.title_arabic}</>
                           : <>{data.title}</>
@@ -109,10 +110,10 @@ const SEO = ({ finalData }) => {
                     <div className="mids">
 
    {/* heading table  */}
- <table>
+ <table className="box-direction">
   <thead>
   <tr>
-  <th>
+  <th className="text-direction">
     {locale == 'ar'  ? 'خدمات' : 'Services'}
   </th>
   {data.package_service_ranks.map(headings => (
@@ -129,7 +130,7 @@ const SEO = ({ finalData }) => {
 
 
  {/* table starts here with no sub headings */}
- <table>
+ <table className="box-direction">
      <tbody>
      { data?.package_sub_services?.map(pkg => { return(<>
      
@@ -162,7 +163,7 @@ const SEO = ({ finalData }) => {
 {/* table with sub headings*/}
 
    {/* table sub heading */}
-   <table>
+   <table className="box-direction">
      <tbody>
      { data?.package_services?.map(pkg => { return(<>
    
@@ -230,9 +231,18 @@ const SEO = ({ finalData }) => {
           </div>
           <div className="text-center pt-1 pt-md-4">
             <NewTermsOfService content={data.terms} />
+            <Footer/>
           </div>
         </div>
       </div>
+      <style jsx>{`
+         .box-direction{direction: ${locale === 'ar' ? 'rtl' : 'ltr'};}
+         .text-direction{text-align: ${locale === 'ar' ? 'right !important' : 'left !important'};  }
+         .packagesDiv .mids table tr td:first-child{text-align: ${locale === 'ar' ? 'right !important' : 'left !important'}; }
+      
+      `}
+      </style>
+    
     </React.Fragment >
   );
 };

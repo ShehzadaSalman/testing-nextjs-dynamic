@@ -1,7 +1,7 @@
 import HeaderFive from '../components/HeaderFive'
 import PageBanner from '../components/NewComponents/PageBanner/PageBanner'
 import ButtonStyleOne from '../components/NewComponents/Buttons/buttonStyleOne'
-import ButtonStyleTwo from '../components/NewComponents/Buttons/buttonStyleTwo'
+import Footer from '../components/Footer'
 
 const Shark = () => {
 
@@ -116,7 +116,7 @@ return (
             </div>
           </div>
          </div>
-
+ <Footer/>
 
 
 

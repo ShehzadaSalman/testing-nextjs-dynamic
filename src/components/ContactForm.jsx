@@ -180,8 +180,6 @@ export  class ContactFormClass extends Component {
                   <input type="hidden" value={this.state.api_key} id="api_key" name="api_key" />
                 </div>
                 <div className="form-footer text-right mt-5 text-direction">
-
-
                   <a type="submit"
                     name="submit"
                     id="submit"
@@ -190,7 +188,7 @@ export  class ContactFormClass extends Component {
                     onClick={(e) => this.handleSubmit(e)}
                   >
                     <ButtonStyleOne title=
-                    "Send Request"
+                      {this.props.language === 'ar' ? this.props.data?.btn_txt_arabic : this.props.data?.btn_txt}
                      />
                   </a>
 

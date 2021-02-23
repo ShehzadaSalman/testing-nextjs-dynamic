@@ -29,6 +29,8 @@ import Template21 from '../components/Templates/template21';
 import Template24 from '../components/Templates/template24';
 import Template29 from '../components/Templates/template29';
 import Template30 from '../components/Templates/template30';
+import Template31 from '../components/Templates/template31';
+
 import Error from 'next/error';
 import Headerfive from '../components/HeaderFive';
 import Footer from '../components/Footer'
@@ -150,6 +152,8 @@ function Dynamic({ data, footerData, bottomFooter, menudata, bottomPages, compan
     case 30:
       return (<><Template30 finalData={data} /></>)
 
+    case 31:
+      return (<><Template31 finalData={data} /></>)  
 
     case 350:
       return (<> <Template350 finalData={data} /></>)
@@ -170,7 +174,10 @@ function Dynamic({ data, footerData, bottomFooter, menudata, bottomPages, compan
   if (data) {
     if(data.template_id == 450){
       return <><Template450 finalData={data} /><Footer footerData = {footerData} bottomFooter = {bottomFooter}   /> </>
-    }else{
+    } else if(data.template_id == 31){
+      return <><Headerfive/><Template31 finalData={data} /></>
+    }
+    else{
       return <><Headerfive/>{SwitchPages(data)}<Footer footerData = {footerData} bottomFooter = {bottomFooter}   /> </>
     }
   } else {

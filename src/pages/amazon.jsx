@@ -4,9 +4,53 @@ import ButtonStyleOne from '../components/NewComponents/Buttons/buttonStyleOne'
 import ButtonStyleTwo from '../components/NewComponents/Buttons/buttonStyleTwo'
 import BgContentDiv from '../components/NewComponents/BContentDiv'
 import {openBrandingForm} from '../lib/helper'
+import Footer from '../components/Footer'
 
 const Amazon = () => {
+let stepList = [1,2,3,4,5,6,7,8]
+let stepListTwo = [
+   { 
+      title: "Amazon Account Setup",
+      description: "We will create a professional and customized account as per your requirements. ",
+      img: "amazon-step1.png"
 
+   },
+   { 
+      title: "Amazon Listing Setup",
+      description: "We strategize a listing setup, which states how will the products be listed in the account in an optimized way. ",
+      img: "amazon-step2.png"
+   },
+   { 
+      title: "Amazon Keyword Analysis",
+      description: "The next step is to find the keywords for SEO and PPC",
+      img: "amazon-step3.png"
+   },
+   { 
+      title: "Amazon SEO",
+      description: "Amazon SEO is the perfect way to bring your products up in the Amazon searches. ",
+      img: "amazon-step4.png"
+   },
+   { 
+      title: "Amazon E-business Copywriting",
+      description: "Writing for the products in an optimized way can bring you up in the searches easily. ",
+      img: "amazon-step5.png"
+   },
+   { 
+      title: "Amazon PPC Start-Up and Management",
+      description: "We will create a professional and customized account as per your requirements. ",
+      img: "amazon-step6.png"
+   },
+   { 
+      title: "Amazon FBA Start-Up and Management",
+      description: "Our team is expert in creating and managing FBA accounts on Amazon. ",
+      img: "amazon-step7.png"
+   },
+   { 
+      title: "Analysis and Reporting",
+      description: "We provide monthly and weekly reports for your amazon account, which will show the real progress of your Amazon account.",
+      img: "amazon-step8.png"
+   },
+]
 return (
     <>
     <HeaderFive/>
@@ -128,7 +172,7 @@ of Techbay Product Introducing Services</h2>
            </div>
 
             </div>
-            <div className="text-center">
+            <div className="text-center mt-3 mt-md-0">
                 <a onClick={openBrandingForm}>
                     <ButtonStyleTwo title = "Get Amazon PPC Services" />
                 </a>
@@ -147,22 +191,43 @@ of Techbay Product Introducing Services</h2>
              Being one of the extraordinary Amazon marketing firms, we have a complete grasp of the necessity of effective product launching. According to the latest Amazon updates, the products that are well analyzed and completely-optimized will have a fast pace top ranking. Our process for bringing your store to the top has the following steps.  
            </p>
            {/* thumbnai listing starts here */}
-         <div className="row d-flex justify-content-md-center mt-5 text-center px-5">
-           <div className="col-md-3">
-           <div className="steps-thumbnail">
-               <div className="step-title">
+         <div className="row d-flex justify-content-md-center mt-5 text-center  bg-amazon-blue py-4 px-2">
+           
+        
+      
+          
+       {stepListTwo.map(li => (
+         <div className="col-md-3 my-1 my-md-4">
+         <div className="steps-thumbnail">
+             <div className="step-title text-center mb-1 mb-md-4">
+             <img src={`/images/web/new-pages/${li.img}`}   alt = "steps" style={{ height: "55px" }}/>
+             </div>
+             <div className="caption d-flex ">
+                <div>
+                <img src="/images/web/new-pages/amazon-left-stick.png"   alt = "steps"/>
+                </div>
+                <div className="pl-3 d-flex flex-column justify-content-center">
+                   <h5 className="text-left">{li.title}</h5>
+                   <p className="text-left">{li.description}</p>
+                </div>
+               
 
-               </div>
-               <div className="caption">
+             </div>
+         </div>
+         </div>
 
-               </div>
-           </div>
-           </div>
+       ))}
+  
      
+   
+       
+       
+      
+      
         
 
          </div>
-            <div className="text-center mt-4">
+            <div className="text-center mt-5">
                 <a onClick={openBrandingForm}>
                 <ButtonStyleOne title = "Get In Touch" />
                 </a>
@@ -170,6 +235,7 @@ of Techbay Product Introducing Services</h2>
           </div>
          </div>
 
+<Footer/>
 
 
 
@@ -183,7 +249,8 @@ of Techbay Product Introducing Services</h2>
     <style jsx>
         {`
      .wave-layer-bg-slides{ padding-top: 100px}
-     .ecommerce-thumbnail img{max-height: 140px}   
+     .ecommerce-thumbnail img{max-height: 140px} 
+     .bg-amazon-blue{background-color: rgba(181, 211, 229, 0.2)}  
         `}
     </style>
     </>
