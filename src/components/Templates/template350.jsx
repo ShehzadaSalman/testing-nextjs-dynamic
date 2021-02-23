@@ -128,21 +128,86 @@ const SEO = ({ finalData }) => {
   </table>  
 
 
+ {/* table starts here with no sub headings */}
+ <table>
+     <tbody>
+     { data?.package_sub_services?.map(pkg => { return(<>
+     
+      <tr>
+  <td>
+    {locale === 'ar' ? <>{pkg.title_arabic}</> : <>{pkg.title}</> }
+  </td>
+  {pkg?.package_service_rank_details.map(pkg => (
+    <>
+      <td>
+        {pkg.checkbox == ''
+          ? <i className="fa fa-times mx-1"></i>
+          : <> <i className="fa fa-check mx-1"></i>
+            {locale === 'ar'  ? <>{pkg.title_arabic}</>  : <>{pkg.title}</>
+            }
+       </>
+        }
+      </td>
+    </>
+  ))}
+</tr>
+     
+     
+      </>) }) }
+</tbody> </table>
+ 
 
+
+
+{/* table with sub headings*/}
 
    {/* table sub heading */}
    <table>
      <tbody>
-     {data.package_services && data.package_services.map(pkg => {(<>
+     { data?.package_services?.map(pkg => { return(<>
    
    <div className="table-subheading">
- 
 {locale === 'ar'
  ? <>{pkg.title_arabic}</>
  : <>{pkg.title}</>
 }
-
 </div>
+
+
+   
+
+
+
+
+
+  {/* the table starts here with the sub headings */}
+  {pkg?.package_sub_services.map(pkg => (
+    <table>
+      <tbody>
+      <>
+<tr>
+  <td>
+    {locale === 'ar' ? <>{pkg.title_arabic}</> : <>{pkg.title}</> }
+  </td>
+  {pkg?.package_service_rank_details.map(pkg => (
+    <>
+      <td>
+        {pkg.checkbox == ''
+          ? <i className="fa fa-times mx-1"></i>
+          : <> <i className="fa fa-check mx-1"></i>
+            {locale === 'ar'  ? <>{pkg.title_arabic}</>  : <>{pkg.title}</>
+            }
+       </>
+        }
+      </td>
+    </>
+  ))}
+</tr>
+</>
+      </tbody>
+    </table>
+  )) }
+
   
   </>)}) }
      </tbody>
@@ -154,124 +219,6 @@ const SEO = ({ finalData }) => {
 
 
 
-                      <table>
-                        <tbody>
-                     
-
-                          {/* package template with sub menus */}
-                          {data.package_services && data.package_services.map(pkg => {
-
-
-                            return (
-                              <>
-                     
-                              <th>
-
-
-
-                             </th>
-
-                      
-
-
-                 
-                      
-
-
-                     
-                     
-                     
-                     
-                     
-                     
-                     
-                                {pkg.package_sub_services.map(pkg => (
-                                  <>
-
-                                    <tr>
-                                      <td>
-
-                                        {locale === 'ar'
-                                          ? <>{pkg.title_arabic}</>
-                                          : <>{pkg.title}</>
-                                        }
-
-                                      </td>
-                                      {pkg.package_service_rank_details.map(pkg => (
-                                        <>
-                                          <td>
-
-                                            {pkg.checkbox == ''
-                                              ? <i className="fa fa-times"></i>
-                                              : <> <i className="fa fa-check"></i>
-                                                {locale === 'ar'
-                                                  ? <>{pkg.title_arabic}</>
-                                                  : <>{pkg.title}</>
-                                                }
-
-                                              </>
-                                            }
-
-                                          </td>
-                                        </>
-                                      ))}
-
-                                    </tr>
-
-                                  </>
-                                ))}
-
-
-
-                              </>
-                            );
-
-
-                          })}
-
-                          {/* package template without submenu */}
-                          {data.package_sub_services && data.package_sub_services.map(pkg => {
-
-                            return <>
-
-                              <tr>
-                                <td>
-
-                                  {locale === 'ar'
-                                    ? <>{pkg.title_arabic}</>
-                                    : <>{pkg.title}</>
-                                  }
-                                </td>
-                                {pkg.package_service_rank_details.map(pkg => (
-                                  <>
-                                    <td>
-
-                                      {pkg.checkbox == ''
-                                        ? <i className="fa fa-times"></i>
-                                        : <> <i className="fa fa-check"></i>
-                                          {locale === 'ar'
-                                            ? <>{pkg.title_arabic}</>
-                                            : <>{pkg.title}</>
-                                          }
-
-                                        </>
-                                      }
-
-                                    </td>
-                                  </>
-                                ))}
-
-                              </tr>
-
-                            </>;
-
-                          })}
-
-
-
-
-                        </tbody>
-                      </table>
 
                     </div>
 

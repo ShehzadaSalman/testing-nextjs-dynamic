@@ -282,7 +282,6 @@ let companyInfo = finalCompanyInfo;
     data = await res.data.response
   } else { data = null }
   
-  
   return { props: { 
     data,
     footerData, 

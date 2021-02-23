@@ -1,9 +1,8 @@
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 const ContactUs = dynamic(() => import('../components/Slides/ContactUs'), { ssr: false });
-import Headertwo from '../components/Headertwo';
 import Layout from '../components/Layout';
-import Headerfour from '../components/HeaderFour';
+import Headerfive from '../components/HeaderFive';
 import { useRouter } from 'next/router';
 import Footer from '../components/Footer';
 const CONTACT = () => {
@@ -27,7 +26,7 @@ const CONTACT = () => {
         {/* <link href="/css/newstyle.css" rel="stylesheet"/> */}
 
       </Head>
-       <Headerfour/>
+       <Headerfive/>
       <ContactUs hideArrows = "true" toggleArrows={() => undefined} />
 
       <style>
