@@ -70,7 +70,7 @@ const SEO = ({ finalData }) => {
             <div className="container">
               <div className="row">
                 <div className="col-sm-2 col-md-2"></div>
-                <div className="col-lg-8 pkgInner flex-md-column flex-lg-row">
+                <div className="col-lg-9 pkgInner flex-md-column flex-lg-row">
                   <div className="row">
                     <div className="col-lg-5 d-flex px-3 flex-column justify-content-center">
                       <h3 className="m-0" style={{ lineHeight: 1 }}>

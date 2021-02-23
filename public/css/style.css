@@ -4120,6 +4120,13 @@ a.PopupForm:hover {
   border: 0px;
 }
 
+@media only screen and (max-width: 600px) {
+  .packagesDiv .packageTop table tr td:nth-child(4) {
+    box-shadow: none;
+    position: static;
+  }
+}
+
 .packagesDiv .mids table tr td {
   color: #000;
 }
