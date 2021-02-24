@@ -180,7 +180,7 @@ const Header = () => {
             }
           </button>
          
-          <button className="btn mg-link-btn py-0 my-0 " onClick={changeLanguage}>
+          <button className="btn mg-link-btn py-0 my-0 d-none d-md-block " onClick={changeLanguage}>
             {locale === 'ar'
              ? <img src="/images/new-svg-images/language-icon.svg" className="d-none d-md-block" alt = "change-lang"/>
              : <img src="/images/new-svg-images/arabic-flag.svg"   className="d-none d-md-block" alt = "change-lang"/>
@@ -189,7 +189,8 @@ const Header = () => {
           <div className={`drop-menu-listing ${addClass ? 'show' : ''}`}>
             <div id="menu-content-section" className="drop-menu-link">
               <div className="menu-container-class container-fluid">
-                <div className="new-menu-wrapper box-direction text-direction">
+                <div 
+                className="new-menu-wrapper box-direction text-direction">
 
  
                 {menudata?.map(menu => (
@@ -307,15 +308,20 @@ const Header = () => {
     </div>
   </div>
 </div>
-<style>
+<style jsx>
   {`
 
 
 #brandingmenu{
   left: 45%;
   top: 45%;
-
 }
+@media only screen and (max-width: 600px) {
+  .text-direction{
+  text-align: center;
+  }
+}
+
 .selected-bg-menu h1 a{
   color: #337093;
   text-decoration: none;

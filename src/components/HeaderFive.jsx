@@ -176,10 +176,8 @@ const Headerfive = () => {
             </button>
                   <div className={`drop-menu-listing ${addClass ? 'show' : ''}`}>
                     <div id="menu-content-section" className="drop-menu-link">
-
-                      <div className="menu-container-class container-fluid">
-                        <div className="new-menu-wrapper box-direction text-direction">
-                        
+                       <div className="menu-container-class container-fluid">
+                        <div className="new-menu-wrapper box-direction text-direction">     
                        {menudata?.map(menu => ( 
                            <div key={menu.id}  onMouseEnter={openNewMenu} onMouseLeave={closeNewMenu} className= {menu.services.length > 0 ? "new-menu-item sub" : "new-menu-item" }>
                           {menu.slug == '/' 
@@ -290,12 +288,17 @@ const Headerfive = () => {
             </div>
           </div>
         </div>
-        <style>
+        <style jsx>
           {`
         #brandingmenu{
        left: 45%;
        top: 45%;
 
+        }
+        @media only screen and (max-width: 600px) {
+          .text-direction{
+          text-align: center;
+          }
         }
         .selected-bg-menu h1 a{
           color: #337093;

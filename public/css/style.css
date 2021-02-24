@@ -273,6 +273,7 @@ header.mg-main-header.sticky {
 }
 .mg-menu-wrapper {
   position: relative;
+  display: flex;
 }
 .drop-menu-listing {
   position: fixed;
