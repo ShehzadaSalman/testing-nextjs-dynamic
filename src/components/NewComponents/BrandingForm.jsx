@@ -3,6 +3,8 @@ import intlTelInput from 'intl-tel-input';
 import { useRouter } from 'next/router';
 import * as yup from 'yup';
 import $ from "jquery";
+
+
 import { useFormik } from 'formik';
 const validationSchema = yup.object({
   name: yup.string().required("Please enter your name"),
@@ -12,9 +14,14 @@ const validationSchema = yup.object({
 });
 
 const BrandingForm = ({ department }) => {
+
+
+
+
   // initializing all the variblaes here
   const [countrycode, setCountryCode] = useState('+971');
   const router = useRouter();
+  const {locale} = router;
   const pagePath = router.asPath.toString();
   const brandingInputPhone = useRef();
   // form validation comes here
@@ -98,7 +105,10 @@ const BrandingForm = ({ department }) => {
       <div id="formPopup-branding" className="formPopup-branding" onClick={closeFormPopup}>
         <a href="#" onClick={closeFormPopup} className="clsPopup"><i className="fa fa-times"></i></a>
         <div className="formInner" onClick={avoidClosePopupFromOutside}>
-          <form id="services3" onSubmit={handleSubmit} encType="multipart/form-data">
+          <form id="services3" onSubmit={handleSubmit} encType="multipart/form-data" className="box-direction">
+            <div className="row">
+
+            </div>
             <input
               name="api_key"
               id="api_key"
@@ -112,37 +122,48 @@ const BrandingForm = ({ department }) => {
               type="hidden"
               value={department} onChange={handleChange} />
             <div className="fields twoFields row">
-              <div className="col-6 pr-1">
+              <div className="col-6 px-1">
                 <input type="text" id="name" name="name" onBlur={handleBlur}
-                  onChange={handleChange} value={values.name} placeholder="Name" />
+                  onChange={handleChange} value={values.name} 
+                  placeholder=  {locale === 'ar' ? 'اسم' : 'Name'}  />
                 {(errors.name && touched.name) ? <p className="popup-error-message">  {errors.name}  </p> : <p className="popup-error-message invisible">Error</p>}
               </div>
-              <div className="col-6 pl-1">
+              <div className="col-6 px-1">
                 <input type="text" id="email" name="email" onBlur={handleBlur}
-                  onChange={handleChange} value={values.email} placeholder="Email" />
+                  onChange={handleChange} value={values.email} 
+                  placeholder= {locale === 'ar' ? 'بريد الالكتروني' : 'Email'}  />
                 {(errors.email && touched.email) ? <p className="popup-error-message">  {errors.email}  </p> : <p className="popup-error-message invisible">Error</p>}
               </div>
             </div>
-            <div className="fields">
+            <div className="fields row">
+              <div className="col-12 px-1">
               <input id="countryCode" type="hidden" onChange={handleChange} name="countrycode" />
               <input type="text" ref={brandingInputPhone} onBlur={handleBlur}
-                onChange={handleChange} name="phone" value={values.phone} placeholder="Phone" />
+                onChange={handleChange} name="phone" className="box-direction"  value={values.phone} 
+                placeholder={locale === 'ar' ? 'هاتف' : 'Phone'}/>
               {(errors.phone && touched.phone) ? <p className="popup-error-message">  {errors.phone}  </p> : <p className="popup-error-message invisible">Error Message</p>}
+           
+              </div>
             </div>
-            <div className="fields">
+            <div className="fields row">
+              <div className="col-12 px-1">
               <input
                 type="text"
                 id="company"
                 name="company"
                 value={values.company}
-                placeholder="Company"
+                placeholder={locale === 'ar' ? 'شركة' : 'Company'}
                 onBlur={handleBlur}
                 onChange={handleChange}
               />
               {(errors.company && touched.company) ? <p className="popup-error-message">  {errors.company}  </p> : <p className="popup-error-message invisible"> Error message</p>}
+           
+              </div>
             </div>
             <div className="fields">
-              <button type="submit" id="submit" name="submit" >Submit</button>
+              <button type="submit" id="submit" name="submit" >
+                {locale == 'ar' ? 'يقدم' : 'Submit'}
+                </button>
             </div>
           </form>
 
@@ -155,7 +176,10 @@ const BrandingForm = ({ department }) => {
           <div className="msg"></div>
         </div>
       </div>
-
+  <style jsx>{`
+  .box-direction{direction: ${locale === 'ar' ? 'rtl' : 'ltr'};}
+  .text-direction{ text-align: ${locale === 'ar' ? 'right' : 'left'};} 
+  `}</style>
     </React.Fragment>
   );
 

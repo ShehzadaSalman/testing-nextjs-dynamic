@@ -168,7 +168,7 @@ const Headerfive = () => {
                     : <>{locale == 'ar' ? <>قائمة طعام</>  : <>Close</> }</>             
                     }
                   </button>
-                  <button className="btn mg-link-btn my-0 py-0" onClick={changeLanguage}>
+                  <button className="btn mg-link-btn my-0 py-0 d-none d-md-block"  onClick={changeLanguage}>
             {locale === 'ar'
              ? <img src="/images/new-svg-images/language-icon.svg"  alt = "change-lang"/>
              : <img src="/images/new-svg-images/arabic-flag.svg"  alt = "change-lang"/>
