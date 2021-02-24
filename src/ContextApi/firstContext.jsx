@@ -5,7 +5,7 @@ class CurrencyProvider extends React.Component {
         this.setState({ username: newUsername });
       };
     
-      updateUsername = () => {
+      toggleMenu = () => {
         this.setState({ openMenu: true });
       };
    

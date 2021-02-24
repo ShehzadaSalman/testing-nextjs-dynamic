@@ -1,14 +1,19 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import menuContext from '../ContextApi/menuContext'
 import Link from 'next/link';
 import { getDeviceName } from '../lib/helper';
 let deviceName = getDeviceName();
 import axios from 'axios'
 import { useRouter } from 'next/router'
 
+
 const Headerfive = () => {
+ 
+   const {headerMenu, setHeaderMenu} = useContext(menuContext)
+   console.log("the menu context is ", headerMenu)
 
   const [addClass , setAddClass] = useState(false);
-  const [isMenu , setIsMenu] = useState(true);
+  const [isMenu , setIsMenu] = useState(false);
   const [menudata, setMenuData] = useState([]);
   const [bottomPages, setBottomPages] = useState([]);
   const [companyInfo, setCompanyInfo] = useState({});
@@ -98,6 +103,22 @@ const Headerfive = () => {
     }
   }
 
+  const CategoryHeading = (menu) => {
+
+   if(menu.slug === '/'){
+    return <h1 onClick={refreshPage}>{menu.title}</h1>
+   }else{
+      if(deviceName === 'Mobile'){
+        return( <Link  href={menu.slug}>
+        <a><h1>{locale === 'ar' ? menu.title_arabic :  menu.title}</h1> </a>
+        </Link> ) 
+      }else{
+         return <h1>{locale === 'ar' ? menu.title_arabic :  menu.title}</h1>
+      }
+   }
+  }
+
+    
 
 
 
@@ -179,19 +200,12 @@ const Headerfive = () => {
                        <div className="menu-container-class container-fluid">
                         <div className="new-menu-wrapper box-direction text-direction">     
                        {menudata?.map(menu => ( 
-                           <div key={menu.id}  onMouseEnter={openNewMenu} onMouseLeave={closeNewMenu} className= {menu.services.length > 0 ? "new-menu-item sub" : "new-menu-item" }>
-                          {menu.slug == '/' 
-                          ? <h1 onClick={refreshPage}>{menu.title}</h1>
-                             :  <>{deviceName != 'Mobile'
-                             ? <h1><Link  href={menu.slug}><a>
-                               {locale == 'ar' ? menu.title_arabic :  menu.title}</a></Link></h1>
-                          : <h1>{locale == 'ar' ? menu.title_arabic :  menu.title}</h1>
-                            } </>
-                         }
-                        <a>
-                             <span></span>
-                     
-                             <div className="new-menu-sub text-direction">
+                <div key={menu.id}  onMouseEnter={openNewMenu} onMouseLeave={closeNewMenu}
+                className= {menu.services.length > 0 ? "new-menu-item sub" : "new-menu-item" }>
+                 {/* category heading comes here */}
+                {CategoryHeading(menu)}
+                <span></span>
+                <div className="new-menu-sub text-direction">
                  { menu?.services.length > 0 &&  menu.services.map(li => {
                  return( <div onClick={samePageRefresh}>
                    <Link  href={li.slug}>
@@ -205,7 +219,7 @@ const Headerfive = () => {
                  })}       
                      
                              </div>
-                           </a>
+                         
                          </div>
                 ))} 
                   </div>
@@ -220,7 +234,7 @@ const Headerfive = () => {
                  <>
                  {bottomPages?.map(m => {
                     return (
-                      <div className="header-custom-dropdown">
+                      <div className="header-custom-dropdown" key={m.title}>
                       <a className="dropdown-title">
                         { locale == 'ar' ?  m.title_arabic : m.title} 
                         <i className="fas fa-chevron-down"></i></a>
