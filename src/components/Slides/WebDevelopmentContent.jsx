@@ -328,7 +328,7 @@ function WebDevelopmentContent({data, services, books}) {
         imgAddress={ImagePath + books[0].image}
       title={books[0].title_english}
       caption={books[0].description}
-      btntext={locale === 'ar' ? books[1].btn_title_arabic : books[1].btn_title_english}
+      btntext={locale === 'ar' ? books[0].btn_title_arabic : books[0].btn_title_english}
       />
         }
 

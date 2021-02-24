@@ -136,7 +136,7 @@ const ReportCardFooter = (props) => {
                         />
                         <input type="text" className="report-inputfield" name="name" 
                         placeholder=
-                        {locale === 'ar' ? 'اسم' : 'NAME*'} 
+                        {locale === 'ar' ? 'اسم' : 'Name*'} 
                         required />
                       
                   </div>
@@ -162,9 +162,7 @@ const ReportCardFooter = (props) => {
                  
                   
                     <div className="text-center  mt-1 mt-lg-4 col-md-12">
-               
-                 {props.btntext && <ReportFooterButton name={props.btntext}></ReportFooterButton>  }
-                     
+                      {props.btntext && <ReportFooterButton name={props.btntext}></ReportFooterButton>  }
                     </div>
                     </div>
                   </form>

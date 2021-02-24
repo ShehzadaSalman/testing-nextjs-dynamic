@@ -2,7 +2,7 @@ const ListItemTwo = (props) => (
 <React.Fragment>
 <div className ="secondlist-div">
 
-<img src = "/images/web/contentcreation/circular-tick.png" alt = "list" />
+<img className="mx-3"  src = "/images/web/contentcreation/circular-tick.png" alt = "list" />
 <p>
 <strong>{props.title} </strong>
  - {props.description}
@@ -27,7 +27,6 @@ const ListItemTwo = (props) => (
   .secondlist-div p{
     display: inline-block;
     font-family: 'Roboto', sans-serif;
-    padding-left: 20px;
     color: #212121;
     font-size: 1.2rem;
     line-height: 1.7;

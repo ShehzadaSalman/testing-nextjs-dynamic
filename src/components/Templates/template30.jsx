@@ -12,7 +12,152 @@ import SuccessDisplay from '../NewComponents/successdisplay';
 import ReportCardFooter from '../NewComponents/ReportCardFooter';
 import {PopupText} from 'react-calendly';
 import { useRouter } from 'next/router';
-const ContentCreation = () => { 
+const ImagePath = process.env.ImagePath
+
+
+const ContentCreation = ({finalData}) => {
+  
+  
+
+  const router = useRouter();
+  const { locale } = router;
+
+  var pageurl = "https://techbay.co"+router.pathname;
+
+  let content;
+  if (locale !== 'ar') {
+    // getting the english headings
+    let Sections = finalData.headings.map(data => {
+      return {
+        "id": data.id,
+        "title": data.title_english,
+        "description": data.desc_english,
+        "level": data.level,
+        "btn_txt": data.btn_txt_english
+      }
+    })
+
+    let Book = {
+      "title": finalData.book.title_english,
+      "description": finalData.book.desc_english,
+      "image": finalData.book.image,
+      "status": finalData.book.status
+    };
+
+    let Widgets = finalData.widget.map(data => {
+      return {
+        "id": data.id,
+        "title": data.title_english,
+        "description": data.desc_english,
+        "level": data.level,
+        "btn_txt": data.btn_txt_english,
+        "image": data.image,
+        "level": data.level,
+      }
+    })
+    let Buttons = finalData.widget_btn && finalData.widget_btn.map(data => {
+      return {
+        "id": data.id,
+        "title": data.title_english,
+        "level": data.level
+      }
+    })
+    let WidgetHeadings = finalData.widget_headings ? finalData.widget_headings.map(data => {
+      return {
+        "id": data.id,
+        "title": data.desc_english,
+        "level": data.level,
+        "image": data.image
+      }
+    }) : '';
+
+
+    content = {
+      "BannerHeading": finalData.header_title_english,
+      "BannerDescription": finalData.header_desc_english,
+      "BannerImage": finalData.header_bg_image,
+      "BannerButton": finalData.header_btn_txt_english,
+      "FirstVideo": finalData.video_link,
+      "SubBannerHeading": finalData.sub_header_title_english,
+      "SubBannerParagraph": finalData.sub_header_desc_english,
+      "SubBannerButton": finalData.sub_header_btn_txt_english,
+      "SubBannerImage": finalData.sub_header_image,
+      "Sections": Sections,
+      "ListingOne": Widgets.filter(service => service.level === 1),
+      "ListingTwo": Widgets.filter(service => service.level === 2),
+      "ListingThree": Widgets.filter(service => service.level === 3),
+      "ListingFour": Widgets.filter(service => service.level === 4),
+      "Buttons": Buttons,
+      "widget_headings": WidgetHeadings,
+      "Book": Book
+    }
+  } else { // when we set it to arabic
+
+    // getting the arabic headings
+    let Headings = finalData.headings.map(data => {
+      return {
+        "id": data.id,
+        "title": data.title_arabic,
+        "description": data.desc_arabic,
+        "level": data.level,
+        "btn_txt": data.btn_txt_arabic
+      }
+    })
+    let Book = {
+      "title": finalData.book.title_arabic,
+      "description": finalData.book.desc_arabic,
+      "image": finalData.book.image,
+      "status": finalData.book.status
+    };
+
+    let Widgets = finalData.widget.map(data => {
+      return {
+        "id": data.id,
+        "title": data.title_arabic,
+        "description": data.desc_arabic,
+        "level": data.level,
+        "btn_txt": data.btn_txt_arabic,
+        "image": data.image,
+        "level": data.level,
+      }
+    })
+    let Buttons = finalData.widget_btn && finalData.widget_btn.map(data => {
+      return {
+        "id": data.id,
+        "title": data.title_arabic,
+        "level": data.level
+      }
+    })
+
+    let WidgetHeadings = finalData.widget_headings ? finalData.widget_headings.map(data => {
+      return {
+        "id": data.id,
+        "title": data.desc_arabic,
+        "level": data.level,
+        "image": data.image
+      }
+    }) : '';
+    content = {
+      "BannerHeading": finalData.header_title_arabic,
+      "BannerDescription": finalData.header_desc_arabic,
+      "BannerImage": finalData.header_bg_image,
+      "BannerButton": finalData.header_btn_txt_arabic,
+      "FirstVideo": finalData.video_link,
+      "SubBannerHeading": finalData.sub_header_title_arabic,
+      "SubBannerParagraph": finalData.sub_header_desc_arabic,
+      "SubBannerButton": finalData.sub_header_btn_txt_arabic,
+      "SubBannerImage": finalData.sub_header_image,
+      "Sections": Headings,
+      "ListingOne": Widgets.filter(service => service.level === 1),
+      "ListingTwo": Widgets.filter(service => service.level === 2),
+      "ListingThree": Widgets.filter(service => service.level === 3),
+      "ListingFour": Widgets.filter(service => service.level === 4),
+      "Buttons": Buttons,
+      "widget_headings": WidgetHeadings,
+      "Book": Book
+    }
+  }
+
   // open the branding form
  const openBrandingForm = () => {
   let form = document.querySelector(".formPopup-branding");
@@ -22,9 +167,7 @@ const ContentCreation = () => {
   let form = document.querySelector(".formPopup-branding");
    form.style.display = 'block';
  }
- const router = useRouter();
- console.log(router.pathname);
- var pageurl = "https://techbay.co"+router.pathname;
+
   
   return(
   <React.Fragment>
@@ -36,22 +179,26 @@ const ContentCreation = () => {
 {/*  The First section    */}
       <PageBanner
       category = "marketing"
-       heading = "CONTENT FOR MARKETING"
-       paragraph = "Get the content that navigates, engages, and compels!"
-       bg = "/images/web/contentmarketing/content-marketing-dark.png"
-       buttontext = "Get Started Today"
+       heading = {content.BannerHeading}
+       paragraph = {content.BannerDescription}
+       bg = {ImagePath + content.BannerImage}
+       buttontext = {content.BannerButton}
        wavename = "wave2-light.png"
         ></PageBanner>
   <SuccessDisplay/>
 
 {/*  The second section    */}
         <div className = "bg-white padding-bottom-30">
-        <Container>
+        <div className="container">
        <div className = "padding-top-20"></div>
        <div className = "padding-top-20"></div>
-       <h2 className = "heading padding-bottom-10">WE CREATE CONTENT THAT CONVERTS</h2>
-       <p className = "paragraph">Your website’s content is the foundation on which customer engagement and the edifice of your digital marketing stands on. Techbay Solutions being a copywriting agency itself perceives content as the bedrock of digital marketing strategies. We have content experts with great intellect to articulate your business vision, mission, and goals into words that leave a powerful impact on your audience and the Google crawlers simultaneously. Techbay Solutions being a copywriting agency focuses on bringing the highest ROIs through sales-generating, attention-grabbing, and SEO-optimized content.</p>
-       </Container>
+       <h2 className = "heading padding-bottom-10">
+        {content.SubBannerHeading}
+        </h2>
+       <p className = "paragraph">
+        {content.SubBannerParagraph}
+        </p>
+       </div>
        <div className = "margin-top-20"></div>
        <div className = "margin-top-20"></div>
        <div className = "text-center">
@@ -60,39 +207,20 @@ const ContentCreation = () => {
       </div>
 {/*  The Third section    */}
 <BgContentDiv bg = "/images/web/contentcreation/contentcreation-banner-two.png">
-  <Container>
+  <div className="container">
+  <div className="row box-direction">
+    {content.ListingOne.map(li => (
+    <div className="col-6 col-md-2 mb-md-4 mb-2">
+    <ThumbnailOne imgAddress  = {ImagePath + li.image}
+     title  = {li.title}></ThumbnailOne> 
+    </div>
+    ))}
 
-  <Grid container spacing = {1} className = "justify-center">
+  </div>
+  
 
-   <Grid  xs = {6} md = {2} item><ThumbnailOne imgAddress  = "images/web/contentcreation/article.png" title  = "Article & Blog Posts"></ThumbnailOne>  </Grid>
-   {/* <Grid  xs = {6} md = {2} item><ThumbnailOne imgAddress  = "images/web/contentcreation/resume.png" title  = "Resume Writing"></ThumbnailOne>  </Grid> */}
-   <Grid  xs = {6} md = {2} item><ThumbnailOne imgAddress  = "images/web/contentcreation/proofread.png" title  = "Proof Reading & Editing"></ThumbnailOne>  </Grid>
-   {/* <Grid  xs = {6} md = {2} item><ThumbnailOne imgAddress  = "images/web/contentcreation/technical.png" title  = "Technical Writing"></ThumbnailOne>  </Grid> */}
-   <Grid  xs = {6} md = {2} item><ThumbnailOne imgAddress  = "images/web/contentcreation/proofreadandediting.png" title  = "Promotional Content"></ThumbnailOne>  </Grid>
-   {/* <Grid  xs = {6} md = {2} item><ThumbnailOne imgAddress  = "images/web/contentcreation/linkedin.png" title  = "LinkedIn Profiles"></ThumbnailOne>  </Grid> */}
-   {/* <Grid  xs = {6} md = {2} item><ThumbnailOne imgAddress  = "images/web/contentcreation/whitepaper.png" title  = "White Paper"></ThumbnailOne>  </Grid> */}
-   <Grid  xs = {6} md = {2} item><ThumbnailOne imgAddress  = "images/web/contentcreation/ux.png" title  = "UX Writing"></ThumbnailOne>  </Grid>
-   {/* <Grid  xs = {6} md = {2} item><ThumbnailOne imgAddress  = "images/web/contentcreation/podcast.png" title  = "Podcast Writing"></ThumbnailOne>  </Grid> */}
-   <Grid  xs = {6} md = {2} item><ThumbnailOne imgAddress  = "images/web/contentcreation/casestudy.png" title  = "Case Studies"></ThumbnailOne>  </Grid>
-   {/* <Grid  xs = {6} md = {2} item><ThumbnailOne imgAddress  = "images/web/contentcreation/grant.png" title  = "Grant Writing"></ThumbnailOne>  </Grid> */}
-   {/* <Grid  xs = {6} md = {2} item><ThumbnailOne imgAddress  = "images/web/contentcreation/socialmediacopy.png" title  = "Social Media Copy"></ThumbnailOne>  </Grid> */}
-   {/* <Grid  xs = {6} md = {2} item><ThumbnailOne imgAddress  = "images/web/contentcreation/salescopy.png" title  = "Sales Copy"></ThumbnailOne>  </Grid> */}
 
-     <Grid  xs = {6} md = {2} item><ThumbnailOne imgAddress  = "images/web/contentcreation/pressrelease.png" title  = "Press Release"></ThumbnailOne>  </Grid>
-     {/* <Grid  xs = {6} md = {2} item><ThumbnailOne imgAddress  = "images/web/contentcreation/ebook.png" title  = "E-book Writing"></ThumbnailOne>  </Grid> */}
-     {/* <Grid  xs = {6} md = {2} item><ThumbnailOne imgAddress  = "images/web/contentcreation/guide.png" title  = "Guide Writing"></ThumbnailOne>  </Grid> */}
-     {/* <Grid  xs = {6} md = {2} item><ThumbnailOne imgAddress  = "images/web/contentcreation/webinar.png" title  = "Webinar"></ThumbnailOne>  </Grid> */}
-     <Grid  xs = {6} md = {2} item><ThumbnailOne imgAddress  = "images/web/contentcreation/website-content.png" title  = "Website Content"></ThumbnailOne>  </Grid>
-     <Grid  xs = {6} md = {2} item><ThumbnailOne imgAddress  = "images/web/contentcreation/Email.png" title  = "Email Copy"></ThumbnailOne>  </Grid>
-     {/* <Grid  xs = {6} md = {2} item><ThumbnailOne imgAddress  = "images/web/contentcreation/speech.png" title  = "Speech Writing"></ThumbnailOne>  </Grid> */}
-     <Grid  xs = {6} md = {2} item><ThumbnailOne imgAddress  = "images/web/contentcreation/creative-writing.png" title  = "Creative Writing"></ThumbnailOne>  </Grid>
-     <Grid  xs = {6} md = {2} item><ThumbnailOne imgAddress  = "images/web/contentcreation/video-content.png" title  = "Video Content"></ThumbnailOne>  </Grid>
-
-  </Grid>
   <div className="text-center mt-5">
-  {/* <a onClick = {openMarketingForm}>
-    <ButtonStyleTwo title = "Contact Subject Matter Experts!"></ButtonStyleTwo>
-    </a> */}
 
     <span className = "meeting-button-light mb-3" style = {{ }}> 
 <PopupText
@@ -104,7 +232,7 @@ const ContentCreation = () => {
     textColor: '4d5055'
   }}
   styles={{}}
-  text="Contact Subject Matter Experts"
+  text={content.Buttons[0].title}
   url="https://calendly.com/hashim-6/30min"  
   />
 </span>
@@ -114,56 +242,54 @@ const ContentCreation = () => {
  </div>
 
   </div>
-  </Container>
+  </div>
  
 </BgContentDiv>
 
 {/*  The Fourth section    */}
 <div id = "" className  = "wave-layer-bg">
-<Container>
+<div className="container">
   <div className = "padding-top-40"></div>
   <div className = "padding-top-20"></div>
-<h2 className = "heading">ORGANIZED AND AGILE {'\n'} CONTENT FRAMEWORK </h2>
-<p className = "paragraph">Content is not just some words written together. Content is a structured layout that describes your brand’s agenda in a convertible manner. It is a selling pitch that guides. An efficacious content demands in-depth research of your business, as well as the market of your business, and our copywriting services  mastered this aspect experientially. Constructing content frameworks covering all the bits of your business in a scalable manner is what you will get from our copywriting services in Dubai.</p>
+<h2 className = "heading">{content.Sections[0].title}</h2>
+<p className = "paragraph">{content.Sections[0].description}</p>
   <div className = "padding-top-40"></div>
-</Container>
+</div>
 </div>
 
 {/*  The Fifth section    */}
 <BgContentDiv bg = "/images/web/contentcreation/contentcreation-banner-three.png">
-<Container>
-  <h2 className = "white-heading pt-3">NO FLUFF! NO FILLER - JUST ENGAGING CONTENT</h2>
+<div className="container">
+  <h2 className = "white-heading pt-3">
+  {content.Sections[1].title}
+    </h2>
   <div className = "padding-top-20"></div>
   <div className = "text-center">
     <a onClick = {openMarketingForm}>
-    <ButtonStyleTwo title = "Contact Now!"></ButtonStyleTwo>
+      {content?.Sections[1]?.btn_txt && 
+      <ButtonStyleTwo  title = {content.Sections[1].btn_txt} />}
     </a>
   </div>
-
-</Container>
+</div>
 </BgContentDiv>
 
 {/*  The Sixth section    */}
 
 <div className = "bg-grey">
-<Container>
+<div className="container box-direction">
 <div className ="padding-top-50"></div>
-<h1 className = "left-heading">OUR CONTENT CREATION PROCESS IS {'\n'} STRUCTURED YET CONTEMPORARY</h1>
-<p className = "left-paragraph">We combine the creative power of in-house writers, designers, and videographers to create power-packed blogs and videos for your targeted audience. Our seo copywriting services involve  step by step planning and executing.</p>
+<h1 className = "left-heading text-direction">{content.Sections[2].title}</h1>
+<p className = "left-paragraph text-direction">{content.Sections[2].description}</p>
 <div className = "padding-top-20"></div>
-<ListItemTwo title = "Content Objective" description = "content planning based on the objectives of your brand."></ListItemTwo>
-<ListItemTwo title = "Analyze Buyer Persona" description = "an in-depth analysis of the buyer persona whether they are in the awareness, consideration or decision stage of their buying journey."></ListItemTwo>
-<ListItemTwo title = "Outline of Content" description = "preparing an outline of the content considering the main points of your audience."></ListItemTwo>
-<ListItemTwo title = "First Draft Edit" description = "checking grammatical errors, fact-checking, wordsmithing, and story gaps."></ListItemTwo>
-<ListItemTwo title = "Design & Formatting" description = "converting your content into high-quality designs (creative+ engaging) and clean visuals."></ListItemTwo>
-<ListItemTwo title = "Final Draft" description = "optimization of your content for search engines with keywords research by our SEO specialists."></ListItemTwo>
-<ListItemTwo title = "Review System" description = " measuring the content accuracy and alignment with your company brand."></ListItemTwo>
+{content.ListingTwo.map(li => (
+  <ListItemTwo title = {li.title} description = {li.description}></ListItemTwo>
+))}
 <div className = "text-center padding-top-30 padding-bottom-50">
   <a onClick = {openMarketingForm} >
-    <ButtonStyleOne title = "Explore Our Website Copywriting Services"></ButtonStyleOne>
+    {content.Buttons[1] && <ButtonStyleOne title = {content.Buttons[1].title}></ButtonStyleOne> }
   </a>
 </div>
-</Container>
+</div>
 <div className="pb-5">
 
 </div>
@@ -178,15 +304,12 @@ const ContentCreation = () => {
 </div>
 
 <ReportCardFooter
-category = "marketing"
-  imgAddress = "images/web/video-production/6tactics.png"
-  title = "INSIDER TRADE-SECRETS THAT WILL OPEN THE FLOODGATES TO FREE WEBSITE TRAFFIC"
-   caption = "This FREE Report reveals the most powerful trade secrets
-for boosting your organic rankings and opening the
-floodgates to organic traffic. Get for free what others have
-paid $1000’s to receive."
-  btntext = "GET MY FREE REPORT"
-   />
+  category="marketing"
+  imgAddress={ImagePath + content.Book.image}
+  title={content.Book.title}
+  caption={content.Book.description}
+  btntext={locale === 'ar' ? finalData.book.btn_title_arabic : finalData.book.btn_title_english}
+/>
 
 
  
