@@ -688,9 +688,7 @@ componentDidUpdate(prevProps, prevState) {
     };
   };
 
-  formpopup = () => {
-   $('.formPopup-branding').css("display","block");
-  }
+
   scrolldownmethod(targetdiv){
     var targetid = '#' + targetdiv;
     $(targetid)[0].scrollIntoView({

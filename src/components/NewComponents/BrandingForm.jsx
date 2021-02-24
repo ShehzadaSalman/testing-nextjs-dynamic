@@ -66,31 +66,24 @@ const BrandingForm = ({ department }) => {
       success: function (data) {
         console.log(data);
       },
+      failure: function (data) {
+        console.log(data);
+      }
     });
-
-    // axios({
-    //   method: 'post',
-    //   url: ,
-    //   data: {
-    //     firstName: 'Fred',
-    //     lastName: 'Flintstone'
-    //   }
-    // });
-
-
 
 
     console.log("FORM SUBMITTED SUCCESSFULLY");
     resetForm({});
-    document.querySelector('#formPopup-branding').style.display = "none";
-    document.querySelector('#formPopup-branding .messageBox').style.display = "none";
+    document.querySelector('#formPopup-branding #services3').style.display = "none";
+    $('#formPopup-branding .messageBox').css('display', 'block');
 
   }
   // closing the popup form here
   const closeFormPopup = (event) => {
      resetForm({});
-     document.querySelector('#formPopup-branding').style.display = "none";
+     document.querySelector('#formPopup-branding  #services3').style.display = "block";
      document.querySelector('#formPopup-branding .messageBox').style.display = "none";
+     document.querySelector('#formPopup-branding').style.display = "none";
   }
 
   const avoidClosePopupFromOutside = (event) => {

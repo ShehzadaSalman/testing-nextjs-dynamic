@@ -17,7 +17,7 @@ function WebDevelopmentContent({data, services, books}) {
 
 
   const formpopupBranding = () => {
-    $('.formPopup-branding').css("display", "block");
+    $('#formPopup-branding').css("display", "block");
     console.log("this is branding popup")
   }
 

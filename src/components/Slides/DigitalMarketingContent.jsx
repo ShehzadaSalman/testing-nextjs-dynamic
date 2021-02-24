@@ -13,7 +13,7 @@ function DigitalMarketingContent({data, services, books }){
   const router = useRouter();
   const {locale} = router;     
   const formpopupBranding = () => {
-    $('.formPopup-branding').css("display", "block");
+    $('#formPopup-branding').css("display", "block");
     console.log("this is branding popup")
   }
      

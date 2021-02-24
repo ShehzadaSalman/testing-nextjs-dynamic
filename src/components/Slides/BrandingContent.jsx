@@ -19,7 +19,7 @@ function BrandingContent({data, services, books, language }) {
  const router = useRouter();
  const {locale} = router;
   const formpopupBranding = () => {
-    $('.formPopup-branding').css("display", "block");
+    $('#formPopup-branding').css("display", "block");
     console.log("this is branding popup")
   }
   const closeFormPopup = () => {
