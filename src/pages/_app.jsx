@@ -11,6 +11,7 @@ import '../../public/css/newstyle.css';
 import '../../public/css/responsive.css';
 import '../../public/css/fontawesome/css/all.min.css';
 import Head from 'next/head';
+import footerProvider from '../ContextApi/footerContext'
 const tagManagerArgs = {
   gtmId: 'GTM-NH6LNLJ',
 }
@@ -56,8 +57,8 @@ export default function MyApp({ Component, pageProps }) {
 
 
 
-  return <UserProvider>
-
+  return (<UserProvider>
+  <footerProvider>
    <Head>
     {/* addd dynamic tags here */}
    </Head>
@@ -69,7 +70,8 @@ export default function MyApp({ Component, pageProps }) {
       : ''
     }
     <Component {...pageProps} />
-  </UserProvider>;
+    </footerProvider>
+  </UserProvider>);
 
 
 }

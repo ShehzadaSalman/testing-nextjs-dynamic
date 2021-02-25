@@ -1,11 +1,15 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useContext} from 'react'
+import {footerContext} from '../ContextApi/footerContext'
 import axios from 'axios'
+ 
 
 import { useRouter } from 'next/router'
-export default () => {
+
+
+const Footer = () => {
   const router = useRouter();
   const {locale} = router;
-
+  const footerContextValue = useContext(footerContext)   
 
 const [footerData, setFooterData] = useState({})
 const [bottomFooter, setBottomFooter] = useState({});
@@ -23,6 +27,7 @@ const [bottomFooter, setBottomFooter] = useState({});
 
 
   useEffect(() => {
+    console.log(footerContextValue)
     fetchData();
      },[])
 
@@ -131,3 +136,5 @@ locale == 'ar'
     </div>
   );
 };
+
+export default Footer

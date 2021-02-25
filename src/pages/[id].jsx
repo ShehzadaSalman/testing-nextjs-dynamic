@@ -46,117 +46,117 @@ function Dynamic({ data, footerData, bottomFooter, menudata, bottomPages, compan
   switch (data.template_id) {
 
     case 1:
-      return (<> <Headerfive/><Template1 finalData={data} /></>)
+      return (<><Template1 finalData={data} /></>)
       break;
 
     case 2:
-      return (<> <Headerfive/><Template2 finalData={data} /></>)
+      return (<><Template2 finalData={data} /></>)
       break;
 
     case 3:
-      return (<> <Headerfive/><Template3 finalData={data} /></>)
+      return (<><Template3 finalData={data} /></>)
       break;
 
     case 4:
-      return (<> <Headerfive/><Template4 finalData={data} /></>)
+      return (<><Template4 finalData={data} /></>)
       break;
 
     case 5:
-      return (<> <Headerfive/><Template5 finalData={data} /></>)
+      return (<><Template5 finalData={data} /></>)
       break;
 
     case 6:
-      return (<> <Headerfive/><Template6 finalData={data} /></>)
+      return (<><Template6 finalData={data} /></>)
       break;
 
     case 7:
-      return (<> <Headerfive/><Template7 finalData={data} /></>)
+      return (<><Template7 finalData={data} /></>)
       break;
 
     case 8:
-      return (<> <Headerfive/><Template8 finalData={data} /></>)
+      return (<><Template8 finalData={data} /></>)
       break;
 
     case 9:
-      return (<> <Headerfive/><Template9 finalData={data} /></>)
+      return (<><Template9 finalData={data} /></>)
       break;
 
     case 10:
-      return (<> <Headerfive/><Template10 finalData={data} /></>)
+      return (<><Template10 finalData={data} /></>)
       break;
 
     case 11:
-      return (<> <Headerfive/><Template11 finalData={data} /></>)
+      return (<><Template11 finalData={data} /></>)
       break;
 
     case 12:
-      return (<> <Headerfive/><Template12 finalData={data} /></>)
+      return (<><Template12 finalData={data} /></>)
       break;
 
     case 13:
-      return (<> <Headerfive/><Template13 finalData={data} /></>)
+      return (<><Template13 finalData={data} /></>)
       break;
 
     case 14:
-      return (<> <Headerfive/><Template14 finalData={data} /></>)
+      return (<><Template14 finalData={data} /></>)
       break;
 
     case 15:
-      return (<> <Headerfive/><Template15 finalData={data} /></>)
+      return (<><Template15 finalData={data} /></>)
       break;
 
     case 16:
-      return (<> <Headerfive/><Template16 finalData={data} /></>)
+      return (<><Template16 finalData={data} /></>)
       break;
 
     case 17:
-      return (<> <Headerfive/><Template17 finalData={data} /></>)
+      return (<><Template17 finalData={data} /></>)
       break;
 
     case 18:
-      return (<> <Headerfive/><Template18 finalData={data} /></>)
+      return (<><Template18 finalData={data} /></>)
       break;
 
     case 19:
-      return (<> <Headerfive/><Template19 finalData={data} /></>)
+      return (<><Template19 finalData={data} /></>)
       break;
 
     case 20:
-      return (<> <Headerfive/><Template20 finalData={data} /></>)
+      return (<><Template20 finalData={data} /></>)
       break;
 
     case 21:
-      return (<> <Headerfive/><Template21 finalData={data} /></>)
+      return (<><Template21 finalData={data} /></>)
       break;
 
     case 26:
-      return (<> <Headerfive/><Template26 finalData={data} /></>)
+      return (<><Template26 finalData={data} /></>)
       break;
 
     case 24:
-      return (<> <Headerfive/> <Template24 data={data} /></>)
+      return (<> <Template24 data={data} /></>)
       break;
 
     case 25:
-      return (<> <Headerfive/><Template25 finalData={data} /></>)
+      return (<><Template25 finalData={data} /></>)
       break;
 
     case 27:
-      return (<> <Headerfive/><Template27 finalData={data} /></>)
+      return (<><Template27 finalData={data} /></>)
       break;
 
     case 29:
-      return (<> <Headerfive/><Template29 finalData={data} /></>)
+      return (<><Template29 finalData={data} /></>)
       break;
 
     case 30:
-      return (<> <Headerfive/><Template30 finalData={data} /></>)
+      return (<><Template30 finalData={data} /></>)
 
     case 31:
-      return (<> <Headerfive/><Template31 finalData={data} /></>)  
+      return (<><Template31 finalData={data} /></>)  
 
     case 350:
-      return (<> <Headerfive/> <Template350 finalData={data} /></>)
+      return (<> <Template350 finalData={data} /></>)
       break;
 
     case 450:
@@ -174,7 +174,7 @@ function Dynamic({ data, footerData, bottomFooter, menudata, bottomPages, compan
   if (data) {
     if(data.template_id == 450){
       return <>
-      <menuContext.Provider value= {{headerMenu, setHeaderMenu}}>
+      <menuContext.Provider  value= {{headerMenu, setHeaderMenu}}>
       <Template450 finalData={data} /><Footer footerData = {footerData} bottomFooter = {bottomFooter}   /> 
       </menuContext.Provider> </>
     } else if(data.template_id == 31){
@@ -183,7 +183,7 @@ function Dynamic({ data, footerData, bottomFooter, menudata, bottomPages, compan
     else{
       return <>
       <menuContext.Provider value= {{headerMenu, setHeaderMenu}}>
-     {SwitchPages(data)}<Footer 
+      <Headerfive/>{SwitchPages(data)}<Footer 
       footerData = {footerData} 
       bottomFooter = {bottomFooter}   />
       </menuContext.Provider>

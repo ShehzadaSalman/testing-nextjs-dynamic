@@ -5,7 +5,7 @@ import { getDeviceName } from '../lib/helper';
 let deviceName = getDeviceName();
 import axios from 'axios'
 import { useRouter } from 'next/router'
-
+let shouldFetchMenu = true;
 
 const Headerfive = () => {
  
@@ -14,9 +14,9 @@ const Headerfive = () => {
 
   const [addClass , setAddClass] = useState(false);
   const [isMenu , setIsMenu] = useState(false);
-  const [menudata, setMenuData] = useState([]);
-  const [bottomPages, setBottomPages] = useState([]);
-  const [companyInfo, setCompanyInfo] = useState({});
+  const [menudata, setMenuData] = useState(null);
+  const [bottomPages, setBottomPages] = useState(null);
+  const [companyInfo, setCompanyInfo] = useState(null);
   const router = useRouter();
   const {locale} = router;
 
@@ -40,9 +40,23 @@ const Headerfive = () => {
 
 
 
+
   useEffect(() => {
-      fetchData();
-  },[!menudata,!bottomPages, !companyInfo])
+    try{
+      fetchData()
+    }catch(e){
+
+      console.log(e)
+    }
+     
+    
+      
+  },[])
+
+
+
+
+
 
 
 
@@ -104,15 +118,14 @@ const Headerfive = () => {
   }
 
   const CategoryHeading = (menu) => {
-
    if(menu.slug === '/'){
     return <h1 onClick={refreshPage}>{menu.title}</h1>
    }else{
-      if(deviceName === 'Mobile'){
-        return( <Link  href={menu.slug}>
-        <a><h1>{locale === 'ar' ? menu.title_arabic :  menu.title}</h1> </a>
-        </Link> ) 
-      }else{
+    if(deviceName === 'Mobile'){
+      return( <Link  href={menu.slug}>
+      <a><h1>{locale === 'ar' ? menu.title_arabic :  menu.title}</h1> </a>
+      </Link> ) 
+    }else{
          return <h1>{locale === 'ar' ? menu.title_arabic :  menu.title}</h1>
       }
    }
@@ -143,7 +156,7 @@ const Headerfive = () => {
 
                   <img  
                   loading="lazy"
-                  style={{ maxHeight: "40px;" }}
+                  style={{ maxHeight: "40px" }}
                     src="/images/site-logos.svg"
                     className="img-fluid sticks"
                     alt="Tech Bay Solution"
@@ -207,14 +220,14 @@ const Headerfive = () => {
                 <span></span>
                 <div className="new-menu-sub text-direction">
                  { menu?.services.length > 0 &&  menu.services.map(li => {
-                 return( <div onClick={samePageRefresh}>
-                   <Link  href={li.slug}>
-                     <a>
-                       <li>
-                       {locale == 'ar' ? li.title_arabic :  li.title}
-                       </li>
+                 return( <div onClick={samePageRefresh}> 
+                 <Link href={li.slug}>
+                 <a>
+                  <li>
+                  {locale == 'ar' ? li.title_arabic :  li.title}
+                  </li>
                      </a>
-                  </Link>
+                     </Link>
                  </div> )
                  })}       
                      
