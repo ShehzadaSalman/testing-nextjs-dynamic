@@ -1,18 +1,20 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Link from 'next/link';
 import { getDeviceName } from '../lib/helper';
 import axios from 'axios';
 import { useRouter } from 'next/router'
-import { UserConsumer } from '../ContextApi/usercontext';
+import {FooterContext} from '../ContextApi/footerContext'
 const ImagePath  = "https://staging.techbay.co/storage/app/";
 let deviceName = getDeviceName();
 
 const Header = () => {
+
+
+  const [footerData,bottomFooter, menudata, bottomPages, companyInfo ] 
+  = useContext(FooterContext)  
+
   const [addClass , setAddClass] = useState(false);
   const [isMenu , setIsMenu] = useState(true);
-  const [menudata, setMenuData] = useState([]);
-  const [bottomPages, setBottomPages] = useState([]);
-  const [companyInfo, setCompanyInfo] = useState({});
   const router = useRouter();
   const {locale} = router;
 
@@ -79,28 +81,12 @@ const Header = () => {
 
 
 
-   const fetchData = async () => {
-    const result = await  axios.get('https://staging.techbay.co/api/get-navbar-menu');
-    const finalData = await  result.data.response;
-    setMenuData(finalData);
-
-   const bpage = await  axios.get('https://staging.techbay.co/api/get-footer-menu');
-   const finalBottomPages  = await  bpage.data.response;
-   setBottomPages(finalBottomPages)
-   
-
-  const cinfo = await  axios.get('https://staging.techbay.co/api/get-header-footer-content');
-   const finalCompanyInfo = await  cinfo.data.response;
-   setCompanyInfo(finalCompanyInfo);
- }
-
    
 
 
   useEffect(() => {
-  fetchData();
-    },[!menudata,!bottomPages, !companyInfo])
- 
+    console.info('HEADER IS RENDERING')
+    },[])
    // fetching the bottom pages
 
 
@@ -191,9 +177,7 @@ const Header = () => {
               <div className="menu-container-class container-fluid">
                 <div 
                 className="new-menu-wrapper box-direction text-direction">
-
- 
-                {menudata?.map(menu => (
+                {(menudata.length > 0) && menudata.map(menu => (
                           <div key={menu.id}  onMouseEnter={openNewMenu} onMouseLeave={closeNewMenu} className= {menu.services.length > 0 ? "new-menu-item sub" : "new-menu-item" }>
                           
                          {menu.slug == '/' 
