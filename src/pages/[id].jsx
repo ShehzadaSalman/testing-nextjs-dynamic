@@ -233,10 +233,11 @@ export async function getStaticPaths({ locales }) {
  
  
      let removeCancelation = finalRoutes.filter(li => li.params.id !== 'cancellation-and-refund')
+     let removeTerms = removeCancelation.filter(li => li.params.id !== 'terms-and-conditions')
   return {
 
     paths: [
-       ...removeCancelation,
+       ...removeTerms,
 
     ],
     fallback: true
