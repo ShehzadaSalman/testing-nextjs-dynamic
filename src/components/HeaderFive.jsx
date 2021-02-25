@@ -117,6 +117,7 @@ const Headerfive = () => {
   /* closing menu on page change */
 
   const changePage = (url) => {
+    e.preventDefault();
    console.info("change the page", url);
    router.push(url);
    toggleHeaderMenuClassHandler();
