@@ -173,10 +173,7 @@ function Dynamic({ data, footerData, bottomFooter, menudata, bottomPages, compan
 
   if (data) {
     if(data.template_id == 450){
-      return <>
-      <menuContext.Provider  value= {{headerMenu, setHeaderMenu}}>
-      <Template450 finalData={data} /><Footer footerData = {footerData} bottomFooter = {bottomFooter}   /> 
-      </menuContext.Provider> </>
+      return <Template450 finalData={data} />
     } else if(data.template_id == 31){
       return <><Headerfive/><Template31 finalData={data} /></>
     }

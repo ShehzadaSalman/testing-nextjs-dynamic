@@ -23,9 +23,6 @@ const Headerfive = () => {
    },[])
 
 
-  const handleClick = (slug) => {
-    router.push(slug)
-  } 
 
 
 
@@ -95,6 +92,17 @@ const Headerfive = () => {
     }
   }
 
+  const changePage = (url) => {
+    // e.preventDefault();
+   console.info("change the page", url);
+   router.push(url);
+   toggleHeaderMenuClassHandler();
+  }
+    
+
+
+
+
   const CategoryHeading = (menu) => {
    if(menu.slug === '/'){
     return <h1 onClick={refreshPage}>{menu.title}</h1>
@@ -104,7 +112,7 @@ const Headerfive = () => {
       <a><h1>{locale === 'ar' ? menu.title_arabic :  menu.title}</h1> </a>
        ) 
     }else{
-         return <h1>{locale === 'ar' ? menu.title_arabic :  menu.title}</h1>
+         return <h1 onClick = {() => changePage(menu.slug.toString())}>{locale === 'ar' ? menu.title_arabic :  menu.title}</h1>
       }
    }
   }
@@ -116,15 +124,7 @@ const Headerfive = () => {
 
   /* closing menu on page change */
 
-  const changePage = (url) => {
-    e.preventDefault();
-   console.info("change the page", url);
-   router.push(url);
-   toggleHeaderMenuClassHandler();
-  }
-    
-
-
+ 
 
 
 

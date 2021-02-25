@@ -33,8 +33,6 @@ const Header = () => {
   }
   }
  const toggleHeaderMenuClassHandler = () => {
-   console.log("I'm being clicked")
-   
    if(addClass){
     setAddClass(false);
     }else{
