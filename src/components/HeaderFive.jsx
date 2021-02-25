@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
+import Router from 'next/router';
 import Link from 'next/link';
 import { getDeviceName } from '../lib/helper';
 let deviceName = getDeviceName();
@@ -105,19 +106,7 @@ const Headerfive = () => {
   }
 
 
-  /* open close page */
-  Router.onRouteChangeStart = (url) => { 
 
-  };
-
-  Router.onRouteChangeComplete = (url) => {
-
-  };
-
-  Router.onRouteChangeError = (err, url) => {
-    console.log("ROUTING ERROR", err);
-    
-  };
 
 
 
