@@ -479,4 +479,4 @@ const PRPLANNING = ({ finalData }) => {
 };
 
 
-export default PRPLANNING;
+export default React.memo(PRPLANNING);

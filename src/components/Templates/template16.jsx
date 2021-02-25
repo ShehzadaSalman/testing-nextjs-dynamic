@@ -425,4 +425,4 @@ const ERP = ({ finalData }) => {
     </React.Fragment>
   );
 }
-export default ERP;
+export default React.memo(ERP);

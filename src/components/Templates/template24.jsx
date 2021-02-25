@@ -423,4 +423,4 @@ const ReportLandingPage = ({data}) => {
   );
 }
 
-export default  ReportLandingPage;
+export default  React.memo(ReportLandingPage);

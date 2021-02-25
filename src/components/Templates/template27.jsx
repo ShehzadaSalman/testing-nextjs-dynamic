@@ -186,4 +186,4 @@ const CaseStudy = ({ finalData }) => {
 
 }
 
-export default CaseStudy;
+export default React.memo(CaseStudy);

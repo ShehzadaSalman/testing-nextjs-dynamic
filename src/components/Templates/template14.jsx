@@ -371,4 +371,4 @@ const AppDevelopment = ({ finalData }) => {
     </React.Fragment>
   );
 }
-export default AppDevelopment;
+export default React.memo(AppDevelopment);

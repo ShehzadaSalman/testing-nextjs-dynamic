@@ -249,4 +249,4 @@ const SEO = ({ finalData }) => {
 
 
 
-export default SEO;
+export default React.memo(SEO);

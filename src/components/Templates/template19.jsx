@@ -315,4 +315,4 @@ const UIUX = ({ finalData }) => {
     </React.Fragment>
   );
 }
-export default UIUX;
+export default React.memo(UIUX);

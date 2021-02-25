@@ -330,4 +330,4 @@ const ContentCreation = ({finalData}) => {
     </React.Fragment>
   );
   }
-  export default ContentCreation;
+  export default React.memo(ContentCreation);

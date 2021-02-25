@@ -60,7 +60,7 @@ if(data.id == 11){
  
 
 
-export default SERVICES
+export default React.memo(SERVICES)
 
 
 

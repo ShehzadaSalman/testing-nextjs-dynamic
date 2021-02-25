@@ -353,4 +353,4 @@ const MotionGraphic = ({ finalData }) => {
 }
 
 
-export default MotionGraphic;
+export default React.memo(MotionGraphic);

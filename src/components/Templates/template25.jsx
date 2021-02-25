@@ -61,4 +61,4 @@ const PRIVACY = ({ finalData }) => {
 
 
 }
-export default PRIVACY;
+export default React.memo(PRIVACY);

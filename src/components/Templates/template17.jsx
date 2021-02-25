@@ -337,4 +337,4 @@ const ECOMMERCE = ({ finalData }) => {
     </React.Fragment>
   );
 }
-export default ECOMMERCE;
+export default React.memo(ECOMMERCE);

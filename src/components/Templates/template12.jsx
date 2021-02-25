@@ -325,4 +325,4 @@ const AppDesign = ({ finalData }) => {
     </React.Fragment>
   );
 }
-export default AppDesign;
+export default React.memo(AppDesign);

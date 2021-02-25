@@ -294,4 +294,4 @@ const ContentMarketing = ({ finalData }) => {
     </React.Fragment>
   )
 }
-export default ContentMarketing;
+export default React.memo(ContentMarketing);

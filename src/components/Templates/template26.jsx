@@ -93,4 +93,4 @@ const ABOUT = ({ finalData }) => {
 
 
 
-export default ABOUT;
+export default React.memo(ABOUT);

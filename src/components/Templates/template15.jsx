@@ -292,4 +292,4 @@ category = "development"
     </React.Fragment>
   );
   }
-  export default CMS;
+  export default React.memo(CMS);

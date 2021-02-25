@@ -301,4 +301,4 @@ const CROPAGE = ({ finalData }) => {
   );
 
 }
-export default CROPAGE;
+export default React.memo(CROPAGE);

@@ -285,4 +285,4 @@ const MarketingMedia = ({ finalData }) => {
 
 
 // }
-export default MarketingMedia;
+export default React.memo(MarketingMedia);

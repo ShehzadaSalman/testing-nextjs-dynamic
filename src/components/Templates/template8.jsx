@@ -614,4 +614,4 @@ btntext={locale === 'ar' ? finalData.book.btn_title_arabic : finalData.book.btn_
 </React.Fragment>)
 } 
 
-export default SEOPAGE;
+export default React.memo(SEOPAGE);

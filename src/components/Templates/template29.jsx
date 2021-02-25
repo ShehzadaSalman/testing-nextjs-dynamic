@@ -310,4 +310,4 @@ return (
 </React.Fragment>
 )
 }
-export default Retargeting;
+export default React.memo(Retargeting);

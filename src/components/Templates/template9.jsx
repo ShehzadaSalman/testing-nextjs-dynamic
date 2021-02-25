@@ -259,4 +259,4 @@ const PpcPage = ({ finalData }) => {
   );
 }
 
-export default PpcPage;
+export default React.memo(PpcPage);

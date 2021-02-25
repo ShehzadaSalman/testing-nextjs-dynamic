@@ -292,4 +292,4 @@ align-items: center;
     </React.Fragment>
   );
 }
-export default SubWebDevelopment;
+export default React.memo(SubWebDevelopment);

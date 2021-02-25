@@ -39,4 +39,4 @@ const CONTACT = ({finalData}) => {
   );
 };
 
-export default CONTACT;
+export default React.memo(CONTACT);

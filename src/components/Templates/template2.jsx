@@ -462,4 +462,4 @@ function BRANDPAGE({ finalData }) {
   );
 }
 
-export default BRANDPAGE;
+export default React.memo(BRANDPAGE);

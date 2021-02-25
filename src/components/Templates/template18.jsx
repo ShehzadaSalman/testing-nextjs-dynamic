@@ -333,4 +333,4 @@ function CRM({ finalData }) {
     </React.Fragment>
   );
 }
-export default CRM;
+export default React.memo(CRM);

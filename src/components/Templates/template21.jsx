@@ -1,5 +1,4 @@
 import PageBanner from '../NewComponents/PageBanner/PageBanner';
-import Container from '@material-ui/core/Container';
 import ButtonStyleThree from '../NewComponents/Buttons/buttonStyleThree.jsx';
 import ButtonStyleOne from '../NewComponents/Buttons/buttonStyleOne';
 import NewTermsOfServices from '../NewComponents/NewTermsOfService';
@@ -437,4 +436,4 @@ function SMMPAGE({finalData}) {
     </React.Fragment>
   );
 }
-export default SMMPAGE;
+export default React.memo(SMMPAGE);

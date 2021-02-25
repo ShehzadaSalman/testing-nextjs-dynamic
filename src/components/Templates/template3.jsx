@@ -450,4 +450,4 @@ div#path-div-two {
 
 
 
-export default MediaRelation;
+export default React.memo(MediaRelation);

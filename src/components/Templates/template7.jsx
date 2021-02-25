@@ -282,4 +282,4 @@ background-color: #4A91BD;
     </React.Fragment>
   );
 }
-export default Agency;
+export default React.memo(Agency);
