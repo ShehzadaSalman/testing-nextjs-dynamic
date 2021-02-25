@@ -234,10 +234,19 @@ export async function getStaticPaths({ locales }) {
  
      let removeCancelation = finalRoutes.filter(li => li.params.id !== 'cancellation-and-refund')
      let removeTerms = removeCancelation.filter(li => li.params.id !== 'terms-and-conditions')
-  return {
+ 
+ 
+     return {
 
     paths: [
-       ...removeTerms,
+      { params: { id: 'branding-services' }, locale: 'ar' },
+      { params: { id: 'media-agency' }, locale: 'ar' },
+      { params: { id: 'public-relation' }, locale: 'ar' },
+      { params: { id: 'motion-designing' }, locale: 'ar' },
+      { params: { id: 'video-production' }, locale: 'ar' },
+      { params: { id: 'advertising-agency' }, locale: 'ar' },
+      { params: { id: 'website-designing' }, locale: 'ar' },
+
 
     ],
     fallback: true
