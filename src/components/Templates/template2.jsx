@@ -12,7 +12,7 @@ import { openBrandingForm } from '../../lib/helper';
 import Headerfive from '../HeaderFive';
 const ImagePath = process.env.ImagePath;
 function BRANDPAGE({ finalData }) {
-  console.info(finalData);
+ 
   let content;
 
   const router = useRouter();

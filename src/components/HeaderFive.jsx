@@ -1,5 +1,4 @@
 import { useState, useEffect, useContext } from 'react';
-import Router from 'next/router';
 import Link from 'next/link';
 import { getDeviceName } from '../lib/helper';
 let deviceName = getDeviceName();
@@ -24,10 +23,15 @@ const Headerfive = () => {
    },[])
 
 
-  const handleClick = () => {
-    router.push()
+  const handleClick = (slug) => {
+    router.push(slug)
   } 
 
+
+
+  
+
+ 
 
 
 
@@ -96,9 +100,9 @@ const Headerfive = () => {
     return <h1 onClick={refreshPage}>{menu.title}</h1>
    }else{
     if(deviceName === 'Mobile'){
-      return( <Link  href={menu.slug}>
+      return( 
       <a><h1>{locale === 'ar' ? menu.title_arabic :  menu.title}</h1> </a>
-      </Link> ) 
+       ) 
     }else{
          return <h1>{locale === 'ar' ? menu.title_arabic :  menu.title}</h1>
       }
@@ -112,7 +116,11 @@ const Headerfive = () => {
 
   /* closing menu on page change */
 
-
+  const changePage = (url) => {
+   console.info("change the page", url);
+   router.push(url);
+   toggleHeaderMenuClassHandler();
+  }
     
 
 
@@ -184,7 +192,8 @@ const Headerfive = () => {
                     : <>{locale == 'ar' ? <>قائمة طعام</>  : <>Close</> }</>             
                     }
                   </button>
-                  <button className="btn mg-link-btn my-0 py-0 d-none d-md-block"  onClick={changeLanguage}>
+                  <button className="btn mg-link-btn my-0 py-0 d-none d-md-block" 
+                   onClick={changeLanguage}>
             {locale === 'ar'
              ? <img src="/images/new-svg-images/language-icon.svg"  alt = "change-lang"/>
              : <img src="/images/new-svg-images/arabic-flag.svg"  alt = "change-lang"/>
@@ -203,13 +212,13 @@ const Headerfive = () => {
                 <div className="new-menu-sub text-direction">
                  { menu?.services.length > 0 &&  menu.services.map(li => {
                  return( <div onClick={samePageRefresh}> 
-                 <Link href={li.slug}>
-                 <a>
+                 {/* <Link href={li.slug}> */}
+                 <a onClick={(e) => changePage(li.slug.toString())}>
                   <li>
                   {locale == 'ar' ? li.title_arabic :  li.title}
                   </li>
                      </a>
-                     </Link>
+                     {/* </Link> */}
                  </div> )
                  })}       
                      
@@ -271,7 +280,8 @@ const Headerfive = () => {
             {companyInfo.fb && <a href={companyInfo.fb} target="_blank">
               <i className="fab fa-facebook-f"></i>
             </a> }
-            {companyInfo.linkedin && <a href={companyInfo.linkedin} target="_blank">
+            {companyInfo.linkedin && 
+            <a onClick={() => router.push(companyInfo.linkedin.toString())} target="_blank">
               <i className="fab fa-linkedin-in"></i>
             </a> }
             {companyInfo.instagram && <a href={companyInfo.instagram} target="_blank">

@@ -56,7 +56,7 @@ export default ({finalData}) => {
     var websiteURL = event.target.querySelector('#website_url').value;
     var newURL = 'https://' + websiteURL;
     let finalURLLInk = event.target.querySelector("#website_url").value = newURL;
-    console.log(finalURLLInk);
+    
 
 
     console.log($("#services7").serialize());

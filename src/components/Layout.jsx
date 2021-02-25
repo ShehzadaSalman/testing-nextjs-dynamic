@@ -38,7 +38,6 @@ export default ({ children }) => {
     var websiteURL = event.target.querySelector('#website_url').value;
     var newURL = 'https://' + websiteURL;
     let finalURLLInk = event.target.querySelector("#website_url").value = newURL;
-    console.log(finalURLLInk);
     var finalurl = 'https://cms.techbay.co/home/siteOptimization';
     var x = $("#services6 #email").val();
     if (x == "") {
