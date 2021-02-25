@@ -20,9 +20,12 @@ const Headerfive = () => {
 
   useEffect(() => {
   console.info('HEADER FIVE IS RENDERING')
+   },[])
 
-  },[])
 
+  const handleClick = (slug) => {
+    router.push(slug)
+  } 
 
 
 
@@ -225,12 +228,10 @@ const Headerfive = () => {
                          {m.services.map(m => {
                          
                          return (
-                         <li><Link 
-                              href={m.slug || m.link}>
+                         <li onClick={handleClick(m.slug)}>
                            <a>
                            { locale == 'ar' ?  m.title_arabic : m.title} 
-                           </a>
-                           </Link>
+                           </a>                 
                            </li> );
                          })}
                         </ul>

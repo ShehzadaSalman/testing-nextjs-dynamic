@@ -236,15 +236,6 @@ export async function getStaticPaths({ locales }) {
   return {
 
     paths: [
-
-        { params: { id: 'development' } },
-        { params:  { id: 'development' }, locale: 'ar' },
-        { params: { id: 'branding' } },
-        { params:  { id: 'branding' }, locale: 'ar' },
-        { params: { id: 'marketing' } },
-        { params:  { id: 'marketing' }, locale: 'ar' },
-
-     
        ...finalRoutes,
 
     ],
@@ -264,7 +255,9 @@ export async function getStaticProps(context) {
     data = await res.data.response
   } else { data = null }
   
-  return { props: { 
+  return {
+     props: { 
     data,
-  } }
+  },
+  revalidate: 1, }
 }
