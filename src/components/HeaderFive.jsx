@@ -183,7 +183,7 @@ const Headerfive = () => {
                        <div className="menu-container-class container-fluid">
                         <div className="new-menu-wrapper box-direction text-direction">     
              
-                {menudata && menudata.map(menu => ( 
+                {(menudata.length > 0) && menudata.map(menu => ( 
                 <div key={menu.id}  onMouseEnter={openNewMenu} onMouseLeave={closeNewMenu}
                 className= {menu.services.length > 0 ? "new-menu-item sub" : "new-menu-item" }>
                 {CategoryHeading(menu)}
