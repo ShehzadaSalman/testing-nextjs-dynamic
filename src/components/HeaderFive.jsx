@@ -23,8 +23,8 @@ const Headerfive = () => {
    },[])
 
 
-  const handleClick = (slug) => {
-    router.push(slug)
+  const handleClick = () => {
+    router.push()
   } 
 
 
@@ -228,10 +228,12 @@ const Headerfive = () => {
                          {m.services.map(m => {
                          
                          return (
-                         <li onClick={handleClick(m.slug)}>
+                         <li><Link 
+                              href={m.slug || m.link}>
                            <a>
                            { locale == 'ar' ?  m.title_arabic : m.title} 
-                           </a>                 
+                           </a>
+                           </Link>
                            </li> );
                          })}
                         </ul>
