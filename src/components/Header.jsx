@@ -1,7 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import Link from 'next/link';
 import { getDeviceName } from '../lib/helper';
-import axios from 'axios';
 import { useRouter } from 'next/router'
 import {FooterContext} from '../ContextApi/footerContext'
 const ImagePath  = "https://staging.techbay.co/storage/app/";

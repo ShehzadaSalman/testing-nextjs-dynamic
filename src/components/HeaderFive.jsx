@@ -104,6 +104,26 @@ const Headerfive = () => {
    }
   }
 
+
+  /* open close page */
+  Router.onRouteChangeStart = (url) => { 
+
+  };
+
+  Router.onRouteChangeComplete = (url) => {
+
+  };
+
+  Router.onRouteChangeError = (err, url) => {
+    console.log("ROUTING ERROR", err);
+    
+  };
+
+
+
+  /* closing menu on page change */
+
+
     
 
 
