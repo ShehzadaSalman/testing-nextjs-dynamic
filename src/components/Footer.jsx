@@ -1,7 +1,5 @@
 import {useState, useEffect, useContext} from 'react'
-import {footerContext} from '../ContextApi/footerContext'
-import axios from 'axios'
- 
+import {FooterContext} from '../ContextApi/footerContext'
 
 import { useRouter } from 'next/router'
 
@@ -9,27 +7,17 @@ import { useRouter } from 'next/router'
 const Footer = () => {
   const router = useRouter();
   const {locale} = router;
-  const footerContextValue = useContext(footerContext)   
+  const [footerData,bottomFooter] = useContext(FooterContext)   
 
-const [footerData, setFooterData] = useState({})
-const [bottomFooter, setBottomFooter] = useState({});
-
-
-  const fetchData = async () => {
-    const info = await  axios.get('https://staging.techbay.co/api/get-addresses');
-    const finalCompanyInfo = await  info.data.response;
-    setFooterData(finalCompanyInfo);
-    const infotwo = await  axios.get('https://staging.techbay.co/api/get-header-footer-content');
-    const finalCompanyInfotwo = await  infotwo.data.response;
-    setBottomFooter(finalCompanyInfotwo);
-  }
+// const [footerData, setFooterData] = useState({})
+// const [bottomFooter, setBottomFooter] = useState({});
 
 
-
-  useEffect(() => {
-    console.log(footerContextValue)
-    fetchData();
-     },[])
+useEffect(() => {
+  console.log('FOOTER IS BEING RENDERED')
+  console.log(footerData);
+  console.log(bottomFooter);
+   },[])
 
 
      
@@ -137,4 +125,4 @@ locale == 'ar'
   );
 };
 
-export default Footer
+export default React.memo(Footer)

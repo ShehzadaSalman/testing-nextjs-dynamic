@@ -1,56 +1,49 @@
 import { useState, useEffect, useContext } from 'react';
-import menuContext from '../ContextApi/menuContext'
 import Link from 'next/link';
 import { getDeviceName } from '../lib/helper';
 let deviceName = getDeviceName();
-import axios from 'axios'
 import { useRouter } from 'next/router'
+import {FooterContext} from '../ContextApi/footerContext'
+
 let shouldFetchMenu = true;
 
 const Headerfive = () => {
  
-   const {headerMenu, setHeaderMenu} = useContext(menuContext)
-   console.log("the menu context is ", headerMenu)
+  const [footerData,bottomFooter, menudata, bottomPages, companyInfo ] 
+  = useContext(FooterContext)   
 
   const [addClass , setAddClass] = useState(false);
   const [isMenu , setIsMenu] = useState(false);
-  const [menudata, setMenuData] = useState(null);
-  const [bottomPages, setBottomPages] = useState(null);
-  const [companyInfo, setCompanyInfo] = useState(null);
+  // const [menudata, setMenuData] = useState(null);
+  // const [bottomPages, setBottomPages] = useState(null);
+  // const [companyInfo, setCompanyInfo] = useState(null);
   const router = useRouter();
   const {locale} = router;
 
 
-  const fetchData = async () => {
-    console.log("fetching data in header again and again")
-    const result = await  axios.get('https://staging.techbay.co/api/get-navbar-menu');
-    const finalData = await  result.data.response;
-    setMenuData(finalData);
+//   const fetchData = async () => {
+//     console.log("fetching data in header again and again")
+//     const result = await  axios.get('https://staging.techbay.co/api/get-navbar-menu');
+//     const finalData = await  result.data.response;
+//     setMenuData(finalData);
 
-   const bpage = await  axios.get('https://staging.techbay.co/api/get-footer-menu');
-   const finalBottomPages  = await  bpage.data.response;
-   setBottomPages(finalBottomPages)
+//    const bpage = await  axios.get('https://staging.techbay.co/api/get-footer-menu');
+//    const finalBottomPages  = await  bpage.data.response;
+//    setBottomPages(finalBottomPages)
    
 
-  const cinfo = await  axios.get('https://staging.techbay.co/api/get-header-footer-content');
-   const finalCompanyInfo = await  cinfo.data.response;
-   setCompanyInfo(finalCompanyInfo);
-}
+//   const cinfo = await  axios.get('https://staging.techbay.co/api/get-header-footer-content');
+//    const finalCompanyInfo = await  cinfo.data.response;
+//    setCompanyInfo(finalCompanyInfo);
+// }
 
 
 
 
 
   useEffect(() => {
-    try{
-      fetchData()
-    }catch(e){
+  console.info('HEADER FIVE IS RENDERING')
 
-      console.log(e)
-    }
-     
-    
-      
   },[])
 
 
@@ -212,10 +205,10 @@ const Headerfive = () => {
                     <div id="menu-content-section" className="drop-menu-link">
                        <div className="menu-container-class container-fluid">
                         <div className="new-menu-wrapper box-direction text-direction">     
-                       {menudata?.map(menu => ( 
+             
+                {menudata && menudata.map(menu => ( 
                 <div key={menu.id}  onMouseEnter={openNewMenu} onMouseLeave={closeNewMenu}
                 className= {menu.services.length > 0 ? "new-menu-item sub" : "new-menu-item" }>
-                 {/* category heading comes here */}
                 {CategoryHeading(menu)}
                 <span></span>
                 <div className="new-menu-sub text-direction">
@@ -240,11 +233,10 @@ const Headerfive = () => {
 
                       <div className="headerFooter">
                         <div className="abouts">
-                 
-          
-                        {(bottomPages?.length > 0) 
+                {(bottomPages?.length > 0) 
                  && 
                  <>
+                
                  {bottomPages?.map(m => {
                     return (
                       <div className="header-custom-dropdown" key={m.title}>
@@ -286,6 +278,7 @@ const Headerfive = () => {
             
             {companyInfo && 
             <>
+           
             {companyInfo.fb && <a href={companyInfo.fb} target="_blank">
               <i className="fab fa-facebook-f"></i>
             </a> }
@@ -585,4 +578,4 @@ const Headerfive = () => {
   );
 } 
 
-export default Headerfive;
+export default React.memo(Headerfive);
