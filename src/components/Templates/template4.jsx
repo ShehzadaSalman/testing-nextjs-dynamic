@@ -306,7 +306,7 @@ const PRPLANNING = ({ finalData }) => {
 
 
         {/* Last section ends here */}
-    
+       <Footer/>
       </div>
 
 

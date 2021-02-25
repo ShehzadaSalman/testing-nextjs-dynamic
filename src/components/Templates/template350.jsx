@@ -1,8 +1,4 @@
 
-import Layout from '../Layout'
-import TermOfServices from '../TermOfServices';
-import { addStickyHeader } from '../../lib/helper';
-import MarketingForm from '../NewComponents/MarketingForm';
 import NewTermsOfService from '../NewComponents/NewTermsOfService';
 import PackageForm from '../NewComponents/PackageForm';
 import { useRouter } from 'next/router';

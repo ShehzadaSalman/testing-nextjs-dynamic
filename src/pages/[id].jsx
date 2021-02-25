@@ -180,6 +180,9 @@ function Dynamic({ data, footerData, bottomFooter, menudata, bottomPages, compan
     } else if(data.template_id == 31){
       return <><Headerfive/><Template31 finalData={data} /></>
     }
+    else if(data.template_id == 4){
+      return <><Headerfive/><Template4 finalData={data} /></>
+    }
     else{
       return <>
       <menuContext.Provider value= {{headerMenu, setHeaderMenu}}>
