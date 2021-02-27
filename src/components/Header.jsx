@@ -2,47 +2,48 @@ import { useState, useEffect, useContext } from 'react';
 import Link from 'next/link';
 import { getDeviceName } from '../lib/helper';
 import { useRouter } from 'next/router'
-import {FooterContext} from '../ContextApi/footerContext'
-const ImagePath  = "https://staging.techbay.co/storage/app/";
+import { FooterContext } from '../ContextApi/footerContext'
+const ImagePath = "https://staging.techbay.co/storage/app/";
 let deviceName = getDeviceName();
 
 const Header = () => {
 
 
-  const [footerData,bottomFooter, menudata, bottomPages, companyInfo ] 
-  = useContext(FooterContext)  
+  const [footerData, bottomFooter, menudata, bottomPages, companyInfo]
+    = useContext(FooterContext)
 
-  const [addClass , setAddClass] = useState(false);
-  const [isMenu , setIsMenu] = useState(true);
+  const [addClass, setAddClass] = useState(false);
+  const [isMenu, setIsMenu] = useState(true);
   const router = useRouter();
-  const {locale} = router;
+  const { locale } = router;
 
   const changeLanguage = (e) => {
-  if(locale === 'ar'){
-    try{
-      router.push(router.asPath, router.asPath, {locale: 'en-US'});
+    e.preventDefault()
+    if (locale === 'ar') {
+      try {
+        router.push(router.asPath, router.asPath, { locale: 'en-US' });
+        console.info("pathname is ", router.asPath);
+      }
+      catch (e) {
+        console.info('ERROR is' + e);
+      }
+
+    } else {
+      router.push(router.asPath, router.asPath, { locale: 'ar' });
       console.info("pathname is ", router.asPath);
     }
-    catch(e){
-      console.info('ERROR is'+e);
-    }
-
-  } else{
-    router.push(router.asPath, router.asPath, {locale: 'ar'});
-    console.info("pathname is ", router.asPath);
   }
-  }
- const toggleHeaderMenuClassHandler = () => {
-   if(addClass){
-    setAddClass(false);
-    }else{
-    setAddClass(true);
+  const toggleHeaderMenuClassHandler = () => {
+    if (addClass) {
+      setAddClass(false);
+    } else {
+      setAddClass(true);
     }
-     if(isMenu){
+    if (isMenu) {
       setIsMenu(false);
-     }else{
+    } else {
       setIsMenu(true);
-     }
+    }
   };
 
   const openNewMenu = (event) => {
@@ -78,219 +79,219 @@ const Header = () => {
 
 
 
-   
+
 
 
   useEffect(() => {
     console.info('HEADER IS RENDERING')
-    },[])
-   // fetching the bottom pages
+  }, [])
+  // fetching the bottom pages
 
 
 
 
 
   return (<>
-<header className="mg-main-header" id="myHeader">
-<div className="container-fluid p-0">
-  <div className={`row ${addClass ? 'drop-menu-top-bar' : ''}`}>
-    <div className="col-3 logos-container">
-      <a onClick={refreshPage}>
-        {companyInfo.logo ? 
-        <img 
-          src={ImagePath + companyInfo?.logo} className="img-fluid" alt="Tech Bay Solution" />
-          : <img  src='images/site-logos.svg' className="img-fluid" alt="Tech Bay Solution" />
-        }
-      </a>
-
-    </div>
-    <div className="col-6 d-flex contctDetails xs-hidden">
-      <div className="mg-language-selector">
-        <ul className="pl-0">
-   
-              
-            
-          {(companyInfo) && 
-          <>
-           {/* display the phone number if it exist  */}
-          {companyInfo.phone && 
-          <li>
-          <a href="tel:+97144257880">
-            <i className='fa fa-phone'>
-            {companyInfo.phone}
-          </i>       
-          </a>
-        </li>
-          }
-     
-          {companyInfo.email &&  <>
-            <li>
-            <a href="mailto:info@techbay.co">
-              <i className='far fa-envelope '></i> {companyInfo.email}
+    <header className="mg-main-header" id="myHeader">
+      <div className="container-fluid p-0">
+        <div className={`row ${addClass ? 'drop-menu-top-bar' : ''}`}>
+          <div className="col-3 logos-container">
+            <a onClick={refreshPage}>
+              {companyInfo.logo ?
+                <img
+                  src={ImagePath + companyInfo?.logo} className="img-fluid" alt="Tech Bay Solution" />
+                : <img src='images/site-logos.svg' className="img-fluid" alt="Tech Bay Solution" />
+              }
             </a>
-          </li>
-          </> }
+
+          </div>
+          <div className="col-6 d-flex contctDetails xs-hidden">
+            <div className="mg-language-selector">
+              <ul className="pl-0">
 
 
 
-
-        </>
-          }
-   
-        </ul>
-      </div>
-    </div>
-    <div className="col-3 justyfiedMenu">
-      <div className="mg-header-content-wrapper d-flex align-items-center justify-content-md-end justify-content-end">
-        <div style={{ borderColor: "#212121" }}
-          className="mg-header-icon hamburger-icon"
-          onClick={toggleHeaderMenuClassHandler}
-        >
-          <img src="/images/mg-menu-icon.svg" alt="icon" />
-        </div>
-        <span className="mg-menu-hr"></span>
-        <div className="mg-menu-wrapper">
-          <button
-            style={{ color: "#212121" }}
-            type="button"
-            onClick={toggleHeaderMenuClassHandler}
-            className="btn mg-link-btn prox-font hamburger"
-          >
-            {
-            isMenu 
-            ? <>{locale == 'ar' ? <>قائمة طعام</>  : <>Menu</> }</> 
-            : <>{locale == 'ar' ? <>قائمة طعام</>  : <>Close</> }</>             
-            }
-          </button>
-         
-          <button className="btn mg-link-btn py-0 my-0 d-none d-md-block " onClick={changeLanguage}>
-            {locale === 'ar'
-             ? <img src="/images/new-svg-images/language-icon.svg" className="d-none d-md-block" alt = "change-lang"/>
-             : <img src="/images/new-svg-images/arabic-flag.svg"   className="d-none d-md-block" alt = "change-lang"/>
-             }
-            </button>
-          <div className={`drop-menu-listing ${addClass ? 'show' : ''}`}>
-            <div id="menu-content-section" className="drop-menu-link">
-              <div className="menu-container-class container-fluid">
-                <div 
-                className="new-menu-wrapper box-direction text-direction">
-                {(menudata.length > 0) && menudata.map(menu => (
-                          <div key={menu.id}  onMouseEnter={openNewMenu} onMouseLeave={closeNewMenu} className= {menu.services.length > 0 ? "new-menu-item sub" : "new-menu-item" }>
-                          
-                         {menu.slug == '/' 
-                         ? <h1 onClick={refreshPage}>{menu.title}</h1>
-                            :  <>{deviceName != 'Mobile'
-                            ? <h1><Link   href={menu.slug ? menu.slug : '' }><a>
-                              { locale == 'ar' ? menu.title_arabic : menu.title}
-                              </a></Link></h1>
-                           : <h1>{locale == 'ar' ? menu.title_arabic :  menu.title}</h1>
-                           } </>
-                        }
-                       <a>
-                            <span></span>
-                     
-          <div className="new-menu-sub text-direction">
-                { menu?.services.length > 0 &&  menu.services.map(li => {
-                return( <div onClick={samePageRefresh}>
-                  <Link  href={li.slug}>
-                    <a>
+                {(companyInfo) &&
+                  <>
+                    {/* display the phone number if it exist  */}
+                    {companyInfo.phone &&
                       <li>
-                      { locale == 'ar' ? li.title_arabic :  li.title}
+                        <a href="tel:+97144257880">
+                          <i className='fa fa-phone'>
+                            {companyInfo.phone}
+                          </i>
+                        </a>
                       </li>
-                    </a>
-                  </Link>
-                </div> )
-                })}         
-         </div>
-              </a>
+                    }
+
+                    {companyInfo.email && <>
+                      <li>
+                        <a href="mailto:info@techbay.co">
+                          <i className='far fa-envelope '></i> {companyInfo.email}
+                        </a>
+                      </li>
+                    </>}
+
+
+
+
+                  </>
+                }
+
+              </ul>
             </div>
-                ))}
-                </div>
-
+          </div>
+          <div className="col-3 justyfiedMenu">
+            <div className="mg-header-content-wrapper d-flex align-items-center justify-content-md-end justify-content-end">
+              <div style={{ borderColor: "#212121" }}
+                className="mg-header-icon hamburger-icon"
+                onClick={toggleHeaderMenuClassHandler}
+              >
+                <img src="/images/mg-menu-icon.svg" alt="icon" />
               </div>
+              <span className="mg-menu-hr"></span>
+              <div className="mg-menu-wrapper">
+                <button
+                  style={{ color: "#212121" }}
+                  type="button"
+                  onClick={toggleHeaderMenuClassHandler}
+                  className="btn mg-link-btn prox-font hamburger"
+                >
+                  {
+                    isMenu
+                      ? <>{locale == 'ar' ? <>قائمة طعام</> : <>Menu</>}</>
+                      : <>{locale == 'ar' ? <>قائمة طعام</> : <>Close</>}</>
+                  }
+                </button>
+
+                <button className="btn mg-link-btn py-0 my-0 d-none d-md-block " onClick={(e) => changeLanguage(e)}>
+                  {locale === 'ar'
+                    ? <img src="/images/new-svg-images/language-icon.svg" className="d-none d-md-block" alt="change-lang" />
+                    : <img src="/images/new-svg-images/arabic-flag.svg" className="d-none d-md-block" alt="change-lang" />
+                  }
+                </button>
+                <div className={`drop-menu-listing ${addClass ? 'show' : ''}`}>
+                  <div id="menu-content-section" className="drop-menu-link">
+                    <div className="menu-container-class container-fluid">
+                      <div
+                        className="new-menu-wrapper box-direction text-direction">
+                        {(menudata.length > 0) && menudata.map(menu => (
+                          <div key={menu.id} onMouseEnter={openNewMenu} onMouseLeave={closeNewMenu} className={menu.services.length > 0 ? "new-menu-item sub" : "new-menu-item"}>
+
+                            {menu.slug == '/'
+                              ? <h1 onClick={refreshPage}>{menu.title}</h1>
+                              : <>{deviceName != 'Mobile'
+                                ? <h1><Link href={menu.slug ? menu.slug : ''}><a>
+                                  {locale == 'ar' ? menu.title_arabic : menu.title}
+                                </a></Link></h1>
+                                : <h1>{locale == 'ar' ? menu.title_arabic : menu.title}</h1>
+                              } </>
+                            }
+                            <a>
+                              <span></span>
+
+                              <div className="new-menu-sub text-direction">
+                                {menu?.services.length > 0 && menu.services.map(li => {
+                                  return (<div onClick={samePageRefresh}>
+                                    <Link href={li.slug}>
+                                      <a>
+                                        <li>
+                                          {locale == 'ar' ? li.title_arabic : li.title}
+                                        </li>
+                                      </a>
+                                    </Link>
+                                  </div>)
+                                })}
+                              </div>
+                            </a>
+                          </div>
+                        ))}
+                      </div>
+
+                    </div>
 
 
 
-              <div className="headerFooter">
-             
-             
-            
-             
-             
-          <div className="abouts"> 
-              
-                 {(bottomPages?.length > 0) 
-                 && 
-                 <>
-                 {bottomPages.map(m => {
-                    return (
-                      <div className="header-custom-dropdown">
-                      <a className="dropdown-title">
-                        { locale == 'ar' ?  m.title_arabic : m.title} 
-                        <i className="fas fa-chevron-down"></i></a>
-                      <div className="custom-menu-list text-direction">
-                        <ul style={{ top: "-65px" }}>
-                         {m.services.map(m => {
-                         
-                         return (
-                         <li><Link 
-                              href={m.slug || m.link}>
-                           <a>
-                           { locale == 'ar' ?  m.title_arabic : m.title} 
-                           </a>
-                           </Link>
-                           </li> );
-                         })}
-                        </ul>
+                    <div className="headerFooter">
+
+
+
+
+
+                      <div className="abouts">
+
+                        {(bottomPages?.length > 0)
+                          &&
+                          <>
+                            {bottomPages.map(m => {
+                              return (
+                                <div className="header-custom-dropdown">
+                                  <a className="dropdown-title">
+                                    {locale == 'ar' ? m.title_arabic : m.title}
+                                    <i className="fas fa-chevron-down"></i></a>
+                                  <div className="custom-menu-list text-direction">
+                                    <ul style={{ top: "-65px" }}>
+                                      {m.services.map(m => {
+
+                                        return (
+                                          <li><Link
+                                            href={m.slug || m.link}>
+                                            <a>
+                                              {locale == 'ar' ? m.title_arabic : m.title}
+                                            </a>
+                                          </Link>
+                                          </li>);
+                                      })}
+                                    </ul>
+                                  </div>
+                                </div>
+                              );
+
+                            })}
+                          </>
+                        }
+                      </div>
+
+
+                      {/* about us ends here */}
+
+
+
+                      <div className="socials">
+
+                        {companyInfo &&
+                          <>
+                            {companyInfo.fb && <a href={companyInfo.fb} target="_blank">
+                              <i className="fab fa-facebook-f"></i>
+                            </a>}
+                            {companyInfo.linkedin && <a href={companyInfo.linkedin} target="_blank">
+                              <i className="fab fa-linkedin-in"></i>
+                            </a>}
+                            {companyInfo.instagram && <a href={companyInfo.instagram} target="_blank">
+                              <i className="fab fa-instagram"></i>
+                            </a>}
+                            {companyInfo.youtube && <a href={companyInfo.youtube} target="_blank">
+                              <i className="fab fa-youtube"></i>
+                            </a>}
+                            {companyInfo.twitter && <a href={companyInfo.twitter} target="_blank">
+                              <i className="fab fa-twitter"></i>
+                            </a>}
+                          </>}
+
+
                       </div>
                     </div>
-                    );
+                  </div>
 
-                 })}
-                 </>
-                }
-            </div> 
-        
-            
-            {/* about us ends here */}
-
-
-
-                <div className="socials">
-            
-                  {companyInfo && 
-                  <>
-                  {companyInfo.fb && <a href={companyInfo.fb} target="_blank">
-                    <i className="fab fa-facebook-f"></i>
-                  </a> }
-                  {companyInfo.linkedin && <a href={companyInfo.linkedin} target="_blank">
-                    <i className="fab fa-linkedin-in"></i>
-                  </a> }
-                  {companyInfo.instagram && <a href={companyInfo.instagram} target="_blank">
-                    <i className="fab fa-instagram"></i>
-                  </a> }
-                  {companyInfo.youtube && <a href={companyInfo.youtube} target="_blank">
-                    <i className="fab fa-youtube"></i>
-                  </a>  }
-                  {companyInfo.twitter &&  <a href={companyInfo.twitter} target="_blank">
-                    <i className="fab fa-twitter"></i>
-                  </a>  }
-                  </>  }  
-
-          
                 </div>
               </div>
+
             </div>
-         
           </div>
         </div>
-
       </div>
-    </div>
-  </div>
-</div>
-<style jsx>
-  {`
+      <style jsx>
+        {`
 
 
 #brandingmenu{
@@ -533,8 +534,8 @@ cursor: pointer;
 
 
 `}
-</style>
-</header>
+      </style>
+    </header>
 
   </>
 
