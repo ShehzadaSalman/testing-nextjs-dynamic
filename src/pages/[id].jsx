@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Head from 'next/head'
 import React, {useState} from 'react';
 import Template350 from '../components/Templates/template350'
 import Template450 from '../components/Templates/template450'
@@ -47,124 +48,124 @@ function Dynamic({ data, footerData, bottomFooter, menudata, bottomPages, compan
   switch (data.template_id) {
 
     case 1:
-      return (<><Template1 finalData={data} /></>)
+      return (<> <Headerfive/><Template1 finalData={data} /><Footer/></>)
       break;
 
     case 2:
-      return (<><Template2 finalData={data} /></>)
+      return (<> <Headerfive/><Template2 finalData={data} /><Footer/></>)
       break;
 
     case 3:
-      return (<><Template3 finalData={data} /></>)
+      return (<> <Headerfive/><Template3 finalData={data} /><Footer/></>)
       break;
 
     case 4:
-      return (<><Template4 finalData={data} /></>)
+      return (<> <Headerfive/><Template4 finalData={data} /></>)
       break;
 
     case 5:
-      return (<><Template5 finalData={data} /></>)
+      return (<> <Headerfive/><Template5 finalData={data} /><Footer/></>)
       break;
 
     case 6:
-      return (<><Template6 finalData={data} /></>)
+      return (<> <Headerfive/><Template6 finalData={data} /><Footer/></>)
       break;
 
     case 7:
-      return (<><Template7 finalData={data} /></>)
+      return (<> <Headerfive/><Template7 finalData={data} /><Footer/></>)
       break;
 
     case 8:
-      return (<><Template8 finalData={data} /></>)
+      return (<> <Headerfive/><Template8 finalData={data} /><Footer/></>)
       break;
 
     case 9:
-      return (<><Template9 finalData={data} /></>)
+      return (<> <Headerfive/><Template9 finalData={data} /><Footer/></>)
       break;
 
     case 10:
-      return (<><Template10 finalData={data} /></>)
+      return (<> <Headerfive/><Template10 finalData={data} /><Footer/></>)
       break;
 
     case 11:
-      return (<><Template11 finalData={data} /></>)
+      return (<> <Headerfive/><Template11 finalData={data} /><Footer/></>)
       break;
 
     case 12:
-      return (<><Template12 finalData={data} /></>)
+      return (<> <Headerfive/><Template12 finalData={data} /><Footer/></>)
       break;
 
     case 13:
-      return (<><Template13 finalData={data} /></>)
+      return (<> <Headerfive/><Template13 finalData={data} /><Footer/></>)
       break;
 
     case 14:
-      return (<><Template14 finalData={data} /></>)
+      return (<> <Headerfive/><Template14 finalData={data} /><Footer/></>)
       break;
 
     case 15:
-      return (<><Template15 finalData={data} /></>)
+      return (<> <Headerfive/><Template15 finalData={data} /><Footer/></>)
       break;
 
     case 16:
-      return (<><Template16 finalData={data} /></>)
+      return (<> <Headerfive/><Template16 finalData={data} /><Footer/></>)
       break;
 
     case 17:
-      return (<><Template17 finalData={data} /></>)
+      return (<> <Headerfive/><Template17 finalData={data} /><Footer/></>)
       break;
 
     case 18:
-      return (<><Template18 finalData={data} /></>)
+      return (<> <Headerfive/><Template18 finalData={data} /><Footer/></>)
       break;
 
     case 19:
-      return (<><Template19 finalData={data} /></>)
+      return (<> <Headerfive/><Template19 finalData={data} /><Footer/></>)
       break;
 
     case 20:
-      return (<><Template20 finalData={data} /></>)
+      return (<> <Headerfive/><Template20 finalData={data} /><Footer/></>)
       break;
 
     case 21:
-      return (<><Template21 finalData={data} /></>)
+      return (<> <Headerfive/><Template21 finalData={data} /><Footer/></>)
       break;
 
     case 26:
-      return (<><Template26 finalData={data} /></>)
+      return (<> <Headerfive/><Template26 finalData={data} /></>)
       break;
 
     case 24:
-      return (<> <Template24 data={data} /></>)
+      return (<> <Headerfive/> <Template24 data={data} /><Footer/></>)
       break;
 
     case 25:
-      return (<><Template25 finalData={data} /></>)
+      return (<> <Headerfive/><Template25 finalData={data} /><Footer/></>)
       break;
 
     case 27:
-      return (<><Template27 finalData={data} /></>)
+      return (<> <Headerfive/><Template27 finalData={data} /><Footer/></>)
       break;
 
     case 29:
-      return (<><Template29 finalData={data} /></>)
+      return (<> <Headerfive/><Template29 finalData={data} /><Footer/></>)
       break;
 
     case 30:
-      return (<><Template30 finalData={data} /></>)
+      return (<> <Headerfive/><Template30 finalData={data} /><Footer/></>)
 
     case 31:
-      return (<><Template31 finalData={data} /></>)  
+      return (<> <Headerfive/><Template31 finalData={data} /></>)  
     
     case 33:
-        return (<><Template33 finalData={data} /></>)  
+        return (<> <Headerfive/><Template33 finalData={data} /><Footer/></>)  
 
     case 350:
-      return (<> <Template350 finalData={data} /></>)
+      return (<>  <Headerfive/><Template350 finalData={data} /><Footer/></>)
       break;
 
     case 450:
-      return (<><Template450 finalData={data} /></>)
+      return (<> <Headerfive/><Template450 finalData={data} /></>)
       break;   
 
 
@@ -176,26 +177,24 @@ function Dynamic({ data, footerData, bottomFooter, menudata, bottomPages, compan
 
 
   if (data) {
-    if(data.template_id == 450){
-      return <Template450 finalData={data} />
-    } else if(data.template_id == 31){
-      return <><Headerfive/><Template31 finalData={data} /></>
-    }
-    else if(data.template_id == 4){
-      return <><Headerfive/><Template4 finalData={data} /></>
-    }
-    else if(data.template_id == 26){
-      return <><Headerfive/><Template26 finalData={data} /></>
-    }
-    else{
-      return <>
-      <menuContext.Provider value= {{headerMenu, setHeaderMenu}}>
-      <Headerfive/>{SwitchPages(data)}<Footer 
-      footerData = {footerData} 
-      bottomFooter = {bottomFooter}   />
-      </menuContext.Provider>
+
+       return <>
+       <Head>
+           <title>
+            Digital Marketing Agency | SEO, PPC, SMM, Web Development
+          </title>
+          <meta
+            name="description"
+            content="Techbay Solutions is one of the leading Digital Marketing Agency, which provides SEO, PPC, SMM, Web &amp; App Design &amp; Development Services. Get a quote"
+          />
+          <meta name="keywords" content="Digital Marketing Agency" />
+          <link rel="canonical" href="https://techbay.co" />
+       </Head>
+        <menuContext.Provider value= {{headerMenu, setHeaderMenu}}>
+       {SwitchPages(data)}
+        </menuContext.Provider>
        </>
-    }
+    
   } else {
     return <Error statusCode="503" />
   }
@@ -247,7 +246,7 @@ export async function getStaticPaths({ locales }) {
 
     paths: [
       { params: { id: 'branding-services' }, locale: 'ar' },
-      ...finalRoutes
+    
     ],
     fallback: true
   }
