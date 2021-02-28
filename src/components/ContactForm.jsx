@@ -122,8 +122,8 @@ export  class ContactFormClass extends Component {
                 noValidate              >
                 <input id="countryCode" type="hidden" name="countrycode" />
                 <div className="row box-direction">
-                  <div className="col-sm-6">
-                    <div className="form-group">
+                  <div className="col-sm-6 ">
+                    <div className="form-group box-direction">
                       <input
                         autoComplete="off"
                         type="text"
@@ -236,7 +236,8 @@ export  class ContactFormClass extends Component {
     #form{
     
     }
-    .text-direction{text-align: ${this.props.language === 'ar' ? 'right' : 'left'}}
+   #form .text-direction{text-align: ${this.props.language === 'ar' ? 'right' : 'left'}}
+   #form .box-direction{direction: ${this.props.language === 'ar' ? 'rtl' : 'ltr'}}
 
     .ContactMenu #phone{
       font-size: 13px;
