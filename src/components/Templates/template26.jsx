@@ -56,7 +56,7 @@ const ABOUT = ({ finalData }) => {
             </div>
           </div>
 
-    
+      <Footer/>
 
         </div>
       </div>

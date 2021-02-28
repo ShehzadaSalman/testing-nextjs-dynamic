@@ -244,15 +244,26 @@ const Headerfive = () => {
                                   <div className="custom-menu-list text-direction">
                                     <ul style={{ top: "-65px" }}>
                                       {m.services.map(m => {
+                                         if(m.slug){
+                                          return (
+                                            <li onClick={(e) => changePage(e, m.slug )}>
+                                              <a>
+                                                {locale == 'ar' ? m.title_arabic : m.title}
+                                              </a>
+                                            </li>);
+                                         }else{
+                                          return (
+                                          <Link href={m.link} target="_blank">
+                                           <li>
+                                              <a>
+                                                {locale == 'ar' ? m.title_arabic : m.title}
+                                              </a>
+                                            </li>
+                                            </Link>
+                                            );
 
-                                        return (
-                                          <li><Link
-                                            href={m.slug || m.link}>
-                                            <a>
-                                              {locale == 'ar' ? m.title_arabic : m.title}
-                                            </a>
-                                          </Link>
-                                          </li>);
+                                         }
+                                    
                                       })}
                                     </ul>
                                   </div>
