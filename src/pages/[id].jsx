@@ -244,10 +244,7 @@ export async function getStaticPaths({ locales }) {
  
      return {
 
-    paths: [
-      { params: { id: 'branding-services' }, locale: 'ar' },
-    
-    ],
+    paths: [],
     fallback: true
   }
 

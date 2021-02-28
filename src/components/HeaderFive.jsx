@@ -132,7 +132,7 @@ const Headerfive = () => {
   return (
 
     <header className="mg-main-header" id="myHeader" style={{
-      position: isMenu ? "" : "fixed",
+      position: isMenu ? "fixed" : "",
       backgroundColor: "white"
     }}>
       <div className="container-fluid p-0">
@@ -318,6 +318,22 @@ const Headerfive = () => {
           </div>
         </div>
       </div>
+      <style>{`
+             @media only screen and (max-width: 600px) {
+            .text-direction{
+              text-align: center !important;
+              }
+              .new-menu-item h1 {
+                display: inline-block;
+                padding-top: 20px;
+                color: #212121;
+                font-weight: bold;
+               font-size: 19px;
+              }
+            }
+      
+      
+      `}</style>
       <style jsx>
         {`
         #brandingmenu{
@@ -325,14 +341,16 @@ const Headerfive = () => {
        top: 45%;
 
         }
-        @media only screen and (max-width: 600px) {
-          .text-direction{
-          text-align: center;
-          }
-        }
+ 
         .selected-bg-menu h1 a{
           color: #337093;
           text-decoration: none;
+        }
+        @media only screen and (min-width: 600px) {
+          .text-direction{
+            text-align: center;
+            }
+      
         }
         .new-menu-item .new-menu-sub a {
           width: 100%;
@@ -576,7 +594,7 @@ const Headerfive = () => {
          }
 
          .box-direction{direction: ${locale === 'ar' ? 'rtl' : 'ltr'};}
-         .text-direction{text-align: ${locale === 'ar' ? 'rtl' : 'ltr'};}
+         .text-direction{text-align: ${locale === 'ar' ? 'right' : 'left'};}
          
 
       `}
