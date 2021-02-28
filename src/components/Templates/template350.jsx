@@ -232,6 +232,7 @@ const SEO = ({ finalData }) => {
         </div>
       </div>
       <style jsx>{`
+          body{overflow: none;}
          .box-direction{direction: ${locale === 'ar' ? 'rtl' : 'ltr'};}
          .text-direction{text-align: ${locale === 'ar' ? 'right !important' : 'left !important'};  }
          .packagesDiv .mids table tr td:first-child{text-align: ${locale === 'ar' ? 'right !important' : 'left !important'}; }

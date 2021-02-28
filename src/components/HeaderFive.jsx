@@ -109,9 +109,7 @@ const Headerfive = () => {
       return <h1 onClick={refreshPage}>{menu.title}</h1>
     } else {
       if (deviceName === 'Mobile') {
-        return (
-          <a><h1>{locale === 'ar' ? menu.title_arabic : menu.title}</h1> </a>
-        )
+        return (<a><h1>{locale === 'ar' ? menu.title_arabic : menu.title}</h1></a>)
       } else {
         return <h1 onClick={(e) => changePage(e, menu.slug.toString())}>{locale === 'ar' ? menu.title_arabic : menu.title}</h1>
       }
