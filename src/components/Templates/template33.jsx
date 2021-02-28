@@ -1,13 +1,141 @@
-import HeaderFive from '../components/HeaderFive'
-import PageBanner from '../components/NewComponents/PageBanner/PageBanner'
-import ButtonStyleOne from '../components/NewComponents/Buttons/buttonStyleOne'
-import ButtonStyleTwo from '../components/NewComponents/Buttons/buttonStyleTwo'
-import BgContentDiv from '../components/NewComponents/BContentDiv'
-import {openBrandingForm} from '../lib/helper'
-import Footer from '../components/Footer'
+import PageBanner from '../NewComponents/PageBanner/PageBanner'
+import ButtonStyleOne from '../NewComponents/Buttons/buttonStyleOne'
+import ButtonStyleTwo from '../NewComponents/Buttons/buttonStyleTwo'
+import BgContentDiv from '../NewComponents/BContentDiv'
+import {openBrandingForm} from '../../lib/helper'
+import { useRouter } from 'next/router';
+const ImagePath = process.env.ImagePath;
 
-const Amazon = () => {
-let stepList = [1,2,3,4,5,6,7,8]
+const Amazon = ({finalData}) => {
+
+   
+
+  let content;
+  const router = useRouter();
+  const { locale } = router;
+  if (locale !== 'ar') {
+    // getting the english headings
+    let Sections = finalData.headings.map(data => {
+      return {
+        "id": data.id,
+        "title": data.title_english,
+        "description": data.desc_english,
+        "level": data.level,
+        "btn_txt": data.btn_txt_english
+      }
+    })
+
+    let Widgets = finalData.widget.map(data => {
+      return {
+        "id": data.id,
+        "title": data.title_english,
+        "description": data.desc_english,
+        "level": data.level,
+        "btn_txt": data.btn_txt_english,
+        "image": data.image,
+        "level": data.level,
+      }
+
+
+    })
+
+    let Buttons = finalData.widget_btn.map(data => {
+      return {
+        "id": data.id,
+        "title": data.title_english,
+        "level": data.level
+      }
+    })
+
+    if (finalData.widget_headings) {
+      let WidgetHeadings = finalData.widget_headings.map(data => {
+        return {
+          "id": data.id,
+          "title": data.desc_english,
+          "level": data.level
+        }
+
+      })
+    }
+
+
+    content = {
+      "BannerHeading": finalData.header_title_english || "EMPTY",
+      "BannerDescription": finalData.header_desc_english || "EMPTY",
+      "BannerImage": finalData.header_bg_image || "EMPTY",
+      "BannerButton": finalData.header_btn_txt_english || "EMPTY",
+      "FirstVideo": finalData.video_link || "",
+      "SubBannerHeading": finalData.sub_header_title_english || "EMPTY",
+      "SubBannerParagraph": finalData.sub_header_desc_english || "EMPTY",
+      "SubBannerButton": finalData.sub_header_btn_txt_english || "EMPTY",
+      "Sections": Sections,
+      "ListingOne": Widgets.filter(service => service.level === 1),
+      "ListingTwo": Widgets.filter(service => service.level === 2),
+      "ListingThree": Widgets.filter(service => service.level === 3),
+      "Buttons": Buttons,
+      // "widget_headings": WidgetHeadings
+    }
+  } else { // when we set it to arabic
+    // getting the arabic headings
+    let Headings = finalData.headings.map(data => {
+
+      return {
+        "id": data.id,
+        "title": data.title_arabic,
+        "description": data.desc_arabic,
+        "level": data.level,
+        "btn_txt": data.btn_txt_arabic
+      }
+    })
+
+    let Widgets = finalData.widget.map(data => {
+      return {
+        "id": data.id,
+        "title": data.title_arabic,
+        "description": data.desc_arabic,
+        "level": data.level,
+        "btn_txt": data.btn_txt_arabic,
+        "image": data.image,
+        "level": data.level,
+      }
+    })
+
+
+    let Buttons = finalData.widget_btn.map(data => {
+
+      return {
+        "id": data.id,
+        "title": data.title_arabic,
+        "level": data.level
+      }
+    })
+
+
+    content = {
+      "BannerHeading": finalData.header_title_arabic || "EMPTY",
+      "BannerDescription": finalData.header_desc_arabic || "EMPTY",
+      "BannerImage": finalData.header_bg_image || "EMPTY",
+      "BannerButton": finalData.header_btn_txt_arabic || "EMPTY",
+      "FirstVideo": finalData.video_link || "",
+      "SubBannerHeading": finalData.sub_header_title_arabic || "EMPTY",
+      "SubBannerParagraph": finalData.sub_header_desc_arabic || "EMPTY",
+      "SubBannerButton": finalData.sub_header_btn_txt_arabic || "EMPTY",
+      "Sections": Headings,
+      "ListingOne": Widgets.filter(service => service.level === 1),
+      "ListingTwo": Widgets.filter(service => service.level === 2),
+      "ListingThree": Widgets.filter(service => service.level === 3),
+      "Buttons": Buttons,
+      // "widget_headings": WidgetHeadings
+    }
+  }
+
+
+
+
+
+
+
+   let stepList = [1,2,3,4,5,6,7,8]
 let stepListTwo = [
    { 
       title: "Amazon Account Setup",
@@ -53,13 +181,13 @@ let stepListTwo = [
 ]
 return (
     <>
-    <HeaderFive/>
+  
     <PageBanner
           category= "branding"
-          heading="AMAZON SELLER ACCOUNT AND FBA ACCOUNT MANAGEMENT"
-          paragraph="Do You Feel Pressured by the Competition on Amazon? Worry Not! We will Pull You Through the Competition!"
-          bg="/images/web/new-pages/amazon-banner.png"
-          buttontext = "My Amazon Store"
+          heading={content.BannerHeading}
+          paragraph={content.BannerDescription}
+          bg={ImagePath + content.BannerImage}
+          buttontext = {content.BannerButton}
           wavename="wave2.png"
         ></PageBanner>
                 {/*  the second  section  */}
@@ -69,62 +197,29 @@ return (
           
                   <div>
                   <h2 className="heading text-uppercase">
-                  Become A Product Leader With the Help
-of Techbay Product Introducing Services</h2>
+                   {content.SubBannerHeading}
+                  </h2>
      
             <p className="left-paragraph">
-            Managing an account on Amazon is no joke. There are several big and small vendors. who are selling what you are. How will you stand out and gain maximum sales can be a serious discussion. We can help you create an Amazon account that would attract more clients, and you will have a higher selling rate. Our amazon account management services consist of:
+                { content.SubBannerParagraph}
             </p>
-     
-        <div className="row">
-                <div className="col-6 col-md-2">
-                 <div className="ecommerce-thumbnail mt-2  mb-3 text-center">
-                    <img src="/images/web/new-pages/amazon1.png" alt = "ecommerce" className="img-fluid" />
-                    <p className = "paragraph pt-2 mt-0">Amazon Store Creation</p>
-                 </div>
-                </div>
-
-                <div className="col-6 col-md-2">
-                 <div className="ecommerce-thumbnail mt-2  mb-3 text-center">
-                    <img src="/images/web/new-pages/amazon2.png" alt = "ecommerce" className="img-fluid" />
-                    <p className = "paragraph pt-2 mt-0">Amazon Store Optimization</p>
-                 </div>
-                </div>
-
-                <div className="col-6 col-md-2">
-                 <div className="ecommerce-thumbnail mt-2  mb-3 text-center">
-                    <img src="/images/web/new-pages/amazon3.png" alt = "ecommerce" className="img-fluid" />
-                    <p className = "paragraph pt-2 mt-0">Product Listing Management</p>
-                 </div>
-                </div>
-
-                <div className="col-6 col-md-2">
-                 <div className="ecommerce-thumbnail mt-2  mb-3 text-center">
-                    <img src="/images/web/new-pages/amazon4.png" alt = "ecommerce" className="img-fluid" />
-                    <p className = "paragraph pt-2 mt-0">Product Optimization</p>
-                 </div>
-                </div>
-
-                <div className="col-6 col-md-2">
-                 <div className="ecommerce-thumbnail mt-2  mb-3 text-center">
-                    <img src="/images/web/new-pages/amazon5.png" alt = "ecommerce" className="img-fluid" />
-                    <p className = "paragraph pt-2 mt-0">Improving Conversion Rate</p>
-                 </div>
-                </div>
-
-                <div className="col-6 col-md-2">
-                 <div className="ecommerce-thumbnail mt-2  mb-3 text-center">
-                    <img src="/images/web/new-pages/amazon6.png" alt = "ecommerce" className="img-fluid" />
-                    <p className = "paragraph pt-2 mt-0">Analsis and Report</p>
-                 </div>
-                </div>
-        </div>
-        
+    
             </div>
      
-       
+        
+   
+        
               </div>
-            
+              <div className="row mt-4">
+        {content?.ListingOne?.map(li => (
+       <div className="col-6 col-md-2">
+       <div className="ecommerce-thumbnail mt-2  mb-3 text-center">
+          <img src={ImagePath + li.image} alt = "ecommerce" className="img-fluid" />
+          <p className = "paragraph pt-2 mt-0">{li.title}</p>
+       </div>
+      </div>
+        ))}
+        </div>    
           </div>
 
           
@@ -133,11 +228,10 @@ of Techbay Product Introducing Services</h2>
         <BgContentDiv bg="/images/web/new-pages/amazon-banner-two.png">
             <div className="container pt-3 pb-3">
             <h2 className="white-heading">
-            Amazon Product Launch
-            and Account Management Services
+         {content.Sections[0].title}
             </h2>
             <p className="white-paragraph">
-            Techbay provides the complete service to its clients for assisting them in building the Amazon business from the grass-root level, even if you don’t know how to even do it.Our company works by the formula that perfect product launch, creates higher internet ranking that leads to more sales and the company gains higher profits because of improvement in sales.
+            {content.Sections[0].description}
             </p>
             <div className="row d-flex justify-content-between">
             <div className="col-6 col-md-2">
@@ -234,8 +328,6 @@ of Techbay Product Introducing Services</h2>
              </div>
           </div>
          </div>
-
-<Footer/>
 
 
 

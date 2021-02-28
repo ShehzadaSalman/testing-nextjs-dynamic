@@ -30,6 +30,7 @@ import Template24 from '../components/Templates/template24';
 import Template29 from '../components/Templates/template29';
 import Template30 from '../components/Templates/template30';
 import Template31 from '../components/Templates/template31';
+import Template33 from '../components/Templates/template33';
 import menuContext from '../ContextApi/menuContext';
 import Error from 'next/error';
 import Headerfive from '../components/HeaderFive';
@@ -154,6 +155,9 @@ function Dynamic({ data, footerData, bottomFooter, menudata, bottomPages, compan
 
     case 31:
       return (<><Template31 finalData={data} /></>)  
+    
+    case 33:
+        return (<><Template33 finalData={data} /></>)  
 
     case 350:
       return (<> <Template350 finalData={data} /></>)
