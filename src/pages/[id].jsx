@@ -33,6 +33,7 @@ import Template30 from '../components/Templates/template30';
 import Template31 from '../components/Templates/template31';
 import Template32 from '../components/Templates/template32';
 import Template33 from '../components/Templates/template33';
+import Template34 from '../components/Templates/template34';
 import menuContext from '../ContextApi/menuContext';
 import Error from 'next/error';
 import Headerfive from '../components/HeaderFive';
@@ -156,13 +157,16 @@ function Dynamic({ data, footerData, bottomFooter, menudata, bottomPages, compan
       return (<> <Headerfive/><Template30 finalData={data} /><Footer/></>)
 
     case 31:
-      return (<> <Headerfive/><Template31 finalData={data} /></>) 
+      return (<><Headerfive/><Template31 finalData={data} /></>) 
 
     case 32:
-      return (<> <Headerfive/><Template32 finalData={data} /><Footer/></>)
+      return (<><Headerfive/><Template32 finalData={data} /><Footer/></>)
 
     case 33:
-        return (<> <Headerfive/><Template33 finalData={data} /><Footer/></>)  
+        return (<><Headerfive/><Template33 finalData={data} /><Footer/></>)  
+
+    case 34:
+      return (<><Headerfive/><Template34 finalData={data} /><Footer/></>)      
 
     case 350:
       return (<>  <Headerfive/><Template350 finalData={data} /><Footer/></>)
@@ -191,7 +195,7 @@ function Dynamic({ data, footerData, bottomFooter, menudata, bottomPages, compan
             name="description"
             content="Techbay Solutions is one of the leading Digital Marketing Agency, which provides SEO, PPC, SMM, Web &amp; App Design &amp; Development Services. Get a quote"
           />
-          <meta name="keywords" content="Digital Marketing Agency" />
+          {/* <meta name="keywords" content="Digital Marketing Agency" /> */}
           <link rel="canonical" href="https://techbay.co" />
        </Head>
         <menuContext.Provider value= {{headerMenu, setHeaderMenu}}>
@@ -268,5 +272,5 @@ export async function getStaticProps(context) {
      props: { 
     data,
   },
-  revalidate: 10, }
+  revalidate: 1, }
 }

@@ -212,7 +212,7 @@ return (
               </div>
               <div className="row mt-4">
         {content?.ListingOne?.map(li => (
-       <div className="col-6 col-md-2">
+       <div className="col-6 col-md-2" key={li.id}>
        <div className="ecommerce-thumbnail mt-2  mb-3 text-center">
           <img src={ImagePath + li.image} alt = "ecommerce" className="img-fluid" />
           <p className = "paragraph pt-2 mt-0">{li.title}</p>
@@ -234,41 +234,23 @@ return (
             {content.Sections[0].description}
             </p>
             <div className="row d-flex justify-content-between">
-            <div className="col-6 col-md-2">
-                 <div className="ecommerce-thumbnail mt-2  mb-3 text-center">
-                    <img src="/images/web/new-pages/amazon21.png" alt = "ecommerce" className="img-fluid" />
-                    <p className = "white-paragraph pt-3 mt-0">Amazon Business Launch</p>
-                 </div>
-           </div>
-           <div className="col-6 col-md-2">
-                 <div className="ecommerce-thumbnail mt-2  mb-3 text-center">
-                    <img src="/images/web/new-pages/amazon22.png" alt = "ecommerce" className="img-fluid" />
-                    <p className = "white-paragraph pt-3 mt-0">Amazon Product Listing Services</p>
-                 </div>
-           </div>
-           <div className="col-6 col-md-2">
-                 <div className="ecommerce-thumbnail mt-2  mb-3 text-center">
-                    <img src="/images/web/new-pages/amazon23.png" alt = "ecommerce" className="img-fluid" />
-                    <p className = "white-paragraph pt-3 mt-0">Complete Amazon Marketing Services</p>
-                 </div>
-           </div>
-           <div className="col-6 col-md-2">
-                 <div className="ecommerce-thumbnail mt-2  mb-3 text-center">
-                    <img src="/images/web/new-pages/amazon24.png" alt = "ecommerce" className="img-fluid" />
-                    <p className = "white-paragraph pt-3 mt-0">Amazon PPC(Pay Per Click Services)</p>
-                 </div>
-           </div>
-           <div className="col-6 col-md-2">
-                 <div className="ecommerce-thumbnail mt-2  mb-3 text-center">
-                    <img src="/images/web/new-pages/amazon25.png" alt = "ecommerce" className="img-fluid" />
-                    <p className = "white-paragraph pt-3 mt-0">Amazon SEO(Search Engine Marketing)</p>
-                 </div>
-           </div>
+          {content.ListingTwo.map(li => (
+          <div className="col-6 col-md-2"  key={li.id}>
+          <div className="ecommerce-thumbnail mt-2  mb-3 text-center">
+             <img src={ImagePath + li.image} alt = "ecommerce" className="img-fluid" />
+             <p className = "white-paragraph pt-3 mt-0">{li.title}</p>
+          </div>
+    </div>
+
+          ))}
+  
+        
 
             </div>
             <div className="text-center mt-3 mt-md-0">
+            
                 <a onClick={openBrandingForm}>
-                    <ButtonStyleTwo title = "Get Amazon PPC Services" />
+                    <ButtonStyleTwo title =   {content.Buttons[0].title} />
                 </a>
             </div>
            </div>
@@ -278,11 +260,10 @@ return (
         <div className="wave-layer-bg-slides">
           <div className="container pb-5">
            <h2 className="heading text-uppercase"> 
-           Create My Amazon {'\n'}
-           Store and Amazon FBA Account
+    {content.Sections[1].title}
            </h2>  
            <p className="paragraph">
-             Being one of the extraordinary Amazon marketing firms, we have a complete grasp of the necessity of effective product launching. According to the latest Amazon updates, the products that are well analyzed and completely-optimized will have a fast pace top ranking. Our process for bringing your store to the top has the following steps.  
+            {content.Sections[1].description}
            </p>
            {/* thumbnai listing starts here */}
          <div className="row d-flex justify-content-md-center mt-5 text-center  bg-amazon-blue py-4 px-2">
@@ -290,11 +271,11 @@ return (
         
       
           
-       {stepListTwo.map(li => (
-         <div className="col-md-3 my-1 my-md-4">
+       {content.ListingThree.map(li => (
+         <div className="col-md-3 my-1 my-md-4"  key={li.id}>
          <div className="steps-thumbnail">
              <div className="step-title text-center mb-1 mb-md-4">
-             <img src={`/images/web/new-pages/${li.img}`}   alt = "steps" style={{ height: "55px" }}/>
+             <img src={ImagePath + li.image}   alt = "steps" style={{ height: "55px" }}/>
              </div>
              <div className="caption d-flex ">
                 <div>
@@ -323,7 +304,7 @@ return (
          </div>
             <div className="text-center mt-5">
                 <a onClick={openBrandingForm}>
-                <ButtonStyleOne title = "Get In Touch" />
+                <ButtonStyleOne title = {content.Buttons[1].title}/>
                 </a>
              </div>
           </div>

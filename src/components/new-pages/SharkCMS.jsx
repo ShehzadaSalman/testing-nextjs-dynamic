@@ -11,9 +11,9 @@ return (
     <PageBanner
           category= "branding"
           heading="A CMS to Meet Your 
-          Website Needs"
+          Website"
           paragraph="Shark CMS has all the qualities to build an advanced interactive website for your brand. "
-          bg="/images/web/new-pages/sharkcms.png"
+          bg="/images/web/new-pages/sharkcms/banner.png"
           buttontext = "Get In Touch"
           wavename="wave2.png"
         ></PageBanner>
