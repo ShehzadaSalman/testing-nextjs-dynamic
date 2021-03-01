@@ -193,7 +193,7 @@ export default ({ children }) => {
           </form>
 
           <div className="messageBox">
-            <a href="#" onClick={closeFormPopup} className="closemsg"><i className="fa fa-times"></i></a>
+            <a  onClick={closeFormPopup} className="closemsg"><i className="fa fa-times"></i></a>
             <i className="far fa-check-circle"></i>
             <h2>THANK YOU FOR CONTACTING US!</h2>
             <p>You will receive an email shortly</p>
@@ -249,7 +249,7 @@ export default ({ children }) => {
           </form>
 
           <div className="messageBox">
-            <a href="#" onClick={closeFormPopup} className="closemsg"><i className="fa fa-times"></i></a>
+            <a onClick={closeFormPopup} className="closemsg"><i className="fa fa-times"></i></a>
             <i className="far fa-check-circle"></i>
             <h2>THANK YOU FOR CONTACTING US!</h2>
             <p>You will receive an email shortly</p>
@@ -262,7 +262,7 @@ export default ({ children }) => {
         <a onClick={closeFormPopup} href="#" className="clsPopup"><i className="fa fa-times"></i></a>
         <div className="formInner-success" onClick={avoidCloseFormPopup}>
           <div className="messageBox" style={{ display: "block" }}>
-            <a href="#" onClick={closeFormPopup} className="closemsg"><i className="fa fa-times"></i></a>
+            <a  onClick={closeFormPopup} className="closemsg"><i className="fa fa-times"></i></a>
             <i className="far fa-check-circle"></i>
             <h2>THANK YOU FOR CONTACTING US!</h2>
             <p>You will receive an email shortly</p>

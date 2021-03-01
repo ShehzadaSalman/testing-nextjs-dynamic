@@ -6,11 +6,13 @@ import {useState} from 'react';
 import intlTelInput from 'intl-tel-input';
 import {useEffect} from 'react';
 import { useRouter } from 'next/router';
+import $ from 'jquery'
 const ReportCardFooterCTA = (props) => { 
   const [value, setValue] = useState();
 
 
   const router = useRouter();
+  const {locale} = router;
   const pagePath = router.asPath.toString();
 
 
@@ -111,19 +113,13 @@ const formSubmitReport = (event) => {
    
 return(
 <React.Fragment>
- <Head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-    integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
-    crossOrigin="anonymous"></script> 
-  </Head>
-
 <div className = "bg-div" onScroll = {avoidScrollEvent} >
     <div className = "container">  
-    <div className = "row">
+    <div className = "row box-direction">
     <div className = "col-md-6  order-lg-2 flex-column-reverse mt-4  d-md-flex d-none ">
           <div className = "report-footer-content margin-bottom">
-          <h1>{props.title}</h1>
-          <p>{props.caption}</p>
+          <h1 className="text-direction">{props.title}</h1>
+          <p className="text-direction">{props.caption}</p>
 <form onSubmit = {formSubmitReport} id = "ReportForm">
 <div className = "row">
 <div className="col-md-6 mb-3 px-2">
@@ -146,21 +142,26 @@ return(
       type="hidden"
       value={props.category}
     />
-  <input type = "text" className = "report-inputfield"  name = "name"  placeholder = "Name*" required/>
+  <input type = "text" className = "report-inputfield"  name = "name"  
+  placeholder =    {locale === 'ar' ? 'اسم' : 'Name*'}  required/>
   </div>
 
   <div className = "col-md-6 mb-3 px-2">
-  <input type = "email" className = "report-inputfield" name = "email" placeholder  = "Email*" required />
+  <input type = "email" className = "report-inputfield" name = "email" 
+  placeholder  =  {locale === 'ar' ? 'بريد الالكتروني' : 'Email*'} required />
   </div>
         
     <div className="col-md-6 px-2 mb-3" id="phoneNumberField" >
     <input id ="countryCode" type="hidden" name="countrycode"/>
-    <input type="text" className = "report-inputfield"  id = "report-input-field-marketing" name = "phone" placeholder = "Phone*" required/>                       
+    <input type="text" className = "report-inputfield box-direction"  id = "report-input-field-marketing"
+     name = "phone"  placeholder={locale === 'ar' ? 'هاتف' : 'Phone*'} required/>                       
   </div>    
 
 
     <div className="col-md-6 mb-3 px-2">
-    <input type = "text" className = "report-inputfield" name = "company" placeholder = "Company*" required/>
+    <input type = "text" className = "report-inputfield" name = "company" 
+    placeholder=  {locale === 'ar' ? 'شركة' : 'Company*'} 
+     required/>
     </div>
 
               </div>

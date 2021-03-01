@@ -119,7 +119,7 @@ const ReportCardFooter = (props) => {
                   <p className="text-direction" >{props.caption}</p>
                   <form onSubmit={formSubmitReport} id="ReportForm">
                   <div className="row">
-       <div className="col-md-6 mb-3 px-1 ">
+                 <div className="col-md-6 mb-3 px-1 ">
                   <input style={{ visibility: "hidden", height: 0, width: 0, overflow: "hidden", padding: 0 }} type="text" className="report-inputfield" name="reportname" value={props.reportfile} />
                         <input
                           name="api_key"

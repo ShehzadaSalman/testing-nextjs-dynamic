@@ -107,9 +107,6 @@ const BrandingForm = ({ department }) => {
         <div className="formInner" onClick={avoidClosePopupFromOutside}>
           <form id="services3" onSubmit={handleSubmit} encType="multipart/form-data" 
           className="box-direction">
-            <div className="row">
-
-            </div>
             <input
               name="api_key"
               id="api_key"

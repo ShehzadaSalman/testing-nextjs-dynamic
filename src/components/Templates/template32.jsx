@@ -1,12 +1,4 @@
 
-// import PageBanner from '../NewComponents/PageBanner/PageBanner'
-// import ButtonStyleOne from '../NewComponents/Buttons/buttonStyleOne.jsx';
-// import ThumbnailOne from '../NewComponents/ThumbnailOne';
-// import Footer from '../Footer'
-// import ButtonStyleTwo from '../NewComponents/Buttons/buttonStyleTwo';
-// import ButtonStyleThree from '../NewComponents/Buttons/buttonStyleThree';
-// import BgContentDiv from '../NewComponents/BContentDiv';
-// import DevelopmentForm from '../NewComponents/DevelopmentForm';
 import SuccessDisplay from '../NewComponents/successdisplay';
 import {useRouter} from 'next/router'
 const ImagePath = process.env.ImagePath

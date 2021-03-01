@@ -213,7 +213,7 @@ export default ({finalData, ImagePath}) => {
           </form>
 
           <div className="messageBox">
-            <a href="#" onClick={closeFormPopup} className="closemsg"><i className="fa fa-times"></i></a>
+            <a onClick={closeFormPopup} className="closemsg"><i className="fa fa-times"></i></a>
             <i className="far fa-check-circle"></i>
             <h2>THANK YOU FOR CONTACTING US!</h2>
             <p>You will receive an email shortly</p>

@@ -3,6 +3,7 @@ import intlTelInput from 'intl-tel-input';
 import { useRef, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import * as yup from 'yup';
+import $ from 'jquery'
 import { useFormik } from 'formik';
 const validationSchema = yup.object({
   name: yup.string().required("Please enter your name"),
@@ -99,11 +100,6 @@ const AdvertisementPopup = (props) => {
 
   return (
     <React.Fragment>
-      <Head>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-          integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
-          crossOrigin="anonymous"></script>
-      </Head>
       {/* the development form starts here */}
       <div id="formPopup" className="formPopup brandings" onClick={closeFormPopup}>
         <a onClick={closeFormPopup} href="#" className="clsPopup"><i className="fa fa-times"></i></a>
@@ -122,25 +118,35 @@ const AdvertisementPopup = (props) => {
               type="hidden"
               value={props.type}
             />
-            <div className="fields twoFields">
+            <div className="fields twoFields row">
+              <div className="col-6">
               <input type="text" id="name" name="name" placeholder={locale === 'ar' ? 'اسم' : 'Name'} required />
+              </div>
+              <div className="col-6">
               <input type="text" id="email" name="email" placeholder={locale === 'ar' ? 'بريد الالكتروني' : 'Email'} required />
+              </div>
             </div>
-            <div className="fields">
+            <div className="fields row">
+              <div className="col-12">
               <input id="countryCode" type="hidden" name="countrycode" />
               <input type="text" ref={myInput} id="phone-outer-development" name="phone" 
               placeholder={locale === 'ar' ? 'هاتف' : 'Phone'} className="box-direction" required />
+              </div>
             </div>
-            <div className="fields">
+            <div className="fields row">
+              <div className="col-12">
               <input
                 type="text"
                 id="company"
                 name="company" className="mt-3"
                 placeholder={locale === 'ar' ? 'شركة' : 'Company'} required
               />
+              </div>
             </div>
-            <div className="fields">
+            <div className="fields row">
+              <div className="col-12">
               <button type="submit" id="submit" name="submit" >  {locale == 'ar' ? 'يقدم' : 'Submit'}</button>
+              </div>
             </div>
             <div className="msg d-block text-left">
 
@@ -176,8 +182,7 @@ const AdvertisementPopup = (props) => {
 
 
       <style>
-        {
-          `
+{ `
 .formPopup-speed .msg{
     font-weight:500;
     font-family:'Roboto', sans-serif;
