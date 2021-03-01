@@ -31,6 +31,7 @@ import Template24 from '../components/Templates/template24';
 import Template29 from '../components/Templates/template29';
 import Template30 from '../components/Templates/template30';
 import Template31 from '../components/Templates/template31';
+import Template32 from '../components/Templates/template32';
 import Template33 from '../components/Templates/template33';
 import menuContext from '../ContextApi/menuContext';
 import Error from 'next/error';
@@ -155,8 +156,11 @@ function Dynamic({ data, footerData, bottomFooter, menudata, bottomPages, compan
       return (<> <Headerfive/><Template30 finalData={data} /><Footer/></>)
 
     case 31:
-      return (<> <Headerfive/><Template31 finalData={data} /></>)  
-    
+      return (<> <Headerfive/><Template31 finalData={data} /></>) 
+
+    case 32:
+      return (<> <Headerfive/><Template32 finalData={data} /><Footer/></>)
+
     case 33:
         return (<> <Headerfive/><Template33 finalData={data} /><Footer/></>)  
 
@@ -243,8 +247,7 @@ export async function getStaticPaths({ locales }) {
  
  
      return {
-
-    paths: [],
+    paths: [...finalRoutes],
     fallback: true
   }
 

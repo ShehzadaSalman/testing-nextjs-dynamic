@@ -105,7 +105,8 @@ const BrandingForm = ({ department }) => {
       <div id="formPopup-branding" className="formPopup-branding" onClick={closeFormPopup}>
         <a href="#" onClick={closeFormPopup} className="clsPopup"><i className="fa fa-times"></i></a>
         <div className="formInner" onClick={avoidClosePopupFromOutside}>
-          <form id="services3" onSubmit={handleSubmit} encType="multipart/form-data" className="box-direction">
+          <form id="services3" onSubmit={handleSubmit} encType="multipart/form-data" 
+          className="box-direction">
             <div className="row">
 
             </div>

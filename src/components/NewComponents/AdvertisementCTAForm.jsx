@@ -2,11 +2,21 @@ import Head from 'next/head';
 import intlTelInput from 'intl-tel-input';
 import { useRef, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import * as yup from 'yup';
+import { useFormik } from 'formik';
+const validationSchema = yup.object({
+  name: yup.string().required("Please enter your name"),
+  email: yup.string().required("Please enter you email address").email("Please enter a valid email address"),
+  phone: yup.number("Please enter a valid number").required("Please enter your phone number").min(99999999, "Enter more than 8").max(999999999999, "Enter less than 12"),
+  company: yup.string().required("Please enter a company name"),
+});
 const AdvertisementPopup = (props) => {
 
+  
 
 
   const router = useRouter();
+  const {locale} = router;
   console.log(router.route);
   const pagePath = router.asPath.toString();
 
@@ -98,7 +108,7 @@ const AdvertisementPopup = (props) => {
       <div id="formPopup" className="formPopup brandings" onClick={closeFormPopup}>
         <a onClick={closeFormPopup} href="#" className="clsPopup"><i className="fa fa-times"></i></a>
         <div className="formInner" onClick={avoidClosePopupFromOutside}>
-          <form id="services1" onSubmit={formSubmitDevelopment} encType="multipart/form-data">
+          <form id="services1" onSubmit={formSubmitDevelopment} className="box-direction"  encType="multipart/form-data">
             <input
               name="api_key"
               id="api_key"
@@ -113,23 +123,24 @@ const AdvertisementPopup = (props) => {
               value={props.type}
             />
             <div className="fields twoFields">
-              <input type="text" id="name" name="name" placeholder="Name" required />
-              <input type="text" id="email" name="email" placeholder="Email" required />
+              <input type="text" id="name" name="name" placeholder={locale === 'ar' ? 'اسم' : 'Name'} required />
+              <input type="text" id="email" name="email" placeholder={locale === 'ar' ? 'بريد الالكتروني' : 'Email'} required />
             </div>
             <div className="fields">
               <input id="countryCode" type="hidden" name="countrycode" />
-              <input type="text" ref={myInput} id="phone-outer-development" name="phone" placeholder="Phone" required />
+              <input type="text" ref={myInput} id="phone-outer-development" name="phone" 
+              placeholder={locale === 'ar' ? 'هاتف' : 'Phone'} className="box-direction" required />
             </div>
             <div className="fields">
               <input
                 type="text"
                 id="company"
                 name="company" className="mt-3"
-                placeholder="Company" required
+                placeholder={locale === 'ar' ? 'شركة' : 'Company'} required
               />
             </div>
             <div className="fields">
-              <button type="submit" id="submit" name="submit" >Email My Report</button>
+              <button type="submit" id="submit" name="submit" >  {locale == 'ar' ? 'يقدم' : 'Submit'}</button>
             </div>
             <div className="msg d-block text-left">
 
@@ -175,6 +186,8 @@ const AdvertisementPopup = (props) => {
     font-size:14px;
 
 }
+.box-direction{direction: ${locale === 'ar' ? 'rtl' : 'ltr'};}
+.text-direction{ text-align: ${locale === 'ar' ? 'right' : 'left'};} 
 .quality-icon{
     // position: absolute;
     // bottom: 1px;
