@@ -14,9 +14,7 @@ const Footer = () => {
 
 
 useEffect(() => {
-  console.log('FOOTER IS BEING RENDERED')
-  console.log(footerData);
-  console.log(bottomFooter);
+
    },[])
 
 

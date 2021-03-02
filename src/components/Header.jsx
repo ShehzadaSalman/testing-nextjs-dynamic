@@ -22,15 +22,12 @@ const Header = () => {
     if (locale === 'ar') {
       try {
         router.push(router.asPath, router.asPath, { locale: 'en-US' });
-        console.info("pathname is ", router.asPath);
       }
       catch (e) {
-        console.info('ERROR is' + e);
       }
 
     } else {
       router.push(router.asPath, router.asPath, { locale: 'ar' });
-      console.info("pathname is ", router.asPath);
     }
   }
   const toggleHeaderMenuClassHandler = () => {
@@ -59,7 +56,7 @@ const Header = () => {
     event.currentTarget.querySelector('.new-menu-sub').style.display = 'none';
   }
   const refreshPage = () => {
-    console.log("well we clicked the refresh page");
+
     if (window.location.pathname == '/') {
       window.location.reload();
     } else {
@@ -67,9 +64,9 @@ const Header = () => {
     }
   }
   const samePageRefresh = (event) => {
-    console.log("Header Four: we clicked on samePAgeRefresh");
+
     let urlName = event.currentTarget.querySelector("a").getAttribute("href"); // get url of the clicked menu
-    console.log(urlName);
+  
     let currentURL = window.location.pathname;
     if (urlName == currentURL) {
       window.location.reload();
@@ -83,7 +80,7 @@ const Header = () => {
 
 
   useEffect(() => {
-    console.info('HEADER IS RENDERING')
+
   }, [])
   // fetching the bottom pages
 

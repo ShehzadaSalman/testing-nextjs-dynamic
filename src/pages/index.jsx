@@ -1,4 +1,3 @@
-import { Component } from 'react';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import Slider from 'react-slick';
@@ -14,42 +13,38 @@ const DiscoverSlide = dynamic(() => import('../components/Slides/Discover'), { s
 const WebDevelopment = dynamic(() => import('../components/Slides/WebDevelopment'), { ssr: false });
 const DigitalMarketing = dynamic(() => import('../components/Slides/DigitalMarketing'), {ssr: false,});
 const tawkTo = require("tawkto-react");
+import Router from 'next/router';
 const ContactUs = dynamic(() => import('../components/Slides/ContactUs'), { ssr: false });
 import ButtonStyleThree from '../components/NewComponents/Buttons/buttonStyleThree';
+import {useEffect, useState, useRef} from 'react'
 import axios from 'axios';
 import $ from 'jquery'
-
 let websitePath;
 const tawkToPropertyId = '5f3132f1ed9d9d2627099312';
 
 
-export default class Index extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      activeSlide: 1,
-      website: '',
-      arrows: true,
-      data: this.props.finalData,
-    };
-     this.handleSliderChange = this.handleSliderChange.bind(this);
-  }
+function Index(props){
+  const slider1 = useRef();
+    // state = {
+    //   activeSlide: 1,
+    //   website: '',
+    //   arrows: true,
+    //   data: props.finalData,
+    // }
+
+ const [activeSlide, setActiveSlide] = useState(1);
+ const [website, setWebsite] = useState('');
+ const [arrows, setArrows] = useState(true);
+ const [data, setData] = useState(props.finalData);
+
+    
 
 
+ useEffect(() => {
 
-
-
-
-
-
-
-
-
-  componentDidMount() {
 /* testing if we're gettig the data */
-websitePath = window.location.href;
-websitePath = websitePath.toString();
-this.bindArrowKeys();
+    websitePath = window.location.href;
+    websitePath = websitePath.toString();
     tawkTo(tawkToPropertyId);
     const inputs = document.querySelector("#phone-speed");
     intlTelInput(inputs, {
@@ -57,7 +52,7 @@ this.bindArrowKeys();
       initialCountry: 'AE'
     });
 
-    this.next();
+    next();
 
     const inputr = document.querySelector("#phone-report");
     intlTelInput(inputr, {
@@ -65,116 +60,38 @@ this.bindArrowKeys();
       initialCountry: 'AE'
     });
 
-  }
-  next = () => {
-    this.slider.slickNext();
-  }
-  previous = () => {
-    this.slider.slickPrev();
-  }
-toggleArrows(val) {
-    this.setState({ arrows: val });
-  }
-  goToSlide = (index) => {
-    this.slider.slickGoTo(index);
-  };
-  handleSlideChange = (id, val) => {
-    this.setState({
-      [id]: val
-    })
-    if (this.state.activeSlide === 0) {
-
-      this.next();
-
-    } else if (this.state.activeSlide === 1) {
-      if (val === 'left') {
-        this.next();
-      } else if (val === 'right') {
-        this.previous();
-      }
-
-    }
-
-    else if (this.state.activeSlide === 2) {
-      if (val === 'left') {
-        this.next();
-      } else if (val === 'right') {
-        this.previous();
-      }
-    }
-    else if (this.state.activeSlide === 3) {
-      if (val === 'left') {
-        this.next();
-      } else if (val === 'right') {
-        this.previous();
-      }
-    }
-    else if (this.state.activeSlide === 4) {
-      if (val === 'left') {
-        this.next();
-      } else if (val === 'right') {
-        this.previous();
-      }
-    }
-    else if (this.state.activeSlide === 5) {
-      if (val === 'left') {
-        this.next();
-      } else if (val === 'right') {
-        this.previous();
-      }
-    }
-  }
-  handleSliderChange() {
-    if (this.state.activeSlide === 0 && this.state.activeSphereTab === 1) {
-      this.setState({
-        activeSphereTab: 2,
-      });
-    }
-  }
-  bindArrowKeys = () => {
-    let th = this;
-    document.addEventListener('keydown', function (e) {
-      if (!th.state.loading) {
-        if (e.key == 37) {
-          console.log("the left click");
-          e.stopPropagation();
-          console.log("slide right here")
-        }
-        if (e.key == 39) {
-          console.log("the right click");
-          e.stopPropagation();
-          console.log("slide left here");
-        }
-      }
-    });
-
-    document.addEventListener('keypress', function (e) {
-      if (!th.state.loading) {
-        if (e.key == 37) {
-          console.log("the left click");
-          e.stopPropagation();
-          console.log("slide right here")
-        }
-        if (e.key == 39) {
-          console.log("the right click");
-          e.stopPropagation();
-          console.log("slide left here");
-        }
-      }
-    });
+ },[])
 
 
 
 
 
+
+
+  const next = () => {
+    console.info(slider1)
+    console.info(slider1.current?.slickNext)
+     slider1.current?.slickNext();
 
   }
-  closeVideo = () => {
+ const previous = () => {
+  console.info(slider1.current?.slickPrev)
+  slider1.current?.slickPrev();
+  // console.log(slider1.current.slickPrev)
+  // slider1.current.slickPrev();
+  }
+const toggleArrows = (val) => {
+    setArrow(val);
+  }
+
+
+
+ const closeVideo = () => {
     console.log("closing the video here")
     $(".videoWraps").fadeOut();
     $("#videos").remove();
   }
-  formSubmitSpeed = (event) => {
+const  formSubmitSpeed = (event) => {
     console.log("are we submitting the form here");
     event.preventDefault();
     let service = event.target.querySelector('#serviceName').value;
@@ -218,7 +135,7 @@ toggleArrows(val) {
       $(".formPopup-speed .messageBox").css("display", "block");
     }
   }
-  formSubmitReport = (event) => {
+ const formSubmitReport = (event) => {
     console.log("are we submitting the report form here");
     event.preventDefault();
     let service = event.target.querySelector('#serviceName').value;
@@ -262,16 +179,14 @@ toggleArrows(val) {
       $(".formPopup-report .messageBox").css("display", "block");
     }
   }
-  avoidCloseFormPopup = (event) => {
+  const avoidCloseFormPopup = (event) => {
     event.stopPropagation();
     console.log("do not close the popup as we are inside the form");
   }
-  closeFormPopup = () => {
+ const closeFormPopup = () => {
     console.log("closing the popup for the success message here");
     $('.formPopup-success ').css("display", "none");
-
     // closing the speed form
-
     $('.formPopup-speed ').css("display", "none");
     $(".formPopup-speed .messageBox").css("display", "none");
     $("#services6").css("display", "block");
@@ -286,21 +201,14 @@ toggleArrows(val) {
   }
 
 
-  /*  managing the swipe functionality  */
-  touchEventfunc = () => {
-    $("#main-div-touch").on("swipe", function () {
-      console.log("the swipe event was triggered");
-    });
-  }
 
 
-  render() {
     const settings = {
       accessibility: true,
       dots: false,
       infinite: false,
       swipeToSlide: false,
-      initialSlide: 0,
+      initialSlide: 1,
       slidesToShow: 1,
       slidesToScroll: 1,
       touchMove: false,
@@ -310,7 +218,8 @@ toggleArrows(val) {
       draggable: false,
       adaptiveHeight: true,
       beforeChange: (current, next) => {
-        this.setState({ activeSlide: next });
+        setActiveSlide(next)
+        // this.setState({ activeSlide: next });
       },
     };
 
@@ -330,8 +239,8 @@ toggleArrows(val) {
 
         </Head>
 
-        <div id="videoWraps" className="videoWraps" onClick={this.closeVideo} >
-          <a onClick={this.closeVideo} href="#"><i className="fa fa-times"></i></a>
+        <div id="videoWraps" className="videoWraps" onClick={closeVideo} >
+          <a onClick={closeVideo} href="#"><i className="fa fa-times"></i></a>
         </div>
         <div id="loader" className="span theme-loader  align-items-center jultify-content-center">
           <div className="typing_loader"></div>
@@ -341,10 +250,10 @@ toggleArrows(val) {
 
 
         {/* report form starts here */}
-        <div className="formPopup-report" onClick={this.closeFormPopup}>
-          <a onClick={this.closeFormPopup} href="#" className="clsPopup"><i className="fa fa-times"></i></a>
-          <div className="formInner" onClick={this.avoidCloseFormPopup}>
-            <form id="services7" onSubmit={this.formSubmitReport} encType="multipart/form-data">
+        <div className="formPopup-report" onClick={closeFormPopup}>
+          <a onClick={closeFormPopup} href="#" className="clsPopup"><i className="fa fa-times"></i></a>
+          <div className="formInner" onClick={avoidCloseFormPopup}>
+            <form id="services7" onSubmit={formSubmitReport} encType="multipart/form-data">
               <input
                 name="api_key"
                 id="api_key"
@@ -387,7 +296,7 @@ toggleArrows(val) {
             </form>
 
             <div className="messageBox">
-              <a href="#" onClick={this.closeFormPopup} className="closemsg"><i className="fa fa-times"></i></a>
+              <a href="#" onClick={closeFormPopup} className="closemsg"><i className="fa fa-times"></i></a>
               <i className="far fa-check-circle"></i>
               <h2>THANK YOU FOR CONTACTING US!</h2>
               <div className="check-seo-report">
@@ -404,10 +313,10 @@ toggleArrows(val) {
           </div>
         </div>
         {/* speed form starts here */}
-        <div className="formPopup-speed" onClick={this.closeFormPopup}>
-          <a onClick={this.closeFormPopup} href="#" className="clsPopup"><i className="fa fa-times"></i></a>
-          <div className="formInner" onClick={this.avoidCloseFormPopup}>
-            <form id="services6" onSubmit={this.formSubmitSpeed} encType="multipart/form-data">
+        <div className="formPopup-speed" onClick={closeFormPopup}>
+          <a onClick={closeFormPopup} href="#" className="clsPopup"><i className="fa fa-times"></i></a>
+          <div className="formInner" onClick={avoidCloseFormPopup}>
+            <form id="services6" onSubmit={formSubmitSpeed} encType="multipart/form-data">
               <input
                 name="api_key"
                 id="api_key"
@@ -450,7 +359,7 @@ toggleArrows(val) {
             </form>
 
             <div className="messageBox">
-              <a href="#" onClick={this.closeFormPopup} className="closemsg"><i className="fa fa-times"></i></a>
+              <a href="#" onClick={closeFormPopup} className="closemsg"><i className="fa fa-times"></i></a>
               <i className="far fa-check-circle"></i>
               <h2>THANK YOU FOR CONTACTING US!</h2>
               <p>You will receive an email shortly</p>
@@ -460,11 +369,11 @@ toggleArrows(val) {
         </div>
 
         {/* the success message popup */}
-        <div className="formPopup-success" onClick={this.closeFormPopup}>
-          <a onClick={this.closeFormPopup} href="#" className="clsPopup"><i className="fa fa-times"></i></a>
-          <div className="formInner-success" onClick={this.avoidCloseFormPopup}>
+        <div className="formPopup-success" onClick={closeFormPopup}>
+          <a onClick={closeFormPopup} href="#" className="clsPopup"><i className="fa fa-times"></i></a>
+          <div className="formInner-success" onClick={avoidCloseFormPopup}>
             <div className="messageBox d-block">
-              <a href="#" onClick={this.closeFormPopup} className="closemsg"><i className="fa fa-times"></i></a>
+              <a href="#" onClick={closeFormPopup} className="closemsg"><i className="fa fa-times"></i></a>
               <i className="far fa-check-circle"></i>
               <h2>THANK YOU FOR CONTACTING US!</h2>
               <p>You will receive an email shortly</p>
@@ -478,77 +387,112 @@ toggleArrows(val) {
         <div className="slider-slides-wrapper">
           <div id="main-div-touch">
 
-            <Slider ref={(c) => (this.slider = c)} {...settings}>
+            <Slider  ref={slider => (slider1.current = slider)}  {...settings}>
               <Sphere
                 slideId={0}
-                activeSlide={this.state.activeSlide}
-                activeSphereTab={this.state.activeSphereTab}
-                handleSlideChange={() => this.handleSliderChange()}
-                discoverSlide={() => this.discoverSlide()}
+               
               />
    
 
               <DiscoverSlide
-                data = {this.props.finalData[0]}
-                nextSlide={() => this.next()}
-                prevSlide={() => this.previous()}
-                activeSlide={this.state.activeSlide} slideId={1} brandingSlide={() => this.brandingSlide()} />
+                data = {props.finalData[0]}
+                nextSlide={() => next()}
+                prevSlide={() => previous()}
+                activeSlide={activeSlide} slideId={1} 
+                brandingSlide={() => brandingSlide()} />
 
               <BrandingSlide
-                data = {this.props.finalData[1]}
-                nextSlide={() => this.next()}
-                prevSlide={() => this.previous()}
-                activeSlide={this.state.activeSlide} slideId={2} webSlide={() => this.webSlide()} />
+                data = {props.finalData[1]}
+                nextSlide={() => next()}
+                prevSlide={() => previous()}
+                activeSlide={activeSlide} slideId={2} 
+                webSlide={() => webSlide()} />
 
               <WebDevelopment
-                data = {this.props.finalData[2]}
-                checkingmethod={() => this.checkingmethod()}
-                nextSlide={() => this.next()}
-                prevSlide={() => this.previous()}
-                activeSlide={this.state.activeSlide} slideId={3} />
+                data = {props.finalData[2]}
+                nextSlide={next}
+                prevSlide={previous}
+                activeSlide={activeSlide} 
+                slideId={3} />
 
               <DigitalMarketing
-                data = {this.props.finalData[3]}
-                nextSlide={() => this.next()}
-                prevSlide={() => this.previous()}
-                activeSlide={this.state.activeSlide} slideId={4} />
+                data = {props.finalData[3]}
+                nextSlide={next}
+                prevSlide={previous()}
+                activeSlide={activeSlide} slideId={4} />
 
              <ContactUs
-                data = {this.props.finalData[5]}
-                nextSlide={() => this.next()}
-                prevSlide={() => this.previous()}
-                activeSlide={this.state.activeSlide}
+                data = {props.finalData[5]}
+                nextSlide={next}
+                prevSlide={previous}
+                activeSlide={activeSlide}
                 slideId={5}
-                toggleArrows={(val) => this.toggleArrows(val)}
+                // toggleArrows={toggleArrows(val)}
               />
             </Slider>
 
           </div>
 
-          <div className="slider-pagination d-inline-block m-auto desktop-view-arrow">
-            {this.state.activeSlide === 5 && !this.state.arrows ? (
-              ''
-            ) : (
-                <div className="slider-pagination-content d-flex flex-fill align-items-center justify-content-between vh-100">
-                  <button
-                    className={
-                      'btn bnt-link slider-custom-arrow prev' +
-                      (this.state.activeSlide === 1 ? ' event-disabled' : '')
-                    }
-                    onClick={this.previous}>
-                    <img alt="Next arrow" src="/svg-pic/next.svg" className={this.state.activeSlide === 0 ? "next-arrow-indexpage d-none" : "next-arrow-indexpage d-block"} />
-                  </button>
-                  <button
-                    className={
-                      'btn bnt-link slider-custom-arrow next' +
-                      (this.state.activeSlide === 5 ? ' event-disabled' : '')
-                    }
-                    onClick={this.next}>
-                    <img src="/svg-pic/next.svg" alt="next arrow" className={this.state.activeSlide === 0 ? "next-arrow-indexpage-second d-none" : "next-arrow-indexpage-second d-block"} />
-                  </button>
-                </div>
-              )}
-          </div>
+{/* for arabic  slider navigaion */}
+{(Router?.router?.locale.toString() == "ar")  
+?
+<>
+<div id={Router?.router?.locale.toString()}   className="slider-pagination d-inline-block m-auto desktop-view-arrow">
+    {activeSlide === 5 && !arrows ? (
+      ''
+    ) : (
+        <div  className="slider-pagination-content d-flex flex-fill align-items-center justify-content-between vh-100">
+          <button left="yes" className={'btn bnt-link slider-custom-arrow prev' + (activeSlide === 1 ? ' event-disabled' : '')}
+            onClick={previous}>
+            <img alt="Next arrow" src="/svg-pic/next.svg" className={activeSlide === 0 ? "next-arrow-indexpage d-none" : "next-arrow-indexpage d-block"} />
+          </button>
+          <button right ="yes" style={{ left: "80px"  }}
+            className={ 'btn bnt-link slider-custom-arrow next' +
+              (activeSlide === 5 ? ' event-disabled' : '')
+            }
+            onClick={next}>
+            <img src="/svg-pic/next.svg" alt="next arrow" className={activeSlide === 0 ? "next-arrow-indexpage-second d-none" : "next-arrow-indexpage-second d-block"} />
+          </button>
+        </div>
+      )}
+</div>
+
+
+
+</>
+:<>
+
+<div id={Router?.router?.locale.toString()} className="slider-pagination d-inline-block m-auto desktop-view-arrow">
+    {activeSlide === 5 && !arrows ? (
+      ''
+    ) : (
+        <div className="slider-pagination-content d-flex flex-fill align-items-center justify-content-between vh-100">
+          <button className={'btn bnt-link slider-custom-arrow prev' + (activeSlide === 1 ? ' event-disabled' : '')}
+            onClick={previous}>
+            <img alt="Next arrow" src="/svg-pic/next.svg" className={activeSlide === 0 ? "next-arrow-indexpage d-none" : "next-arrow-indexpage d-block"} />
+          </button>
+          <button
+            className={
+              'btn bnt-link slider-custom-arrow next' +
+              (activeSlide === 5 ? ' event-disabled' : '')
+            }
+            onClick={next}>
+            <img src="/svg-pic/next.svg" alt="next arrow" className={activeSlide === 0 ? "next-arrow-indexpage-second d-none" : "next-arrow-indexpage-second d-block"} />
+          </button>
+        </div>
+      )}
+</div>
+
+
+</>
+
+
+}
+
+{/* for english  slider navigaion */}
+
+
+   
         </div>
 
         <div className="slide-footer xs-hidden menuNavMenu footsz ">
@@ -567,6 +511,7 @@ toggleArrows(val) {
                 border: 0px;
                 overflow: hidden;
             }
+  
         
         
         
@@ -577,16 +522,12 @@ toggleArrows(val) {
 
       </Layout>
     );
-  }
+  
 }
+export default Index;
 
 
 export async function getStaticProps() {
-
-
-
-
-
 
   const result = axios.get('https://staging.techbay.co/api/get-sliders-with-content');
   const finalData =  (await result).data.response;
