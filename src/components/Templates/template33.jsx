@@ -145,9 +145,9 @@ return (
                 {/*  the second  section  */}
                 <div className="bg-grey pt-5 pb-5">
           <div className="container">
-              <div className="row">
+              <div className="row d-flex justify-content-center flex-column">
           
-                  <div>
+        
                   <h2 className="heading text-uppercase">
                    {content.SubBannerHeading}
                   </h2>
@@ -156,7 +156,7 @@ return (
                 { content.SubBannerParagraph}
             </p>
     
-            </div>
+ 
      
         
    
