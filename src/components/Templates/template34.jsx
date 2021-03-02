@@ -5,6 +5,7 @@ import {useRouter} from 'next/router'
 import SharkbgThumbnail from '../NewComponents/shark-bg-thumbnail'
 import {openBrandingForm} from '../../lib/helper'
 const ImagePath = process.env.ImagePath;
+
 const Shark = ({finalData}) => {
     const router = useRouter();
     const { locale } = router;
@@ -234,7 +235,7 @@ return (
      {content.ListingTwo.map(li => (
 <div className="col-6 col-md-3 px-1  mb-4 text-center d-flex justify-content-center"  key={li.id}>
 <div className="shark-thumbnail mt-2  mb-3">
-  <img src={ImagePath + li.image} alt = "ecommerce" className="img-fluid" />
+  <img src={ImagePath + li.image} alt = "shark" className="img-fluid" />
   <p className = "paragraph mb-0"> <b>{li.title}</b></p>
   <p className="paragraph mt-2">
    {li.description}
@@ -283,7 +284,7 @@ return (
                 
 
                </div>
-               {content.Buttons[2] && <div className=" mt-2">
+               {content.Buttons[2] && <div className=" mt-2 mb-4">
                <a onClick={openBrandingForm}>
                 <ButtonStyleOne title = {content.Buttons[2].title} />
                </a> 

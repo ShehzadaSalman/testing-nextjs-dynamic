@@ -131,55 +131,6 @@ const Amazon = ({finalData}) => {
   }
 
 
-
-
-
-
-
-   let stepList = [1,2,3,4,5,6,7,8]
-let stepListTwo = [
-   { 
-      title: "Amazon Account Setup",
-      description: "We will create a professional and customized account as per your requirements. ",
-      img: "amazon-step1.png"
-
-   },
-   { 
-      title: "Amazon Listing Setup",
-      description: "We strategize a listing setup, which states how will the products be listed in the account in an optimized way. ",
-      img: "amazon-step2.png"
-   },
-   { 
-      title: "Amazon Keyword Analysis",
-      description: "The next step is to find the keywords for SEO and PPC",
-      img: "amazon-step3.png"
-   },
-   { 
-      title: "Amazon SEO",
-      description: "Amazon SEO is the perfect way to bring your products up in the Amazon searches. ",
-      img: "amazon-step4.png"
-   },
-   { 
-      title: "Amazon E-business Copywriting",
-      description: "Writing for the products in an optimized way can bring you up in the searches easily. ",
-      img: "amazon-step5.png"
-   },
-   { 
-      title: "Amazon PPC Start-Up and Management",
-      description: "We will create a professional and customized account as per your requirements. ",
-      img: "amazon-step6.png"
-   },
-   { 
-      title: "Amazon FBA Start-Up and Management",
-      description: "Our team is expert in creating and managing FBA accounts on Amazon. ",
-      img: "amazon-step7.png"
-   },
-   { 
-      title: "Analysis and Reporting",
-      description: "We provide monthly and weekly reports for your amazon account, which will show the real progress of your Amazon account.",
-      img: "amazon-step8.png"
-   },
-]
 return (
     <>
   
@@ -201,7 +152,7 @@ return (
                    {content.SubBannerHeading}
                   </h2>
      
-            <p className="left-paragraph">
+            <p className="paragraph">
                 { content.SubBannerParagraph}
             </p>
     
