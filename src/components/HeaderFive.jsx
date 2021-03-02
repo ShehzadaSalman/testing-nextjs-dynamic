@@ -188,8 +188,8 @@ const Headerfive = () => {
                 >
                   {
                     isMenu
-                      ? <>{locale == 'ar' ? <>قائمة طعام</> : <>Menu</>}</>
-                      : <>{locale == 'ar' ? <>قائمة طعام</> : <>Close</>}</>
+                      ? <>{locale == 'ar' ? <>قائمة طعام</> : <>Close</>}</>
+                      : <>{locale == 'ar' ? <>قائمة طعام</> : <>Menu</>}</>
                   }
                 </button>
                 <button className="btn mg-link-btn my-0 py-0 d-none d-md-block"
