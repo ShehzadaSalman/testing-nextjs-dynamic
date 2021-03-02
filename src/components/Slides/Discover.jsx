@@ -678,38 +678,6 @@ let checkvar = $('.videoWraps');
 $(".videoWraps").append('<div  id = "videos" className="videos"><video controls autoplay><source src="https://techbay.co/images/welcome.mp4" type="video/mp4" /></video></div>');
 $('.videoWraps').css("display", "block");
 
-{/* Closing the Video wrapper and everything */}
-
-  // $(".videoWraps a").click(function (event) {
-  //   event.preventDefault();
-  //   $(".videoWraps").fadeOut();
-  //   $(".videos").remove();
-  // });
-
-
-{/*  Closing the video when clicked else where on the body
-  $(document.body).click(function (e) {
-    $(".videoWraps").fadeOut();
-    $(".videos").remove();
-    $(".formPopup").fadeOut();
-    $(".msg").html("");
-    $("#services1, #services2, #services3").css("display", "block");
-    $(".messageBox").css("display", "none");
-  });
-
-*/}
-
-{/*    To stop the events from bubbling up to the body
-  $(".videos, .playIcon, .formInner, .PopupForm, .get ").click(function (
-    e
-  ) {
-    e.stopPropagation(); // this stops the event from bubbling up to the body
-  });
-
-
- */}
-
-
 }
 
 
@@ -737,13 +705,19 @@ closeVideo = () => {
           className="contentSlideSection slide-content-wrapper p41 d-flex flex-column slidefirst"
           id="content-wrapper1"
         >
-          
-      
+     
 {/* right arrow for mobile */}
 {this.props.nextSlide 
-?<a   className = "mobile-arrow-div-right" onClick = {this.props.nextSlide}>
-<img src = "/images/next.png"  alt = "next arrow"/>
-</a>
+?<>
+
+ {this.props.language === 'en-US' 
+  ? <a className = "mobile-arrow-div-right" onClick = {this.props.nextSlide}> <img src = "/images/next.png"  alt = "next arrow"/></a> 
+  : <a className = "mobile-arrow-div-left"  style={{transform: 'rotate(180deg)'}} onClick = {this.props.nextSlide}> <img src = "/images/next.png"  style={{transform: 'rotate(180deg)'  }} alt = "next arrow"/></a> 
+  }
+ 
+
+
+</>
 : ''
 }
 

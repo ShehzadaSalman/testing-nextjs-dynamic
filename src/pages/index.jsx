@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import Slider from 'react-slick';
+import {useRouter} from 'next/router'
 // const Slider = dynamic(() => import('react-slick'), { ssr: true });
 import Layout from '../components/Layout';
 import Sphere from '../components/Slides/Sphere';
@@ -24,6 +25,8 @@ const tawkToPropertyId = '5f3132f1ed9d9d2627099312';
 
 
 function Index(props){
+  const router = useRouter();
+  const {locale} = router;
   const slider1 = useRef();
     // state = {
     //   activeSlide: 1,
@@ -418,15 +421,17 @@ const  formSubmitSpeed = (event) => {
               <DigitalMarketing
                 data = {props.finalData[3]}
                 nextSlide={next}
-                prevSlide={previous()}
-                activeSlide={activeSlide} slideId={4} />
+                prevSlide={previous}
+                activeSlide={activeSlide} 
+                slideId={4} />
 
              <ContactUs
                 data = {props.finalData[5]}
-                nextSlide={next}
+                nextSlide={() => next()}
                 prevSlide={previous}
                 activeSlide={activeSlide}
                 slideId={5}
+                language = {locale}
                 // toggleArrows={toggleArrows(val)}
               />
             </Slider>
@@ -434,24 +439,28 @@ const  formSubmitSpeed = (event) => {
           </div>
 
 {/* for arabic  slider navigaion */}
-{(Router?.router?.locale.toString() == "ar")  
+{locale == "ar" 
 ?
 <>
-<div id={Router?.router?.locale.toString()}   className="slider-pagination d-inline-block m-auto desktop-view-arrow">
+<div id="arabic"  className="slider-pagination d-inline-block m-auto desktop-view-arrow">
     {activeSlide === 5 && !arrows ? (
       ''
     ) : (
         <div  className="slider-pagination-content d-flex flex-fill align-items-center justify-content-between vh-100">
-          <button left="yes" className={'btn bnt-link slider-custom-arrow prev' + (activeSlide === 1 ? ' event-disabled' : '')}
+          <button left="yes"    style={{ right: "80px", position: "absolute"}}  className={'btn bnt-link slider-custom-arrow prev' + (activeSlide === 1 ? ' event-disabled' : '')}
             onClick={previous}>
-            <img alt="Next arrow" src="/svg-pic/next.svg" className={activeSlide === 0 ? "next-arrow-indexpage d-none" : "next-arrow-indexpage d-block"} />
+            <img alt="Next arrow" 
+             style={{  transform: "rotate(0deg)"  }}
+            src="/svg-pic/next.svg" className={activeSlide === 0 ? "next-arrow-indexpage d-none" : "next-arrow-indexpage d-block"} />
           </button>
-          <button right ="yes" style={{ left: "80px"  }}
+          <button right ="yes" style={{ left: "40px",  }}
             className={ 'btn bnt-link slider-custom-arrow next' +
               (activeSlide === 5 ? ' event-disabled' : '')
             }
             onClick={next}>
-            <img src="/svg-pic/next.svg" alt="next arrow" className={activeSlide === 0 ? "next-arrow-indexpage-second d-none" : "next-arrow-indexpage-second d-block"} />
+            <img src="/svg-pic/next.svg" 
+             style={{  transform: "rotate(180deg)"  }}
+            alt="next arrow" className={activeSlide === 0 ? "next-arrow-indexpage-second d-none" : "next-arrow-indexpage-second d-block"} />
           </button>
         </div>
       )}
@@ -462,7 +471,7 @@ const  formSubmitSpeed = (event) => {
 </>
 :<>
 
-<div id={Router?.router?.locale.toString()} className="slider-pagination d-inline-block m-auto desktop-view-arrow">
+<div id="english" className="slider-pagination d-inline-block m-auto desktop-view-arrow">
     {activeSlide === 5 && !arrows ? (
       ''
     ) : (

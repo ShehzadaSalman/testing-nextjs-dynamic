@@ -738,21 +738,45 @@ render() {
   id="content-wrapper2"
   onScroll={(event) => addStickyHeader(event.target)}
 >
+
+
+{/* mobile slider navigation for arabic */}
+
+{/* mobile slider naviagation for english */}
+
+
 { this.props.prevSlide 
-? <a  className = "mobile-arrow-div-left" onClick = {this.props.prevSlide}>
+? <a  className = "mobile-arrow-div-left" onClick = {this.props.language === 'en-US' ? this.props.prevSlide : this.props.nextSlide }>
+ <img src = "/images/prev.png" alt = "left arrow"/> 
+</a>
+ : ''
+ }
+{this.props.nextSlide 
+?<a   className = "mobile-arrow-div-right" onClick = {this.props.language === 'en-US' ? this.props.nextSlide : this.props.prevSlide }>
+ <img src = "/images/next.png" alt = "next arrow" />
+</a>
+: ''
+}
+
+
+
+
+
+
+{/* { this.props.prevSlide 
+? <a  className = "mobile-arrow-div-left" onClick = {this.props.prevSlide }>
 <img src = "/images/prev.png" alt = "left arrow"/> 
 </a>
  : ''
  }
-
-      
-{/* right arrow for mobile */}
 {this.props.nextSlide 
 ?<a   className = "mobile-arrow-div-right" onClick = {this.props.nextSlide}>
 <img src = "/images/next.png" alt = "next arrow" />
 </a>
 : ''
-}
+} */}
+
+
 
           <div className="mg-slide-content text-center flex-fill d-flex align-items-start align-items-md-center">
             <div className="container dt_container" id="container2">

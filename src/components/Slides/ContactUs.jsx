@@ -99,11 +99,9 @@ export default class ContactUs extends Component {
 
             {/*   Clearing the canvas when the slide is removed */}
             if(this.props.activeSlide !== this.props.slideId){
-              // $('#telephone').empty();
-
-            //  console.log("removed the child nodes of the Digital MArketing");
+  
             }else{
-              // console.log("this might be the Digital Marketing Slide");
+             
             }
 
 
@@ -331,26 +329,18 @@ export default class ContactUs extends Component {
 
 { this.props.hideArrows 
 ? ''
-: <a  className = "mobile-arrow-div-left" onClick = {this.props.prevSlide}>
- <img src = "images/prev.png" alt = "prev arrow"/> 
+: <a  style={{ transform:  this.props.language !== 'ar' ?  'rotate(0deg)' : 'rotate(180deg)' }}  className = {this.props.language === 'en-US' ?  'mobile-arrow-div-left' : 'mobile-arrow-div-right'}
+  onClick = {this.props.prevSlide}>
+  {this.props.language !== 'ar'
+    ? <img src = "images/prev.png" alt = "prev arrow"/>
+     : <img src = "images/prev.png" alt = "prev arrow"  />}
+    
  </a>  
   }
 
       
 {/* right arrow for mobile */}
 
-          {/* <div className="waves"></div> */}
-          <div className="mainScreenbottom wave-effect wave-anim">
-            <div className="waves-shape shape-one">
-              <div className="wave wave-one"></div>
-            </div>
-            <div className="waves-shape shape-two">
-              <div className="wave wave-two"></div>
-            </div>
-            <div className="waves-shape shape-three">
-              <div className="wave wave-three"></div>
-            </div>
-          </div>
           <div className="mg-slide-content text-center flex-fill d-flex align-items-md-center align-items-start">
           <ContactForm
           data={this.props.data}

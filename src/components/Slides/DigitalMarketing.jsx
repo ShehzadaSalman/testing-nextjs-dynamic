@@ -634,7 +634,7 @@ $('.formPopup ').css("display","block");
 {/* left arrow for mobile  */}
 
 { this.props.prevSlide 
-? <a  className = "mobile-arrow-div-left" onClick = {this.props.prevSlide}>
+? <a className = "mobile-arrow-div-left" onClick = {this.props.language === 'en-US' ? this.props.prevSlide: this.props.nextSlide}>
 <img src = "/images/prev.png" alt = "prev arrow"/> 
 </a>
  : ''
@@ -643,7 +643,7 @@ $('.formPopup ').css("display","block");
       
 {/* right arrow for mobile */}
 {this.props.nextSlide 
-?<a   className = "mobile-arrow-div-right" onClick = {this.props.nextSlide}>
+?<a  className = "mobile-arrow-div-right" onClick = {this.props.language === 'en-US' ? this.props.nextSlide: this.props.prevSlide}>
 <img src = "/images/next.png"  alt = "next arrow"/>
 </a>
 : ''
