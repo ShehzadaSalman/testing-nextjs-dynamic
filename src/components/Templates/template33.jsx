@@ -6,6 +6,7 @@ import {openBrandingForm} from '../../lib/helper'
 import { useRouter } from 'next/router';
 const ImagePath = process.env.ImagePath;
 
+
 const Amazon = ({finalData}) => {
 
    

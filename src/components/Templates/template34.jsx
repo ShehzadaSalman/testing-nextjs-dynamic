@@ -3,6 +3,7 @@ import PageBanner from '../NewComponents/PageBanner/PageBanner'
 import ButtonStyleOne from '../NewComponents/Buttons/buttonStyleOne'
 import {useRouter} from 'next/router'
 import SharkbgThumbnail from '../NewComponents/shark-bg-thumbnail'
+import {openBrandingForm} from '../../lib/helper'
 const ImagePath = process.env.ImagePath;
 const Shark = ({finalData}) => {
     const router = useRouter();
@@ -173,7 +174,9 @@ return (
 
 
             <div className="text-center mt-5">
-            <ButtonStyleOne title = {content.SubBannerButton} />
+              <a onClick={openBrandingForm}>
+               <ButtonStyleOne title = {content.SubBannerButton} />
+              </a>
             </div>
           </div>
          </div>
@@ -205,7 +208,9 @@ return (
                </div>
                {content.Buttons[0] && 
                 <div className=" mt-2">
+                <a onClick={openBrandingForm}>
                 <ButtonStyleOne title = {content.Buttons[0].title} />
+                </a>
                 </div>
                }
       
@@ -244,10 +249,11 @@ return (
          </div> 
 
          <div className="text-center mt-2 mb-5">
+         <a onClick={openBrandingForm}>
              {content.Buttons[1] && 
               <ButtonStyleOne title = {content.Buttons[1].title} />
              }
-           
+           </a>
             </div>
     </div>
 </div>
@@ -278,7 +284,9 @@ return (
 
                </div>
                {content.Buttons[2] && <div className=" mt-2">
+               <a onClick={openBrandingForm}>
                 <ButtonStyleOne title = {content.Buttons[2].title} />
+               </a> 
                 </div>  }
           
 
@@ -324,7 +332,9 @@ return (
   </p>
   {content.Sections[4].btn_txt &&
    <div className=" mt-4 text-center mb-5">
-   <ButtonStyleOne title = {content.Sections[4].btn_txt} />
+      <a onClick={openBrandingForm}>
+         <ButtonStyleOne title = {content.Sections[4].btn_txt} />
+         </a>  
 </div>
   }
  
