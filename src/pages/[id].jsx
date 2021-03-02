@@ -204,7 +204,7 @@ function Dynamic({ data, footerData, bottomFooter, menudata, bottomPages, compan
        </>
     
   } else {
-    return <Error statusCode="503" />
+    return <><Error statusCode="404" /> </>
   }
 
 
@@ -264,9 +264,10 @@ export async function getStaticPaths({ locales }) {
 export async function getStaticProps(context) {
   let data = '';
   const res = await axios.get(`https://staging.techbay.co/api/get-template-data/${context.params.id}`)
-  if (res.data.status !== 500) {
+  if (res.data.status !== 5000) {
     data = await res.data.response
-  } else { data = null }
+  } 
+  else { data = null }
   
   return {
      props: { 
