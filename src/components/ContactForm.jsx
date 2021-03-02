@@ -195,9 +195,13 @@ export  class ContactFormClass extends Component {
                     value="submit"
                     className="btn mg-link-btn p-0"
                     onClick={(e) => this.handleSubmit(e)}>
-                    {this.props.data?.btn_txt_arabic && 
+                       
+                    {this.props?.data?.btn_txt_arabic ?  
                     <ButtonStyleOne title=
                     {this.props.language === 'ar' ? this.props.data?.btn_txt_arabic : this.props.data?.btn_txt}
+                   />
+                    : <ButtonStyleOne title=
+                    {this.props.language === 'ar' ? 'ارسل طلب' : 'Send Request'}
                    />
                     }  
                 
