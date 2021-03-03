@@ -43,7 +43,7 @@ import Footer from '../components/Footer'
 
 
 
-function Dynamic({ data, footerData, bottomFooter, menudata, bottomPages, companyInfo }) {
+function Dynamic({ data,status}) {
  const [headerMenu, setHeaderMenu] = useState(false);
  function SwitchPages(data){
 
@@ -184,7 +184,7 @@ function Dynamic({ data, footerData, bottomFooter, menudata, bottomPages, compan
  }
 
 
-  if (data) {
+  if (status == 200) {
 
        return <>
        <Head>
@@ -203,9 +203,10 @@ function Dynamic({ data, footerData, bottomFooter, menudata, bottomPages, compan
         </menuContext.Provider>
        </>
     
-  } else if (data == null) {
-    return <><Error statusCode="404" /> </>
+  } else if (status == 5000) {
+    return <><Error statusCode= "404"/> </>
   }
+  else{ return null;}
 }
 export default Dynamic
 
@@ -252,18 +253,22 @@ export async function getStaticPaths({ locales }) {
 // fetch data from the url
 export async function getStaticProps(context) {
   let data = '';
+  let status;
   const res = await axios.get(`https://staging.techbay.co/api/get-template-data/${context.params.id}`)
   const response = await res.data;
   if (response.status !== 5000) {
     data = response.response
+    status = 200;
   } 
   else { 
     data = null
+    status = 5000;
    }
   
   return {
      props: { 
     data,
+    status
   },
   revalidate: 1, }
 }

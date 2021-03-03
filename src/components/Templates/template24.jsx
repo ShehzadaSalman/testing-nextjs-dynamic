@@ -182,7 +182,7 @@ const ReportLandingPage = ({data}) => {
             </div>
 
             <h1 className="light">
-             {data.header_title_english}
+             {locale == 'ar' ? data.header_title_arabic : data.header_title_english }
             </h1>
             <div className="zIndex-11  mt-4 mt-md-5">
               <div className="row d-flex flex-row justify-content-center">
@@ -210,7 +210,11 @@ const ReportLandingPage = ({data}) => {
                   </div>
 
                   <div className="col-md-2 text-center">
-                    <button className="view-report" type="submit">Results</button>
+                    <button className="view-report" type="submit">
+                     {locale == 'ar'
+                      ? 'النتائج'
+                       : 'Results'}                      
+                      </button>
                   </div>
                 </form>
               </div>
@@ -224,8 +228,8 @@ const ReportLandingPage = ({data}) => {
 
         <div className="bottom-wave-bg content pt-5 pb-5">
             
-          <div className="container">
-     
+          <div className="container text-center">
+          {locale == 'ar' ? data.header_desc_english : data.header_desc_arabic }
           </div>
 
         </div>
