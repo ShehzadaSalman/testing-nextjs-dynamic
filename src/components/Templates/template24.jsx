@@ -123,14 +123,14 @@ const ReportLandingPage = ({data}) => {
                   value="techbayagency"
                 />
                 <div className="fields twoFields">
-                  <input type="text" id="name" name="name" placeholder="Name" required />
-                  <input type="email" id="email" name="email" placeholder="Email" required />
+                  <input type="text" id="name" name="name" placeholder= {locale === 'ar' ? 'اسم' : 'Name'} required />
+                  <input type="email" id="email" name="email" placeholder={locale === 'ar' ? 'بريد الالكتروني' : 'Email'}  required />
                   <input type="hidden" id="location" name="location" value="lahore" required />
                   <input type="hidden" name="websitePath" value={"https://techbay.co" + pagePath} />
                 </div>
                 <div className="fields">
                   <input id="countryCode" type="hidden" name="countrycode" />
-                  <input type="text" id="phone-report" name="phone" placeholder="Phone" required />
+                  <input type="text" id="phone-report" name="phone" placeholder={locale === 'ar' ? 'هاتف' : 'Phone'} required />
                 </div>
                 <div className="fields">
                   <UserConsumer>
@@ -147,11 +147,12 @@ const ReportLandingPage = ({data}) => {
                   </UserConsumer>
                 </div>
                 <div className="fields pt-1">
-                  <button type="submit" id="submit" name="submit" >Get SEO Audit Report</button>
+                  <button type="submit" id="submit" name="submit" >{locale === 'ar' ? 'احصل على تقرير تدقيق SEO' : 'GET SEO AUDIT REPORT'}</button>
                 </div>
                 <div className="msg d-block text-left  pb-0">
                   <li className="pb-2 pb-md-0">
-                    Be assured that Your details will NOT be shared with any 3rd party for marketing purposes.
+                    {locale == 'ar' ? 'تأكد من أنه لن يتم مشاركة بياناتك مع أي طرف ثالث لأغراض التسويق.' : 'Be assured that Your details will NOT be shared with any 3rd party for marketing purposes.'}
+                    
                </li>
 
                   <div className="col-12 px-0 text-center pt-0 pt-md-1">
@@ -164,8 +165,8 @@ const ReportLandingPage = ({data}) => {
             <div className="messageBox">
               <a href="#" onClick={closeFormPopup} className="closemsg"><i className="fa fa-times"></i></a>
               <i className="far fa-check-circle"></i>
-              <h2>THANK YOU FOR CONTACTING US!</h2>
-              <p>You will receive an email shortly</p>
+              <h2>  {locale == 'ar' ?  'أشكركم على الاتصال بنا!' : 'THANK YOU FOR CONTACTING US!'} </h2>
+              <p>{locale == 'ar' ? 'وسوف نحصل على اتصال معكم قريبا' : 'We will get in touch with you shortly'  }</p>
             </div>
 
           </div>

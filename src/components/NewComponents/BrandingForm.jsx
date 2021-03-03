@@ -168,8 +168,9 @@ const BrandingForm = ({ department }) => {
           <div className="messageBox">
             <a href="#" onClick={closeFormPopup} className="closemsg"><i className="fa fa-times"></i></a>
             <i className="far fa-check-circle"></i>
-            <h2>THANK YOU FOR CONTACTING US!</h2>
-            <p>We will get in touch with you shortly</p>
+            <h2>
+              {locale == 'ar' ?  'أشكركم على الاتصال بنا!' : 'THANK YOU FOR CONTACTING US!'} </h2>
+            <p>{locale == 'ar' ? 'وسوف نحصل على اتصال معكم قريبا' : 'We will get in touch with you shortly'  }  </p>
           </div>
           <div className="msg"></div>
         </div>
