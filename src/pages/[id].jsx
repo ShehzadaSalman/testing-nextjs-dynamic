@@ -211,7 +211,7 @@ function Dynamic({ data,status}) {
       break;
 
     case 450:
-      return (<> <Headerfive/><Template450 finalData={data} /></>)
+      return (<><Template450 finalData={data} /></>)
       break;   
 
 
