@@ -203,25 +203,14 @@ function Dynamic({ data, footerData, bottomFooter, menudata, bottomPages, compan
         </menuContext.Provider>
        </>
     
-  } else {
+  } else if (data == null) {
     return <><Error statusCode="404" /> </>
   }
-
-
-
-
-
-
-
-
 }
-
 export default Dynamic
 
 
 export async function getStaticPaths({ locales }) {
-
-
   let allpages = [];
   const menu = await axios.get('https://staging.techbay.co/api/get-templates-url');
   const menuListl = await menu.data.response;
@@ -264,10 +253,13 @@ export async function getStaticPaths({ locales }) {
 export async function getStaticProps(context) {
   let data = '';
   const res = await axios.get(`https://staging.techbay.co/api/get-template-data/${context.params.id}`)
-  if (res.data.status !== 5000) {
-    data = await res.data.response
+  const response = await res.data;
+  if (response.status !== 5000) {
+    data = response.response
   } 
-  else { data = null }
+  else { 
+    data = null
+   }
   
   return {
      props: { 
