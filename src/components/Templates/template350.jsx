@@ -69,21 +69,21 @@ const SEO = ({ finalData }) => {
                 <div className="col-sm-2 col-md-2"></div>
                 <div className="col-lg-9 pkgInner flex-md-column flex-lg-row">
                   <div className="row box-direction text-direction">
-                    <div className="col-lg-5 d-flex px-3 flex-column justify-content-center">
-                      <h3 className="m-0" style={{ lineHeight: 1 }}>
+                    <div className="col-lg-12 d-flex px-3 flex-column justify-content-center">
+                      <h3 className="m-0  mt-4 text-direction">
                         {locale === 'ar'
                           ? <>{data.header_title_arabic}</>
                           : <>{data.header_title}</>
                         }
                       </h3>
-                      <span className="d-block text-direction px-3">
+                      <span className="d-none d-md-block text-direction px-2">
                         {locale === 'ar'
                           ? <>{data.title_arabic}</>
                           : <>{data.title}</>
                         }
                       </span>
                     </div>
-                    <div className="col-lg-7 d-flex px-3 flex-column justify-content-center">
+                    <div className="col-lg-12 d-flex px-3 flex-column justify-content-center">
                       <p className=" pt-md-4">
                         {locale === 'ar'
                           ? <>{data.description_arabic}</>

@@ -4544,9 +4544,9 @@ header .logos img {
 
 .packBanner h3 {
   color: #212121;
-  font-family: 'Open Sans', sans-serif;
   font-weight: 900;
-  font-size: 130px;
+  font-size: 5.3rem;
+  line-height: 1.2;
 }
 
 .packBanner h3 span {
@@ -4558,9 +4558,8 @@ header .logos img {
 
 .packBanner p {
   color: #212121;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 24px;
-  font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 .packBanner p cite {
