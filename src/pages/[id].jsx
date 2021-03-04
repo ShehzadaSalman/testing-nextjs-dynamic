@@ -311,5 +311,5 @@ export async function getStaticProps(context) {
     data,
     status
   },
-  revalidate: 1, }
+  revalidate: 10, }
 }
