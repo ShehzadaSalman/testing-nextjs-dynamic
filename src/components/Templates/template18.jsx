@@ -261,13 +261,14 @@ function CRM({ finalData }) {
 
 
         <div className="bottom-wave-bg bg-white pt-5">
+          <div className="container">
           <h2 className="heading text-uppercase">
             {content.Sections[2].title}
           </h2>
           <p className="paragraph mb-5 ">
             {content.Sections[2].description}
           </p>
-
+          </div>
         </div>
 
 

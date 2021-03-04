@@ -313,10 +313,6 @@ const Header = () => {
         {`
 
 
-#brandingmenu{
-  left: 45%;
-  top: 45%;
-}
 @media only screen and (max-width: 600px) {
   .text-direction{
   text-align: center;
