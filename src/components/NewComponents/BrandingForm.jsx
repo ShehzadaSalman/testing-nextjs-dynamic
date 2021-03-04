@@ -123,13 +123,13 @@ const BrandingForm = ({ department }) => {
               <div className="col-6 px-1">
                 <input type="text" id="name" name="name" onBlur={handleBlur}
                   onChange={handleChange} value={values.name} 
-                  placeholder=  {locale === 'ar' ? 'اسم' : 'Name'}  />
+                  placeholder=  {locale === 'ar' ? 'الاسم' : 'Name'}  />
                 {(errors.name && touched.name) ? <p className="popup-error-message">  {errors.name}  </p> : <p className="popup-error-message invisible">Error</p>}
               </div>
               <div className="col-6 px-1">
                 <input type="text" id="email" name="email" onBlur={handleBlur}
                   onChange={handleChange} value={values.email} 
-                  placeholder= {locale === 'ar' ? 'بريد الالكتروني' : 'Email'}  />
+                  placeholder= {locale === 'ar' ? 'البريد الاكتروني' : 'Email'}  />
                 {(errors.email && touched.email) ? <p className="popup-error-message">  {errors.email}  </p> : <p className="popup-error-message invisible">Error</p>}
               </div>
             </div>
@@ -138,7 +138,7 @@ const BrandingForm = ({ department }) => {
               <input id="countryCode" type="hidden" onChange={handleChange} name="countrycode" />
               <input type="text" ref={brandingInputPhone} onBlur={handleBlur}
                 onChange={handleChange} name="phone" className="box-direction"  value={values.phone} 
-                placeholder={locale === 'ar' ? 'هاتف' : 'Phone'}/>
+                placeholder={locale === 'ar' ? 'الهاتف' : 'Phone'}/>
               {(errors.phone && touched.phone) ? <p className="popup-error-message">  {errors.phone}  </p> : <p className="popup-error-message invisible">Error Message</p>}
            
               </div>
@@ -150,7 +150,7 @@ const BrandingForm = ({ department }) => {
                 id="company"
                 name="company"
                 value={values.company}
-                placeholder={locale === 'ar' ? 'شركة' : 'Company'}
+                placeholder={locale === 'ar' ? 'الشركة' : 'Company'}
                 onBlur={handleBlur}
                 onChange={handleChange}
               />

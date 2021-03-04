@@ -30,6 +30,26 @@ const Header = () => {
       router.push(router.asPath, router.asPath, { locale: 'ar' });
     }
   }
+
+  const changePage = (e, url) => {
+    e.preventDefault();
+    console.info("change the page", url);
+    router.push(url);
+    toggleHeaderMenuClassHandler();
+  }
+  const CategoryHeading = (menu) => {
+    if (menu.slug === '/') {
+      return <h1 onClick={refreshPage}>{menu.title}</h1>
+    } else {
+      if (deviceName === 'Mobile') {
+        return (<a><h1>{locale === 'ar' ? menu.title_arabic : menu.title}</h1></a>)
+      } else {
+        return <h1 onClick={(e) => changePage(e, menu.slug.toString())}>{locale === 'ar' ? menu.title_arabic : menu.title}</h1>
+      }
+    }
+  }
+
+
   const toggleHeaderMenuClassHandler = () => {
     if (addClass) {
       setAddClass(false);
@@ -175,7 +195,8 @@ const Header = () => {
                         {(menudata.length > 0) && menudata.map(menu => (
                           <div key={menu.id} onMouseEnter={openNewMenu} onMouseLeave={closeNewMenu} className={menu.services.length > 0 ? "new-menu-item sub" : "new-menu-item"}>
 
-                            {menu.slug == '/'
+                            {CategoryHeading(menu)}
+                            {/* {menu.slug == '/'
                               ? <h1 onClick={refreshPage}>{menu.title}</h1>
                               : <>{deviceName != 'Mobile'
                                 ? <h1><Link href={menu.slug ? menu.slug : ''}><a>
@@ -183,7 +204,7 @@ const Header = () => {
                                 </a></Link></h1>
                                 : <h1>{locale == 'ar' ? menu.title_arabic : menu.title}</h1>
                               } </>
-                            }
+                            } */}
                             <a>
                               <span></span>
 
