@@ -731,7 +731,8 @@ closeVideo = () => {
               </div>
 
               <div className="mg-slide-info text-left m-auto" id="info">
-                <div className="showdetail">
+                <div className="showdetail box-direction">
+                    {/* {JSON.stringify(this.props.data.sliders[0])} */}
                   <h5 className="mg-title-light fw-light"></h5>
                   {this.props.language === 'en-US' 
                    ?<h1 className="mg-title" >{this.props.data.sliders[0].short_title}</h1>
@@ -751,10 +752,7 @@ closeVideo = () => {
                     ?<>{this.props.data.sliders[0].description}</>
                     :<>{this.props.data.sliders[0].description_arabic}</>
                     }
-
-
-
-                  </p>
+                </p>
                   <img onClick = {this.playVideo} className="playIcon" src="/images/white-play-icon.png" alt= "play video" />
                 </div>
               </div>
@@ -763,6 +761,13 @@ closeVideo = () => {
         </div>
         <div className="slide-object-img-wrapper contact-img-wrapper" id="plane"></div>
       </div>
+      <style>
+        {`
+        
+        .box-direction{direction: ${this.props.language === 'ar' ? 'rtl' : 'ltr'};}
+        
+        `}
+      </style>
  
     </React.Fragment>
     );

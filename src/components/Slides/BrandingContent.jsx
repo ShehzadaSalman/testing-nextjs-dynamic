@@ -94,7 +94,7 @@ function BrandingContent({data, services, books, language }) {
 {/* displaying the thumbnails here */}
   { services.length > 0 && services.map(
     thumbnail => 
-      <div className="col-sm-4 col-lg-3 d-flex" key={thumbnail.id}>
+      <div className="col-sm-4 col-lg-3 d-flex box-direction" key={thumbnail.id}>
       {locale === 'en-US' 
       ?<LandingThumbnail
       img={ImagePath+thumbnail.logo}

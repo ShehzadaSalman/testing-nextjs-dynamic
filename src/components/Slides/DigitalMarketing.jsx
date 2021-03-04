@@ -698,6 +698,9 @@ $('.formPopup ').css("display","block");
         <div className="slide-object-img-wrapper contact-img-wrapper" id="binocular"></div>
         <div className="slide-object-img-wrapper contact-img-wrapper" id="rocket"></div>
         <div className="slide-object-img-wrapper contact-img-wrapper" id="like"></div>
+        <style>{`
+         .box-direction{direction: ${this.props.language === 'ar' ? 'rtl' : 'ltr'};}
+        `}</style>
       </div>
     );
   }

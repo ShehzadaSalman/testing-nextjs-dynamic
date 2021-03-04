@@ -836,6 +836,9 @@ render() {
           <div className="slide-object-img-wrapper contact-img-wrapper" id="testingobject"></div>
         
         </div>
+        <style>{`
+         .box-direction{direction: ${this.props.language === 'ar' ? 'rtl' : 'ltr'};}
+        `}</style>
       </div>
     );
   }

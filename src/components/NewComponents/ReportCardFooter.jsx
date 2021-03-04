@@ -202,7 +202,7 @@ const ReportCardFooter = (props) => {
     color-scheme: none;
     background-color: aliceblue;
 }
-
+.box-direction{direction: ${locale === 'ar' ? 'rtl' : 'ltr'};}
     .bg-div{
         height: 630px;
         background-color: #2A6791;

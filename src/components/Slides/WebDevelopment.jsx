@@ -712,6 +712,9 @@ signatureAction4.setLoop(THREE.LoopOnce);
           </div>
         </div>
         <div className="slide-object-img-wrapper contact-img-wrapper" id="laptop"></div>
+        <style>{`
+         .box-direction{direction: ${this.props.language === 'ar' ? 'rtl' : 'ltr'};}
+        `}</style>
       </div>
     );
   }
