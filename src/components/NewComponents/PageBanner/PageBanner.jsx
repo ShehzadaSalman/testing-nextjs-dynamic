@@ -85,7 +85,7 @@ const PageBanner = (props) => {
                 color: #fff;
                 text-transform: uppercase;
                 text-align: center;
-                font-size: 4.4rem;
+                font-size: 4rem;
                 font-weight: 600;
                 line-height: 1.2;
             }
@@ -94,7 +94,7 @@ const PageBanner = (props) => {
                 color: #212121;
                 text-transform: uppercase;
                 text-align: center;
-                font-size: 4.4rem;
+                font-size: 4rem;
                 font-weight: 600;
                 line-height: 1.2;
             }

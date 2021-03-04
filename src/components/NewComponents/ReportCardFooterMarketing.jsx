@@ -145,7 +145,7 @@ return(
                <div className="col-md-6 mb-3 px-1">
                <input type = "email" className = "report-inputfield" name = "email"
                 placeholder=
-                {locale === 'ar' ? 'بريد الالكتروني' : 'Email*'}  required />
+                {locale === 'ar' ? 'البريد الإلكتروني' : 'Email*'}  required />
 
                </div>
                <div className="col-md-6 mb-3 px-1">

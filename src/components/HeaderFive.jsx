@@ -106,12 +106,12 @@ const Headerfive = () => {
 
   const CategoryHeading = (menu) => {
     if (menu.slug === '/') {
-      return <h1 onClick={refreshPage}>{locale === 'ar' ? menu.title_arabic : menu.title}</h1>
+      return <h1 className="cursor-pointer" onClick={refreshPage}>{locale === 'ar' ? menu.title_arabic : menu.title}</h1>
     } else {
       if (deviceName === 'Mobile') {
-        return (<a><h1>{locale === 'ar' ? menu.title_arabic : menu.title}</h1></a>)
+        return (<a><h1 className="cursor-pointer" >{locale === 'ar' ? menu.title_arabic : menu.title}</h1></a>)
       } else {
-        return <h1 onClick={(e) => changePage(e, menu.slug.toString())}>{locale === 'ar' ? menu.title_arabic : menu.title}</h1>
+        return <h1 className="cursor-pointer"  onClick={(e) => changePage(e, menu.slug.toString())}>{locale === 'ar' ? menu.title_arabic : menu.title}</h1>
       }
     }
   }

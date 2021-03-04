@@ -132,7 +132,7 @@ const BrandingForm = ({ department }) => {
               <div className="col-6 px-1">
                 <input type="text" id="email" name="email" onBlur={handleBlur}
                   onChange={handleChange} value={values.email} 
-                  placeholder= {locale === 'ar' ? 'البريد الاكتروني' : 'Email'}  />
+                  placeholder= {locale === 'ar' ? 'البريد الإلكتروني' : 'Email'}  />
                 {(errors.email && touched.email) ? <p className="popup-error-message">  {errors.email}  </p> : <p className="popup-error-message invisible">Error</p>}
               </div>
             </div>

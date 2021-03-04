@@ -4549,6 +4549,9 @@ header .logos img {
   line-height: 1.2;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
 .packBanner h3 span {
   font-size: 18px;
   display: block;
