@@ -4,6 +4,7 @@ import ButtonStyleThree from './NewComponents/Buttons/buttonStyleThree';
 import Link from 'next/link';
 import PhoneCountryCode from './NewComponents/PhoneCountryCode';
 import { useRouter } from 'next/router';
+import $ from 'jquery'
 
 export const ContactForm = (props) => {
   const routers = useRouter()
@@ -242,7 +243,9 @@ export  class ContactFormClass extends Component {
     }
    #form .text-direction{text-align: ${this.props.language === 'ar' ? 'right' : 'left'}}
    #form .box-direction{direction: ${this.props.language === 'ar' ? 'rtl' : 'ltr'}}
-
+   .form-control.is-invalid, .was-validated .form-control:invalid{
+    
+   }
     .ContactMenu #phone{
       font-size: 13px;
         font-weight: bold;
