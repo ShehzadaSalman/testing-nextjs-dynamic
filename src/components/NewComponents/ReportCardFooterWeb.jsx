@@ -142,22 +142,22 @@ return(
                     />
                     <input type = "text" className = "report-inputfield"  name = "name"   
                          placeholder=
-                        {locale === 'ar' ? 'اسم' : 'Name*'} required/>
+                        {locale === 'ar' ? 'الاسم' : 'Name*'} required/>
                 </div>
                 <div className="col-md-6 mb-3 px-1">
                 <input type = "email" className = "report-inputfield" name = "email" 
                  placeholder=
-                 {locale === 'ar' ? 'بريد الالكتروني' : 'Email*'}  required />
+                 {locale === 'ar' ? 'البريد الاكتروني' : 'Email*'}  required />
                   </div>
                   <div className="col-md-6 mb-3 px-1">
                   <input id ="countryCode" type="hidden" name="countrycode"/>
                   <input type="text" className = "report-inputfield box-direction"  id = "report-input-field-web" name = "phone" 
-                  placeholder={locale === 'ar' ? 'هاتف' : 'Phone*'}  required/>
+                  placeholder={locale === 'ar' ? 'الهاتف' : 'Phone*'}  required/>
                   
                   </div>
                   <div className="col-md-6 mb-3 px-1">
                   <input type = "text" className = "report-inputfield" name = "company" 
-                   placeholder=  {locale === 'ar' ? 'شركة' : 'Company*'}  required/>
+                   placeholder=  {locale === 'ar' ? 'الشركة' : 'Company*'}  required/>
                   <input type="hidden" name="websitePath" value= {"https://techbay.co"+pagePath}/>
                   </div>
 

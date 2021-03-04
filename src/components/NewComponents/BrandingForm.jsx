@@ -123,8 +123,11 @@ const BrandingForm = ({ department }) => {
               <div className="col-6 px-1">
                 <input type="text" id="name" name="name" onBlur={handleBlur}
                   onChange={handleChange} value={values.name} 
+
                   placeholder=  {locale === 'ar' ? 'الاسم' : 'Name'}  />
-                {(errors.name && touched.name) ? <p className="popup-error-message">  {errors.name}  </p> : <p className="popup-error-message invisible">Error</p>}
+                
+                {(errors.name && touched.name) ? <p className="popup-error-message">
+                    {errors.name}  </p> : <p className="popup-error-message invisible">Error</p>}
               </div>
               <div className="col-6 px-1">
                 <input type="text" id="email" name="email" onBlur={handleBlur}
@@ -139,7 +142,8 @@ const BrandingForm = ({ department }) => {
               <input type="text" ref={brandingInputPhone} onBlur={handleBlur}
                 onChange={handleChange} name="phone" className="box-direction"  value={values.phone} 
                 placeholder={locale === 'ar' ? 'الهاتف' : 'Phone'}/>
-              {(errors.phone && touched.phone) ? <p className="popup-error-message">  {errors.phone}  </p> : <p className="popup-error-message invisible">Error Message</p>}
+              {(errors.phone && touched.phone) ? <p className="popup-error-message"> 
+               {errors.phone}  </p> : <p className="popup-error-message invisible">Error Message</p>}
            
               </div>
             </div>
