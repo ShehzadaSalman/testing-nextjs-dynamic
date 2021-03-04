@@ -106,7 +106,7 @@ const Headerfive = () => {
 
   const CategoryHeading = (menu) => {
     if (menu.slug === '/') {
-      return <h1 onClick={refreshPage}>{menu.title}</h1>
+      return <h1 onClick={refreshPage}>{locale === 'ar' ? menu.title_arabic : menu.title}</h1>
     } else {
       if (deviceName === 'Mobile') {
         return (<a><h1>{locale === 'ar' ? menu.title_arabic : menu.title}</h1></a>)
