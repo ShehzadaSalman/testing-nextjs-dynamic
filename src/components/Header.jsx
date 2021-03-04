@@ -156,8 +156,8 @@ const Header = () => {
                 >
                   {
                     isMenu
-                      ? <>{locale == 'ar' ? <>قائمة طعام</> : <>Menu</>}</>
-                      : <>{locale == 'ar' ? <>قائمة طعام</> : <>Close</>}</>
+                      ? <>{locale == 'ar' ? <>القائمة</> : <>Menu</>}</>
+                      : <>{locale == 'ar' ? <>قفل</> : <>Close</>}</>
                   }
                 </button>
 
