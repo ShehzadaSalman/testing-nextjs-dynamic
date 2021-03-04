@@ -181,7 +181,7 @@ function DigitalMarketingContent({data, services, books }){
   if(sectionLoop % 2 == 0){
 
     return (
-      <div className="brandWrrap"  key={section.id}  id={section.id}>
+      <div className="brandWrrap box-direction"  key={section.id}  id={section.id}>
       <div className="container pt-0 pt-md-5">
         <div className="row">
           <div className="col-sm-5">
@@ -196,20 +196,20 @@ function DigitalMarketingContent({data, services, books }){
           <div className="col-sm-7 d-flex align-content-center">
             <div className="contentFet remove-paddtop-mobile pt-sm-5">
               <Link  href={"/"+section.slug.toString()}>
-                <h5 className="cursor-pointer left-heading">
+                <h5 className="cursor-pointer left-heading text-direction">
                 {locale === 'en-US' 
                 ?  <>{section.title}</>
                 :  <>{section.title_arabic}</>
                 } 
                 </h5>
               </Link>
-              <p className="left-paragraph padding-bottom-10">
+              <p className="left-paragraph padding-bottom-10 text-direction">
               {locale === 'en-US' 
                 ?  <>{section.description}</>
                 :  <>{section.description_arabic}</>
                 } 
                </p>
-               <div className="box-align">
+               <div className=" box-direction text-direction">
                <a onClick={formpopupBranding} className="px-sm-2 px-1">
                 <button className="landing-read-more-button">
                 {locale === 'en-US' 
@@ -240,26 +240,26 @@ function DigitalMarketingContent({data, services, books }){
   }else{
     return (
    
-      <div className="brandWrrap rightalign" id={section.id}>
+      <div className="brandWrrap rightalign box-direction" id={section.id}>
       <div className="container pt-0 pt-md-5">
         <div className="row">
           <div className="col-sm-7 d-flex align-content-center  order-12 order-md-1 ">
             <div className="contentFet remove-paddtop-mobile pt-sm-5">
                <Link  href={"/"+section.slug.toString()}>
-                <h5 className="cursor-pointer left-heading">
+                <h5 className="cursor-pointer left-heading text-direction">
                 {locale === 'en-US' 
                 ?  <>{section.title}</>
                 :  <>{section.title_arabic}</>
                 } 
                   </h5>
               </Link>
-             <p className="left-paragraph padding-bottom-10">
+             <p className="left-paragraph padding-bottom-10 text-direction">
              {locale=== 'en-US' 
               ? <>{section.description}</>
               : <>{section.description_arabic}</>
              } 
               </p>
-              <div className="box-align">
+              <div className="box-direction text-direction">
               <a onClick={formpopupBranding} className="px-1 px-sm-2">
                 <button className="landing-read-more-button">
                 {locale === 'en-US' 

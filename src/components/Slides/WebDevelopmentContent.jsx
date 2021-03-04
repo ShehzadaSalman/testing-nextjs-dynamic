@@ -186,7 +186,7 @@ function WebDevelopmentContent({data, services, books}) {
   if(sectionLoop % 2 == 0){
 
     return (
-      <div className="brandWrrap"  key={section.id}  id={section.id}>
+      <div className="brandWrrap box-direction"  key={section.id}  id={section.id}>
       <div className="container pt-0 pt-md-5">
         <div className="row">
           <div className="col-sm-5">
@@ -244,7 +244,7 @@ function WebDevelopmentContent({data, services, books}) {
   }else{
     return (
    
-      <div className="brandWrrap rightalign" id={section.id}>
+      <div className="brandWrrap rightalign box-direction" id={section.id}>
       <div className="container pt-0 pt-md-5">
         <div className="row">
           <div className="col-sm-7 d-flex align-content-center  order-12 order-md-1 ">
