@@ -1,10 +1,12 @@
 import WhiteWave from '../WhiteWave';
 import ButtonStyleTwo from '../Buttons/buttonStyleTwo.jsx';
 import BrandingForm from '../../NewComponents/BrandingForm';
-
+import {useRouter} from 'next/router'
 
 
 const PageBanner = (props) => {
+const router = useRouter();
+const {locale} = router;
 
   const openForm = () => {
 
@@ -43,7 +45,7 @@ const PageBanner = (props) => {
       {/* <MarketingForm />
       <DevelopmentForm /> */}
       <div className="full-banner">
-        <div className="container">
+        <div className="container box-direction">
           <h1 className={props.dark ? 'dark' : 'light'} >{props.heading}</h1>
           <h6 className={props.dark ? 'dark' : 'light'}>{props.paragraph}</h6>
           <div className="mt-20"></div>
@@ -152,6 +154,9 @@ const PageBanner = (props) => {
                     margin-top: 10px;
                     line-height: 1.5;
                 }
+                .box-direction{direction: ${locale === 'ar' ? 'rtl' : 'ltr'};}
+                .text-direction{text-align: ${locale === 'ar' ? 'rtl' : 'ltr'};}
+
 
 
 

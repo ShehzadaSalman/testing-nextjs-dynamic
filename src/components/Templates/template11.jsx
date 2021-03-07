@@ -156,7 +156,7 @@ content = {
     return (
         <React.Fragment>
             {/*  The First section    */}
-
+            <div className = "main-div box-direction">
             <PageBanner
             category = "development"
             heading = {content.BannerHeading}
@@ -165,7 +165,7 @@ content = {
             wavename = "wave2.png">
             </PageBanner>
             <SuccessDisplay />
-            <div className = "main-div">
+    
             {/*  second section  */}
             <div className = "">
         </div>
@@ -273,6 +273,8 @@ btntext={locale === 'ar' ? finalData.book.btn_title_arabic : finalData.book.btn_
                     html{
                         overflow-y: auto;
                       }
+                      .box-direction{direction: ${locale === 'ar' ? 'rtl' : 'ltr'};}
+.text-direction{text-align: ${locale === 'ar' ? 'rtl' : 'ltr'};}
 
                       .link-class a {
                         color: #4A91BD;

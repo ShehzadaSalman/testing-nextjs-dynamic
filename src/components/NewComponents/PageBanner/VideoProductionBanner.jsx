@@ -1,26 +1,32 @@
-import { Container, Grid } from '@material-ui/core'
 import WhiteWave from '../WhiteWave';
 import ButtonStyleTwo from '../Buttons/buttonStyleTwo.jsx';
-const VideoProductionBanner = (props) => (
-    <React.Fragment>
-        <div className="video-banner">
-            <Container>
-                <h1>{props.title}</h1>
-                <Grid container>
-                    <Grid item md={6}>
-                        <h6>
-                        {props.description} 
-                        </h6>
-                    </Grid>
+import {useRouter} from 'next/router'
 
-                </Grid>
+const VideoProductionBanner = (props) =>{ 
+    
+    const router = useRouter();
+    const {locale} = router;
 
-
-                <div className="mt-20" className="mt-3">
+    return(
+<React.Fragment>
+        <div className="video-banner text-direction">
+         <div className="container">
+             <div className="row">
+                 <div className="col-md-12">
+                 <h1>{props.title}</h1>
+                 </div>
+                 <div className="col-md-6">
+                 <h6 className="mb-4">{props.description}</h6>
+                 <div  className="mt-3">
                 {props.buttontext ? <a onClick={props.openForm}><ButtonStyleTwo title={props.buttontext} /></a> : ""}
                 </div>
-            </Container>
-            <WhiteWave title={props.wavename} />
+                 </div>
+             
+
+             </div>
+         </div>
+            
+   <WhiteWave title={props.wavename} />
 
         </div>
         <style>
@@ -89,6 +95,6 @@ const VideoProductionBanner = (props) => (
             }
         </style>
     </React.Fragment>
-);
+) };
 
 export default VideoProductionBanner;

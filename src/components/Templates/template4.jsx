@@ -148,7 +148,7 @@ const PRPLANNING = ({ finalData }) => {
 
   return (
     <React.Fragment>
-      <div className="Content-div">
+      <div className="Content-div box-direction">
     
         <PageBanner
           category="branding"
@@ -316,6 +316,7 @@ const PRPLANNING = ({ finalData }) => {
           `body{
          overflow:inherit;
        }
+       .box-direction{direction: ${locale === 'ar' ? 'rtl' : 'ltr'};}
 
        .MuiGrid-root.flex-end.MuiGrid-container.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-md-4 {
         justify-content: flex-end;

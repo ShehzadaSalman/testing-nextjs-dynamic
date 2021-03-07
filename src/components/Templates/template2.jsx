@@ -62,7 +62,7 @@ function BRANDPAGE({ finalData }) {
 
   return (
     <React.Fragment>
-      <div className="Content-div">
+      <div className="Content-div box-direction">
       
        
         <PageBanner

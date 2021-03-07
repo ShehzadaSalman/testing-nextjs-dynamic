@@ -25,7 +25,7 @@ useEffect(() => {
 
 
   return (
-    <div className='footers'>
+    <div className='footers' style={{ direction: 'ltr'}}>
       <div className="container pb-0 pb-md-3">
         <div className="row mb-0 mb-md-5">
      

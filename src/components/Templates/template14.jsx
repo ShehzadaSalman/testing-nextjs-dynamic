@@ -152,7 +152,7 @@ const AppDevelopment = ({ finalData }) => {
 
   return (
     <React.Fragment>
-    
+     <div className="main-div box-direction">
       {/*  The First section    */}
       <PageBanner
         category="development"
@@ -163,7 +163,7 @@ const AppDevelopment = ({ finalData }) => {
         wavename="wave2.png">
       </PageBanner>
       <SuccessDisplay />
-      <div className="main-div">
+     
         {/*  second section  */}
         <div className="">
         </div>

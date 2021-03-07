@@ -110,7 +110,7 @@ const Header = () => {
 
 
   return (<>
-    <header className="mg-main-header" id="myHeader">
+    <header className="mg-main-header" id="myHeader" style={{ direction: 'ltr' }}>
       <div className="container-fluid p-0">
         <div className={`row ${addClass ? 'drop-menu-top-bar' : ''}`}>
           <div className="col-3 logos-container">
@@ -309,14 +309,26 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <style jsx>
+
+<style>{`
+@media only screen and (max-width: 900px) {
+  .new-menu-wrapper .new-menu-item h1{ font-size: 1.3rem; padding-top: 20px}
+  .new-menu-wrapper .new-menu-item .new-menu-sub a {font-size: 14px;}
+}
+
+
+`}
+
+</style>
+
+
+<style jsx>
         {`
 
 
-@media only screen and (max-width: 600px) {
-  .text-direction{
-  text-align: center;
-  }
+@media only screen and (max-width: 900px) {
+  .text-direction{text-align: center;}
+  .new-menu-wrapper .new-menu-item h1{ font-size: 1rem;}
 }
 
 .selected-bg-menu h1 a{
@@ -461,7 +473,7 @@ cursor: pointer;
  margin-bottom: 0;
 }
 
-@media only screen and (max-width: 1050px) {
+@media only screen and (max-width: 900px) {
 .new-menu-wrapper{       display: flex;
    justify-content: space-around; 
    position: relative;
@@ -481,7 +493,7 @@ cursor: pointer;
    display: none;
  }
  .new-menu-item .new-menu-sub a{
-   font-size: 1.5rem;
+   font-size: 17px;
  }
 }
 

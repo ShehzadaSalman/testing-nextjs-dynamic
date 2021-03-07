@@ -133,7 +133,8 @@ const Headerfive = () => {
 
     <header className="mg-main-header" id="myHeader" style={{
       position: isMenu ? "fixed" : "",
-      backgroundColor: "white"
+      backgroundColor: "white",
+      direction: 'ltr'
     }}>
       <div className="container-fluid p-0">
         <div className={`row ${addClass ? 'drop-menu-top-bar' : ''}`}>

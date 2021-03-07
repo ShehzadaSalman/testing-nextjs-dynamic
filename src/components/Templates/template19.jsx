@@ -145,7 +145,7 @@ const UIUX = ({ finalData }) => {
   return (
     <React.Fragment>
     
-      <div className="content-div">
+      <div className="content-div box-direction">
         <PageBannerTwo
           dark
           category="development"

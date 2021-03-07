@@ -1298,9 +1298,9 @@ span.jsx-3171614441 {
 /* for screens smaller than 450px */
 
 /* styling font sizes for the new menu fonts */
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 980px) {
   .new-menu-item h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   .new-menu-item .new-menu-sub a {
     font-size: 1.1rem !important;

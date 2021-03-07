@@ -157,7 +157,7 @@ let WidgetHeadings = finalData.widget_headings.map( data => {
 
   return (
     <React.Fragment>
-    <div className = "main-div"  onScroll={(event) => addStickyHeader(event.target)}>
+    <div className = "main-div box-direction"  onScroll={(event) => addStickyHeader(event.target)}>
 
         <VideoProductionBanner
         bg={ImagePath + content.BannerImage}

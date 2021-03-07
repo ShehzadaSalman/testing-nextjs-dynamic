@@ -237,8 +237,9 @@ function Dynamic({ data,status}) {
           <link rel="canonical" href="https://techbay.co" />
        </Head>
         <menuContext.Provider value= {{headerMenu, setHeaderMenu}}>
-         {SwitchPages(data)}
-         {/* {JSON.stringify("hellow world")} */}
+        <div className="box-direction">
+        {SwitchPages(data)}
+        </div>
         </menuContext.Provider>
        </>
     
