@@ -320,21 +320,15 @@ const Headerfive = () => {
         </div>
       </div>
       <style>{`
-             @media only screen and (max-width: 600px) {
-            .text-direction{
-              text-align: center !important;
-              }
-              .new-menu-item h1 {
-                display: inline-block;
-                padding-top: 20px;
-                color: #212121;
-                font-weight: bold;
-               font-size: 19px;
-              }
-            }
-      
-      
-      `}</style>
+@media only screen and (max-width: 900px) {
+  .new-menu-wrapper .new-menu-item h1{ font-size: 1.3rem; padding-top: 20px}
+  .new-menu-wrapper .new-menu-item .new-menu-sub a {font-size: 14px;}
+}
+
+
+`}
+
+</style>
       <style jsx>
         {`
         #brandingmenu{

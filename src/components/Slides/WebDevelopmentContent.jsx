@@ -58,7 +58,7 @@ function WebDevelopmentContent({data, services, books}) {
                       }
                       </h3>
 
-                    <p className="paragraph">
+                    <p className="paragraph box-direction">
                      {locale === 'en-US'
                       ?<>  {data.what_we_do}</>
                       : <>  {data.what_we_do_arabic}</>

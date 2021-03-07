@@ -57,7 +57,7 @@ function BrandingContent({data, services, books, language }) {
                       : <>الذي نفعله</>
                      }
                   </h3>
-                  <p className="white-paragraph pb-5">
+                  <p className="white-paragraph pb-5 box-direction">
                   {locale === 'en-US' 
                      ? <> {data.what_we_do}</>
                       : <> {data.what_we_do_arabic} </>
