@@ -158,7 +158,7 @@ const Headerfive = () => {
           <div className="col-6 d-flex contctDetails xs-hidden">
             <div className="mg-language-selector">
               <ul className="pl-0">
-                <li>
+                {/* <li>
                   <a href="tel:+97144257880" className={isMenu ? '' : ''}>
                     <i className={isMenu ? 'fa fa-phone' : 'fa fa-phone '}></i> +971 4 425 7880
                     </a>
@@ -167,7 +167,34 @@ const Headerfive = () => {
                   <a href="mailto:info@techbay.co" className={isMenu ? '' : ''}>
                     <i className={isMenu ? 'far fa-envelope' : 'far fa-envelope '}></i> info@techbay.co
                     </a>
-                </li>
+                </li> */}
+
+
+{(companyInfo) &&
+                  <>
+                    {/* display the phone number if it exist  */}
+                    {companyInfo.phone &&
+                      <li>
+                        <a href="tel:+97144257880">
+                          <i className='fa fa-phone'>
+                            {companyInfo.phone}
+                          </i>
+                        </a>
+                      </li>
+                    }
+                    {companyInfo.email && <>
+                      <li>
+                        <a href="mailto:info@techbay.co">
+                          <i className='far fa-envelope '></i> {companyInfo.email}
+                        </a>
+                      </li>
+                    </>}
+                  </>
+                }
+
+
+
+
               </ul>
             </div>
           </div>
@@ -203,14 +230,14 @@ const Headerfive = () => {
                 <div className={`drop-menu-listing ${addClass ? 'show' : ''}`}>
                   <div id="menu-content-section" className="drop-menu-link">
                     <div className="menu-container-class container-fluid">
-                      <div className="new-menu-wrapper box-direction text-direction">
+                      <div className="new-menu-wrapper">
 
                         {(menudata.length > 0) && menudata.map(menu => (
                           <div key={menu.id} onMouseEnter={openNewMenu} onMouseLeave={closeNewMenu}
                             className={menu.services.length > 0 ? "new-menu-item sub" : "new-menu-item"}>
                             {CategoryHeading(menu)}
                             <span></span>
-                            <div className="new-menu-sub text-direction">
+                            <div className="new-menu-sub">
                               {menu?.services.length > 0 && menu.services.map(li => {
                                 return (<div onClick={samePageRefresh}>
                                   {/* <Link href={li.slug}> */}
@@ -321,8 +348,12 @@ const Headerfive = () => {
       </div>
       <style>{`
 @media only screen and (max-width: 900px) {
-  .new-menu-wrapper .new-menu-item h1{ font-size: 1.3rem; padding-top: 20px}
-  .new-menu-wrapper .new-menu-item .new-menu-sub a {font-size: 14px;}
+   .new-menu-item h1{ font-size: 1.3rem; padding-top: 20px}
+   .new-menu-item .new-menu-sub a {font-size: 14px;}
+}
+@media only screen and (max-width: 450px) {
+  .new-menu-item h1{ font-size: 1rem; padding-top: 20px}
+  .new-menu-item .new-menu-sub a {font-size: 12px;}
 }
 
 
@@ -331,12 +362,7 @@ const Headerfive = () => {
 </style>
       <style jsx>
         {`
-        #brandingmenu{
-       left: 45%;
-       top: 45%;
 
-        }
- 
         .selected-bg-menu h1 a{
           color: #337093;
           text-decoration: none;
@@ -589,7 +615,7 @@ const Headerfive = () => {
          }
 
          .box-direction{direction: ${locale === 'ar' ? 'rtl' : 'ltr'};}
-         .text-direction{text-align: ${locale === 'ar' ? 'right' : 'left'};}
+        .text-direction{text-align: ${locale === 'ar' ? 'right' : 'left'};}
          
 
       `}

@@ -315,7 +315,10 @@ const Header = () => {
   .new-menu-wrapper .new-menu-item h1{ font-size: 1.3rem; padding-top: 20px}
   .new-menu-wrapper .new-menu-item .new-menu-sub a {font-size: 14px;}
 }
-
+@media only screen and (max-width: 400px) {
+  .new-menu-wrapper .new-menu-item h1{ font-size: 1rem; padding-top: 20px}
+  .new-menu-wrapper .new-menu-item .new-menu-sub a {font-size: 12px;}
+}
 
 `}
 
