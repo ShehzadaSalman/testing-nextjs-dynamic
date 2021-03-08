@@ -2,6 +2,7 @@ import axios from 'axios';
 import Head from 'next/head'
 import React, {useState} from 'react';
 import dynamic from 'next/dynamic';
+import {LoadingDiv} from '../components/LoadingDiv'
 // import Template350 from '../components/Templates/template350'
 // import Template450 from '../components/Templates/template450'
 
@@ -41,8 +42,8 @@ import Error from 'next/error';
 import Headerfive from '../components/HeaderFive';
 import Footer from '../components/Footer'
 
-const Template1 = dynamic(() => import('../components/Templates/template1'), { ssr: false });
-const Template2 = dynamic(() => import('../components/Templates/template2'), { ssr: false });
+const Template1 = dynamic(() => import('../components/Templates/template1'), { ssr: false, loading: () => <LoadingDiv/> });
+const Template2 = dynamic(() => import('../components/Templates/template2'), { ssr: false, loading: () => <LoadingDiv/> });
 const Template3 = dynamic(() => import('../components/Templates/template3'), { ssr: false });
 const Template4 = dynamic(() => import('../components/Templates/template4'), { ssr: false });
 const Template5 = dynamic(() => import('../components/Templates/template5'), { ssr: false });
@@ -224,8 +225,12 @@ function Dynamic({ data,status}) {
 
   if (status == 200) {
 
+      let title =  data.meta_tags.filter(li => li.title == 'title')
+      console.log(title.title)
+         console.log(data.meta_tags)
        return <>
        <Head>
+       
            <title>
             Digital Marketing Agency | SEO, PPC, SMM, Web Development
           </title>
