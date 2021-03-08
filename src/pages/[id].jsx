@@ -44,38 +44,38 @@ import Footer from '../components/Footer'
 
 const Template1 = dynamic(() => import('../components/Templates/template1'), { ssr: false, loading: () => <LoadingDiv/> });
 const Template2 = dynamic(() => import('../components/Templates/template2'), { ssr: false, loading: () => <LoadingDiv/> });
-const Template3 = dynamic(() => import('../components/Templates/template3'), { ssr: false });
-const Template4 = dynamic(() => import('../components/Templates/template4'), { ssr: false });
-const Template5 = dynamic(() => import('../components/Templates/template5'), { ssr: false });
-const Template6 = dynamic(() => import('../components/Templates/template6'), { ssr: false });
-const Template7 = dynamic(() => import('../components/Templates/template7'), { ssr: false });
-const Template8 = dynamic(() => import('../components/Templates/template8'), { ssr: false });
-const Template9 = dynamic(() => import('../components/Templates/template9'), { ssr: false });
-const Template10 = dynamic(() => import('../components/Templates/template10'), { ssr: false });
-const Template11 = dynamic(() => import('../components/Templates/template11'), { ssr: false });
-const Template12 = dynamic(() => import('../components/Templates/template12'), { ssr: false });
-const Template13 = dynamic(() => import('../components/Templates/template13'), { ssr: false });
-const Template14 = dynamic(() => import('../components/Templates/template14'), { ssr: false });
-const Template15 = dynamic(() => import('../components/Templates/template15'), { ssr: false });
-const Template16 = dynamic(() => import('../components/Templates/template16'), { ssr: false });
-const Template17 = dynamic(() => import('../components/Templates/template17'), { ssr: false });
-const Template18 = dynamic(() => import('../components/Templates/template18'), { ssr: false });
-const Template19 = dynamic(() => import('../components/Templates/template19'), { ssr: false });
-const Template20 = dynamic(() => import('../components/Templates/template20'), { ssr: false });
-const Template21 = dynamic(() => import('../components/Templates/template21'), { ssr: false });
+const Template3 = dynamic(() => import('../components/Templates/template3'), { ssr: false, loading: () => <LoadingDiv/> });
+const Template4 = dynamic(() => import('../components/Templates/template4'), { ssr: false, loading: () => <LoadingDiv/> });
+const Template5 = dynamic(() => import('../components/Templates/template5'), { ssr: false, loading: () => <LoadingDiv/> });
+const Template6 = dynamic(() => import('../components/Templates/template6'), { ssr: false, loading: () => <LoadingDiv/> });
+const Template7 = dynamic(() => import('../components/Templates/template7'), { ssr: false, loading: () => <LoadingDiv/> });
+const Template8 = dynamic(() => import('../components/Templates/template8'), { ssr: false, loading: () => <LoadingDiv/> });
+const Template9 = dynamic(() => import('../components/Templates/template9'), { ssr: false, loading: () => <LoadingDiv/> });
+const Template10 = dynamic(() => import('../components/Templates/template10'), { ssr: false, loading: () => <LoadingDiv/> });
+const Template11 = dynamic(() => import('../components/Templates/template11'), { ssr: false, loading: () => <LoadingDiv/> });
+const Template12 = dynamic(() => import('../components/Templates/template12'), { ssr: false, loading: () => <LoadingDiv/> });
+const Template13 = dynamic(() => import('../components/Templates/template13'), { ssr: false, loading: () => <LoadingDiv/> });
+const Template14 = dynamic(() => import('../components/Templates/template14'), { ssr: false, loading: () => <LoadingDiv/> });
+const Template15 = dynamic(() => import('../components/Templates/template15'), { ssr: false, loading: () => <LoadingDiv/> });
+const Template16 = dynamic(() => import('../components/Templates/template16'), { ssr: false, loading: () => <LoadingDiv/> });
+const Template17 = dynamic(() => import('../components/Templates/template17'), { ssr: false, loading: () => <LoadingDiv/> });
+const Template18 = dynamic(() => import('../components/Templates/template18'), { ssr: false, loading: () => <LoadingDiv/> });
+const Template19 = dynamic(() => import('../components/Templates/template19'), { ssr: false, loading: () => <LoadingDiv/> });
+const Template20 = dynamic(() => import('../components/Templates/template20'), { ssr: false, loading: () => <LoadingDiv/> });
+const Template21 = dynamic(() => import('../components/Templates/template21'), { ssr: false, loading: () => <LoadingDiv/> });
 
-const Template24 = dynamic(() => import('../components/Templates/template24'), { ssr: false });
-const Template25 = dynamic(() => import('../components/Templates/template25'), { ssr: false });
-const Template26 = dynamic(() => import('../components/Templates/template26'), { ssr: false });
-const Template27 = dynamic(() => import('../components/Templates/template27'), { ssr: false });
-const Template29 = dynamic(() => import('../components/Templates/template29'), { ssr: false });
-const Template30 = dynamic(() => import('../components/Templates/template30'), { ssr: false });
-const Template31 = dynamic(() => import('../components/Templates/template31'), { ssr: false });
-const Template32 = dynamic(() => import('../components/Templates/template32'), { ssr: false });
-const Template33 = dynamic(() => import('../components/Templates/template33'), { ssr: false });
-const Template34 = dynamic(() => import('../components/Templates/template34'), { ssr: false });
-const Template350 = dynamic(() => import('../components/Templates/template350'), { ssr: false });
-const Template450 = dynamic(() => import('../components/Templates/template450'), { ssr: false });
+const Template24 = dynamic(() => import('../components/Templates/template24'), { ssr: false, loading: () => <LoadingDiv/> });
+const Template25 = dynamic(() => import('../components/Templates/template25'), { ssr: false, loading: () => <LoadingDiv/> });
+const Template26 = dynamic(() => import('../components/Templates/template26'), { ssr: false, loading: () => <LoadingDiv/> });
+const Template27 = dynamic(() => import('../components/Templates/template27'), { ssr: false, loading: () => <LoadingDiv/> });
+const Template29 = dynamic(() => import('../components/Templates/template29'), { ssr: false, loading: () => <LoadingDiv/> });
+const Template30 = dynamic(() => import('../components/Templates/template30'), { ssr: false, loading: () => <LoadingDiv/> });
+const Template31 = dynamic(() => import('../components/Templates/template31'), { ssr: false, loading: () => <LoadingDiv/> });
+const Template32 = dynamic(() => import('../components/Templates/template32'), { ssr: false, loading: () => <LoadingDiv/> });
+const Template33 = dynamic(() => import('../components/Templates/template33'), { ssr: false, loading: () => <LoadingDiv/> });
+const Template34 = dynamic(() => import('../components/Templates/template34'), { ssr: false, loading: () => <LoadingDiv/> });
+const Template350 = dynamic(() => import('../components/Templates/template350'), { ssr: false, loading: () => <LoadingDiv/> });
+const Template450 = dynamic(() => import('../components/Templates/template450'), { ssr: false, loading: () => <LoadingDiv/> });
 
 
 
@@ -225,21 +225,27 @@ function Dynamic({ data,status}) {
 
   if (status == 200) {
 
-       let title;
-       title =  data?.meta_tags?.filter(li => li.title == 'title')
-   
-       return <>
+       let title, description, canonical;
+       title =  data?.meta_tags?.filter(li => li.title == 'title') || null
+       description =  data?.meta_tags?.filter(li => li.title == 'description') || null
+       canonical =  data?.meta_tags?.filter(li => li.title == 'canonical') || null
+
+      
+      
+      return <>
        <Head>
+          {/* <title>Hello world</title> */}
        
-           <title>
-            Digital Marketing Agency | SEO, PPC, SMM, Web Development
-          </title>
-          <meta
+            {title &&  <title>{title[0].description}</title>} 
+      
+           {description &&   <meta
             name="description"
-            content="Techbay Solutions is one of the leading Digital Marketing Agency, which provides SEO, PPC, SMM, Web &amp; App Design &amp; Development Services. Get a quote"
-          />
+            content={description[0].description}
+          />  } 
+        
           {/* <meta name="keywords" content="Digital Marketing Agency" /> */}
-          <link rel="canonical" href="https://techbay.co" />
+          {canonical &&  <link rel="canonical" href={canonical[0].description} /> }
+         
        </Head>
         <menuContext.Provider value= {{headerMenu, setHeaderMenu}}>
         <div className="box-direction">
