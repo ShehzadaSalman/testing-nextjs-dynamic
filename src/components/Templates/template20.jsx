@@ -155,7 +155,7 @@ const ContentMarketing = ({ finalData }) => {
 
   return (
     <React.Fragment>
-      <div className="main-content">
+      <div className="main-content box-direction">
     
         {/*  The First section    */}
         <PageBanner
@@ -211,8 +211,8 @@ const ContentMarketing = ({ finalData }) => {
 
           <div className="container">
             <div className="row box-direction">
-              {content.ListingOne.map(li => (
-                <div className="col-lg-2 col-md-4 col-6 mb-4">
+              {content.ListingOne.map((li, key) => (
+                <div className="col-lg-2 col-md-4 col-6 mb-4" key={key}>
                   <ThumbnailTwo imgAddress={ImagePath + li.image} title={li.title} />
                 </div>
               ))}

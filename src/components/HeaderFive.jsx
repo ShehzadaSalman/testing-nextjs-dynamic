@@ -126,16 +126,6 @@ const Headerfive = () => {
 
 
 
-
-
-
-  /* closing menu on page change */
-
-
-
-
-
-
   return (
 
     <header className="mg-main-header" id="myHeader" style={{
@@ -239,14 +229,14 @@ const Headerfive = () => {
                     <div className="menu-container-class container-fluid">
                       <div className="new-menu-wrapper">
 
-                        {(menudata.length > 0) && menudata.map(menu => (
-                          <div key={menu.id} onMouseEnter={openNewMenu} onMouseLeave={closeNewMenu}
+                        {(menudata.length > 0) && menudata.map((menu,key) => (
+                          <div key={key} onMouseEnter={openNewMenu} onMouseLeave={closeNewMenu}
                             className={menu.services.length > 0 ? "new-menu-item sub box-desktop-direction" : "new-menu-item box-desktop-direction"}>
                             {CategoryHeading(menu)}
                             <span></span>
                             <div className="new-menu-sub">
-                              {menu?.services.length > 0 && menu.services.map(li => {
-                                return (<div onClick={samePageRefresh}>
+                              {menu?.services.length > 0 && menu.services.map((li,key) => {
+                                return (<div onClick={samePageRefresh} key={key}>
                                   {/* <Link href={li.slug}> */}
                                   <a onClick={(e) => changePage(e, li.slug.toString())}>
                                     <li>
@@ -270,31 +260,33 @@ const Headerfive = () => {
                           &&
                           <>
 
-                            {bottomPages?.map(m => {
+                            {bottomPages?.map((m, key) => {
                               return (
-                                <div className="header-custom-dropdown" key={m.title}>
+                                <div className="header-custom-dropdown" key={key}>
                                   <a className="dropdown-title">
                                     {locale == 'ar' ? m.title_arabic : m.title}
                                     <i className="fas fa-chevron-down"></i></a>
                                   <div className="custom-menu-list text-direction">
                                     <ul style={{ top: "-65px" }}>
-                                      {m.services.map(m => {
+                                      {m.services.map((m, key) => {
                                          if(m.slug){
                                           return (
-                                            <li onClick={(e) => changePage(e, m.slug )}>
+                                            <li  key={key} onClick={(e) => changePage(e, m.slug )}>
                                               <a>
                                                 {locale == 'ar' ? m.title_arabic : m.title}
                                               </a>
                                             </li>);
                                          }else{
                                           return (
-                                          <Link href={m.link} target="_blank">
+                                          
+                                          <Link key={key} href={m.link} target="_blank">
                                            <li>
                                               <a>
                                                 {locale == 'ar' ? m.title_arabic : m.title}
                                               </a>
                                             </li>
                                             </Link>
+                                            
                                             );
 
                                          }
@@ -319,10 +311,8 @@ const Headerfive = () => {
                       </div>
 
                       <div className="socials">
-
                         {companyInfo &&
                           <>
-
                             {companyInfo.fb && <a href={companyInfo.fb} target="_blank">
                               <i className="fab fa-facebook-f"></i>
                             </a>}
@@ -340,8 +330,6 @@ const Headerfive = () => {
                               <i className="fab fa-twitter"></i>
                             </a>}
                           </>}
-
-
                       </div>
                     </div>
                   </div>

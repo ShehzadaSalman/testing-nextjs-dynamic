@@ -130,6 +130,7 @@ const Shark = ({finalData}) => {
   
 return (
     <>
+     <div className=" pt-5 pb-3 wave-layer-bg-slides box-direction">
     {/* <HeaderFive/> */}
     <PageBanner
           category= "branding"
@@ -140,7 +141,7 @@ return (
           wavename=""
         ></PageBanner>
                 {/*  the second  section  */}
-                <div className=" pt-5 pb-3 wave-layer-bg-slides">
+               
           <div className="container pt-5">
       
                 <div className=" d-flex justify-content-center flex-column">

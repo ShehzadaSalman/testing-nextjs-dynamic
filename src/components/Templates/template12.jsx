@@ -154,7 +154,7 @@ const AppDesign = ({ finalData }) => {
 
   return (
     <React.Fragment>
-     
+       <div className="main-div box-direction">
       {/*  The First section    */}
       <PageBanner
         category="development"
@@ -165,7 +165,7 @@ const AppDesign = ({ finalData }) => {
         wavename="wave2.png">
       </PageBanner>
       <SuccessDisplay />
-      <div className="main-div">
+    
         {/*  second section  */}
         <div className="">
 
@@ -188,9 +188,13 @@ const AppDesign = ({ finalData }) => {
             </p>
 
             <div className="row box-direction">
-              {content.ListingOne && content.ListingOne.map(li => (
-                <div className="col-md-4 mb-2">
-                  <ListItemFive imgAddress={ImagePath + li.image} description={li.title} />
+              {content.ListingOne && content.ListingOne.map((li, key) => (
+                <div className=" col-6 col-md-4 mb-2" key={key}>
+                  <div className="d-flex my-2">
+                    <img src={ImagePath + li.image} alt ="image" height ="35px"/>
+                    <p className="mx-2 my-0">{li.title}</p>
+                  </div>
+                  {/* <ListItemFive imgAddress={ImagePath + li.image} description={li.title} /> */}
                 </div>
               ))}
 

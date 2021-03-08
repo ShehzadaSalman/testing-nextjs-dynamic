@@ -5,7 +5,7 @@ const ListItemFour = ({imgAddress, description}) => (
 
 {/* <Image src={imgAddress} alt="list" height="35" width="35" layout="fixed"/> */}
 <img src = {imgAddress} alt = "list" />
-<p>{description}</p>
+<p className="mb-0">{description}</p>
 
 
 

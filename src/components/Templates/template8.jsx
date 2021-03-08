@@ -237,7 +237,7 @@ const openformpopupreport = (e) => {
 
 return(
 <React.Fragment>
-  <div className = "main-div">
+  <div className = "main-div  box-direction">
 
       <PageBanner
       category = "marketing"
@@ -384,14 +384,13 @@ return(
 
       <div className="row d-flex justify-content-md-center mt-3 text-center">
              
-             {content.ListingOne && content.ListingOne.map(li => (
-          <div className="col-6 col-md-3 col-lg-2 text-center d-flex justify-content-center">
+             {content.ListingOne && content.ListingOne.map((li, key) => (
+          <div className="col-6 col-md-3 col-lg-2 text-center d-flex justify-content-center" key={key}>
           <div className="ecommerce-thumbnail mt-2  mb-3 mb-md-3">
               <img src={ImagePath + li.image} alt = "ecommerce" className="" />
               <p className = "paragraph">{li.description}</p>
+            </div>
           </div>
-       </div>
-
              ))}
    
           
@@ -405,8 +404,8 @@ return(
         <div className = " mb-4">
          <div className="container">
          <div className="row">
-           {content.ListingTwo && content.ListingTwo.map(li => (
-      <div className="col-md-6 mb-4">
+           {content.ListingTwo && content.ListingTwo.map((li, key) => (
+      <div className="col-md-6 mb-4" key={key}>
       <div className="smm-casestudy text-center">
          <img src = {ImagePath + li.image} alt = "case study" className = "img-fluid" />
          <div className="caption">
@@ -442,8 +441,8 @@ return(
           {content.Sections[1].description} 
           </p>
            <div className="row mb-5 box-direction">
-             {content.ListingThree && content.ListingThree.map(li => (
-           <div className="col-md-6">
+             {content.ListingThree && content.ListingThree.map((li, key) => (
+           <div className="col-md-6" key={key}>
 
             <div className ="temp-list my-3">
                 <img src = {ImagePath + li.image} alt = "list" className="mx-3" />

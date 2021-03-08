@@ -158,7 +158,7 @@ const PpcPage = ({ finalData }) => {
   return (
     <React.Fragment>
 
-      <div className="main-div">
+      <div className="main-div  box-direction">
  
         <PageBanner
           category="marketing"
@@ -203,9 +203,9 @@ const PpcPage = ({ finalData }) => {
               {content.Sections[0].description}
             </p>
             <div className="box-direction">
-              {content.ListingOne && content.ListingOne.map(li => (
+              {content.ListingOne && content.ListingOne.map((li, key) => (
 
-                <ListItemFour imgAddress={ImagePath + li.image} description={li.description} />
+                <ListItemFour key={key} imgAddress={ImagePath + li.image} description={li.description} />
 
               ))}
 

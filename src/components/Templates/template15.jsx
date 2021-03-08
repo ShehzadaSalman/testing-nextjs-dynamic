@@ -147,7 +147,7 @@ const CMS = ({finalData}) => {
   return(
   <React.Fragment>
 
-<div className = "main-content">
+<div className = "main-content  box-direction">
 
 {/*  The First section    */}
       <PageBanner

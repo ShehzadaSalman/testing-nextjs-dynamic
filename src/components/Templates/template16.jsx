@@ -154,7 +154,7 @@ const ERP = ({ finalData }) => {
 
   return (
     <React.Fragment>
-  
+     <div className="main-div box-direction">
       {/*  The First section    */}
       <PageBanner
         category="development"
@@ -165,7 +165,7 @@ const ERP = ({ finalData }) => {
         wavename="wave2.png">
       </PageBanner>
       <SuccessDisplay />
-      <div className="main-div">
+   
         {/*  second section  */}
         <div className=""></div>
         <div className="padding-top-50 padding-bottom-30 bg-grey">

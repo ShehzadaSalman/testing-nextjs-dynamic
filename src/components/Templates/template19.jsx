@@ -205,7 +205,7 @@ const UIUX = ({ finalData }) => {
           <div className="container">
             <div className="row box-direction text-direction">
               {content.ListingOne.map(li => (
-                <div className="col-md-6" key={li.title}>
+                <div className="col-md-6" key={li.id}>
                   <ListItemFour imgAddress={ImagePath + li.image} description={li.title} />
                 </div>
               ))}

@@ -7,7 +7,7 @@ const PRIVACY = ({ finalData }) => {
   const { locale } = router;
   return (
     <React.Fragment>
-      <div className="content-div">
+      <div className="content-div box-direction" >
 
         <PageBanner
           category="marketing"

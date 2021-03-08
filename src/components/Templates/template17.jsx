@@ -148,7 +148,7 @@ const ECOMMERCE = ({ finalData }) => {
 
   return (
     <React.Fragment>
-      <div className="main-content">
+      <div className="main-content box-direction">
 
         {/*  The First section    */}
         <PageBanner
@@ -204,15 +204,16 @@ const ECOMMERCE = ({ finalData }) => {
               {content.Sections[0].description}
             </p>
             <div className="row box-direction">
+           
 
-              {content.ListingTwo && content.ListingTwo.map(li => {
-                let list = 0;
-                list = list + 1;
+
+              {content.ListingTwo && content.ListingTwo.map((li, key ) => {
+            
                 return (
-                  <div className="col-md-4 d-flex mb-5 flex-column" key={li.title}>
+                  <div className="col-md-4 d-flex mb-5 flex-column" key={li.id}>
                     <div>
                       <h2 className="text-center numeric-styling">
-                        {"0" + list}
+                         {"0" + (key+1)}
                       </h2>
                       <div className="cms-thumbnail text-center">
 

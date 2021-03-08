@@ -9,7 +9,7 @@ const CaseStudy = ({ finalData }) => {
   return (
     <React.Fragment>
  
-      <div className="content-div">
+      <div className="content-div box-direction">
         <div className="slide-section mt-5">
           <div className="content container mt-5">
             <h2 className="heading mb-3 mt-5 ">

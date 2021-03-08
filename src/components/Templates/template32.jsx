@@ -20,7 +20,7 @@ const openDevelopmentForm = () => {
             {/*  The First section    */}
  
             <SuccessDisplay />
-            <div className = "main-div">
+            <div className = "main-div box-direction">
     <AdvertisementPopup type = "development" />
       <ReportCardFooterCTA
   category = "development"

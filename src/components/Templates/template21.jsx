@@ -163,7 +163,7 @@ function SMMPAGE({finalData}) {
 
   return (
     <React.Fragment>
-      <div className="Content-div">
+      <div className="Content-div box-direction">
     
         {/*  the first section  */}
         <PageBanner
@@ -205,8 +205,8 @@ function SMMPAGE({finalData}) {
     
       </div>
           <div className="row">
-            {content.ListingOne.map(li => (
-              <div className="col-md-3 px-1 mb-4">
+            {content.ListingOne.map((li, key) => (
+              <div className="col-md-3 px-1 mb-4" key={key}>
               <div className="smm-thumbnail text-center">
                 <img src={ImagePath + li.image}  alt = "social campaign"  />
                 <div className="caption">
@@ -225,8 +225,8 @@ function SMMPAGE({finalData}) {
         <div className = " mb-1">
          <div className="container">
            <div className="row">
-             {content?.ListingTwo.map(li => (
-      <div className="col-md-6 mb-4">
+             {content?.ListingTwo.map((li, key) => (
+      <div className="col-md-6 mb-4" key={key}>
       <div className="smm-casestudy text-center">
          <img src = {ImagePath + li.image} alt = "case study" className = "img-fluid" />
          <div className="caption">
@@ -269,8 +269,8 @@ function SMMPAGE({finalData}) {
    </p>
 
 <div className="row mt-3 pb-5 d-flex justify-content-center">
- {content.ListingThree.map(li => (
-  <div className="col-md-2 col-6">
+ {content.ListingThree.map((li, key) => (
+  <div className="col-md-2 col-6" key={key}>
   <div className="social-div d-flex justify-content-center align-items-center align-content-center">
  <img src = {ImagePath + li.image} className = "img-fluid" alt = "social" />
   </div>

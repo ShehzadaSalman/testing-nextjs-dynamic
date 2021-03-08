@@ -17,10 +17,10 @@ const ListItemThree = (props) => (
 <style jsx>
 {`
   .thirdlist-div{
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     display: flex;
-    margin-top: 20px;
+  
     /* margin-bottom: 20px; */
     /* align-content: center; */
     align-items: center;

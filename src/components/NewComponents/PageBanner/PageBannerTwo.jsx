@@ -93,7 +93,7 @@ const PageBannerTwo = (props) => {
             .full-banner-two h1{
                 color: #1A1717;
                 text-transform: uppercase;
-                font-size: 3.3rem;
+                font-size: 3.2rem;
                 font-weight: 600;
                 line-height: .9;
             }
@@ -129,7 +129,7 @@ const PageBannerTwo = (props) => {
               }
               @media screen and (max-width: 1300px) and (min-width: 800px) {
                 .full-banner-two h1{
-                  font-size: 4.1rem;
+                  font-size: 3.2rem;
                   
                 }
 

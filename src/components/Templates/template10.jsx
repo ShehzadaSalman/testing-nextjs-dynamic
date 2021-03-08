@@ -159,7 +159,7 @@ const CROPAGE = ({ finalData }) => {
   return (
     <React.Fragment>
 
-      <div className="main-div">
+      <div className="main-div  box-direction">
  
         <PageBanner
           dark
@@ -198,8 +198,8 @@ const CROPAGE = ({ finalData }) => {
           <div className="container">
             <h2 className="heading padding-top-10 padding-bottom-50">{content.widget_headings[0].title}</h2>
             <div className="row d-flex justify-content-center box-direction">
-              {content.ListingOne && content.ListingOne.map(li => (
-                <div className="col-md-3 mb-5 mt-3">
+              {content.ListingOne && content.ListingOne.map((li, key) => (
+                <div className="col-md-3 mb-5 mt-3" key={key}>
                   <ThumbnailTwo imgAddress={ImagePath + li.image} title={li.title} />
                 </div>
               ))}

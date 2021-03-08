@@ -163,7 +163,7 @@ const openMarketingForm = () => {
   
 return (
 <React.Fragment>
-  <div className = "main-content">
+  <div className = "main-content box-direction">
 {/*  The First section    */}
       <PageBanner
       category = "marketing"
@@ -216,8 +216,8 @@ return (
        <div className = "padding-top-40"></div>
 <div className="container">
   <div className = "row d-flex justify-content-between">
-  {content?.ListingOne.map(li => (
- <div className="col-md-2 col-6">
+  {content?.ListingOne.map((li, key) => (
+ <div className="col-md-2 col-6" key={key}>
  <ThumbnailTwo imgAddress = {ImagePath + li.image} title = {li.title} />
  </div>
  ))}
@@ -255,10 +255,10 @@ return (
   <BgContentDiv bg = "/images/web/retargeting/retargeting-banner-three.png">
     <div className="container mt-3">
   <div className="row box-direction">
-  {finalData.widget.map(li => { 
+  {finalData.widget.map((li, key) => { 
    if(li.level == 2){
     return(
-      <div className="col-lg-2 col-md-4 col-6 mb-md-5">
+      <div className="col-lg-2 col-md-4 col-6 mb-md-5" key={key}>
        <ThumbnailOne imgAddress = {ImagePath + li.image} title = 
        {locale === 'ar' ? li.btn_text_arabic : li.btn_text_english}/>
       </div>

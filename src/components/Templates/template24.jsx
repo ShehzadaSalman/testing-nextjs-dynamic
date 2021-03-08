@@ -94,7 +94,7 @@ const ReportLandingPage = ({data}) => {
     <React.Fragment>
 
 
-      <div className="main-content">
+      <div className="main-content box-direction">
      
 
 

@@ -133,7 +133,7 @@ const Amazon = ({finalData}) => {
 
 return (
     <>
-  
+    <div className="bg-grey pt-5 pb-5 box-direction">
     <PageBanner
           category= "branding"
           heading={content.BannerHeading}
@@ -143,7 +143,7 @@ return (
           wavename="wave2.png"
         ></PageBanner>
                 {/*  the second  section  */}
-                <div className="bg-grey pt-5 pb-5">
+              
           <div className="container">
               <div className="row d-flex justify-content-center flex-column">
           

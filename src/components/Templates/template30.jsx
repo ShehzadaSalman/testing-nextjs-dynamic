@@ -173,7 +173,7 @@ const ContentCreation = ({finalData}) => {
   <React.Fragment>
 
  
-<div className = "main-content">
+<div className = "main-content box-direction">
    
   
 {/*  The First section    */}
@@ -209,8 +209,8 @@ const ContentCreation = ({finalData}) => {
 <BgContentDiv bg = "/images/web/contentcreation/contentcreation-banner-two.png">
   <div className="container">
   <div className="row box-direction">
-    {content.ListingOne.map(li => (
-    <div className="col-6 col-md-2 mb-md-4 mb-2">
+    {content.ListingOne.map((li, key) => (
+    <div className="col-6 col-md-2 mb-md-4 mb-2" key={key}>
     <ThumbnailOne imgAddress  = {ImagePath + li.image}
      title  = {li.title}></ThumbnailOne> 
     </div>
@@ -281,8 +281,8 @@ const ContentCreation = ({finalData}) => {
 <h1 className = "left-heading text-direction">{content.Sections[2].title}</h1>
 <p className = "left-paragraph text-direction">{content.Sections[2].description}</p>
 <div className = "padding-top-20"></div>
-{content.ListingTwo.map(li => (
-  <ListItemTwo title = {li.title} description = {li.description}></ListItemTwo>
+{content.ListingTwo.map((li, key) => (
+  <ListItemTwo key={key} title = {li.title} description = {li.description}></ListItemTwo>
 ))}
 <div className = "text-center padding-top-30 padding-bottom-50">
   <a onClick = {openMarketingForm} >

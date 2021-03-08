@@ -150,7 +150,7 @@ function CRM({ finalData }) {
   return (
     <React.Fragment>
 
-      <div className="Content-div bg-grey">
+      <div className="Content-div bg-grey box-direction">
      
         {/*  the first section  */}
         <PageBanner
@@ -170,7 +170,7 @@ function CRM({ finalData }) {
             <div className="row box-direction">
               <div className="col-md-7 d-flex justify-content-center flex-column">
                 <div>
-                  <h2 class="left-heading text-uppercase text-direction">
+                  <h2 className="left-heading text-uppercase text-direction">
                     <span>{content.SubBannerHeading}</span>
                   </h2>
 
@@ -223,8 +223,8 @@ function CRM({ finalData }) {
 
             <div className="row box-direction">
 
-              {content.ListingOne && content.ListingOne.map(li => (
-                <div className="col-md-6 d-flex">
+              {content.ListingOne && content.ListingOne.map((li,key) => (
+                <div className="col-md-6 d-flex" key={key}>
                   <div className="crm-thumbnail p-4 d-flex mb-4 w-100">
                     <div className="img px-3">
                       <img src={ImagePath + li.image} alt="crm page" />
