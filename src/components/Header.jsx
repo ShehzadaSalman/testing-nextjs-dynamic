@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import Link from 'next/link';
+import { useMediaQuery } from 'react-responsive'
 import { getDeviceName } from '../lib/helper';
 import { useRouter } from 'next/router'
 import { FooterContext } from '../ContextApi/footerContext'
@@ -7,7 +8,7 @@ const ImagePath = "https://staging.techbay.co/storage/app/";
 let deviceName = getDeviceName();
 
 const Header = () => {
-
+  const isNotMobile = useMediaQuery({ minDeviceWidth: 900 })
 
   const {menudata, bottomPages, companyInfo}
     = useContext(FooterContext)
@@ -42,10 +43,11 @@ const Header = () => {
       return <h1 className="cursor-pointer" onClick={refreshPage}>{locale === 'ar' ? menu.title_arabic : menu.title}</h1>
     }
      else {
-      if (deviceName === 'Mobile') {
-        return (<a><h1 className="cursor-pointer">{locale === 'ar' ? menu.title_arabic : menu.title}</h1></a>)
-      } else {
+      if (isNotMobile) {
         return <h1 className="cursor-pointer" onClick={(e) => changePage(e, menu.slug.toString())}>{locale === 'ar' ? menu.title_arabic : menu.title}</h1>
+      }
+      else{
+        return (<a><h1 className="cursor-pointer">{locale === 'ar' ? menu.title_arabic : menu.title}</h1></a>)
       }
     }
   }
@@ -311,6 +313,11 @@ const Header = () => {
       </div>
 
 <style>{`
+
+@media only screen and (max-width: 900px) {
+  .new-menu-item .new-menu-sub a li{list-style-type: none;}
+}
+
 @media only screen and (max-width: 900px) {
   .new-menu-wrapper .new-menu-item h1{ font-size: 1.3rem; padding-top: 20px}
   .new-menu-wrapper .new-menu-item .new-menu-sub a {font-size: 14px;}

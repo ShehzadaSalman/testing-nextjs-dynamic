@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import Link from 'next/link';
+import { useMediaQuery } from 'react-responsive'
 import { getDeviceName } from '../lib/helper';
 let deviceName = getDeviceName();
 import { useRouter } from 'next/router'
@@ -8,7 +9,7 @@ import { FooterContext } from '../ContextApi/footerContext'
 let shouldFetchMenu = true;
 
 const Headerfive = () => {
-
+  const isNotMobile = useMediaQuery({ minDeviceWidth: 900 })
   const {menudata, bottomPages, companyInfo,  fetchDataHeader}
     = useContext(FooterContext)
 
@@ -19,6 +20,7 @@ const Headerfive = () => {
 
 
   useEffect(() => {
+    console.log(deviceName)
     if(!menudata){
       // fetching the header data again
       fetchDataHeader();
@@ -109,14 +111,16 @@ const Headerfive = () => {
 
 
   const CategoryHeading = (menu) => {
-    if (menu.slug === '/') {
-      return <h1 className="cursor-pointer" onClick={refreshPage}>{locale === 'ar' ? menu.title_arabic : menu.title}</h1>
-    } else {
-      if (deviceName === 'Mobile') {
-        return (<a><h1 className="cursor-pointer" >{locale === 'ar' ? menu.title_arabic : menu.title}</h1></a>)
-      } else {
-        return <h1 className="cursor-pointer"  onClick={(e) => changePage(e, menu.slug.toString())}>{locale === 'ar' ? menu.title_arabic : menu.title}</h1>
+    if (menu.slug != '/') {
+      if (isNotMobile) {
+        return <h1 className="cursor-pointer" onClick={(e) => changePage(e, menu.slug.toString())}>{locale === 'ar' ? menu.title_arabic : menu.title}</h1>
       }
+      else{
+        return (<a><h1 className="cursor-pointer">{locale === 'ar' ? menu.title_arabic : menu.title}</h1></a>)
+      }
+     
+    } else {
+      return <h1 className="cursor-pointer" onClick={refreshPage}>{locale === 'ar' ? menu.title_arabic : menu.title}</h1>
     }
   }
 
@@ -126,7 +130,6 @@ const Headerfive = () => {
 
 
   /* closing menu on page change */
-
 
 
 
@@ -238,7 +241,7 @@ const Headerfive = () => {
 
                         {(menudata.length > 0) && menudata.map(menu => (
                           <div key={menu.id} onMouseEnter={openNewMenu} onMouseLeave={closeNewMenu}
-                            className={menu.services.length > 0 ? "new-menu-item sub" : "new-menu-item"}>
+                            className={menu.services.length > 0 ? "new-menu-item sub box-desktop-direction" : "new-menu-item box-desktop-direction"}>
                             {CategoryHeading(menu)}
                             <span></span>
                             <div className="new-menu-sub">
@@ -353,7 +356,14 @@ const Headerfive = () => {
       <style>{`
 @media only screen and (max-width: 900px) {
    .new-menu-item h1{ font-size: 1.3rem; padding-top: 20px}
+   .new-menu-item .new-menu-sub a li{list-style-type: none;}
    .new-menu-item .new-menu-sub a {font-size: 14px;}
+}
+@media only screen and (min-width: 900px) {
+.box-desktop-direction{
+  direction: ${locale === 'ar' ? 'rtl' : 'ltr'};
+  text-align: ${locale === 'ar' ? 'right' : 'left'};
+}
 }
 @media only screen and (max-width: 450px) {
   .new-menu-item h1{ font-size: 1rem; padding-top: 20px}

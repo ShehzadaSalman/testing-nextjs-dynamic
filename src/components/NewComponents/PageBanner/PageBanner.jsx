@@ -14,25 +14,24 @@ const {locale} = router;
       let brandingf = document.querySelector('#formPopup-branding')
       brandingf.style.display = "flex";
       // $('#formPopup-branding').css("display", "block");
-      console.log(brandingf);
+   
 
     } else if (props.category == 'marketing') {
       let brandingf = document.querySelector('#formPopup-branding')
       brandingf.style.display = "flex";
       // $('#formPopup-branding').css("display", "block");
-      console.log(brandingf);
+ 
     }
     else if (props.category == 'development') {
       let brandingf = document.querySelector('#formPopup-branding')
       brandingf.style.display = "flex";
       // $('#formPopup-branding').css("display", "block");
-      console.log(brandingf);
+     
     }
     else {
       let brandingf = document.querySelector('#formPopup-branding')
       brandingf.style.display = "flex";
-      // $('#formPopup-branding').css("display", "block");
-      console.log(brandingf);
+ 
 
     }
   }
