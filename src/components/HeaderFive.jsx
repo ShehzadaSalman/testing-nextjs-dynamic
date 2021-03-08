@@ -9,7 +9,7 @@ let shouldFetchMenu = true;
 
 const Headerfive = () => {
 
-  const [footerData, bottomFooter, menudata, bottomPages, companyInfo]
+  const {menudata, bottomPages, companyInfo,  fetchDataHeader}
     = useContext(FooterContext)
 
   const [addClass, setAddClass] = useState(false);
@@ -19,6 +19,10 @@ const Headerfive = () => {
 
 
   useEffect(() => {
+    if(!menudata){
+      // fetching the header data again
+      fetchDataHeader();
+    }
     console.info('HEADER FIVE IS RENDERING')
   }, [])
 

@@ -7,10 +7,8 @@ import { useRouter } from 'next/router'
 const Footer = () => {
   const router = useRouter();
   const {locale} = router;
-  const [footerData,bottomFooter] = useContext(FooterContext)   
+  const {footerData,bottomFooter} = useContext(FooterContext)   
 
-// const [footerData, setFooterData] = useState({})
-// const [bottomFooter, setBottomFooter] = useState({});
 
 
 useEffect(() => {

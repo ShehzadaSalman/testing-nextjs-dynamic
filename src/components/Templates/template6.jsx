@@ -183,8 +183,8 @@ let WidgetHeadings = finalData.widget_headings.map( data => {
             </div>
         {/*  sUB SECTION 1   */}
         <div className = "text-center">
-           { content.SubBannerHeading && <h2 className = "video-title-heading text-uppercase">
-           {content.SubBannerHeading}
+           { finalData.video_title && <h2 className = "video-title-heading text-uppercase">
+             { locale === 'ar'  ? finalData.video_title_arabic  :  finalData.video_title}
            </h2>   }
           
            {content.SubBannerParagraph.length > 0 && (<p className = "paragraph padding-top-20">
@@ -255,17 +255,18 @@ let WidgetHeadings = finalData.widget_headings.map( data => {
 
 
     {content.Sections.length > 1 && <h2 className = "heading pb-md-4">{content.Sections[1].title}</h2> }
-   <Container>
+   <Container className="box-direction">
      <Grid container spacing = {4}>
          <Grid item md = {7} container>
-        <div className = "">
-        {content.Sections.length > 1 &&  (<p className = "left-paragraph mb-3">
+        <div className = "text-direction">
+        {content.Sections.length > 1 &&  (<p className = "left-paragraph text-direction mb-3">
         {content.Sections[1].description}
         </p> )} 
-        {content.Buttons.length > 1 &&  
-        <a onClick = {openBrandingForm}>
-         <ButtonStyleOne title = {content.Buttons[1].title} />
-         </a>}
+     
+     
+        <a className="mt-4" onClick = {openBrandingForm}>
+         <ButtonStyleOne title = {locale === 'ar' ? finalData.headings[1].btn_txt_arabic : finalData.headings[1].btn_txt_english } />
+         </a>
        </div>
          </Grid>
          <Grid item md = {5}>
@@ -279,7 +280,8 @@ let WidgetHeadings = finalData.widget_headings.map( data => {
   <div className = "vp-tools-bg">
   <img src = "svg-pic/web/video-production/video-tools-waveup-svg.svg" className = "full-image" alt = "video production" />
      <div  className = "container padding-bottom-50 padding-top-20">
-         <h2 className = "left-heading padding-bottom-40" style = {{ color: "#fff" }}>{content.HeadingTwo}</h2>
+         <h2 className = "left-heading padding-bottom-40 text-direction mt-4" style = {{ color: "#fff" }}>
+           {locale === 'ar' ? content.widget_headings[0].title : content.widget_headings[0].title }</h2>
          <div className = "row">   
          {content.ListingTwo.length > 0 &&  content.ListingTwo.map(thumb => {
      

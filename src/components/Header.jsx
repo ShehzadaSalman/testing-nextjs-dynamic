@@ -9,7 +9,7 @@ let deviceName = getDeviceName();
 const Header = () => {
 
 
-  const [footerData, bottomFooter, menudata, bottomPages, companyInfo]
+  const {menudata, bottomPages, companyInfo}
     = useContext(FooterContext)
 
   const [addClass, setAddClass] = useState(false);
