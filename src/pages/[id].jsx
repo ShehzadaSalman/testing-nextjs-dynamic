@@ -225,9 +225,9 @@ function Dynamic({ data,status}) {
 
   if (status == 200) {
 
-      let title =  data.meta_tags.filter(li => li.title == 'title')
-      console.log(title.title)
-         console.log(data.meta_tags)
+       let title;
+       title =  data?.meta_tags?.filter(li => li.title == 'title')
+   
        return <>
        <Head>
        
