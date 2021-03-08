@@ -135,7 +135,7 @@ const Headerfive = () => {
     }}>
       <div className="container-fluid p-0">
         <div className={`row ${addClass ? 'drop-menu-top-bar' : ''}`}>
-          <div className="col-3 logos">
+          <div className="col-3 logos" style={{ direction: 'ltr' }}>
             <Link href="/">
               <a>
                 <img
