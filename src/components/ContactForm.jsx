@@ -238,8 +238,8 @@ export  class ContactFormClass extends Component {
     form#form{
       margin: 0px;
     }
-    #form{
-    
+    .form-control.is-invalid, .was-validated .form-control:invalid{
+      background-position: ${this.props.language === 'ar' ? 'left' : 'right'}
     }
    #form .text-direction{text-align: ${this.props.language === 'ar' ? 'right' : 'left'}}
    #form .box-direction{direction: ${this.props.language === 'ar' ? 'rtl' : 'ltr'}}
