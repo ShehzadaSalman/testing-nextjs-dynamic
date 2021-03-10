@@ -2,34 +2,34 @@ import React, { useState, useEffect } from "react";
 const ImagePath = process.env.ImagePath
 
 function FilterGallery({images, tags}) {
-  console.info(images);
   const [filter, setFilter] = useState("all");
   const [projects, setProjects] = useState([]);
 
-  
+  // filtered images 
   const portfolio = images.map(li => ({
       name: ImagePath + li.image,
-      category: ["all", "branding"]
+      category: ["all", li.title]
   }))
+
+  // filters names
+  const portfolioFilter = images.map(li => li.title.toLowerCase())
+  let set = new Set(portfolioFilter);
+  let setArray = [...set]
+  let finalFilterArray = setArray.filter(li  => li !== 'all')
+  console.info(finalFilterArray)
 
   const SelectFilter = (event) => {
  // removing all the active class from the filters elements
  let checking = event.target.parentNode.querySelectorAll('.filter-name');
- console.log(checking);
-// let checking = document.querySelectorAll('.portfolio-content .container .portfolio__labels .filter-name');  
-// if(!checking){ console.log("can't pick up the form-filter")}
 for (let i = 0; i < checking.length; i++) {
  checking[i].classList.remove("active");
 }
 // adding the active class to the selected link
 let selectedFilter = event.currentTarget;
 let filtername = selectedFilter.innerHTML;
-console.log(filtername.toLowerCase());
 setFilter(filtername.toLowerCase());  
 event.target.classList.add("active");
-console.log(event.target);
-console.log("this event is running");
-  
+
 
  }
 
@@ -40,53 +40,50 @@ console.log("this event is running");
 
   useEffect(() => {
     setProjects([]);
-
     const filtered = portfolio.map(p => ({
       ...p,
       filtered: p.category.includes(filter)
     }));
     setProjects(filtered);
   }, [filter]);
+
+
+
   return (
     <>
 
       <div className="portfolio__labels text-center">
-        <a className = "filter-name active"  active={filter === "all"} 
-        onClick={SelectFilter}
-        >
-          All
+        <a className = "filter-name active"  active={filter == "all"} 
+        onClick={SelectFilter}>
+          ALL
         </a>
+
+ 
+{/* 
         <a className = "filter-name"
           active={filter === "branding"}
           onClick={SelectFilter}
         >
           Branding
-        </a>
-        <a className = "filter-name"
-          active={filter === "logo"}
-          onClick={SelectFilter}
-        >
-          Logo
-        </a>
-        <a className = "filter-name"
-          
-          active={filter === "ux-ui"}
-          onClick={SelectFilter}
-        >
-          UI/UX
-        </a>
-        <a className = "filter-name" 
-          active={filter === "frontend"}
-          onClick={SelectFilter}
-        >
-          Web Design
-        </a>
+        </a> */}
+        {finalFilterArray && finalFilterArray.map(filter => {
+          return (
+            <a className = "filter-name" style ={{ textTransform: "uppercase" }}
+            active={filter == {filter}}
+            onClick={SelectFilter}>
+            {filter}
+           </a>
+          )
+        })}
+  
+    
+   
    
       </div>
       <div className="portfolio__container">
           <div className = "row">
         {projects.map(item =>
-          item.filtered === true ? 
+          item.filtered == true ? 
            <div className = "col-md-4 portfolio-item">
               <img src = {item.name} className = "img-fluid" alt = "portfolio" /> 
           </div>
