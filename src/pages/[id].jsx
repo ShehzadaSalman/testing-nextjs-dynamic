@@ -3,7 +3,6 @@ import Head from 'next/head'
 import React, {useState} from 'react';
 import dynamic from 'next/dynamic';
 import {LoadingDiv} from '../components/LoadingDiv'
-import rateLimit from 'axios-rate-limit';
 
 // import Template350 from '../components/Templates/template350'
 // import Template450 from '../components/Templates/template450'
