@@ -42,6 +42,7 @@ const Agency = ({ finalData }) => {
       "ListingOne": finalData.widget.filter(service => service.level === 1),
       "ListingTwo": finalData.widget.filter(service => service.level === 2),
       "ListingThree": finalData.widget.filter(service => service.level === 3),
+      "ListingFour": finalData.widget.filter(service => service.level === 4),
       "HeadingOne": finalData.widget_headings[0].desc_english,
 
     }
@@ -68,6 +69,7 @@ const Agency = ({ finalData }) => {
       "ListingOne": finalData.widget.filter(service => service.level === 1),
       "ListingTwo": finalData.widget.filter(service => service.level === 2),
       "ListingThree": finalData.widget.filter(service => service.level === 3),
+      "ListingFour": finalData.widget.filter(service => service.level === 4),
       "HeadingOne": finalData.widget_headings[0].desc_arabic,
 
     }
@@ -148,20 +150,20 @@ const Agency = ({ finalData }) => {
         <BgContentDiv bg="/svg-pic/web/pageassets/banner-two.svg">
       <div className="container">
       {/* need to render a list here */}
-      <p className="left-paragraph" style = {{ color: '#fff' }}>
+      {/* <p className="left-paragraph" style = {{ color: '#fff' }}>
       {content.SectionThreeParagraph}
-      </p>
+      </p> */}
           
 
-            {/* <ul className="my-3 box-direction text-direction">
-              {content.ListingTwo.map(list =>
+            <ul className="my-3 box-direction text-direction">
+              {content.ListingFour.map(list =>
                 <li key={list.id} className="white-listing">{
-                  locale === 'ar' ? list.title_arabic : list.title_english
+                  locale === 'ar' ? list.desc_arabic : list.desc_english
                 }</li>)}
-            </ul> */}
+            </ul>
           </div>
 
-          <div className="text-center mt-3">
+          <div className="text-center pt-3">
             <a onClick={openBrandingForm}>
               <ButtonStyleTwo title={content.SectionThreeButton} />
             </a>

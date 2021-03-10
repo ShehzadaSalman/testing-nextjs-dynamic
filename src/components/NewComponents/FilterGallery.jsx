@@ -16,7 +16,6 @@ function FilterGallery({images, tags}) {
   let set = new Set(portfolioFilter);
   let setArray = [...set]
   let finalFilterArray = setArray.filter(li  => li !== 'all')
-  console.info(finalFilterArray)
 
   const SelectFilter = (event) => {
  // removing all the active class from the filters elements

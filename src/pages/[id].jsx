@@ -297,7 +297,7 @@ export async function getStaticPaths({ locales }) {
  
 
      return {
-       paths: [...bEnglishRoutes  ],
+       paths: [...finalRoutes ],
        fallback: true
     }
 

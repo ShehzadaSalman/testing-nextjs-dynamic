@@ -333,7 +333,7 @@ return(
          <form onSubmit={openformpopupreport}>
           <div className="row d-flex justify-content-center">
           <div className="col-lg-6 col-md-8">
-          <div className="input-group">
+          <div className="input-group" style={{ direction: 'ltr' }}>
         <div className="input-group-prepend">
           <span className="input-group-text" id="basic-addon1">https://</span>
         </div>
@@ -424,7 +424,7 @@ return(
    {/* button missing in api */}          
          <Link href="case-studies">
          <a>
-           <ButtonStyleOne title = "View All" />
+           <ButtonStyleOne title =  { locale === 'ar' ? 'عرض الجميع' : 'View All'} />
          </a>
          </Link>
        </div>
