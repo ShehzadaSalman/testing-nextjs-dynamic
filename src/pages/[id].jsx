@@ -3,6 +3,8 @@ import Head from 'next/head'
 import React, {useState} from 'react';
 import dynamic from 'next/dynamic';
 import {LoadingDiv} from '../components/LoadingDiv'
+import rateLimit from 'axios-rate-limit';
+
 // import Template350 from '../components/Templates/template350'
 // import Template450 from '../components/Templates/template450'
 
@@ -264,6 +266,8 @@ export default Dynamic
 
 export async function getStaticPaths({ locales }) {
   let allpages = [];
+
+
   const menu = await axios.get('https://staging.techbay.co/api/get-templates-url');
   const menuListl = await menu.data.response;
 
@@ -292,11 +296,9 @@ export async function getStaticPaths({ locales }) {
  
  
      return {
-    paths: [
-      ...arabicRoutes
-    ],
-    fallback: true
-  }
+       paths: [...finalRoutes],
+       fallback: true
+    }
 
 
 }
@@ -307,7 +309,12 @@ export async function getStaticPaths({ locales }) {
 export async function getStaticProps(context) {
   let data = '';
   let status;
-  const res = await axios.get(`https://staging.techbay.co/api/get-template-data/${context.params.id}`)
+
+  const http = rateLimit(axios.create(), { maxRequests: 2, perMilliseconds: 1000, maxRPS: 2 })
+  http.getMaxRPS()
+  const res = await  http.get(`https://staging.techbay.co/api/get-template-data/${context.params.id}`)
+  // const res = await axios.get(`https://staging.techbay.co/api/get-template-data/${context.params.id}`)
+  
   const response = await res.data;
   if (response.status !== 5000) {
     data = response.response
