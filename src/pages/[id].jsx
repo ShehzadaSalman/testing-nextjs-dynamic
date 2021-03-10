@@ -280,7 +280,7 @@ export async function getStaticPaths({ locales }) {
 
 
   const bEnglishRoutes = menuList.map(li =>
-    ({ params: { id: li.slug }, locale: 'en'}))
+    ({ params: { id: li.slug }, locale: 'en-US'}))
 
 
   const arabicRoutes = menuList.map(li =>
@@ -292,7 +292,7 @@ export async function getStaticPaths({ locales }) {
  
      let removeCancelation = finalRoutes.filter(li => li.params.id !== 'cancellation-and-refund')
      let removeTerms = removeCancelation.filter(li => li.params.id !== 'terms-and-conditions')
-  
+     console.log(finalRoutes)
      return {
        paths: [...finalRoutes ],
        fallback: true
