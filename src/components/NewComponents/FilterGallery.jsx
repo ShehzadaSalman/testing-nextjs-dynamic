@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-
 const ImagePath = process.env.ImagePath
 
 function FilterGallery({images, tags}) {
+  console.info(images);
   const [filter, setFilter] = useState("all");
   const [projects, setProjects] = useState([]);
 

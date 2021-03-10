@@ -263,7 +263,7 @@ const AppDevelopment = ({ finalData }) => {
               <div className="text-center mt-4">
 
                 {content.Buttons[0] && <a onClick={openBrandingForm}>
-                  <ButtonStyleTwo title={content.Buttons[0].title} />
+                  <ButtonStyleTwo title={content.Buttons[1].title} />
                 </a>}
 
               </div>

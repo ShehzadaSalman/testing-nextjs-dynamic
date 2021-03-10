@@ -245,7 +245,7 @@ const ECOMMERCE = ({ finalData }) => {
             <div className="text-center">
               <Link href="case-studies">
                 <a>
-                  <ButtonStyleOne title="Explore Our Work" />
+                  <ButtonStyleOne title={content.Buttons[1].title} />
                 </a>
               </Link>
             </div>
@@ -269,7 +269,7 @@ const ECOMMERCE = ({ finalData }) => {
             <div className="text-center mt-1 mb-5 ">
               {content.Sections[1].btn_txt &&
                 <a onClick={openBrandingForm}>
-                  <ButtonStyleOne title="Get In Touch" />
+                  <ButtonStyleOne title={content.Sections[1].btn_txt} />
                 </a>
               }
 
