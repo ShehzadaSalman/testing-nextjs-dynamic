@@ -310,11 +310,11 @@ export async function getStaticProps(context) {
   let data = '';
   let status;
 
-  const http = rateLimit(axios.create(), { maxRequests: 2, perMilliseconds: 1000, maxRPS: 2 })
+  const http = rateLimit(axios.create(), { maxRequests: 1, perMilliseconds: 3000, maxRPS: 4 })
   http.getMaxRPS()
   const res = await  http.get(`https://staging.techbay.co/api/get-template-data/${context.params.id}`)
   // const res = await axios.get(`https://staging.techbay.co/api/get-template-data/${context.params.id}`)
-  
+
   const response = await res.data;
   if (response.status !== 5000) {
     data = response.response

@@ -109,7 +109,7 @@ const Agency = ({ finalData }) => {
                 <ThumbnailThree imgAddress={ImagePath + list.image}
                   title={locale === 'ar' ? list.title_arabic : list.title_english} />
                 <p className="paragraph">
-                  {list.desc_english}
+                  {locale === 'ar' ? list.desc_arabic : list.desc_english}
                 </p>
               </div>);
 
@@ -146,16 +146,22 @@ const Agency = ({ finalData }) => {
 
         {/* Sixth Section   */}
         <BgContentDiv bg="/svg-pic/web/pageassets/banner-two.svg">
-          <div className="container">
-            <ul className="my-3 box-direction text-direction">
+      <div className="container">
+      {/* need to render a list here */}
+      <p className="left-paragraph" style = {{ color: '#fff' }}>
+      {content.SectionThreeParagraph}
+      </p>
+          
+
+            {/* <ul className="my-3 box-direction text-direction">
               {content.ListingTwo.map(list =>
                 <li key={list.id} className="white-listing">{
                   locale === 'ar' ? list.title_arabic : list.title_english
                 }</li>)}
-            </ul>
+            </ul> */}
           </div>
 
-          <div className="text-center">
+          <div className="text-center mt-3">
             <a onClick={openBrandingForm}>
               <ButtonStyleTwo title={content.SectionThreeButton} />
             </a>
