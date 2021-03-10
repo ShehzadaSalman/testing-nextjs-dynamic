@@ -168,7 +168,6 @@ const AppDevelopment = ({ finalData }) => {
         <div className="">
         </div>
         <div className="padding-top-50 padding-bottom-30 bg-grey">
-
           <div className="container box-direction">
             <h2 className="heading padding-top-30 padding-bottom-10 text-uppercase">
               {content.SubBannerHeading}

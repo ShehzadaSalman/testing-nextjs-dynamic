@@ -75,7 +75,7 @@ const PageBannerTwo = (props) => {
                 margin-top: 20px;
               }
               .box-direction{direction: ${locale === 'ar' ? 'rtl' : 'ltr'};}
-              .text-direction{text-align: ${locale === 'ar' ? 'rtl' : 'ltr'};}
+              .text-direction{text-align: ${locale === 'ar' ? 'right' : 'left'};}
              
             .full-banner-two{
                 display: flex;

@@ -397,8 +397,7 @@ function BRANDPAGE({ finalData }) {
           justify-content: center;
         }
         .box-direction{
-          direction: ${locale === 'ar' ? 'rtl' : 'ltr'};
-          text-align: ${locale === 'ar' ? 'right' : 'left'};  
+          direction: ${locale === 'ar' ? 'rtl' : 'ltr'}; 
          }
         .brand-banner-two{
           

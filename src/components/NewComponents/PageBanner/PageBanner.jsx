@@ -154,7 +154,7 @@ const {locale} = router;
                     line-height: 1.5;
                 }
                 .box-direction{direction: ${locale === 'ar' ? 'rtl' : 'ltr'};}
-                .text-direction{text-align: ${locale === 'ar' ? 'rtl' : 'ltr'};}
+                .text-direction{text-align: ${locale === 'ar' ? 'right' : 'left'};}
 
 
 

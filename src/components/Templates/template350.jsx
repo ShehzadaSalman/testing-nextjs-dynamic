@@ -56,7 +56,7 @@ const SEO = ({ finalData }) => {
 
   return (
     <React.Fragment>
-      <div className="slide-section box-direction ">
+      <div className="slide-section">
        
         <div
           className="slide-content-wrapper p41 d-flex flex-column seoPackage"

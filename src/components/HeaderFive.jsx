@@ -213,8 +213,9 @@ const Headerfive = () => {
                 >
                   {
                     isMenu
-                    ? <>{locale == 'ar' ? <>القائمة</>:<>Menu</>}</>
-                    : <>{locale == 'ar' ? <>قفل</> : <>Close</>}</>
+                    ? <>{locale == 'ar' ? <>قفل</> : <>Close</>}</>
+                    : <>{locale == 'ar' ? <>القائمة</>:<>Menu</>}</>
+                 
                   }
                 </button>
                 <button className="btn mg-link-btn my-0 py-0 d-none d-md-block"
@@ -227,7 +228,7 @@ const Headerfive = () => {
                 <div className={`drop-menu-listing ${addClass ? 'show' : ''}`}>
                   <div id="menu-content-section" className="drop-menu-link">
                     <div className="menu-container-class container-fluid">
-                      <div className="new-menu-wrapper">
+                      <div className="new-menu-wrapper box-direction">
 
                         {(menudata.length > 0) && menudata.map((menu,key) => (
                           <div key={key} onMouseEnter={openNewMenu} onMouseLeave={closeNewMenu}

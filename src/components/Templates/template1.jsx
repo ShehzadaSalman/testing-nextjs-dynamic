@@ -263,7 +263,6 @@ const MarketingMedia = ({ finalData }) => {
    }
    .box-direction{
      direction: ${locale === 'ar' ? 'rtl' : 'ltr'};
-     text-align: ${locale === 'ar' ? 'right' : 'left'};  
     }
  
    .bg-mm-grey{

@@ -102,13 +102,6 @@ const Header = () => {
 
 
 
-  useEffect(() => {
-
-  }, [])
-  // fetching the bottom pages
-
-
-
 
 
   return (<>
