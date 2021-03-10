@@ -265,38 +265,108 @@ export default Dynamic
 
 
 export async function getStaticPaths({ locales }) {
-  let allpages = [];
+  // let allpages = [];
 
 
-  const menu = await axios.get('https://staging.techbay.co/api/get-templates-url');
-  const menuListl = await menu.data.response;
+  // const menu = await axios.get('https://staging.techbay.co/api/get-templates-url');
+  // const menuListl = await menu.data.response;
 
-  let menuList = menuListl.filter(function (el) {
-    return el.slug != null;
-  });
+  // let menuList = menuListl.filter(function (el) {
+  //   return el.slug != null;
+  // });
 
    
 
 
 
 
-  const bEnglishRoutes = menuList.map(li =>
-    ({ params: { id: li.slug } }))
+  // const bEnglishRoutes = menuList.map(li =>
+  //   ({ params: { id: li.slug } }))
 
 
-  const arabicRoutes = menuList.map(li =>
-    ({ params: { id: li.slug }, locale: 'ar' }))
+  // const arabicRoutes = menuList.map(li =>
+  //   ({ params: { id: li.slug }, locale: 'ar' }))
 
 
-  let finalRoutes = [...arabicRoutes, ...bEnglishRoutes];
+  // let finalRoutes = [...arabicRoutes, ...bEnglishRoutes];
  
  
-     let removeCancelation = finalRoutes.filter(li => li.params.id !== 'cancellation-and-refund')
-     let removeTerms = removeCancelation.filter(li => li.params.id !== 'terms-and-conditions')
+  //    let removeCancelation = finalRoutes.filter(li => li.params.id !== 'cancellation-and-refund')
+  //    let removeTerms = removeCancelation.filter(li => li.params.id !== 'terms-and-conditions')
  
+  //    console.log(finalRoutes.length)
  
+
      return {
-       paths: [...finalRoutes],
+       paths: [
+        { params: { id: 'design-services' }, locale: 'ar' },
+        { params: { id: 'branding-services' }, locale: 'ar' },
+        { params: { id: 'media-agency' }, locale: 'ar' },
+        { params: { id: 'public-relation' }, locale: 'ar' },
+        { params: { id: 'motion-designing' }, locale: 'ar' },
+        { params: { id: 'video-production' }, locale: 'ar' },
+        { params: { id: 'advertising-agency' }, locale: 'ar' },
+        { params: { id: 'website-designing' }, locale: 'ar' },
+        { params: { id: 'ui-ux-designing' }, locale: 'ar' },
+        { params: { id: 'web-development' }, locale: 'ar' },
+        { params: { id: 'mobile-app-development' }, locale: 'ar' },
+        { params: { id: 'content-management-system' }, locale: 'ar' },
+        { params: { id: 'enterprise-resource-planning' }, locale: 'ar' },
+        { params: { id: 'e-commerce' }, locale: 'ar' },
+        { params: { id: 'customer-relationship-management' }, locale: 'ar' },
+        { params: { id: 'mobile-app-design' }, locale: 'ar' },
+        { params: { id: 'search-engine-optimization' }, locale: 'ar' },
+        { params: { id: 'pay-per-click-advertisement' }, locale: 'ar' },
+        { params: { id: 'conversion-rate-optimization' }, locale: 'ar' },
+        { params: { id: 'content-marketing' }, locale: 'ar' },
+        {
+          params: { id: 'social-media-management-and-marketing' },
+          locale: 'ar'
+        },
+        { params: { id: 'retargeting-and-remarketing' }, locale: 'ar' },
+        { params: { id: 'copy-writing' }, locale: 'ar' },
+        { params: { id: 'seo-packages' }, locale: 'ar' },
+        { params: { id: 'ppc-packages' }, locale: 'ar' },
+        { params: { id: 'smm-packages' }, locale: 'ar' },
+        { params: { id: 'startup-packages' }, locale: 'ar' },
+        { params: { id: 'about-us' }, locale: 'ar' },
+        { params: { id: 'case-studies' }, locale: 'ar' },
+        { params: { id: 'privacy-policy' }, locale: 'ar' },
+        { params: { id: 'terms-and-conditions' }, locale: 'ar' },
+        { params: { id: 'cancellation-and-refund' }, locale: 'ar' },
+        { params: { id: 'design-services' } },
+        { params: { id: 'branding-services' } },
+        { params: { id: 'media-agency' } },
+        { params: { id: 'public-relation' } },
+        { params: { id: 'motion-designing' } },
+        { params: { id: 'video-production' } },
+        { params: { id: 'advertising-agency' } },
+        { params: { id: 'website-designing' } },
+        { params: { id: 'ui-ux-designing' } },
+        { params: { id: 'web-development' } },
+        { params: { id: 'mobile-app-development' } },
+        { params: { id: 'content-management-system' } },
+        { params: { id: 'enterprise-resource-planning' } },
+        { params: { id: 'e-commerce' } },
+        { params: { id: 'customer-relationship-management' } },
+        { params: { id: 'mobile-app-design' } },
+        { params: { id: 'search-engine-optimization' } },
+        { params: { id: 'pay-per-click-advertisement' } },
+        { params: { id: 'conversion-rate-optimization' } },
+        { params: { id: 'content-marketing' } },
+        { params: { id: 'social-media-management-and-marketing' } },
+        { params: { id: 'retargeting-and-remarketing' } },
+        { params: { id: 'copy-writing' } },
+        { params: { id: 'seo-packages' } },
+        { params: { id: 'ppc-packages' } },
+        { params: { id: 'smm-packages' } },
+        { params: { id: 'startup-packages' } },
+        { params: { id: 'about-us' } },
+        { params: { id: 'case-studies' } },
+        { params: { id: 'privacy-policy' } },
+        { params: { id: 'terms-and-conditions' } },
+        { params: { id: 'cancellation-and-refund' } }
+       ],
        fallback: true
     }
 
@@ -310,7 +380,7 @@ export async function getStaticProps(context) {
   let data = '';
   let status;
 
-  const http = rateLimit(axios.create(), { maxRequests: 1, perMilliseconds: 3000, maxRPS: 4 })
+  const http = rateLimit(axios.create(), { maxRequests: 1, perMilliseconds: 2000, maxRPS: 2 })
   http.getMaxRPS()
   const res = await  http.get(`https://staging.techbay.co/api/get-template-data/${context.params.id}`)
   // const res = await axios.get(`https://staging.techbay.co/api/get-template-data/${context.params.id}`)
