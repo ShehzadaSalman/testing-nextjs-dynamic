@@ -287,15 +287,12 @@ export async function getStaticPaths({ locales }) {
     ({ params: { id: li.slug }, locale: 'ar' }))
 
 
-  let finalRoutes = [...arabicRoutes, ...bEnglishRoutes];
+  let finalRoutes = [...bEnglishRoutes, ...arabicRoutes];
  
  
      let removeCancelation = finalRoutes.filter(li => li.params.id !== 'cancellation-and-refund')
      let removeTerms = removeCancelation.filter(li => li.params.id !== 'terms-and-conditions')
- 
-     console.log(finalRoutes.length)
- 
-
+     console.log(finalRoutes)
      return {
        paths: [...finalRoutes ],
        fallback: true
