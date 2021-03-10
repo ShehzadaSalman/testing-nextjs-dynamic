@@ -40,8 +40,8 @@ import Template33 from '../components/Templates/template33';
 import Template34 from '../components/Templates/template34';
 import menuContext from '../ContextApi/menuContext';
 import Error from 'next/error';
-import Headerfive from '../components/HeaderFive';
-import Footer from '../components/Footer'
+// import Headerfive from '../components/HeaderFive';
+// import Footer from '../components/Footer'
 
 // const Template1 = dynamic(() => import('../components/Templates/template1'), { ssr: false, loading: () => <LoadingDiv/> });
 // const Template2 = dynamic(() => import('../components/Templates/template2'), { ssr: false, loading: () => <LoadingDiv/> });
@@ -292,7 +292,7 @@ export async function getStaticPaths({ locales }) {
  
      let removeCancelation = finalRoutes.filter(li => li.params.id !== 'cancellation-and-refund')
      let removeTerms = removeCancelation.filter(li => li.params.id !== 'terms-and-conditions')
-     console.log(finalRoutes)
+  
      return {
        paths: [...finalRoutes ],
        fallback: true
@@ -330,3 +330,7 @@ export async function getStaticProps(context) {
   },
   revalidate: 10, }
 }
+
+
+const Headerfive = () => (<></>)
+const Footer = () => (<></>)
