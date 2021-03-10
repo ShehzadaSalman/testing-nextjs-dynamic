@@ -280,7 +280,7 @@ export async function getStaticPaths({ locales }) {
 
 
   const bEnglishRoutes = menuList.map(li =>
-    ({ params: { id: li.slug } }))
+    ({ params: { id: li.slug }, locale: 'en'}))
 
 
   const arabicRoutes = menuList.map(li =>
