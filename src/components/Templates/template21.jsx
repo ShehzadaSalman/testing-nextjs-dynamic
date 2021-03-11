@@ -305,7 +305,7 @@ function SMMPAGE({finalData}) {
    </div>
    <div className = "mb-4 mt-4 pt-sm-0 text-center">
       <a onClick = {openMarketingForm}>
-        <ButtonStyleTwo title = "I Need Help!" />
+        <ButtonStyleTwo title = {content.Buttons[1].title } />
       </a>
     </div>
    
@@ -327,11 +327,10 @@ function SMMPAGE({finalData}) {
       <p className = "paragraph">
       {content?.Sections[2]?.description}
       </p>
-    
-    {content?.Sections[2]?.btn_txt &&
+      {content?.Sections[2]?.btn_txt &&
           <div className = "text-center padding-top-30">
           <a onClick = {openMarketingForm}>
-          <ButtonStyleThree title = {content?.Sections[2]?.btn_txt}/> 
+           <ButtonStyleThree title = {content?.Sections[2]?.btn_txt}/> 
           </a>
         </div>
        }
