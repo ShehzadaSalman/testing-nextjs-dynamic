@@ -10,7 +10,7 @@ let deviceName = getDeviceName();
 const Header = () => {
   const isNotMobile = useMediaQuery({ minDeviceWidth: 900 })
 
-  const {menudata, bottomPages, companyInfo}
+  const {menudata, bottomPages, companyInfo,   fetchDataHeader}
     = useContext(FooterContext)
 
   const [addClass, setAddClass] = useState(false);
@@ -51,6 +51,11 @@ const Header = () => {
       }
     }
   }
+
+
+ 
+
+
 
 
   const toggleHeaderMenuClassHandler = () => {
@@ -98,6 +103,16 @@ const Header = () => {
 
 
 
+
+  useEffect(() => {
+     
+     if(menudata || bottomPages || companyInfo){
+
+     }else{
+      fetchDataHeader()
+     }
+
+  }, [])
 
 
 

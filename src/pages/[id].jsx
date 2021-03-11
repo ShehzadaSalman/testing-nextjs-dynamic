@@ -265,11 +265,18 @@ export default Dynamic
 
 export async function getStaticPaths({ locales }) {
   let allpages = [];
+  let menuListl = null;
 
 
+  try{
+    const menu = await axios.get('https://staging.techbay.co/api/get-templates-url');
+    menuListl = await menu.data.response;
 
-  const menu = await axios.get('https://staging.techbay.co/api/get-templates-url');
-  const menuListl = await menu.data.response;
+  }catch(e){
+    console.log("Error fetching data in the template pages api")
+    console.log(e)
+  }
+
 
   let menuList = menuListl.filter(function (el) {
     return el.slug != null;
@@ -290,7 +297,7 @@ export async function getStaticPaths({ locales }) {
    
      return {
        paths: [
-        
+            ...finalRoutes
         
         
   	//   { params: { id: 'design-services' }, locale: 'en-US' },
@@ -368,13 +375,20 @@ export async function getStaticPaths({ locales }) {
 export async function getStaticProps(context) {
   let data = '';
   let status;
-
+  let response = null;
   // const http = rateLimit(axios.create(), { maxRequests: 1, perMilliseconds: 3000, maxRPS: 2 })
   // http.getMaxRPS()
   // const res = await  http.get(`https://staging.techbay.co/api/get-template-data/${context.params.id}`)
-   const res = await axios.get(`https://staging.techbay.co/api/get-template-data/${context.params.id}`)
 
-  const response = await res.data;
+  try{
+    const res = await axios.get(`https://staging.techbay.co/api/get-template-data/${context.params.id}`)
+    response = await res.data;
+  }catch(e){
+    console.log("we're facing issue with get Template Data api")
+    console.log(e);
+
+  }
+   
   if (response.status !== 5000) {
     data = response.response
     status = 200;

@@ -17,16 +17,24 @@ const FooterProvider = (props) => {
 
   {/* fetching data for the footer */}
   const fetchData = async () => {
-    const info = await  axios.get('https://staging.techbay.co/api/get-addresses');
-    const finalCompanyInfo = await  info.data.response;
-    setFooterData(finalCompanyInfo);
-    const infotwo = await  axios.get('https://staging.techbay.co/api/get-header-footer-content');
-    const finalCompanyInfotwo = await  infotwo.data.response;
-    setBottomFooter(finalCompanyInfotwo);
+    try{
+      const info = await  axios.get('https://staging.techbay.co/api/get-addresses');
+      const finalCompanyInfo = await  info.data.response;
+      setFooterData(finalCompanyInfo);
+      const infotwo = await  axios.get('https://staging.techbay.co/api/get-header-footer-content');
+      const finalCompanyInfotwo = await  infotwo.data.response;
+      setBottomFooter(finalCompanyInfotwo);
+    }catch(e){
+      console.log("error in the fetchData method of footer context")
+      console.log(e)
+    }
+
   }
 
   {/* fetchng data for the header */}
  const fetchDataHeader = async () => {
+   
+  try{
     const result = await  axios.get('https://staging.techbay.co/api/get-navbar-menu');
     const finalData = await  result.data.response;
     setMenuData(finalData);
@@ -40,6 +48,12 @@ const FooterProvider = (props) => {
   const cinfo = await  axios.get('https://staging.techbay.co/api/get-header-footer-content');
   const finalCompanyInfo = await  cinfo.data.response;
   setCompanyInfo(finalCompanyInfo);
+
+  }catch(e){
+    console.log("Error in fetching from the FooterContext api's")
+    console.log(e)
+  }
+
   
 } 
 
