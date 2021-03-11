@@ -652,7 +652,7 @@ $('.formPopup ').css("display","block");
             <div className="container dt_container" id="container4">
               {/* <div className="waves"></div> */}
               <div className="mg-slide-info text-left m-auto" id="info4">
-                <div className="showdetail">
+                <div className="showdetail box-direction">
                   <h5 className="mg-title-light fw-light"> 
                   {this.props.language === 'en-US'
                    ?<>{this.props.data.sliders[0].short_title}</>

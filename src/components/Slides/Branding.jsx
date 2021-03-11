@@ -781,7 +781,7 @@ render() {
           <div className="mg-slide-content text-center flex-fill d-flex align-items-start align-items-md-center">
             <div className="container dt_container" id="container2">
      <div className="mg-slide-info text-left m-auto" id="info2">
-                <div className="showdetail">
+                <div className="showdetail box-direction">
                   <h5 className="mg-title-light fw-light">
                   {this.props.language === 'en-US' 
                    ?<>{this.props.data.sliders[0].short_title}</>

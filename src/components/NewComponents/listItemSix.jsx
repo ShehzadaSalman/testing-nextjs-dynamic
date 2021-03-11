@@ -2,7 +2,7 @@ const ListItemSix = (props) => (
     <React.Fragment>
     <div className ="sixlist-div">
     
-    <img src = {props.imgAddress}  alt = "list" />
+    <img src = {props.imgAddress}  alt = "list" className="mx-2" />
    { props.dark ?  <p className = "text-white">{props.description}</p> :  <p>{props.description}</p> } 
    
 

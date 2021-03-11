@@ -99,7 +99,7 @@ function BRANDPAGE({ finalData }) {
         {/* the third section */}
 
         <div className="brand-banner-two padding-top-30 padding-bottom-30">
-          <div className="container box-direction">
+          <div className="container box-direction text-direction">
 
             <div className="row">
 
@@ -109,13 +109,13 @@ function BRANDPAGE({ finalData }) {
                   if (locale !== 'ar') {
                     return (
                       <div className="col-md-4 my-2">
-                        <li className="text-white padding-bottom-10 roboto-style">{list.desc_english}</li>
+                        <li className="text-white roboto-style">{list.desc_english}</li>
                       </div>
                     )
                   } else {
                     return (
                       <div className="col-md-4 my-2">
-                        <li className="text-white padding-bottom-10 roboto-style">{list.desc_arabic}</li>
+                        <li className="text-white  roboto-style">{list.desc_arabic}</li>
                       </div>
                     )
                   }
@@ -131,7 +131,7 @@ function BRANDPAGE({ finalData }) {
           {content.Buttons.length > 0 ?
             <>
               <div className="container-fluid px-0">
-                <div className="row">
+                <div className="row" style= {{ direction: 'ltr'}}>
                   <div className="col-md-6">
                     <a onClick={openBrandingForm}>
                       <div className="white-bg padding-top-10 padding-bottom-10" style={{
@@ -182,7 +182,7 @@ function BRANDPAGE({ finalData }) {
 
         </div>
         {/* the fifth section  */}
-        <div className="brand-banner-two box-direction">
+        <div className="brand-banner-two box-direction text-direction">
           <img src="images/web/smm/waves/smm-wave-up.png" className="img-fluid" alt="social media wave" />
           <div className="container mt-md-4 mb-md-4">
             {content.widget_headings.length > 0 &&
@@ -198,13 +198,13 @@ function BRANDPAGE({ finalData }) {
               {content.ListingOne.length > 0 && content.ListingOne.map(list => {
                 if (locale !== 'ar') {
                   return (
-                    <div className="col-md-6">
+                    <div className="col-md-6 my-1">
                       <li className="text-white padding-bottom-10 roboto-style">{list.desc_english}</li>
                     </div>
                   );
                 } else {
                   return (
-                    <div className="col-md-6">
+                    <div className="col-md-6 my-1">
                       <li className="text-white padding-bottom-10 roboto-style">{list.desc_arabic}</li>
                     </div>
                   );

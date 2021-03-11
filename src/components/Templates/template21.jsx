@@ -361,6 +361,7 @@ function SMMPAGE({finalData}) {
       </style>
       <style jsx>
         {`
+        .box-direction{direction: ${locale === 'ar' ? 'rtl' : 'ltr'};}
         
         .smm-banner-two{
           background-image:  url('images/web/smm/smm-banner-two.png');
