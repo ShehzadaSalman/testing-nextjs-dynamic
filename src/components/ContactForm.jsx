@@ -134,11 +134,11 @@ export  class ContactFormClass extends Component {
                         value={this.state.name}
                         onChange={(e) => this.handleChange(e)}
                         placeholder=
-                        {this.props.language === 'ar' ? 'اسمك' : 'Your Name'} 
+                        {this.props.language === 'ar' ? 'الاسم' : 'Your Name'} 
                         required
                       />
                       <label htmlFor="name" className="text-direction">
-                         {this.props.language === 'ar' ? 'اسم' : 'NAME'} 
+                         {this.props.language === 'ar' ? 'الاسم' : 'NAME'} 
                       </label>
                     </div>
                   </div>
@@ -152,11 +152,11 @@ export  class ContactFormClass extends Component {
                         value={this.state.email}
                         onChange={(e) => this.handleChange(e)}
                         placeholder=
-                        {this.props.language === 'ar' ? 'بريد الالكتروني' : 'Email'} 
+                        {this.props.language === 'ar' ? 'البريد الإلكتروني' : 'Email'} 
                         required
                       />
                       <label htmlFor="email" className="text-direction">
-                      {this.props.language === 'ar' ? 'بريد الالكتروني' : 'Email'} 
+                      {this.props.language === 'ar' ? 'البريد الإلكتروني' : 'Email'} 
                       </label>
                     </div>
                   </div>

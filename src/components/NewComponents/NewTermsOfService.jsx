@@ -31,6 +31,8 @@ export default (props) => {
         </div>
         <style>
           {`
+           .box-direction{direction: ${locale === 'ar' ? 'rtl' : 'ltr'};}
+           .text-direction{text-align: ${locale === 'ar' ? 'right !important' : 'left !important'};  }
       .newtermofservices h3{
         color: #5C5D5E;
 

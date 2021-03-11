@@ -187,7 +187,7 @@ return (
          {content.SubBannerParagraph}
          </p>
           
-    <div className="text-center mt-4"> 
+    <div className="text-center mt-4 box-direction"> 
      <a onClick={openMarketingForm}>
      <p className="link-class">
          {content.SubBannerButton}
@@ -260,7 +260,7 @@ return (
     return(
       <div className="col-lg-2 col-md-4 col-6 mb-md-5" key={key}>
        <ThumbnailOne imgAddress = {ImagePath + li.image} title = 
-       {locale === 'ar' ? li.btn_text_arabic : li.btn_text_english}/>
+       {locale === 'ar' ? li.title_arabic : li.title_english}/>
       </div>
     );
    }else{
@@ -297,6 +297,7 @@ return (
   body{
     overflow:inherit;
   }
+  .box-direction{direction: ${locale === 'ar' ? 'rtl' : 'ltr'};}
   .upper-wave-bg{
     background-image: url('images/web/upper-wave-blue.png');
     background-repeat: no-repeat;

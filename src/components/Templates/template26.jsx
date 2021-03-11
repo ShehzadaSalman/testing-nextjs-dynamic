@@ -62,7 +62,7 @@ const ABOUT = ({ finalData }) => {
       </div>
       <style>
         {`
-        
+        .box-direction{direction: ${locale === 'ar' ? 'rtl' : 'ltr'};}
         .AboutBanner img{
           margin-bottom: 40px;
         }
@@ -75,6 +75,7 @@ const ABOUT = ({ finalData }) => {
             margin-top: 30px;
 
           }
+          .box-direction{direction: ${locale === 'ar' ? 'rtl' : 'ltr'};}
           .iceberg{
             width: 100%;
             margin-bottom: 50px;

@@ -43,7 +43,7 @@ const CaseStudy = ({ finalData }) => {
                         <div className="text-direction">
                           <a className="pr-1 pr-sm-2" href={li.link} target="_blank" >
                             <button className="landing-read-more-button mb-5 mb-md-0">
-                              {locale === 'ar' ? 'عرض دراسة الحالة' : 'View Case Study'}
+                              {locale === 'ar' ? 'عرض الدراسة' : 'View Case Study'}
                             </button>
                           </a>
                         </div>
@@ -64,7 +64,7 @@ const CaseStudy = ({ finalData }) => {
                         <div className="text-direction">
                           <a className="pr-1 pr-sm-2" href={li.link} target="_blank" >
                             <button className="landing-read-more-button mb-5 mb-md-0">
-                              {locale === 'ar' ? 'عرض دراسة الحالة' : 'View Case Study'}
+                              {locale === 'ar' ? 'عرض الدراسة' : 'View Case Study'}
                             </button>
                           </a>
                         </div>
@@ -105,6 +105,7 @@ const CaseStudy = ({ finalData }) => {
                 body{
                     overflow-y: auto;
                 }
+                .box-direction{direction: ${locale === 'ar' ? 'rtl' : 'ltr'};}
                 .calendly-inline-widget, .calendly-inline-widget *, .calendly-badge-widget, .calendly-badge-widget *, .calendly-overlay, .calendly-overlay * {
                     font-size: 16px;
                     min-height: 1100px !important;

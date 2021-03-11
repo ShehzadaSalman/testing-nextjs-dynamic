@@ -318,6 +318,7 @@ const ContentCreation = ({finalData}) => {
         html{
           overflow-y: auto;
         }
+        .box-direction{direction: ${locale === 'ar' ? 'rtl' : 'ltr'};}
         .contentcreation-circularimg{
            max-width: 100%;
         }

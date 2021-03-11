@@ -1,14 +1,16 @@
 import PageBanner from '../NewComponents/PageBanner/PageBanner';
 import { useRouter } from 'next/router';
 import Headerfive from '../HeaderFive';
+
 const ImagePath = process.env.ImagePath
 const PRIVACY = ({ finalData }) => {
   const router = useRouter();
   const { locale } = router;
+
+
   return (
     <React.Fragment>
       <div className="content-div box-direction" >
-
         <PageBanner
           category="marketing"
           heading={locale !== 'ar' ? finalData.header_title_arabic : finalData.header_title_english}
@@ -32,6 +34,8 @@ const PRIVACY = ({ finalData }) => {
                   }}></div>
 
               } 
+
+
             </div>
           </div>
 

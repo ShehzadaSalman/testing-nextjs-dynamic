@@ -6,7 +6,7 @@ import {LoadingDiv} from '../components/LoadingDiv'
 
 import Template350 from '../components/Templates/template350'
 import Template450 from '../components/Templates/template450'
-
+import {useRouter} from 'next/router'
 import Template1 from '../components/Templates/template1';
 import Template2 from '../components/Templates/template2';
 import Template3 from '../components/Templates/template3';
@@ -82,6 +82,9 @@ import Footer from '../components/Footer'
 
 
 function Dynamic({ data,status}) {
+  
+const router = useRouter();
+const {local} = router;
  const [headerMenu, setHeaderMenu] = useState(false);
 
  const SwitchPages = (data) =>{
@@ -252,6 +255,11 @@ function Dynamic({ data,status}) {
         <div className="box-direction">
         {SwitchPages(data)}
         </div>
+        <style jsx>
+          {`
+           .box-direction{direction: ${local === 'ar' ? 'rtl' : 'ltr'};}
+          `}
+        </style>
         </menuContext.Provider>
        </>
     
@@ -289,84 +297,14 @@ export async function getStaticPaths({ locales }) {
 
   let finalRoutes = [...bEnglishRoutes, ...arabicRoutes];
   
-     let removeCancelation = finalRoutes.filter(li => li.params.id !== 'cancellation-and-refund')
-     let removeTerms = removeCancelation.filter(li => li.params.id !== 'terms-and-conditions')
-      console.log(finalRoutes)
-     let newFinalRoutes = finalRoutes.slice(0, 10)
-     console.log(newFinalRoutes) 
+    
    
      return {
        paths: [
-            ...finalRoutes
-        
-        
-  	//   { params: { id: 'design-services' }, locale: 'en-US' },
-  	//   { params: { id: 'branding-services' }, locale: 'en-US' },
-  	//   { params: { id: 'media-agency' }, locale: 'en-US' },
-  	//   { params: { id: 'public-relation' }, locale: 'en-US' },
-  	//   { params: { id: 'motion-designing' }, locale: 'en-US' },
-  	//   { params: { id: 'video-production' }, locale: 'en-US' },
-  	//   { params: { id: 'advertising-agency' }, locale: 'en-US' },
-  	//   { params: { id: 'website-designing' }, locale: 'en-US' },
-  	//   { params: { id: 'ui-ux-designing' }, locale: 'en-US' },
-  	//   { params: { id: 'web-development' }, locale: 'en-US' },
-  	//   { params: { id: 'mobile-app-development' }, locale: 'en-US' },
-  	//   { params: { id: 'content-management-system' }, locale: 'en-US' },
-  	//   { params: { id: 'enterprise-resource-planning' }, locale: 'en-US' },
-  	//   { params: { id: 'e-commerce' }, locale: 'en-US' },
-  	//   {
-  	//     params: { id: 'customer-relationship-management' },
-  	//     locale: 'en-US'
-  	//   },
-  	//   { params: { id: 'mobile-app-design' }, locale: 'en-US' },
-  	//   { params: { id: 'search-engine-optimization' }, locale: 'en-US' },
-  	//   { params: { id: 'pay-per-click-advertisement' }, locale: 'en-US' },
-  	//   { params: { id: 'conversion-rate-optimization' }, locale: 'en-US' },
- 	  // { params: { id: 'content-marketing' }, locale: 'en-US' },
-  	//   {
-  	//     params: { id: 'social-media-management-and-marketing' },
-  	//     locale: 'en-US'
-  	//   },
- 	  // { params: { id: 'retargeting-and-remarketing' }, locale: 'en-US' },
-  	//   { params: { id: 'copy-writing' }, locale: 'en-US' },
- 	  // { params: { id: 'seo-packages' }, locale: 'en-US' },
-  	//   { params: { id: 'ppc-packages' }, locale: 'en-US' },
-  	//   { params: { id: 'smm-packages' }, locale: 'en-US' },
-  	//   { params: { id: 'startup-packages' }, locale: 'en-US' },
-  	//   { params: { id: 'about-us' }, locale: 'en-US' },
-  	//   { params: { id: 'case-studies' }, locale: 'en-US' },
-  	//   { params: { id: 'privacy-policy' }, locale: 'en-US' },
- 	  // { params: { id: 'terms-and-conditions' }, locale: 'en-US' },
- 	  // { params: { id: 'cancellation-and-refund' }, locale: 'en-US' },
-  	//   { params: { id: 'design-services' }, locale: 'ar' },
- 	  // { params: { id: 'branding-services' }, locale: 'ar' },
-  	//   { params: { id: 'media-agency' }, locale: 'ar' },
-  	//   { params: { id: 'public-relation' }, locale: 'ar' },
-  	//   { params: { id: 'motion-designing' }, locale: 'ar' },
-  	//   { params: { id: 'video-production' }, locale: 'ar' },
-  	//   { params: { id: 'advertising-agency' }, locale: 'ar' },
-  	//   { params: { id: 'website-designing' }, locale: 'ar' },
-  	//   { params: { id: 'ui-ux-designing' }, locale: 'ar' },
-  	//   { params: { id: 'web-development' }, locale: 'ar' },
-  	//   { params: { id: 'mobile-app-development' }, locale: 'ar' },
-  	//   { params: { id: 'content-management-system' }, locale: 'ar' },
-  	//   { params: { id: 'enterprise-resource-planning' }, locale: 'ar' },
-  	//   { params: { id: 'e-commerce' }, locale: 'ar' },
-  	//   { params: { id: 'customer-relationship-management' }, locale: 'ar' },
-  	//   { params: { id: 'mobile-app-design' }, locale: 'ar' },
- 	  // { params: { id: 'search-engine-optimization' }, locale: 'ar' },
-  	//   { params: { id: 'pay-per-click-advertisement' }, locale: 'ar' },
-  	//   { params: { id: 'conversion-rate-optimization' }, locale: 'ar' },
-  	//   { params: { id: 'content-marketing' }, locale: 'ar' },
-
-        
-        
-        
+            ...finalRoutes    
         ],
        fallback: true
     }
-
-
 }
 
 
@@ -376,10 +314,6 @@ export async function getStaticProps(context) {
   let data = '';
   let status;
   let response = null;
-  // const http = rateLimit(axios.create(), { maxRequests: 1, perMilliseconds: 3000, maxRPS: 2 })
-  // http.getMaxRPS()
-  // const res = await  http.get(`https://staging.techbay.co/api/get-template-data/${context.params.id}`)
-
   try{
     const res = await axios.get(`https://staging.techbay.co/api/get-template-data/${context.params.id}`)
     response = await res.data;
@@ -406,6 +340,3 @@ export async function getStaticProps(context) {
   revalidate: 10, }
 }
 
-
-// const Headerfive = () => (<></>)
-// const Footer = () => (<></>)
