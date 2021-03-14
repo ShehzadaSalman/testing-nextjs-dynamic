@@ -446,7 +446,7 @@ return(
 
             <div className ="temp-list my-3">
                 <img src = {ImagePath + li.image} alt = "list" className="mx-3" />
-               <p className = "white-text text-direction">{li.title}</p> 
+               <p className = "white-text text-direction mb-0 mt-2">{li.title}</p> 
             </div>
          </div>
              ))}
