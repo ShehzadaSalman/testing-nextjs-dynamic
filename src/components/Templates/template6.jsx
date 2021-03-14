@@ -327,9 +327,7 @@ allowFullScreen></iframe>
 </div>
 <div className = "padding-top-40"></div>
 <div className = "text-center pt-4 pb-2">
-{content.ButtonThree &&  (<a onClick = {openBrandingForm}>
-<ButtonStyleOne title = {content.ButtonThree} />
-</a>) }
+{content.widget_headings[1].title  &&  <a onClick = {openBrandingForm}>  <ButtonStyleOne title = {content.widget_headings[1].title} /> </a> }
 </div>
       </div>
     </div>
