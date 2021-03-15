@@ -246,7 +246,7 @@ const UIUX = ({ finalData }) => {
               <div className="text-center mt-4 mb-3">
                 <Link href="portfolio-page">
                   <a href="">
-                    <ButtonStyleTwo title="Explore Our Portfolio" />
+                    <ButtonStyleTwo title={content.Sections[1].btn_txt}  />
                   </a>
                 </Link>
               </div>
@@ -258,7 +258,9 @@ const UIUX = ({ finalData }) => {
         {/*  Eigth Section   */}
         <div className="wave-layer-bg-thin padding-top-50 padding-bottom-50">
           <div className="container">
-            <h2 className="heading padding-bottom-30">PORTFOLIO</h2>
+            <h2 className="heading padding-bottom-30">
+              {content.widget_headings[1].title}
+            </h2>
             <FilterGallery tags={content.ListingThree} images={content.ListingFour} />
           </div>
         </div>

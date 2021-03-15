@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 const ImagePath = process.env.ImagePath
+import {useRouter} from 'next/router'
 
 function FilterGallery({images, tags}) {
+  const router = useRouter();
+  const {locale} = router;
   const [filter, setFilter] = useState("all");
   const [projects, setProjects] = useState([]);
 
@@ -54,7 +57,7 @@ event.target.classList.add("active");
       <div className="portfolio__labels text-center">
         <a className = "filter-name active"  active={filter == "all"} 
         onClick={SelectFilter}>
-          ALL
+          {locale === 'ar' ? 'الجميع'  : 'ALL' }
         </a>
 
  

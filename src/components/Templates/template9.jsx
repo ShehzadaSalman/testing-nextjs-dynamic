@@ -215,7 +215,8 @@ const PpcPage = ({ finalData }) => {
 
               {/* button missing from backend and link needed */}
               <Link href="case-studies">
-                <a><ButtonStyleTwo title="Explore Our Work" /> </a>
+              {content?.Buttons[0]?.title &&
+                <a><ButtonStyleTwo title={content.Buttons[0].title} /> </a>}
               </Link>
             </div>
 

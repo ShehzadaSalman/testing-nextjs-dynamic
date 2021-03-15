@@ -250,7 +250,8 @@ function CRM({ finalData }) {
             {/* data missing from the backend */}
             <div className="text-center d-block mt-4 mb-5">
               <a onClick={openBrandingForm}>
-                <ButtonStyleOne title="Let’s Integrate Your CRM!" />
+                {content.Buttons[0]?.title &&  <ButtonStyleOne title={content.Buttons[0]?.title } /> }
+               
               </a>
             </div>
 
