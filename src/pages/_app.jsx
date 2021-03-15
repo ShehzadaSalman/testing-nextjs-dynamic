@@ -10,7 +10,6 @@ import '../../public/css/style.css';
 import '../../public/css/newstyle.css';
 import '../../public/css/responsive.css';
 import '../../public/css/fontawesome/css/all.min.css';
-import Head from 'next/head';
 import FooterProvider from '../ContextApi/footerContext'
 const tagManagerArgs = {
   gtmId: 'GTM-NH6LNLJ',
@@ -59,12 +58,8 @@ export default function MyApp({ Component, pageProps }) {
 
   return (<UserProvider>
   <FooterProvider>
-   <Head>
-    {/* addd dynamic tags here */}
-   </Head>
-
     {loader
-      ? <div id="loader" className="span theme-loader  align-items-center jultify-content-center">
+      ? <div id="loader" className="span theme-loader  align-items-center justify-content-center">
         <div className="typing_loader"></div>
       </div>
       : ''

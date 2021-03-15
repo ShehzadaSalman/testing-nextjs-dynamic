@@ -391,7 +391,12 @@ header.mg-main-header.sticky {
   z-index: 2;
 }
 .slider-slides-wrapper .slide-section {
-  background: 0 0;
+    position: relative;
+    height: auto;
+    background: url(../svg-pic/final-banner-small.svg) no-repeat fixed;
+    background-size: cover;
+    background-position: top center;
+    background: 0;
 }
 .scroll-down-btn {
   position: absolute;
