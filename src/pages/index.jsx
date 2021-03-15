@@ -72,13 +72,12 @@ function Index(props){
 
 
   const next = () => {
-    console.info(slider1)
-    console.info(slider1.current?.slickNext)
+
      slider1.current?.slickNext();
 
   }
  const previous = () => {
-  console.info(slider1.current?.slickPrev)
+
   slider1.current?.slickPrev();
   // console.log(slider1.current.slickPrev)
   // slider1.current.slickPrev();

@@ -26,7 +26,6 @@ if (window.innerHeight > window.innerWidth) {
 const BrandingSlide = (props) =>{
   const routers = useRouter()
   const {locale} = routers;
-  console.info({props});
   return <Branding {...props} language={locale}  />
 }
 

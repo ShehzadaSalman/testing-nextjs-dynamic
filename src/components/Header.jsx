@@ -10,13 +10,31 @@ let deviceName = getDeviceName();
 const Header = () => {
   const isNotMobile = useMediaQuery({ minDeviceWidth: 900 })
 
-  const {menudata, bottomPages, companyInfo,   fetchDataHeader}
+  const {menudata, bottomPages, companyInfo,  footerData, fetchData, fetchDataHeader}
     = useContext(FooterContext)
+
+
 
   const [addClass, setAddClass] = useState(false);
   const [isMenu, setIsMenu] = useState(true);
   const router = useRouter();
   const { locale } = router;
+  
+ 
+
+
+  useEffect(() => {
+    fetchData()
+    if(menudata || bottomPages ){
+
+    }else{
+     fetchDataHeader()
+   
+    }
+
+ }, [])
+
+
 
   const changeLanguage = (e) => {
     e.preventDefault()
@@ -104,15 +122,7 @@ const Header = () => {
 
 
 
-  useEffect(() => {
-     
-     if(menudata || bottomPages || companyInfo){
 
-     }else{
-      fetchDataHeader()
-     }
-
-  }, [])
 
 
 
@@ -125,9 +135,9 @@ const Header = () => {
         <div className={`row ${addClass ? 'drop-menu-top-bar' : ''}`}>
           <div className="col-3 logos-container" style={{ direction: 'ltr' }}>
             <a onClick={refreshPage}>
-              {companyInfo.logo ?
+              {footerData.logo ?
                 <img
-                  src={ImagePath + companyInfo?.logo} className="img-fluid" alt="Tech Bay Solution" />
+                  src={ImagePath + footerData?.logo} className="img-fluid" alt="Tech Bay Solution" />
                 : <img src='images/site-logos.svg' className="img-fluid" alt="Tech Bay Solution" />
               }
             </a>
@@ -137,34 +147,29 @@ const Header = () => {
             <div className="mg-language-selector">
               <ul className="pl-0">
 
-
-
-                {(companyInfo) &&
+              {(companyInfo) &&
                   <>
                     {/* display the phone number if it exist  */}
                     {companyInfo.phone &&
                       <li>
                         <a href="tel:+97144257880">
                           <i className='fa fa-phone'>
-                            {companyInfo.phone}
-                          </i>
+                          </i> +{companyInfo.phone}
                         </a>
                       </li>
                     }
-
                     {companyInfo.email && <>
                       <li>
                         <a href="mailto:info@techbay.co">
-                          <i className='far fa-envelope '></i> {companyInfo.email}
+                          <i className='far fa-envelope'></i> {companyInfo.email}
                         </a>
                       </li>
                     </>}
-
-
-
-
                   </>
                 }
+
+
+
 
               </ul>
             </div>
@@ -194,8 +199,8 @@ const Header = () => {
 
                 <button className="btn mg-link-btn py-0 my-0 d-none d-md-block " onClick={(e) => changeLanguage(e)}>
                   {locale === 'ar'
-                    ? <img src="/images/new-svg-images/language-icon.svg" className="d-none d-md-block" alt="change-lang" />
-                    : <img src="/images/new-svg-images/arabic-flag.svg" className="d-none d-md-block" alt="change-lang" />
+                    ? <img src="/images/new-svg-images/language-icon.svg" className="d-none d-md-block" alt="change-lang" style={{height: "45px"}} />
+                    : <img src="/images/new-svg-images/arabic-flag.svg" className="d-none d-md-block" alt="change-lang" style={{height: "45px"}} />
                   }
                 </button>
                 <div className={`drop-menu-listing ${addClass ? 'show' : ''}`}>

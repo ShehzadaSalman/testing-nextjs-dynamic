@@ -155,16 +155,7 @@ const Headerfive = () => {
           <div className="col-6 d-flex contctDetails xs-hidden">
             <div className="mg-language-selector">
               <ul className="pl-0">
-                {/* <li>
-                  <a href="tel:+97144257880" className={isMenu ? '' : ''}>
-                    <i className={isMenu ? 'fa fa-phone' : 'fa fa-phone '}></i> +971 4 425 7880
-                    </a>
-                </li>
-                <li>
-                  <a href="mailto:info@techbay.co" className={isMenu ? '' : ''}>
-                    <i className={isMenu ? 'far fa-envelope' : 'far fa-envelope '}></i> info@techbay.co
-                    </a>
-                </li> */}
+         
 
 
 {(companyInfo) &&
@@ -174,15 +165,14 @@ const Headerfive = () => {
                       <li>
                         <a href="tel:+97144257880">
                           <i className='fa fa-phone'>
-                            {companyInfo.phone}
-                          </i>
+                          </i> +{companyInfo.phone}
                         </a>
                       </li>
                     }
                     {companyInfo.email && <>
                       <li>
                         <a href="mailto:info@techbay.co">
-                          <i className='far fa-envelope '></i> {companyInfo.email}
+                          <i className='far fa-envelope'></i> {companyInfo.email}
                         </a>
                       </li>
                     </>}
@@ -221,8 +211,8 @@ const Headerfive = () => {
                 <button className="btn mg-link-btn my-0 py-0 d-none d-md-block"
                   onClick={(e) => changeLanguage(e)}>
                   {locale === 'ar'
-                    ? <img src="/images/new-svg-images/language-icon.svg" alt="change-lang" />
-                    : <img src="/images/new-svg-images/arabic-flag.svg" alt="change-lang" />
+                    ? <img src="/images/new-svg-images/language-icon.svg" alt="change-lang" style={{ height: "45px"}} />
+                    : <img src="/images/new-svg-images/arabic-flag.svg" alt="change-lang" style={{ height: "45px"}}/>
                   }
                 </button>
                 <div className={`drop-menu-listing ${addClass ? 'show' : ''}`}>

@@ -9,7 +9,6 @@ import $ from 'jquery'
 export const ContactForm = (props) => {
   const routers = useRouter()
   const {locale} = routers;
-  console.info({props});
   return <ContactFormClass {...props} language = {locale} />
 }
 

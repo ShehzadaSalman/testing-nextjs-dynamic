@@ -11,6 +11,7 @@ const FooterProvider = (props) => {
   const [menudata, setMenuData] = useState({});
   const [bottomPages, setBottomPages] = useState({});
   const [companyInfo, setCompanyInfo] = useState({});
+  const [email, setEmail] =  useState({});
 
 
 
@@ -18,12 +19,16 @@ const FooterProvider = (props) => {
   {/* fetching data for the footer */}
   const fetchData = async () => {
     try{
+    
       const info = await  axios.get('https://staging.techbay.co/api/get-addresses');
       const finalCompanyInfo = await  info.data.response;
       setFooterData(finalCompanyInfo);
+
+
       const infotwo = await  axios.get('https://staging.techbay.co/api/get-header-footer-content');
       const finalCompanyInfotwo = await  infotwo.data.response;
       setBottomFooter(finalCompanyInfotwo);
+    
     }catch(e){
       console.log("error in the fetchData method of footer context")
       console.log(e)
@@ -42,8 +47,6 @@ const FooterProvider = (props) => {
    const bpage = await  axios.get('https://staging.techbay.co/api/get-footer-menu');
    const finalBottomPages  = await  bpage.data.response;
    setBottomPages(finalBottomPages)
-   console.info("this is the bottompages")
-
 
   const cinfo = await  axios.get('https://staging.techbay.co/api/get-header-footer-content');
   const finalCompanyInfo = await  cinfo.data.response;

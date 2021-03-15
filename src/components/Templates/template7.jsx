@@ -43,7 +43,10 @@ const Agency = ({ finalData }) => {
       "ListingTwo": finalData.widget.filter(service => service.level === 2),
       "ListingThree": finalData.widget.filter(service => service.level === 3),
       "ListingFour": finalData.widget.filter(service => service.level === 4),
+      "ListingFive": finalData.widget.filter(service => service.level === 5),
       "HeadingOne": finalData.widget_headings[0].desc_english,
+      "HeadingTwo": finalData.widget_headings[1].desc_english,
+      "WidgetButtonTwo": finalData.widget_btn.filter(btn => btn.level === 3)
 
     }
   } else { // when we set it to arabic
@@ -70,7 +73,10 @@ const Agency = ({ finalData }) => {
       "ListingTwo": finalData.widget.filter(service => service.level === 2),
       "ListingThree": finalData.widget.filter(service => service.level === 3),
       "ListingFour": finalData.widget.filter(service => service.level === 4),
+      "ListingFive": finalData.widget.filter(service => service.level === 5),
       "HeadingOne": finalData.widget_headings[0].desc_arabic,
+      "HeadingTwo": finalData.widget_headings[1].desc_arabic,
+      "WidgetButtonTwo": finalData.widget_btn.filter(btn => btn.level === 3)
 
     }
   }
@@ -122,12 +128,13 @@ const Agency = ({ finalData }) => {
 
         <div className="campaign-div mt-5">
           <div className="bg-lightblue">
-            <div className=" campaign-div pb-md-0 pb-3">
-              <h3 className="padding-top-20">{content.SectionOneHeading}</h3>
+            <div className=" campaign-div pb-md-0 pb-5">
+              <h3 className="padding-top-20">
+                {content.HeadingTwo}</h3>
 
 
-              <ul className="m-0">
-                {content.SectionOneParagraph}
+              <ul className="mb-0 pb-3">
+              {content.ListingFive.map((list, key) => (<li key={key}>{locale === 'ar' ? list.desc_arabic : list.desc_english}</li>)) }
               </ul>
             </div>
           </div>
@@ -137,11 +144,13 @@ const Agency = ({ finalData }) => {
 
         {/* Fifth Section */}
         <div className="mt-3 mb-5">
-          <div className="container box-direction">
+          <div className="container box-direction text-direction">
             <h2 className="heading text-uppercase">{content.SectionTwoHeading}</h2>
             <p className="paragraph">
-              {content.SectionTwoParagraph}
             </p>
+              {content.SectionTwoParagraph}
+           
+          
           </div>
         </div>
 
@@ -149,11 +158,7 @@ const Agency = ({ finalData }) => {
         {/* Sixth Section   */}
         <BgContentDiv bg="/svg-pic/web/pageassets/banner-two.svg">
       <div className="container">
-      {/* need to render a list here */}
-      {/* <p className="left-paragraph" style = {{ color: '#fff' }}>
-      {content.SectionThreeParagraph}
-      </p> */}
-          
+
 
             <ul className="my-3 box-direction text-direction">
               {content.ListingFour.map(list =>
@@ -189,7 +194,7 @@ const Agency = ({ finalData }) => {
 
           {/* Eigth Section  */}
           <div className="padding-top-40">
-            <div className="container">
+            <div className="container box-direction">
               <h2 className="white-heading">
                 {content.SectionFourHeading} </h2>
               <p className="white-paragraph">
@@ -215,7 +220,9 @@ const Agency = ({ finalData }) => {
 
               </div>
               <div className="text-center mt-5">
-
+                <a onClick={openBrandingForm}>
+                <ButtonStyleOne title = {locale === 'ar' ? content.WidgetButtonTwo[0].title_arabic : content.WidgetButtonTwo[0].title_english  } />
+                 </a>
               </div>
             </div>
             <div className="padding-top-50 padding-bottom-40"></div>
