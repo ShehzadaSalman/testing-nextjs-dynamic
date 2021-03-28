@@ -13,8 +13,8 @@ const PRIVACY = ({ finalData }) => {
       <div className="content-div box-direction" >
         <PageBanner
           category="marketing"
-          heading={locale !== 'ar' ? finalData.header_title_arabic : finalData.header_title_english}
-          paragraph={locale !== 'ar' ? finalData.header_desc_arabic : finalData.header_desc_english}
+          heading={locale !== 'ar' ? finalData.header_title_english : finalData.header_title_arabic}
+          paragraph={locale !== 'ar' ? finalData.header_desc_english : finalData.header_desc_arabic}
           bg={ImagePath + finalData.header_bg_image}
           wavename="wave2-light.png"
         ></PageBanner>
